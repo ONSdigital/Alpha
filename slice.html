@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alpha: Slice</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Yamm styles-->
+  <link href="css/yamm.css" rel="stylesheet">
+  <link href="css/demo.css" rel="stylesheet">
+
+  <!-- Alpha -->
+  <link href="css/alpha.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+    <body>
+
+
+
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid" id="topbar">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img id="logo" src="images/onsbannerlogo.jpg" class="pull-left"/></a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="#">Release Calendar</a></li>
+              <li><a href="#">About</a></li>
+
+            </ul>
+            <!--  SEARCH  -->
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <form class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search form-control-feedback"></span></button>
+                </form>
+              </li>
+
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+      <!--  MENU BAR  -->
+      <!--  MENU BAR  -->
+      <!-- YAMM3 -->
+      <div class="container">
+        <div class="navbar navbar-default yamm">
+          <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand home"><span class="glyphicon glyphicon-home"></span></a>
+          </div>
+          <div id="navbar-collapse-grid" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <!-- 
+              BUSINESS
+              -->
+              <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Business, Industry and Trade<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="grid-demo">
+                    <div class="row">
+                      <div class="business"><a class="menuFont" href="#" id="">Business</a></div>
+                      <div class="business"><a class="menuFont" href="#" id="">Changes to Business</a></div>
+                      <div class="business"><a class="menuFont" href="#" id="">Construction Industry</a></div>
+                      <div class="business"><a class="menuFont" href="#" id="">International Trade</a></div>
+                      <div class="business"><a class="menuFont" href="#" id="">IT and Internet Industry</a></div>
+                      <div class="business"><a class="menuFont" href="#" id="">Manufacturing and Production Industry</a></div>
+                      <div class="business"><a class="menuFont" href="#" id="">Retail Industry</a></div>
+                      <div class="business"><a class="menuFont" href="#" id="">Tourism Industry</a></div>
+
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!--
+              ECONOMY
+              -->
+              <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Economy<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="grid-demo">
+                    <div class="row">
+                      <div class="economy"><a class="menuFont" href="economy.html" id="">Economic Output and Productivity</a></div>
+                      <div class="economy"><a class="menuFont" href="economy.html" id="">Environmental Accounts</a></div>
+                      <div class="economy"><a class="menuFont" href="economy.html" id="">Government, Public Sector and Taxes</a></div>
+                      <div class="economy"><a class="menuFont" href="economy.html" id="">Gross Domestic Product (GDP)</a></div>
+                      <div class="economy"><a class="menuFont" href="economy.html" id="">Gross Value Added (GVA)</a></div>
+                      <div class="economy"><a class="menuFont" href="inflation.html" id="">Inflation and Price Indices</a></div>
+                      <div class="economy"><a class="menuFont" href="inflation.html" id="">Investments, Pensions and Trusts</a></div>
+                      <div class="economy"><a class="menuFont" href="inflation.html" id="">National Accounts</a></div>
+                      <div class="economy"><a class="menuFont" href="inflation.html" id="">Regional Accounts</a></div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!--
+              LABOUR
+              -->
+              <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Employment and Labour Market<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="grid-demo">
+                    <div class="row">
+                      <div class="work"><a class="menuFont" href="#" id="">People in Work</a></div>
+                      <div class="work"><a class="menuFont" href="#" id="">People not in Work</a></div>
+                      <div class="work"><a class="menuFont" href="#" id="">Public Sector Personnel</a></div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!--
+              PEOPLE
+              -->
+              <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">People, Population and Community<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="grid-demo">
+                    <div class="row">
+                      <div class="people"><a class="menuFont" href="#" id="">Births, Deaths and Marriages</a></div>
+                      <div class="people"><a class="menuFont" href="#" id="">Community</a></div>
+                      <div class="people"><a class="menuFont" href="#" id="">Crime and Justice</a></div>
+                      <div class="people"><a class="menuFont" href="#" id="">Cultural Identity</a></div>
+                      <div class="people"><a class="menuFont" href="#" id="">Education and Childcare</a></div>
+                      <div class="people"><a class="menuFont" href="#" id="">Elections</a></div>
+                      <div class="people"><a class="menuFont" href="#" id="">Health and Social Care</a></div>
+                      <div class="people"><a class="menuFont" href="#" id="">Household Characteristics</a></div>
+                      <div class="people"><a class="menuFont" href="#" id="">Housing</a></div>
+                      <div class="people"><a class="menuFont" href="#" id="">Leisure and Tourism</a></div>
+                      <div class="people"><a class="menuFont" href="#" id="">Personal and Household Finances</a></div>
+                      <div class="people"><a class="menuFont" href="#" id="">Population and Migration</a></div>
+                      <div class="people"><a class="menuFont" href="#" id="">Well-being</a></div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+
+
+      <!--  END MENU BAR  -->
+
+      <!--  CHARTS  -->
+      <div class="container ">
+        <h2><img id="natstat" src="images/ns.gif" class="pull-left"/>&nbsp;&nbsp;Time series for Alcoholic Beverages - SPECIAL INDEX FOR USE IN NSO- Manu incl Duty</h2>
+
+
+
+        <div class="col-md-8">
+
+          <!--  CHART  -->
+            <a href="observation.html" id="">
+          <div class="chart large">
+            <span class="sparkline" data-sparkline-data="[1.0,1.4,1.2,0.9,0.9,0.8,0.8,1.2,2.2,1.8,1.5,0.6,1.1]"></span>
+
+          </div>
+            </a>
+
+            <!--  TABLE  -->
+          <div class="row">
+
+            <table class='table table-striped' cellpadding='0' cellspacing='0' border='0'> 
+<tr><th class='ui-widget-content first' width='50%'> Period </th><th> Data </th></tr><tr><td class='ui-widget-content first'> 2010 Q4</td><td class='ui-widget-content' >1.0</td></tr><tr><td class='ui-widget-content first stripe'> 2011 Q1</td><td class='ui-widget-content stripe' >1.4</td></tr><tr><td class='ui-widget-content first'> 2011 Q2</td><td class='ui-widget-content' >1.2</td></tr><tr><td class='ui-widget-content first stripe'> 2011 Q3</td><td class='ui-widget-content stripe' >0.9</td></tr><tr><td class='ui-widget-content first'> 2011 Q4</td><td class='ui-widget-content' >0.9</td></tr><tr><td class='ui-widget-content first stripe'> 2012 Q1</td><td class='ui-widget-content stripe' >0.8</td></tr><tr><td class='ui-widget-content first'> 2012 Q2</td><td class='ui-widget-content' >0.8</td></tr><tr><td class='ui-widget-content first stripe'> 2012 Q3</td><td class='ui-widget-content stripe' >1.2</td></tr><tr><td class='ui-widget-content first'> 2012 Q4</td><td class='ui-widget-content' >2.2</td></tr><tr><td class='ui-widget-content first stripe'> 2013 Q1</td><td class='ui-widget-content stripe' >1.5</td></tr><tr><td class='ui-widget-content first'> 2013 Q2</td><td class='ui-widget-content' >0.6</td></tr><tr><td class='ui-widget-content first stripe'> 2013 Q3</td><td class='ui-widget-content stripe' >1.1</td></tr><tr><td class='ui-widget-content first'> 2013 Q4</td><td class='ui-widget-content' >1.1</td></tr></table> 
+             </div>
+
+
+
+
+          <!--  RADIO  -->
+          <div class="row box bg-white">             
+            <h4>Chart and table options</h4>
+            <p>Unit</p>
+            <fieldset class="radiogroup">
+              <div class="row"> 
+                <div class="col-md-3">
+                  <input type="radio" name="units" id="unit1" value="pc" checked="checked"/><label for="unit1">Percentage</label>
+                </div>
+                <div class="col-md-3">
+                  <input type="radio" name="units" id="unit2" value="idx"/><label for="unit2">Index</label>
+                </div>
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-3">
+                </div>
+              </div>
+            </fieldset> 
+
+
+            <p>Unit</p>
+            <fieldset class="radiogroup">
+              <div class="row"> 
+                <div class="col-md-3">
+                  <input type="radio" name="frequency" id="freq1" value="M" checked="checked"/><label for="freq1">Monthly</label>
+                </div>
+                <div class="col-md-3">
+                  <input type="radio" name="frequency" id="freq2" value="Q"/><label for="freq2">Quarterly</label>
+                </div>
+                <div class="col-md-3">
+                  <input type="radio" name="frequency" id="freq3" value="Y"/><label for="freq3">Yearly</label>
+                </div>
+                <div class="col-md-3">
+                  <button type="button" class="btn btn-primary full"> <span class="glyphicon glyphicon-open"></span> Update charts
+              </button>
+                </div>
+              </div>
+            </fieldset> 
+
+
+          </div>
+
+
+
+
+
+
+          <!--  TEXT  -->   
+          <div class="row">
+
+            <h4>Summary</h4>
+            <p>
+              Producer Price Indices (PPIs) are a series of economic indicators that measure the
+              price movement of goods bought and sold by UK manufacturers. It is a base
+              weighted index working on the basket of goods concept. A wide range of
+              representative products are selected and the prices of these goods collected each
+              month. The movement in these prices are weighted to reflect the relative
+              importance of the products in a chosen year (known as the base year) currently
+              2010. These are then aggregated for various sectors of industry to provide the
+              published indices.
+              </p>
+              <h5>Notes</h5>
+              <p>
+
+              All of the data included in this dataset is published on a 2010=100 basis. A
+              comprehensive selection of data on input and output indices. Contains producer
+              price indices of materials and fuels purchased and output of manufacturing
+              industry by broad sector. Indices for the latest two months are provisional due to
+              the level of imputation present for items where the latest prices are not available.
+              The latest five months are subject to revisions in light of (a) late and revised
+              contributor data and (b) revisions to seasonal adjustment factors which are reestimated
+              every month.
+            </p>
+            <p>
+              &nbsp;
+            </p>
+
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="col-md-4">
+          <div class="well">
+            <button type="button" class="btn btn-primary full">
+              <span class="glyphicon glyphicon-download pull-left">&nbsp;</span>
+              <span class="pull-left">Download all data</span>
+              </button>
+            <button type="button" class="btn btn-primary full">
+              <span class="glyphicon glyphicon-download pull-left">&nbsp;</span>
+              <span class="pull-left">Download this time series</span>
+              </button>
+            <button type="button" class="btn btn-primary full">
+              <span class="glyphicon glyphicon-download-alt pull-left">&nbsp;</span>
+              <span class="pull-left">Save chart as image</span>
+              </button>
+            
+            <h5>Compare</h5>
+            <p><span class="glyphicon glyphicon-stats"> &nbsp;</span><span class"">Other products</span></p>
+
+            <h5>Explore</h5>
+            <div class="form-group">
+
+          <select class="form-control">
+            <option>Categories</option>
+            <option>National Accounts</option>
+            <option>Labour Market</option>
+            <option>Price Indices</option>
+            <option>Travel and Tourism</option>
+          </select>
+
+          <select class="form-control">
+            <option>Related releases</option>
+            <option>National Accounts</option>
+            <option>Labour Market</option>
+            <option>Price Indices</option>
+            <option>Travel and Tourism</option>
+          </select>
+
+          <select class="form-control">
+            <option>Previous releases</option>
+            <option>National Accounts</option>
+            <option>Labour Market</option>
+            <option>Price Indices</option>
+            <option>Travel and Tourism</option>
+          </select>
+        </div>
+
+        <h5>Subscribe</h5>
+        <p><span class="glyphicon glyphicon-bookmark"> &nbsp;</span><span class"">Latest Data</span></p>
+        <p><span class="glyphicon glyphicon-envelope"> &nbsp;</span><span class"">Email</span></p>
+
+        <hr/>
+
+        <div class="row">
+        <div class="col-md-4">
+          JSON
+        </div>
+        <div class="col-md-4">
+          XML
+        </div>
+        <div class="col-md-4">
+          RDF
+        </div>
+        </div>
+
+
+
+
+
+            
+          </div>
+
+  
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+  <div class="container  container-xs-height">
+      <div class="row row-xs-height">
+        <div class="col-md-8 box bg-white col-xs-height">
+          <h3><span class="glyphicon glyphicon-info-sign">&nbsp;</span>Release details</h3>
+        <div class="col-md-6">
+          <h5 class="text-muted">Release Date</h5>
+          <p >19 February 2014(latest)</p>
+          <h5 class="text-muted">Next Release Date</h5>
+          <span class="">19 March 2014</span>
+          <h5 class="text-muted">Previous Release Date</h5>
+          <span class="">19 January 2014</span>
+        </div>
+        <div class="col-md-6">
+              <h5 class="text-muted">Contact</h5>
+              <span class="">Kat Pegler</span><br/>
+              <span class="">Business Prices</span><br/>
+              <span class=""><a href="mailto:ppi@ons.gsi.gov.uk">ppi@ons.gov.uk</a></span><br/>
+              <span class="">Tel. +44 (0)1633 456468 </span><br/>
+        </div>
+        </div>
+        <div class="col-md-4 box bg-white col-xs-height">
+          <h3><span class="glyphicon glyphicon-cog">&nbsp;</span>Methodology</h3>
+          <p><span class="">Quality and Methodology Information (QMI (95.6kb PDF))</span></p>
+          <p><span class="">Impact of Rebasing the Producer Price Index to 2010=100</span></p>
+        </div>
+        </div>
+  </div>
+
+<div class="container shim">
+ </div>
+
+<!--  FOOTER -->
+<div class="container footer box darkGrey">
+
+ <div class="row">
+  <div class="col-md-4">
+    <h3>Legal</h3>
+    <ul>
+      <li><a href="#">Business Transparency</a></li>
+      <li><a href="#">Terms and Conditions</a></li>
+      <li><a href="#">Copyright</a></li>
+      <li><a href="#">Cookies and Privacy</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h3>About ONS</h3>
+    <ul>
+      <li><a href="#">Who we are</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Products and Services</a></li>
+      <li><a href="#">Contact us</a></li>
+      <li><a href="#">Our Offices</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h3>Connect with us</h3>
+    <ul>
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">Youtube</a></li>
+      <li><a href="#">Email subscriptions</a></li>
+    </ul>
+  </div>
+</div>
+
+<p class="text-muted">All content is available under the Open Government Licence v2.0 except where otherwise stated</p>
+
+</div>
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/libs/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!-- chart library -->
+<script src="js/libs/highstock.js"></script>
+<!-- app -->
+<script src="js/alpha.js"></script>
+</body>
+</html>
+
