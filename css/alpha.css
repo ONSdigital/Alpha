@@ -7,6 +7,37 @@
 	height:40px;
 }
 
+.observation .title, .copy {
+	display:block;
+	font-size:16px;
+	margin-top:8px;
+}
+
+.observation .datatable {
+	border: 1px solid #e3e3e3;
+	padding:15px;
+	margin-bottom:15px;
+}
+
+.observation .line {
+	line-height:16px;
+	
+
+}
+
+.observation .icon-shim {
+	top:6px;
+	width:20px;
+	height:20px;
+	padding:2px;
+	margin:0px;
+	overflow:hidden;
+}
+
+h1.key-figure{
+	font-size: 72px;
+	text-align: right;
+}
 .navbar-brand {
 		padding:8px;
 }
@@ -41,7 +72,7 @@
 	height:180px;
 	bottom:0px;
 }
-.chartFooter {
+.chart-footer {
 	padding:6px;
 	background-color: #F5F5F5;
 	border: 1px solid #E3E3E3;
