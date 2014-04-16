@@ -173,11 +173,72 @@
         <div class="col-md-8">
 
           <!--  CHART  -->
-            <a href="observation.html" id="">
-          <div class="chart large">
-            <span class="sparkline" data-sparkline-data="[1.0,1.4,1.2,0.9,0.9,0.8,0.8,1.2,2.2,1.8,1.5,0.6,1.1]"></span>
+          <!-- <div class="chart large"> -->
 
-          </div>
+
+
+
+
+
+            <section>
+      <article class="ons-chart">
+        <h1>Alcoholic Beverages</h1>
+            <a href="observation.html" id="">
+  <table class="ons-line-single" data-min="0" data-max="3" data-label-skip="2">
+    <tr>
+      <th>Feb 2013</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Mar 2013</th>
+      <td>1.4</td>
+    </tr>
+    <tr>
+      <th>Apr 2013</th>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <th>May 2103</th>
+      <td>0.9</td>
+    </tr>
+    <tr>
+      <th>Jun 2013</th>
+      <td>0.9</td>
+    </tr>
+    <tr>
+      <th>Jul 2103</th>
+      <td>0.8</td>
+    </tr>
+    <tr>
+      <th>Aug 2013</th>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <th>Sep 2013</th>
+      <td data-callout="The Pinnacle: September 2013 2.2%">2.2</td>
+    </tr>
+    <tr>
+      <th>Oct 2013</td>
+      <td>1.8</td>
+    </tr>
+    <tr>
+      <th>Nov 2013</th>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>Dec 2103</th>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>Jan 2014</th>
+      <td>1.1</td>
+    </tr>
+  </table>
+  <p>Chart table and graphics rendered using Snap and ONS-lightwieght charting plugin from Triple Geek</p>
+      </article>
+    </section>
+
+         <!--  </div> -->
             </a>
 
             <!--  TABLE  -->
@@ -354,37 +415,44 @@
 
 
 
-
-
-
-
-  <div class="container  container-xs-height">
+    <div class="container container-xs-height">
       <div class="row row-xs-height">
-        <div class="col-md-8 box bg-white col-xs-height">
-          <h3><span class="glyphicon glyphicon-info-sign">&nbsp;</span>Release details</h3>
-        <div class="col-md-6">
-          <h5 class="text-muted">Release Date</h5>
-          <p >19 February 2014(latest)</p>
-          <h5 class="text-muted">Next Release Date</h5>
-          <span class="">19 March 2014</span>
-          <h5 class="text-muted">Previous Release Date</h5>
-          <span class="">19 January 2014</span>
-        </div>
-        <div class="col-md-6">
+
+        <div class="col-md-8 col-xs-height box bg-white ">
+          <div class="">
+            <h3><span class="glyphicon glyphicon-info-sign">&nbsp;</span>Release details</h3>
+            <div class="col-md-6">
+              <h5 class="text-muted">Release Date</h5>
+              <p >19 February 2014 (latest)</p>
+              <h5 class="text-muted">Next Release Date</h5>
+              <span class="">19 March 2014</span>
+              <h5 class="text-muted">Previous Release Date</h5>
+              <span class="">19 January 2014</span>
+            </div>
+            <div class="col-md-6">
               <h5 class="text-muted">Contact</h5>
               <span class="">Kat Pegler</span><br/>
               <span class="">Business Prices</span><br/>
               <span class=""><a href="mailto:ppi@ons.gsi.gov.uk">ppi@ons.gov.uk</a></span><br/>
               <span class="">Tel. +44 (0)1633 456468 </span><br/>
+            </div>
+          </div>
         </div>
+
+        <div class="col-md-4 col-xs-height">
+          <div class="box bg-white ">
+            <h3><span class="glyphicon glyphicon-cog">&nbsp;</span>Methodology</h3>
+            <p><span class="">Quality and Methodology Information (QMI (95.6kb PDF))</span></p>
+            <p><span class="">Impact of Rebasing the Producer Price Index to 2010=100</span></p>
+          </div>
         </div>
-        <div class="col-md-4 box bg-white col-xs-height">
-          <h3><span class="glyphicon glyphicon-cog">&nbsp;</span>Methodology</h3>
-          <p><span class="">Quality and Methodology Information (QMI (95.6kb PDF))</span></p>
-          <p><span class="">Impact of Rebasing the Producer Price Index to 2010=100</span></p>
-        </div>
-        </div>
-  </div>
+
+
+
+      </div>
+    </div>
+
+
 
 <div class="container shim">
  </div>
@@ -434,9 +502,10 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 <!-- chart library -->
-<script src="js/libs/highstock.js"></script>
+<script src="js/snap.svg-min.js"></script>
+<script src="js/jquery.ons-charts.js"></script>
 <!-- app -->
-<script src="js/alpha.js"></script>
+<script src="js/init-chart.js"></script>
 </body>
 </html>
 
