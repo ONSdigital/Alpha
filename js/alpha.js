@@ -115,4 +115,6 @@ $(document).ready(function() {
 
       }); // end of .each sparkline
         
+
+        $(".ons-chart").onsc();
 });
