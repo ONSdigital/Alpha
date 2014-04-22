@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alpha: Series ID Search</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-select.min.css" rel="stylesheet">
+  <!-- Yamm styles-->
+  <link href="css/menu.css" rel="stylesheet">
+  <link href="css/demo.css" rel="stylesheet">
+
+  <!-- Alpha -->
+  <link href="css/alpha.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+  <body>
+
+
+
+
+     <div class="container">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid" id="topbar">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img id="logo" src="images/70x140ONScolourlogo.png" class="pull-left"/></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+<!-- 
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="#">Release Calendar</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+        -->
+
+        <!--  SEARCH  -->
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search form-control-feedback"></span></button>
+        </form>
+    </li>
+
+</ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+</div>
+
+
+
+
+<!--  MENU BAR  -->
+<div class="container">
+
+  <div class="navbar navbar-default navbar-static-top">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sub-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button> 
+</div>
+
+<div class="navbar-collapse collapse"  id="sub-navbar-collapse">
+  <ul class="nav navbar-nav">
+    <li class="dropdown menu-large">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business, Industry and Trade<b class="caret"></b> </a>
+      <ul class="dropdown-menu megamenu row">
+        <li class="col-sm-3">
+            <ul>
+                <li class="dropdown-header">Business</li>
+                <li><a class="disabled" href="#">Activity, Size and Location</a></li>
+                <li><a class="disabled" href="#">Business Innovation</a></li>
+                <li><a class="disabled" href="#">Business Services</a></li>
+
+            </ul>
+        </li>
+
+        <li class="col-sm-3">
+            <ul>
+                <li class="dropdown-header">Changes to Business</li>
+                <li><a href="#">Bankruptcy/Insolvency</a></li>
+                <li><a href="#">Business Births, Deaths and Survival Rates(!)</a></li>
+                <li><a href="#">Mergers and Acquisitions</a></li>
+            </ul>
+        </li>
+
+        <li class="col-sm-3">
+            <ul>
+                <li class="dropdown-header">Construction Industry</li>
+                <li class="divider"></li>
+                <li class="dropdown-header">IT and Internet Industry</li>
+                <li class="divider"></li>
+                <li class="dropdown-header">International Trade</li>
+            </ul>
+        </li>
+
+        <li class="col-sm-3">
+            <ul>
+                <li class="dropdown-header">Manufacturing and Production Industry</li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Retail Industry</li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Tourism Industry</li>
+            </ul>
+        </li>
+    </ul>
+</li>
+
+<li class="dropdown menu-large">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Economy<b class="caret"></b></a>                
+    <ul class="dropdown-menu megamenu row">
+        <li class="col-sm-4">
+            <ul>
+                <li class="dropdown-header"><a href="economy.html">Economic Output and Productivity</a></li>
+                <li><a href="#">Output</a></li>
+                <li><a href="#">Productivity Measures</a></li>
+                <li><a href="#">Public Services Productivity</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header"><a href="economy.html">Gross Domestic Product (GDP)</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header"><a href="economy.html">Inflation and Price Indices</a></li>
+            </ul>
+        </li>
+        <li class="col-sm-4">
+            <ul>
+
+                <li class="dropdown-header"><a href="economy.html">Environmental Accounts</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header"><a href="economy.html">Gross Value Added (GVA)</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header"><a href="economy.html">National Accounts</a></li>
+                <li><a href="#">Balance of Payments</a></li>
+                <li><a href="#">Satellite Accounts</a></li>
+                <li><a href="#">Supply and Use Tables</a></li>
+                <li><a href="#">UK Sector Accounts</a></li>
+            </ul>
+        </li>
+        <li class="col-sm-4">
+            <ul>
+
+                <li class="dropdown-header"><a href="inflation.html">Government, Public Sector and Taxes</a></li>
+                <li><a href="#">Local Government Finance</a></li>
+                <li><a href="#">Public Sector Finance</a></li>
+                <li><a href="#">Public Spending</a></li>
+                <li><a href="#">Research and Development Expenditure</a></li>
+                <li><a href="#">Taxes and Revenue</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header"><a href="inflation.html">Investments, Pensions and Trusts</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header"><a href="inflation.html">Regional Accounts</a></li>
+                <li><a href="#">Gross Disposable Household Income</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</li>
+
+<li class="dropdown menu-large">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employment<b class="caret"></b></a>                
+    <ul class="dropdown-menu megamenu row">
+        <li class="col-sm-4">
+            <ul>
+                <li class="dropdown-header"><a href="economy.html">People in Work</a></li>
+                <li><a href="slice.html">Earnings and Working Hours</a></li>
+                <li><a href="slice.html">Employment and Employee Types</a></li>
+                <li><a href="slice.html">Labour Productivity</a></li>
+                <li><a href="slice.html">Workplace Disputes and Working Conditions</a></li>
+                <li><a href="slice.html">Workplace Pensions</a></li>
+            </ul>
+        </li>
+        <li class="col-sm-4">
+            <ul>
+                <li class="dropdown-header"><a href="economy.html">People not in Work</a></li>
+                <li><a href="#">Unemployment</a></li>
+            </ul>
+        </li>
+        <li class="col-sm-4">
+            <ul>
+                <li class="dropdown-header"><a href="inflation.html">Public Sector Personnel</a></li>
+            </ul>
+        </li>
+    </ul>
+</li>
+
+<li class="dropdown menu-large">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">People, Population and Community<b class="caret"></b></a>                
+    <ul class="dropdown-menu megamenu row">
+        <li class="col-sm-3">
+            <ul>
+                <li class="dropdown-header"><a class="disabled" href="#">Births, Deaths and Marriages</a></li>
+                <li><a class="disabled" href="#">Adoption</a></li>
+                <li><a class="disabled" href="#">Ageing</a></li>
+                <li><a class="disabled" href="#">Conception and Fertility Rates</a></li>
+                <li><a class="disabled" href="#">Deaths</a></li>
+                <li><a class="disabled" href="#">Divorce</a></li>
+                <li><a class="disabled" href="#">Families</a></li>
+                <li><a class="disabled" href="#">Life Expectancies</a></li>
+                <li><a class="disabled" href="#">Live Births</a></li>
+                <li><a class="disabled" href="#">Marriage, Cohabitation and Civil Partnerships</a></li>
+                <li><a class="disabled" href="#">Maternities</a></li>
+                <li><a class="disabled" href="#">Stillbirths</a></li>
+            </ul>
+        </li>
+
+        <li class="col-sm-3">
+            <ul>
+                <li class="dropdown-header">Community</li>
+                <li><a class="disabled" href="#">Cohesion and Participation</a></li>
+                <li><a class="disabled" href="#">Neighbourhoods</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Crime and Justice</li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Cultural Identity</li>
+                <li><a href="#">Ethnicity</a></li>
+                <li><a href="#">Language</a></li>
+                <li><a href="#">Religion</a></li>
+                <li><a href="#">Sexuality</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Education and Childcare</li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Elections</li>
+                <li><a href="#">Electoral Registration</a></li>
+                <li><a href="#">General Elections</a></li>
+                <li><a href="#">Local Government Elections</a></li>
+            </ul>
+        </li>
+
+        <li class="col-sm-3">
+            <ul>
+                <li class="dropdown-header">Health and Social Care</li>
+                <li><a class="disabled" href="#">Causes of Death</a></li>
+                <li><a class="disabled" href="#">Child Health</a></li>
+                <li><a class="disabled" href="#">Conditions and Diseases</a></li>
+                <li><a class="disabled" href="#">Disability</a></li>
+                <li><a class="disabled" href="#">Drug use, Alcohol and Smoking</a></li>
+                <li><a class="disabled" href="#">Health Care System</a></li>
+                <li><a class="disabled" href="#">Health Inequalities</a></li>
+                <li><a class="disabled" href="#">Health and Life Expectancies</a></li>
+                <li><a class="disabled" href="#">Health and Well-being</a></li>
+                <li><a class="disabled" href="#">Mental Health</a></li>
+                <li><a class="disabled" href="#">Social Care</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Household Characteristics</li>
+                <li><a href="#">Home Internet and Social Media Usage</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Housing</li>
+            </ul>
+        </li>
+
+        <li class="col-sm-3">
+            <ul>
+                <li class="dropdown-header">Leisure and Tourism</li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Personal and Household Finances</li>
+                <li><a href="#">Debt</a></li>
+                <li><a href="#">Expenditure</a></li>
+                <li><a href="#">Income and Wealth</a></li>
+                <li><a href="#">Pensions, Savings and Investments</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Population and Migration</li>
+                <li><a href="#">International Migration</a></li>
+                <li><a href="#">Migration within the UK</a></li>
+                <li><a href="#">Population Estimates</a></li>
+                <li><a href="#">Population Projections</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Well-being</li>
+            </ul>
+        </li>
+    </ul>
+
+</li>
+
+<li><a href="#">Release Calendar</a></li>
+
+<li class="dropdown menu">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b> </a>
+  <ul class="dropdown-menu megamenu row">
+    <li class="col-sm-12">
+        <ul>
+            <li class="dropdown-header">Themes</li>
+            <li><a class="" href="index.html">Home</a></li>
+            <li><a class="" href="economy.html">Economy</a></li>
+            <li><a class="" href="inflation.html">Inflation</a></li>
+        </ul>
+    </li>
+
+    <li class="col-sm-12">
+        <ul>
+            <li class="dropdown-header">Bulletin</li>
+            <li><a href="release.html">Release</a></li>
+            <li><a href="slice.html">Slice</a></li>
+            <li><a href="summary.html">Summary</a></li>
+            <li><a href="bulletin.html">Bulletin</a></li>
+            <li><a href="supplementary.html">Supplementary</a></li>
+            <li><a href="observation.html">Observation</a></li>
+        </ul>
+    </li>
+
+</ul>
+</li>
+</ul>
+</div>
+
+
+</div>
+</div>
+
+
+</div>
+
+
+<!--  END MENU BAR  -->
+
+
+<div class="container ">
+    <h2>Series ID Search</h2>
+
+
+    <!--  TWO MAIN COLUMNS 8:4 split use RHS for list of selected CDID's  -->
+    <div class="row">
+    <div class="col-md-8">
+
+        <p>This prototype has been developed to help users explore ONS economic data and search and download by series ID. The vast majority of economic data produced by ONS are given unique, randomly generated, four digit identifiers and user research has shown that many of our users use, and are familiar with, these identifiers.</p>
+
+        <p>If you are not already familiar with our data, or are looking for top level economic series we would recommend visiting the <a href="http://www.ons.gov.uk/ons/site-information/using-the-website/time-series/index.html">Key Economic Time Series</a> page first. </p>
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box bg-white">
+                    <h3 class="heading">1 - Select Topic</h3>
+
+                    <ul class="list-unstyled striped" id="example_list">
+                        <form id="topic">
+                            <li class="table-striped">
+                            <input id="Business" type="radio" name="topic" value="0"/>
+                            <label for="Business">Business and Trade</label>
+                            </li>
+
+                            <li class="table-striped">
+                                <input id="NatAccounts" type="radio" name="topic" value="1"/>
+                                <label for="NatAccounts">National Accounts</label>
+                            </li>
+
+                            <li class="table-striped">
+                                <input id="Labour" type="radio" name="topic" value="2"/>
+                                <label for="Labour">Labour Market</label>
+                            </li>
+
+                            <li class="table-striped">
+                                <input id="Prices" type="radio" name="topic" value="3"/>
+                                <label for="Prices">Price Indices</label>
+                            </li>
+
+                            <li class="table-striped">
+                                <input id="Travel" type="radio" name="topic" value="4"/>
+                                <label for="Travel">Travel and Tourism</label>
+                            </li>
+
+                        </form>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-8 ">
+                <div class=" box bg-white">
+                    <h3 class="heading">2 - Select Dataset</h3>
+                    <p>Select the dataset that contains the series you require:<br/>
+                        &nbsp;
+                    </p>
+                    <select name="topicMenu" class="selectpicker topicMenu col-md-12">
+                        <option>Please select a topic...</option>
+                    </select>
+                    <div>
+                        <p class="" id="dsalert">&nbsp;</p>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div><!--  END OF ROW  --> 
+
+    </div><!--  END OF LHS  --> 
+
+
+
+    <div class="col-md-4">
+    <!-- <blockquote><p>"There are three kinds of lies: lies, damned lies, and statistics."</p><p><small>Mark Twain</small></p></blockquote> -->
+
+    </div><!--  END OF RHS  --> 
+
+    </div><!--  END OF ROW  --> 
+
+    <!--  STEP 3 TABLE -->           
+    
+
+    <div class="row">
+
+            
+        <div class="col-md-8">
+            <h3 class="heading">Step 3 - Search and select data</h3>
+            <p>Use the 'Search series ID' or 'Search boxes' to filter the table and add items to your selection by clicking them</p>
+            
+
+            <div id="cdid_filter" class="dataTables_filter pull-left">
+                <label class="">
+                  Search series ID: 
+                  <input type="text" aria-controls="cdidTable" id="seriesFilter"></input>
+                  <p class="help-block bg-info col-md-12">
+                    <br/>
+                    <span class="glyphicon glyphicon-info-sign">&nbsp;</span> Enter the 4 digit Series ID's separated by a comma. For example: AIHD,CBCT,CBIH
+                    <br/>
+                    <br/>
+                    </p>
+                </label>
+            </div>
+        </div>
+        <div class="col-md-4">
+       
+        </div>
+
+    </div>
+              
+
+    <div class="row">
+        <div class="col-md-8">
+          <div class="clearFix">
+            <table id="cdidTable" class="table-striped bordered-table table-condensed" cellpadding="0" cellspacing="0" border="0" >
+              <thead>
+                <tr>
+                  <th class="text-left">CDID</th>
+                  <th class="text-left" >Description</th>
+                  <th >SA/NSA</th>
+                  <th >Base</th>
+                  <th >Price</th>
+                  <th >Index</th>
+                  <th >Dataset</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th class="text-left">CDID</th>
+                  <th class="text-left">Description</th>
+                  <th>SA/NSA</th>
+                  <th>Base</th>
+                  <th>Price</th>
+                  <th>Index</th>
+                  <th>Dataset</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="well  alert-success">
+                <h4 class="blockTitle">Your selection:</h4>
+                <p class="" id="dataTitle">Add items by selecting in the table</p>
+                <br/>
+                <table id="selection"></table>
+
+                <div class="shim"></div>
+                <button type="button" class="btn btn-primary btn-block ">
+                    <span class="glyphicon glyphicon-download pull-left pad-left" id="downloadCSVBtn">&nbsp;</span>
+                    <span class="pull-left">Download custom CSV</span>
+                </button>
+                <button type="button" class="btn btn-primary btn-block " id="downloadXLSBtn">
+                    <span class="glyphicon glyphicon-download pull-left pad-left">&nbsp;</span>
+                    <span class="pull-left">Download custom XLS</span>
+                </button>
+
+                <p ><small>Note: Changing any details in step 1 or 2 will reset your session</small></p>
+
+            </div>            
+        </div>
+
+    </div><!--  END OF ROW  -->
+
+
+
+    <!--  END STEP 3 TABLE  -->           
+
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+<div class="container shim"></div>
+
+
+
+<div class = "container">
+  <div class="row">
+
+
+      <div class="col-md-8 ">
+          <div class=" box bg-white">
+              <div class="info-block"><!-- BODY BOX-->
+                <br/>
+                 <p>User feedback forms a large part of how we are looking to develop the ONS website. If you have any comments on this page or suggestions on how it could be approved please email: <a href="mailto:web.comments@ons.gsi.gov.uk">web.comments@ons.gsi.gov.uk</a> </p>
+          </div>
+      </div>  
+  </div>  
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+<div class="container shim"></div>
+
+
+
+<!--  FOOTER -->
+<div class="container footer darkGrey">
+
+   <div class="row">
+      <div class="col-md-4">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Business Transparency</a></li>
+          <li><a href="#">Terms and Conditions</a></li>
+          <li><a href="#">Copyright</a></li>
+          <li><a href="#">Cookies and Privacy</a></li>
+      </ul>
+  </div>
+  <div class="col-md-4">
+    <h3>About ONS</h3>
+    <ul>
+      <li><a href="#">Who we are</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Products and Services</a></li>
+      <li><a href="#">Contact us</a></li>
+      <li><a href="#">Our Offices</a></li>
+  </ul>
+</div>
+<div class="col-md-4">
+    <h3>Connect with us</h3>
+    <ul>
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">Youtube</a></li>
+      <li><a href="#">Email subscriptions</a></li>
+  </ul>
+</div>
+</div>
+
+<div class="col-md-12">
+    <p class="text-muted">All content is available under the Open Government Licence v2.0 except where otherwise stated</p>
+</div>
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/libs/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/dataTables.bootstrap.js"></script>
+    <script src="js/dataTables.fnReloadAjax.js"></script>
+    <script src="js/lookup.js"></script>
+
+</body>
+</html>
+
