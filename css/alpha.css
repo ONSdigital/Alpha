@@ -369,6 +369,13 @@ height: 40px;
 	color:#000;
 
 }
+.chart-title{
+	font-family: 'Open Sans Condensed';
+	font-weight: 700;
+	font-size:15px;
+	color:#000;
+
+}
 
 table .title{
 	font-family: 'Open Sans';

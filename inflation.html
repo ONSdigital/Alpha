@@ -340,33 +340,39 @@
     </div>
 
 
+
       <!--  END MENU BAR  -->
 
       <!--  HIGHLIGHTS TABLE  -->
   <div class="container">
+  <div class="shim">
+    </div>
 
-
-      <table class="table table-striped">
+      <table class="table table-striped table-hover">
         <tbody>
          <tr>
           <th width="2%"></th>
-          <th width="20%"></th>
-          <th width="20%"></th>
-          <th width="10%"></th>
-          <th width="10%"></th>
-          <th width="10%"></th>
+          <th width="30%">Measure</th>
+          <th width="20%" class="align-right">Current</th>
+          <th width="15%" class="align-right">Change*</th>
+          <th width="15%" class="currentDate">Date</th>
           <th width="4%"></th>
-          <th width="22%"></th>
+          <th width="10%" class="centered">Download</th>
         </tr>
 
 
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">CPI</td>
-          <td class="subtitle">CPI</td>
-          <td class="currentRate" id="CPI_rate">0.7%</td>
-          <td class="currentDate" id="CPI_date">(0.1%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2013</td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">CPI
+          <span class="subtitle">Consumer Price Index</span></td>
+          <td class="currentRate" id="CPI_rate">0.7 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">+0.1%</td>
+          <td class="currentDate" id="CPI_date">Jan 2013</td>
           <td class="change">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x up"></i>
@@ -374,18 +380,22 @@
                 </span>
           </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block">
-              <span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <label><input type="checkbox" checked> </label>
           </td>
         </tr>
+
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">CPI Annual Rate Percentage Change over 12 Months</td>
-          <td class="subtitle">CPI</td>
-          <td class="currentRate" id="CPI_rate">1.9%</td>
-          <td class="currentDate" id="CPI_date">(0.2%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2014</td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">CPI Annual Rate 
+          <span class="subtitle">Annual Rate Percentage Change over 12 Months</span></td>
+          <td class="currentRate" id="CPI_rate">1.9 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">+0.2%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
           <td class="change">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x up"></i>
@@ -393,18 +403,22 @@
                 </span>
           </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block">
-              <span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
+
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">CPIH</td>
-          <td class="subtitle">CPIH</td>
-          <td class="currentRate" id="CPI_rate">4.0%</td>
-          <td class="currentDate" id="CPI_date">(1.1%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2014</td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">CPIH
+          <span class="subtitle">Consumer Price Index inc. Housing</span></td>
+          <td class="currentRate" id="CPI_rate">4.0 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">-1.1%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
           <td class="change">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x down"></i>
@@ -412,17 +426,22 @@
                 </span>
           </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
-          <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">CPIH Annual Rate Percentage Change over 12 Months</td>
-          <td class="subtitle">CPIH</td>
-          <td class="currentRate" id="CPI_rate">3.5%</td>
-          <td class="currentDate" id="CPI_date">(1.2%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2014</td>
+
+        <tr>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">CPIH Annual Rate 
+          <span class="subtitle">Annual Rate Percentage Change over 12 Months</span></td>
+          <td class="currentRate" id="CPI_rate">3.5 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">-1.2%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
           <td class="change">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x down"></i>
@@ -430,17 +449,22 @@
                 </span>
           </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
-          <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">RPIJ</td>
-          <td class="subtitle">RPI / RPIX (excluding mortgage interest)</td>
-          <td class="currentRate" id="CPI_rate">2.6%</td>
-          <td class="currentDate" id="CPI_date">(0.1%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2014</td>
+
+        <tr>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">RPIJ
+          <span class="subtitle">Retail Price Index (Jeavons)</span></td>
+          <td class="currentRate" id="CPI_rate">2.6 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">+0.1%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
           <td class="change">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x up"></i>
@@ -448,17 +472,22 @@
                 </span>
           </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
-          <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">RPI</td>
-          <td class="subtitle">RPI / RPIX (excluding mortgage interest)</td>
-          <td class="currentRate" id="CPI_rate">2.1%</td>
-          <td class="currentDate" id="CPI_date">(0.3%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2013</td>
+
+        <tr>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">RPI
+          <span class="subtitle">Retail Price Index </span></td>
+          <td class="currentRate" id="CPI_rate">2.1 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">-0.3%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
           <td class="change">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x down"></i>
@@ -466,17 +495,22 @@
                 </span>
           </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
-          <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">RPIX</td>
-          <td class="subtitle">RPI / RPIX (excluding mortgage interest)</td>
-          <td class="currentRate" id="CPI_rate">2.3%</td>
-          <td class="currentDate" id="CPI_date">(unchanged)</td>
-          <td class="changeRate" id="CPI_change">Jan 2013</td>
+
+        <tr>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">RPIX
+          <span class="subtitle">RPIX (excluding mortgage interest)</span></td>
+          <td class="currentRate" id="CPI_rate">2.3 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">&nbsp;0.0</td>
+          <td class="currentDate" id="CPI_date">Q4, 2013</td>
           <td class="change">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x same"></i>
@@ -484,17 +518,22 @@
                 </span>
           </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
-          <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">Output of Manufactured Product Index</td>
-          <td class="subtitle">Producer Price Index</td>
-          <td class="currentRate" id="CPI_rate">108.6</td>
-          <td class="currentDate" id="CPI_date">(0.3%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2013</td>
+
+        <tr>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">Output of Manufactured Product Index
+          <span class="subtitle">Producer Price Index</span></td>
+          <td class="currentRate" id="CPI_rate">108.6 &nbsp;</td>
+          <td class="changeRate" id="CPI_change">-0.3%</td>
+          <td class="currentDate" id="CPI_date">Q4, 2013</td>
           <td class="change">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x down"></i>
@@ -502,17 +541,21 @@
                 </span>
           </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">Input of all Manufacturing Index</td>
-          <td class="subtitle">Producer Price Index</td>
-          <td class="currentRate" id="CPI_rate">114.3</td>
-          <td class="currentDate" id="CPI_date">(1.1%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2014</td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">Input of all Manufacturing Index
+          <span class="subtitle">Producer Price Index</span></td>
+          <td class="currentRate" id="CPI_rate">114.3 &nbsp;</td>
+          <td class="changeRate" id="CPI_change">+1.1%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
           <td class="change">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x up"></i>
@@ -520,17 +563,22 @@
                 </span>
           </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title"><a href="slice.html">7229110080: Alcoholic Beverages - SPECIAL INDEX FOR USE IN NSO - Manu incl duty</a></td>
-          <td class="subtitle">Producer Price Index</td>
-          <td class="currentRate" id="CPI_rate">111.4</td>
-          <td class="currentDate" id="CPI_date">(0.3%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2014</td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">7229110080: Alcoholic Beverages - SPECIAL INDEX FOR USE IN NSO - Manu incl duty
+              <span class="subtitle">Producer Price Index</span>
+          </td>
+          <td class="currentRate" id="CPI_rate">111.4 &nbsp;</td>
+          <td class="changeRate" id="CPI_change">-0.3%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
           <td class="change">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x down"></i>
@@ -538,17 +586,24 @@
                 </span>
           </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
 
+
         <tr>
-          <td colspan="7" class="">*Change in the 12 month rate since last month</td>
-          <td colspan="2" class="rightText" ><span class="updated" id="last_date">Last updated...</span> </td>
+          <td colspan="2" class="">*Change in the rate since last month</td>
+          <td colspan="2" class="rightText" > </td>
+          <td colspan="3" class="" >
+            <div class=""></div>
+            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download"> &nbsp;</span>Download time series
+            </button>
+        </td>
         </tr>
       </tbody>
     </table>
+
+
 
   </div>
 
