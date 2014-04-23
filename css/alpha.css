@@ -184,13 +184,13 @@ a:hover{
     //text-align:center;
 }
 .up{
-	background-color: #0084d1;
+	color: #0084d1;
 }
 .down{
-	background-color: #002e49;
+	color: #002e49;
 }
 .same{
-	background-color: #49bcff ;
+	color: #49bcff ;
 }
 a.menu-font{
 	font-size: 13px;
@@ -366,6 +366,36 @@ height: 40px;
 	font-weight: 700;
 	font-size:14px;
 	color:#000;
+
+}
+
+table .title{
+	font-family: 'Open Sans';
+	font-weight: 600;
+	font-size:16px;
+	color:#333;
+
+}
+table .subtitle{
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size:12px;
+	color:#333;
+
+}
+table .currentRate{
+	font-family: 'Open Sans';
+	font-weight: 400;
+	font-size:28px;
+	color:#333;
+
+}
+table .percent{
+	vertical-align: top;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size:16px;
+	color:#333;
 
 }
 
