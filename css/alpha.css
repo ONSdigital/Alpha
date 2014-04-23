@@ -70,8 +70,9 @@ h5{
 h1.key-figure{
 	font-family: 'Open Sans Condensed';
 	font-size: 72px;
-	font-weight: 700;
+	font-weight: 800;
 	text-align: right;
+	color:#002E49;
 }
 .navbar-brand {
 		padding:8px;
@@ -377,6 +378,7 @@ table .title{
 
 }
 table .subtitle{
+	 display: block;
 	font-family: 'Open Sans';
 	font-weight: 300;
 	font-size:12px;
@@ -388,6 +390,22 @@ table .currentRate{
 	font-weight: 400;
 	font-size:28px;
 	color:#333;
+	text-align: right;
+	//background-color: #eee;
+
+}
+table .changeRate{
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size:22px;
+	color:#aaa;
+	padding-left:10px;
+	text-align: right;
+
+}
+table .currentDate{
+	text-align: center;
+	line-height: 32px;
 
 }
 table .percent{
@@ -397,6 +415,20 @@ table .percent{
 	font-size:16px;
 	color:#333;
 
+}
+
+
+
+
+.align-right{
+	text-align: right;
+}
+.centered{
+	text-align: center;
+}
+.info{
+	color:#afe2ff;
+	color:#49bcff;
 }
 
 
@@ -433,4 +465,20 @@ table tr.odd.row_selected td
 td 
 {
    font-size: 16px;
+}
+
+
+.table > tbody > tr > td.download{
+	text-align: center;
+	padding-top:15px;
+}
+.table > tbody > tr > td.changeRate{
+	padding-top:13px;
+}
+.table > tbody > tr > td.currentDate{
+	padding-top:16px;
+}
+
+.table > tbody > tr > td.info-btn{
+	padding-top:15px;
 }
