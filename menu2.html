@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alpha: The Office For National Statistics</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- MEGA MENU styles-->
+  <link href="css/menu.css" rel="stylesheet">
+  <link href="css/demo.css" rel="stylesheet">
+
+  <!-- Alpha -->
+  <link href="css/alpha.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <style>
+
+.navbar-default{
+    background-color:#e2f4ff;
+
+}
+.navbar-default .navbar-nav > li > a {
+    color: #000;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #000;
+    font-weight:600;
+    //background-color: #d1eeff;
+    background-color: #e2f4ff;
+}
+
+#submenu .navbar-default .navbar-nav > li > a {
+
+}
+#submenu  {
+    margin-top: 2px;
+    background-color:#d1eeff;
+}
+  </style>
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+    <body>
+
+
+
+
+      <div class="container">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid" id="topbar">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img id="logo" src="images/70x140ONScolourlogo.png" class="pull-left"/></a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+<!-- 
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="#">Release Calendar</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+ -->
+
+            <!--  SEARCH  -->
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <form class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <button type="submit" class="btn btn-default"><span class="fa fa-search fa-lg form-control-feedback"></span></button>
+                </form>
+              </li>
+
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </div>
+
+
+
+
+          <!--  MENU BAR  -->
+
+      <div class="container">
+        <nav class="navbar navbar-default" role="navigation" id="topmenu">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" data-toggle="collapse" data-target="#one">Business, Industry and Trade</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="collapse" data-target="#two">Economy</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="collapse" data-target="#three">Employment and Labour Market</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="collapse" data-target="#four">People, Population and Community</a>
+            </li>
+          </ul>
+        </nav>
+
+        <nav class="navbar navbar-default" role="navigation" id="submenu">
+
+          <ul class="nav navbar-nav collapse" id="one">
+            <li><a href="#" id="">Business</a></li>
+            <li><a href="#" id="">Changes to Business</a></li>
+            <li><a href="#" id="">International Trade</a></li>
+            <li><a href="#" id="">Construction</a></li>
+            <li><a href="#" id="">IT and Internet</a></li>
+            <li><a href="#" id="">Manufacturing and Production</a></li>
+            <li><a href="#" id="">Retail</a></li>
+            <li><a href="#" id="">Tourism</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav collapse" id="two">
+            <li><a href="#" id="">Economic Output and Productivity</a></li>
+            <li><a href="#" id="">Environmental Accounts</a></li>
+            <li><a href="#" id="">Government, Public Sector and Taxes</a></li>
+            <li><a href="#" id="">Gross Domestic Product (GDP)</a></li>
+            <li><a href="#" id="">Gross Value Added (GVA)</a></li>
+            <li><a href="#" id="">Inflation and Price Indices</a></li>
+            <li><a href="#" id="">Investments, Pensions and Trusts</a></li>
+            <li><a href="#" id="">National Accounts</a></li>
+            <li><a href="#" id="">Regional Accounts</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav collapse" id="three">
+            <li><a href="economy.html">People in Work</a></li>
+            <li><a href="economy.html">People not in Work</a></li>
+            <li><a href="inflation.html">Public Sector Personnel</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav collapse" id="four">
+            <li><a href="#" id="">Births, Deaths and Marriages</a></li>
+            <li><a href="#" id="">Community</a></li>
+            <li><a href="#" id="">Crime and Justice</a></li>
+            <li><a href="#" id="">Cultural Identity</a></li>
+            <li><a href="#" id="">Education and Childcare</a></li>
+            <li><a href="#" id="">Elections</a></li>
+            <li><a href="#" id="">Health and Social Care</a></li>
+            <li><a href="#" id="">Household Characteristics</a></li>
+            <li><a href="#" id="">Housing</a></li>
+            <li><a href="#" id="">Leisure and Tourism</a></li>
+            <li><a href="#" id="">Personal and Household Finances</a></li>
+            <li><a href="#" id="">Population and Migration</a></li>
+            <li><a href="#" id="">Well-being</a></li>
+          </ul>
+
+        </nav>
+      </div>
+
+      <!--  END MENU BAR  -->
+
+
+      <!--  CHARTS  -->
+      <div class="container ">
+        <h1></h1>
+
+        <h2><span class="glyphicon glyphicon-pushpin"></span> Selected Highlights</h2>
+
+        <div class="dropdown">
+          <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
+            Show Me
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Popular</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Recent</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Last viewed/a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Most interesting</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Favourites</a></li>
+          </ul>
+        </div>
+
+
+        <!--  ROW ONE  -->
+
+        <div class="row">
+            
+            <div class="col-md-4">
+                <div class="chart">
+                    <span class="text-muted">Q4 2014</span>
+                    <p class="chart-title">Gross Domestic Product (GDP) Quarter on Quarter growth </p>
+                    <article class="ons-chart">
+                        <table class="ons-line-single" data-min="-3" data-max="3" data-label-skip="8">
+                            <tr><th>2004 Q1</th><td>-0.7</td></tr>
+                            <tr><th>2004 Q2</th><td>-0.4</td></tr>
+                            <tr><th>2004 Q3</th><td>-0.1</td></tr>
+                            <tr><th>2004 Q4 </th><td>0.7</td></tr>
+                            <tr><th>2005 Q1 </th><td>0.8</td></tr>
+                            <tr><th>2005 Q2 </th><td>1.3</td></tr>
+                            <tr><th>2005 Q3 </th><td>1</td></tr>
+                            <tr><th>2005 Q4 </th><td>1.3</td></tr>
+                            <tr><th>2006 Q1 </th><td>0.4</td></tr>
+                            <tr><th>2006 Q2 </th><td>0.3</td></tr>
+                            <tr><th>2006 Q3 </th><td>0.2</td></tr>
+                            <tr><th>2006 Q4 </th><td>0.8</td></tr>
+                            <tr><th>2007 Q1 </th><td>1</td></tr>
+                            <tr><th>2007 Q2 </th><td>1.3</td></tr>
+                            <tr><th>2007 Q3 </th><td>1.2</td></tr>
+                            <tr><th>2007 Q4 </th><td>0.1</td></tr>
+                            <tr><th>2008 Q1 </th><td>0.1</td></tr>
+                            <tr><th>2008 Q2 </th><td>-0.9</td></tr>
+                            <tr><th>2008 Q3 </th><td>-1.4</td></tr>
+                            <tr><th>2008 Q4 </th><td>-2.1</td></tr>
+                            <tr><th>2009 Q1 </th><td>-2.5</td></tr>
+                            <tr><th>2009 Q2 </th><td>-0.4</td></tr>
+                            <tr><th>2009 Q3 </th><td>0</td></tr>
+                            <tr><th>2009 Q4 </th><td>0.4</td></tr>
+                            <tr><th>2010 Q1 </th><td>0.5</td></tr>
+                            <tr><th>2010 Q2 </th><td>1</td></tr>
+                            <tr><th>2010 Q3 </th><td>0.4</td></tr>
+                            <tr><th>2010 Q4 </th><td>-0.2</td></tr>
+                            <tr><th>2011 Q1 </th><td>0.5</td></tr>
+                            <tr><th>2011 Q2 </th><td>0.1</td></tr>
+                            <tr><th>2011 Q3 </th><td>0.6</td></tr>
+                            <tr><th>2011 Q4 </th><td>-0.1</td></tr>
+                            <tr><th>2012 Q1 </th><td>0</td></tr>
+                            <tr><th>2012 Q2 </th><td>-0.4</td></tr>
+                            <tr><th>2012 Q3 </th><td>0.8</td></tr>
+                            <tr><th>2012 Q4 </th><td>-0.2</td></tr>
+                            <tr><th>2013 Q1 </th><td>0.4</td></tr>
+                            <tr><th>2013 Q2 </th><td>0.8</td></tr>
+                            <tr><th>2013 Q3 </th><td>0.8</td></tr>
+                            <tr><th>2013 Q4 </th><td>0.7</td></tr>
+                        </table>
+                    </article>
+                    <a href="slice.html">
+                        <div class="chart-footer">
+                            <span class"amount pull left">0.7%</span>
+
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x down"></i>
+                                  <i class="fa fa-chevron-down fa-stack-1x fa-inverse "></i>
+                                </span>
+
+
+
+                            <span class"diff pull-right">0.1% change from Q3 2013</span>
+                        </div>
+                    </a>
+                </div>
+            </div>     
+
+                   
+            <div class="col-md-4">
+                <div class="chart">
+                    <span class="text-muted">Mar 2014</span>
+                    <p class="chart-title">Consumer Price Index (CPI) - percentage change </p>
+                    <article class="ons-chart">
+                        <table class="ons-line-single" data-min="1" data-max="6" data-label-skip="24">
+                            <tr><th>2004 JAN    </th><td>1.4</td></tr>
+                            <tr><th>2004 FEB    </th><td>1.3</td></tr>
+                            <tr><th>2004 MAR    </th><td>1.1</td></tr>
+                            <tr><th>2004 APR    </th><td>1.1</td></tr>
+                            <tr><th>2004 MAY    </th><td>1.5</td></tr>
+                            <tr><th>2004 JUN    </th><td>1.6</td></tr>
+                            <tr><th>2004 JUL    </th><td>1.4</td></tr>
+                            <tr><th>2004 AUG    </th><td>1.3</td></tr>
+                            <tr><th>2004 SEP    </th><td>1.1</td></tr>
+                            <tr><th>2004 OCT    </th><td>1.2</td></tr>
+                            <tr><th>2004 NOV    </th><td>1.5</td></tr>
+                            <tr><th>2004 DEC    </th><td>1.7</td></tr>
+                            <tr><th>2005 JAN    </th><td>1.6</td></tr>
+                            <tr><th>2005 FEB    </th><td>1.7</td></tr>
+                            <tr><th>2005 MAR    </th><td>1.9</td></tr>
+                            <tr><th>2005 APR    </th><td>1.9</td></tr>
+                            <tr><th>2005 MAY    </th><td>1.9</td></tr>
+                            <tr><th>2005 JUN    </th><td>2</td></tr>
+                            <tr><th>2005 JUL    </th><td>2.3</td></tr>
+                            <tr><th>2005 AUG    </th><td>2.4</td></tr>
+                            <tr><th>2005 SEP    </th><td>2.5</td></tr>
+                            <tr><th>2005 OCT    </th><td>2.3</td></tr>
+                            <tr><th>2005 NOV    </th><td>2.1</td></tr>
+                            <tr><th>2005 DEC    </th><td>1.9</td></tr>
+                            <tr><th>2006 JAN    </th><td>1.9</td></tr>
+                            <tr><th>2006 FEB    </th><td>2</td></tr>
+                            <tr><th>2006 MAR    </th><td>1.8</td></tr>
+                            <tr><th>2006 APR    </th><td>2</td></tr>
+                            <tr><th>2006 MAY    </th><td>2.2</td></tr>
+                            <tr><th>2006 JUN    </th><td>2.5</td></tr>
+                            <tr><th>2006 JUL    </th><td>2.4</td></tr>
+                            <tr><th>2006 AUG    </th><td>2.5</td></tr>
+                            <tr><th>2006 SEP    </th><td>2.4</td></tr>
+                            <tr><th>2006 OCT    </th><td>2.4</td></tr>
+                            <tr><th>2006 NOV    </th><td>2.7</td></tr>
+                            <tr><th>2006 DEC    </th><td>3</td></tr>
+                            <tr><th>2007 JAN    </th><td>2.7</td></tr>
+                            <tr><th>2007 FEB    </th><td>2.8</td></tr>
+                            <tr><th>2007 MAR    </th><td>3.1</td></tr>
+                            <tr><th>2007 APR    </th><td>2.8</td></tr>
+                            <tr><th>2007 MAY    </th><td>2.5</td></tr>
+                            <tr><th>2007 JUN    </th><td>2.4</td></tr>
+                            <tr><th>2007 JUL    </th><td>1.9</td></tr>
+                            <tr><th>2007 AUG    </th><td>1.8</td></tr>
+                            <tr><th>2007 SEP    </th><td>1.8</td></tr>
+                            <tr><th>2007 OCT    </th><td>2.1</td></tr>
+                            <tr><th>2007 NOV    </th><td>2.1</td></tr>
+                            <tr><th>2007 DEC    </th><td>2.1</td></tr>
+                            <tr><th>2008 JAN   </th><td> 2.2</td></tr>
+                            <tr><th>2008 FEB   </th><td> 2.5</td></tr>
+                            <tr><th>2008 MAR    </th><td>2.5</td></tr>
+                            <tr><th>2008 APR    </th><td>3</td></tr>
+                            <tr><th>2008 MAY    </th><td>3.3</td></tr>
+                            <tr><th>2008 JUN    </th><td>3.8</td></tr>
+                            <tr><th>2008 JUL   </th><td> 4.4</td></tr>
+                            <tr><th>2008 AUG   </th><td> 4.7</td></tr>
+                            <tr><th>2008 SEP   </th><td> 5.2</td></tr>
+                            <tr><th>2008 OCT    </th><td>4.5</td></tr>
+                            <tr><th>2008 NOV    </th><td>4.1</td></tr>
+                            <tr><th>2008 DEC    </th><td>3.1</td></tr>
+                            <tr><th>2009 JAN    </th><td>3</td></tr>
+                            <tr><th>2009 FEB    </th><td>3.2</td></tr>
+                            <tr><th>2009 MAR    </th><td>2.9</td></tr>
+                            <tr><th>2009 APR    </th><td>2.3</td></tr>
+                            <tr><th>2009 MAY    </th><td>2.2</td></tr>
+                            <tr><th>2009 JUN    </th><td>1.8</td></tr>
+                            <tr><th>2009 JUL    </th><td>1.8</td></tr>
+                            <tr><th>2009 AUG    </th><td>1.6</td></tr>
+                            <tr><th>2009 SEP    </th><td>1.1</td></tr>
+                            <tr><th>2009 OCT    </th><td>1.5</td></tr>
+                            <tr><th>2009 NOV    </th><td>1.9</td></tr>
+                            <tr><th>2009 DEC    </th><td>2.9</td></tr>
+                            <tr><th>2010 JAN    </th><td>3.5</td></tr>
+                            <tr><th>2010 FEB    </th><td>3</td></tr>
+                            <tr><th>2010 MAR    </th><td>3.4</td></tr>
+                            <tr><th>2010 APR    </th><td>3.7</td></tr>
+                            <tr><th>2010 MAY    </th><td>3.4</td></tr>
+                            <tr><th>2010 JUN    </th><td>3.2</td></tr>
+                            <tr><th>2010 JUL    </th><td>3.1</td></tr>
+                            <tr><th>2010 AUG    </th><td>3.1</td></tr>
+                            <tr><th>2010 SEP    </th><td>3.1</td></tr>
+                            <tr><th>2010 OCT    </th><td>3.2</td></tr>
+                            <tr><th>2010 NOV    </th><td>3.3</td></tr>
+                            <tr><th>2010 DEC    </th><td>3.7</td></tr>
+                            <tr><th>2011 JAN    </th><td>4</td></tr>
+                            <tr><th>2011 FEB    </th><td>4.4</td></tr>
+                            <tr><th>2011 MAR    </th><td>4</td></tr>
+                            <tr><th>2011 APR   </th><td> 4.5</td></tr>
+                            <tr><th>2011 MAY    </th><td>4.5</td></tr>
+                            <tr><th>2011 JUN    </th><td>4.2</td></tr>
+                            <tr><th>2011 JUL    </th><td>4.4</td></tr>
+                            <tr><th>2011 AUG    </th><td>4.5</td></tr>
+                            <tr><th>2011 SEP    </th><td>5.2</td></tr>
+                            <tr><th>2011 OCT    </th><td>5</td></tr>
+                            <tr><th>2011 NOV    </th><td>4.8</td></tr>
+                            <tr><th>2011 DEC    </th><td>4.2</td></tr>
+                            <tr><th>2012 JAN    </th><td>3.6</td></tr>
+                            <tr><th>2012 FEB    </th><td>3.4</td></tr>
+                            <tr><th>2012 MAR    </th><td>3.5</td></tr>
+                            <tr><th>2012 APR    </th><td>3</td></tr>
+                            <tr><th>2012 MAY    </th><td>2.8</td></tr>
+                            <tr><th>2012 JUN    </th><td>2.4</td></tr>
+                            <tr><th>2012 JUL    </th><td>2.6</td></tr>
+                            <tr><th>2012 AUG    </th><td>2.5</td></tr>
+                            <tr><th>2012 SEP    </th><td>2.2</td></tr>
+                            <tr><th>2012 OCT    </th><td>2.7</td></tr>
+                            <tr><th>2012 NOV    </th><td>2.7</td></tr>
+                            <tr><th>2012 DEC    </th><td>2.7</td></tr>
+                            <tr><th>2013 JAN    </th><td>2.7</td></tr>
+                            <tr><th>2013 FEB    </th><td>2.8</td></tr>
+                            <tr><th>2013 MAR    </th><td>2.8</td></tr>
+                            <tr><th>2013 APR    </th><td>2.4</td></tr>
+                            <tr><th>2013 MAY    </th><td>2.7</td></tr>
+                            <tr><th>2013 JUN    </th><td>2.9</td></tr>
+                            <tr><th>2013 JUL    </th><td>2.8</td></tr>
+                            <tr><th>2013 AUG    </th><td>2.7</td></tr>
+                            <tr><th>2013 SEP    </th><td>2.7</td></tr>
+                            <tr><th>2013 OCT    </th><td>2.2</td></tr>
+                            <tr><th>2013 NOV    </th><td>2.1</td></tr>
+                            <tr><th>2013 DEC    </th><td>2</td></tr>
+                            <tr><th>2014 JAN    </th><td>1.9</td></tr>
+                            <tr><th>2014 FEB    </th><td>1.7</td></tr>
+                            <tr><th>2014 MAR    </th><td>1.6</td></tr>
+                            <tr><th>
+
+
+
+                        </table>
+                    </article>
+                    <a href="slice.html">
+                        <div class="chart-footer">
+                            <span class"amount pull left">1.6%</span>
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x down"></i>
+                                  <i class="fa fa-chevron-down fa-stack-1x fa-inverse "></i>
+                                </span>
+                            <span class"diff pull-right">0.1% change from Feb 2014</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="chart">
+                    <span class="text-muted">Jan 2014</span>
+                    <p class="chart-title">Unemployment Rate 16+ </p>
+                    <article class="ons-chart">
+                        <table class="ons-line-single" data-min="4" data-max="9" data-label-skip="24" >
+                            <tr><th>2004 JAN</th><td>4.8</td></tr>
+                            <tr><th>2004 FEB</th><td>4.8</td></tr>
+                            <tr><th>2004 MAR</th><td>4.8</td></tr>
+                            <tr><th>2004 APR</th><td>4.8</td></tr>
+                            <tr><th>2004 MAY</th><td>4.8</td></tr>
+                            <tr><th>2004 JUN</th><td>4.8</td></tr>
+                            <tr><th>2004 JUL</th><td>4.7</td></tr>
+                            <tr><th>2004 AUG</th><td>4.7</td></tr>
+                            <tr><th>2004 SEP</th><td>4.7</td></tr>
+                            <tr><th>2004 OCT</th><td>4.7</td></tr>
+                            <tr><th>2004 NOV</th><td>4.7</td></tr>
+                            <tr><th>2004 DEC</th><td>4.7</td></tr>
+                            <tr><th>2005 JAN</th><td>4.8</td></tr>
+                            <tr><th>2005 FEB</th><td>4.7</td></tr>
+                            <tr><th>2005 MAR</th><td>4.7</td></tr>
+                            <tr><th>2005 APR</th><td>4.8</td></tr>
+                            <tr><th>2005 MAY</th><td>4.8</td></tr>
+                            <tr><th>2005 JUN</th><td>4.7</td></tr>
+                            <tr><th>2005 JUL</th><td>4.7</td></tr>
+                            <tr><th>2005 AUG</th><td>4.8</td></tr>
+                            <tr><th>2005 SEP</th><td>5</td></tr>
+                            <tr><th>2005 OCT</th><td>5.1</td></tr>
+                            <tr><th>2005 NOV</th><td>5.2</td></tr>
+                            <tr><th>2005 DEC</th><td>5.1</td></tr>
+                            <tr><th>2006 JAN</th><td>5.2</td></tr>
+                            <tr><th>2006 FEB</th><td>5.3</td></tr>
+                            <tr><th>2006 MAR</th><td>5.3</td></tr>
+                            <tr><th>2006 APR</th><td>5.4</td></tr>
+                            <tr><th>2006 MAY</th><td>5.5</td></tr>
+                            <tr><th>2006 JUN</th><td>5.5</td></tr>
+                            <tr><th>2006 JUL</th><td>5.5</td></tr>
+                            <tr><th>2006 AUG</th><td>5.5</td></tr>
+                            <tr><th>2006 SEP</th><td>5.5</td></tr>
+                            <tr><th>2006 OCT</th><td>5.5</td></tr>
+                            <tr><th>2006 NOV</th><td>5.5</td></tr>
+                            <tr><th>2006 DEC</th><td>5.5</td></tr>
+                            <tr><th>2007 JAN</th><td>5.6</td></tr>
+                            <tr><th>2007 FEB</th><td>5.5</td></tr>
+                            <tr><th>2007 MAR</th><td>5.5</td></tr>
+                            <tr><th>2007 APR</th><td>5.4</td></tr>
+                            <tr><th>2007 MAY</th><td>5.4</td></tr>
+                            <tr><th>2007 JUN</th><td>5.3</td></tr>
+                            <tr><th>2007 JUL</th><td>5.3</td></tr>
+                            <tr><th>2007 AUG</th><td>5.3</td></tr>
+                            <tr><th>2007 SEP</th><td>5.3</td></tr>
+                            <tr><th>2007 OCT</th><td>5.3</td></tr>
+                            <tr><th>2007 NOV</th><td>5.2</td></tr>
+                            <tr><th>2007 DEC</th><td>5.2</td></tr>
+                            <tr><th>2008 JAN</th><td>5.2</td></tr>
+                            <tr><th>2008 FEB</th><td>5.2</td></tr>
+                            <tr><th>2008 MAR</th><td>5.3</td></tr>
+                            <tr><th>2008 APR</th><td>5.2</td></tr>
+                            <tr><th>2008 MAY</th><td>5.4</td></tr>
+                            <tr><th>2008 JUN</th><td>5.5</td></tr>
+                            <tr><th>2008 JUL</th><td>5.7</td></tr>
+                            <tr><th>2008 AUG</th><td>5.9</td></tr>
+                            <tr><th>2008 SEP</th><td>6</td></tr>
+                            <tr><th>2008 OCT</th><td>6.2</td></tr>
+                            <tr><th>2008 NOV</th><td>6.4</td></tr>
+                            <tr><th>2008 DEC</th><td>6.6</td></tr>
+                            <tr><th>2009 JAN</th><td>6.8</td></tr>
+                            <tr><th>2009 FEB</th><td>7.1</td></tr>
+                            <tr><th>2009 MAR</th><td>7.3</td></tr>
+                            <tr><th>2009 APR</th><td>7.6</td></tr>
+                            <tr><th>2009 MAY</th><td>7.8</td></tr>
+                            <tr><th>2009 JUN</th><td>7.9</td></tr>
+                            <tr><th>2009 JUL</th><td>7.9</td></tr>
+                            <tr><th>2009 AUG</th><td>7.9</td></tr>
+                            <tr><th>2009 SEP</th><td>7.9</td></tr>
+                            <tr><th>2009 OCT</th><td>7.8</td></tr>
+                            <tr><th>2009 NOV</th><td>7.8</td></tr>
+                            <tr><th>2009 DEC</th><td>7.8</td></tr>
+                            <tr><th>2010 JAN</th><td>7.9</td></tr>
+                            <tr><th>2010 FEB</th><td>8</td></tr>
+                            <tr><th>2010 MAR</th><td>8</td></tr>
+                            <tr><th>2010 APR</th><td>7.9</td></tr>
+                            <tr><th>2010 MAY</th><td>7.9</td></tr>
+                            <tr><th>2010 JUN</th><td>7.8</td></tr>
+                            <tr><th>2010 JUL</th><td>7.8</td></tr>
+                            <tr><th>2010 AUG</th><td>7.7</td></tr>
+                            <tr><th>2010 SEP</th><td>7.9</td></tr>
+                            <tr><th>2010 OCT</th><td>7.8</td></tr>
+                            <tr><th>2010 NOV</th><td>7.8</td></tr>
+                            <tr><th>2010 DEC</th><td>7.9</td></tr>
+                            <tr><th>2011 JAN</th><td>7.8</td></tr>
+                            <tr><th>2011 FEB</th><td>7.8</td></tr>
+                            <tr><th>2011 MAR</th><td>7.7</td></tr>
+                            <tr><th>2011 APR</th><td>7.8</td></tr>
+                            <tr><th>2011 MAY</th><td>7.9</td></tr>
+                            <tr><th>2011 JUN</th><td>8</td></tr>
+                            <tr><th>2011 JUL</th><td>8.1</td></tr>
+                            <tr><th>2011 AUG</th><td>8.3</td></tr>
+                            <tr><th>2011 SEP</th><td>8.3</td></tr>
+                            <tr><th>2011 OCT</th><td>8.4</td></tr>
+                            <tr><th>2011 NOV</th><td>8.4</td></tr>
+                            <tr><th>2011 DEC</th><td>8.3</td></tr>
+                            <tr><th>2012 JAN</th><td>8.3</td></tr>
+                            <tr><th>2012 FEB</th><td>8.2</td></tr>
+                            <tr><th>2012 MAR</th><td>8.1</td></tr>
+                            <tr><th>2012 APR</th><td>8.1</td></tr>
+                            <tr><th>2012 MAY</th><td>8</td></tr>
+                            <tr><th>2012 JUN</th><td>8.1</td></tr>
+                            <tr><th>2012 JUL</th><td>7.9</td></tr>
+                            <tr><th>2012 AUG</th><td>7.8</td></tr>
+                            <tr><th>2012 SEP</th><td>7.8</td></tr>
+                            <tr><th>2012 OCT</th><td>7.7</td></tr>
+                            <tr><th>2012 NOV</th><td>7.8</td></tr>
+                            <tr><th>2012 DEC</th><td>7.8</td></tr>
+                            <tr><th>2013 JAN</th><td>7.9</td></tr>
+                            <tr><th>2013 FEB</th><td>7.8</td></tr>
+                            <tr><th>2013 MAR</th><td>7.8</td></tr>
+                            <tr><th>2013 APR</th><td>7.8</td></tr>
+                            <tr><th>2013 MAY</th><td>7.8</td></tr>
+                            <tr><th>2013 JUN</th><td>7.7</td></tr>
+                            <tr><th>2013 JUL</th><td>7.7</td></tr>
+                            <tr><th>2013 AUG</th><td>7.6</td></tr>
+                            <tr><th>2013 SEP</th><td>7.4</td></tr>
+                            <tr><th>2013 OCT</th><td>7.1</td></tr>
+                            <tr><th>2013 NOV</th><td>7.2</td></tr>
+                            <tr><th>2013 DEC</th><td>7.2</td></tr>
+                            <tr><th>2014 JAN</th><td>6.9</td></tr>
+
+
+                        </table>
+                    </article>
+                    <a href="slice.html">
+                        <div class="chart-footer">
+                            <span class"amount pull left">6.9%</span>
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x down"></i>
+                                  <i class="fa fa-chevron-down fa-stack-1x fa-inverse "></i>
+                                </span>
+                            <span class"diff pull-right">0.3% change from Dec 2013</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+      </div>
+
+
+      <!--  ROW TWO  -->
+
+      <div class="row">
+
+
+          <div class="col-md-4">
+            <div class="chart" >
+              <span class="text-muted">Jan 2014</span>
+              <p class="chart-title">Employment Rate (aged 16-64) </p>
+
+                <article class="ons-chart">
+                    <table class="ons-line-single" data-min="70" data-max="75" data-label-skip="12">
+                    <tr><th>2004 JAN </th><td>   73</td></tr>
+                    <tr><th>2004 FEB </th><td>   73</td></tr>
+                    <tr><th>2004 MAR </th><td>   72.9</td></tr>
+                    <tr><th>2004 APR </th><td>   72.9</td></tr>
+                    <tr><th>2004 MAY </th><td>   72.9</td></tr>
+                    <tr><th>2004 JUN </th><td>   72.8</td></tr>
+                    <tr><th>2004 JUL </th><td>   72.8</td></tr>
+                    <tr><th>2004 AUG </th><td>   72.8</td></tr>
+                    <tr><th>2004 SEP </th><td>   72.8</td></tr>
+                    <tr><th>2004 OCT  </th><td>  73</td></tr>
+                    <tr><th>2004 NOV  </th><td>  73</td></tr>
+                    <tr><th>2004 DEC  </th><td>  73.1</td></tr>
+                    <tr><th>2005 JAN </th><td>   73.1</td></tr>
+                    <tr><th>2005 FEB </th><td>   73</td></tr>
+                    <tr><th>2005 MAR </th><td>   72.9</td></tr>
+                    <tr><th>2005 APR </th><td>   72.9</td></tr>
+                    <tr><th>2005 MAY </th><td>   72.9</td></tr>
+                    <tr><th>2005 JUN </th><td>   72.9</td></tr>
+                    <tr><th>2005 JUL  </th><td>  73</td></tr>
+                    <tr><th>2005 AUG </th><td>   73</td></tr>
+                    <tr><th>2005 SEP </th><td>   72.9</td></tr>
+                    <tr><th>2005 OCT </th><td>   72.7</td></tr>
+                    <tr><th>2005 NOV </th><td>   72.6</td></tr>
+                    <tr><th>2005 DEC </th><td>   72.7</td></tr>
+                    <tr><th>2006 JAN </th><td>   72.8</td></tr>
+                    <tr><th>2006 FEB </th><td>   72.9</td></tr>
+                    <tr><th>2006 MAR  </th><td>  72.9</td></tr>
+                    <tr><th>2006 APR </th><td>   72.8</td></tr>
+                    <tr><th>2006 MAY </th><td>   72.8</td></tr>
+                    <tr><th>2006 JUN </th><td>   72.8</td></tr>
+                    <tr><th>2006 JUL  </th><td>  73</td></tr>
+                    <tr><th>2006 AUG </th><td>   72.8</td></tr>
+                    <tr><th>2006 SEP </th><td>   72.7</td></tr>
+                    <tr><th>2006 OCT </th><td>   72.7</td></tr>
+                    <tr><th>2006 NOV </th><td>   72.7</td></tr>
+                    <tr><th>2006 DEC </th><td>   72.6</td></tr>
+                    <tr><th>2007 JAN  </th><td>  72.5</td></tr>
+                    <tr><th>2007 FEB </th><td>   72.5</td></tr>
+                    <tr><th>2007 MAR </th><td>   72.5</td></tr>
+                    <tr><th>2007 APR </th><td>   72.7</td></tr>
+                    <tr><th>2007 MAY </th><td>   72.6</td></tr>
+                    <tr><th>2007 JUN </th><td>   72.6</td></tr>
+                    <tr><th>2007 JUL </th><td>   72.6</td></tr>
+                    <tr><th>2007 AUG </th><td>   72.6</td></tr>
+                    <tr><th>2007 SEP </th><td>   72.7</td></tr>
+                    <tr><th>2007 OCT </th><td>   72.8</td></tr>
+                    <tr><th>2007 NOV </th><td>   72.9</td></tr>
+                    <tr><th>2007 DEC </th><td>   72.9</td></tr>
+                    <tr><th>2008 JAN </th><td>   73</td></tr>
+                    <tr><th>2008 FEB </th><td>   73</td></tr>
+                    <tr><th>2008 MAR </th><td>   72.9</td></tr>
+                    <tr><th>2008 APR </th><td>   73</td></tr>
+                    <tr><th>2008 MAY </th><td>   72.9</td></tr>
+                    <tr><th>2008 JUN </th><td>   72.8</td></tr>
+                    <tr><th>2008 JUL </th><td>   72.5</td></tr>
+                    <tr><th>2008 AUG </th><td>   72.4</td></tr>
+                    <tr><th>2008 SEP </th><td>   72.3</td></tr>
+                    <tr><th>2008 OCT </th><td>   72.3</td></tr>
+                    <tr><th>2008 NOV </th><td>   72.1</td></tr>
+                    <tr><th>2008 DEC </th><td>   72.1</td></tr>
+                    <tr><th>2009 JAN </th><td>   71.8</td></tr>
+                    <tr><th>2009 FEB  </th><td>  71.7</td></tr>
+                    <tr><th>2009 MAR </th><td>   71.4</td></tr>
+                    <tr><th>2009 APR  </th><td>  71.1</td></tr>
+                    <tr><th>2009 MAY </th><td>   70.9</td></tr>
+                    <tr><th>2009 JUN </th><td>   70.6</td></tr>
+                    <tr><th>2009 JUL </th><td>   70.7</td></tr>
+                    <tr><th>2009 AUG </th><td>   70.6</td></tr>
+                    <tr><th>2009 SEP </th><td>   70.6</td></tr>
+                    <tr><th>2009 OCT </th><td>   70.6</td></tr>
+                    <tr><th>2009 NOV </th><td>   70.6</td></tr>
+                    <tr><th>2009 DEC </th><td>   70.4</td></tr>
+                    <tr><th>2010 JAN </th><td>   70.3</td></tr>
+                    <tr><th>2010 FEB </th><td>   70.2</td></tr>
+                    <tr><th>2010 MAR  </th><td>  70.3</td></tr>
+                    <tr><th>2010 APR </th><td>   70.4</td></tr>
+                    <tr><th>2010 MAY </th><td>   70.4</td></tr>
+                    <tr><th>2010 JUN </th><td>   70.7</td></tr>
+                    <tr><th>2010 JUL  </th><td>  70.7</td></tr>
+                    <tr><th>2010 AUG </th><td>   70.8</td></tr>
+                    <tr><th>2010 SEP </th><td>   70.6</td></tr>
+                    <tr><th>2010 OCT </th><td>   70.5</td></tr>
+                    <tr><th>2010 NOV </th><td>   70.5</td></tr>
+                    <tr><th>2010 DEC </th><td>   70.6</td></tr>
+                    <tr><th>2011 JAN </th><td>   70.7</td></tr>
+                    <tr><th>2011 FEB </th><td>   70.7</td></tr>
+                    <tr><th>2011 MAR </th><td>   70.6</td></tr>
+                    <tr><th>2011 APR </th><td>   70.7</td></tr>
+                    <tr><th>2011 MAY </th><td>   70.6</td></tr>
+                    <tr><th>2011 JUN </th><td>   70.4</td></tr>
+                    <tr><th>2011 JUL </th><td>   70.3</td></tr>
+                    <tr><th>2011 AUG </th><td>   70.2</td></tr>
+                    <tr><th>2011 SEP </th><td>   70.3</td></tr>
+                    <tr><th>2011 OCT  </th><td>  70.3</td></tr>
+                    <tr><th>2011 NOV  </th><td>  70.4</td></tr>
+                    <tr><th>2011 DEC </th><td>   70.4</td></tr>
+                    <tr><th>2012 JAN </th><td>   70.5</td></tr>
+                    <tr><th>2012 FEB </th><td>   70.6</td></tr>
+                    <tr><th>2012 MAR  </th><td>  70.7</td></tr>
+                    <tr><th>2012 APR </th><td>   70.8</td></tr>
+                    <tr><th>2012 MAY </th><td>   71</td></tr>
+                    <tr><th>2012 JUN </th><td>   71.2</td></tr>
+                    <tr><th>2012 JUL </th><td>   71.3</td></tr>
+                    <tr><th>2012 AUG </th><td>   71.2</td></tr>
+                    <tr><th>2012 SEP </th><td>   71.2</td></tr>
+                    <tr><th>2012 OCT </th><td>   71.5</td></tr>
+                    <tr><th>2012 NOV  </th><td>  71.6</td></tr>
+                    <tr><th>2012 DEC </th><td>   71.5</td></tr>
+                    <tr><th>2013 JAN </th><td>   71.4</td></tr>
+                    <tr><th>2013 FEB </th><td>   71.4</td></tr>
+                    <tr><th>2013 MAR </th><td>   71.5</td></tr>
+                    <tr><th>2013 APR  </th><td>  71.4</td></tr>
+                    <tr><th>2013 MAY </th><td>   71.5</td></tr>
+                    <tr><th>2013 JUN </th><td>   71.6</td></tr>
+                    <tr><th>2013 JUL </th><td>   71.7</td></tr>
+                    <tr><th>2013 AUG </th><td>   71.8</td></tr>
+                    <tr><th>2013 SEP </th><td>   72</td></tr>
+                    <tr><th>2013 OCT  </th><td>  72.1</td></tr>
+                    <tr><th>2013 NOV  </th><td>  72.1</td></tr>
+                    <tr><th>2013 DEC </th><td>   72.3</td></tr>
+                    <tr><th>2014 JAN </th><td>   72.6</td></tr>
+
+
+                    </table>
+                </article>
+                <a href="slice.html">
+              <div class="chart-footer">
+                <span class"amount pull left">72.6%</span>
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x up"></i>
+                                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse "></i>
+                                </span>
+                <span class"diff pull-right">0.3% change from Dec 2013</span>
+              </div>
+              </a>
+            </div>
+
+          </div>
+
+        <div class="col-md-4">
+          <div class="chart">
+           <span class="text-muted">2012</span>
+           <p class="chart-title">Population: UK estimated resident population (thousands)</p>
+<article class="ons-chart">
+                    <table class="ons-line-single" data-min="59500" data-max="65000" data-label-skip="2">
+                        <tr><th>Mid-2003</th><td>59552.2</td></tr>
+                        <tr><th>Mid-2004 </th><td>59841.9</td></tr>
+                        <tr><th>Mid-2005</th><td>60235.5</td></tr>
+                        <tr><th>Mid-2006</th><td>60584.3</td></tr>
+                        <tr><th>Mid-2007</th><td>60985.7</td></tr>
+                        <tr><th>Mid-2008</th><td>61398.2</td></tr>
+                        <tr><th>Mid-2009</th><td>61792</td></tr>
+                        <tr><th>Mid-2010</th><td>62262</td></tr>
+                        <tr><th>Mid-2011</th><td>63285.1</td></tr>
+                        <tr><th>Mid-2012</th><td>63705</td></tr>
+
+                    </table>
+                </article>
+                <a href="slice.html">
+           <div class="chart-footer">
+            <span class"amount pull left">63,705 </span>
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x up"></i>
+                                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse "></i>
+                                </span>
+            <span class"diff pull-right">0.3% change from Mid-2011</span>
+          </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="chart">
+          <span class="text-muted">2012</span>
+          <p class="chart-title">Net Migration (UK)</p>
+
+<article class="ons-chart">
+                    <table class="ons-line-single" data-min="140" data-max="250" data-label-skip="2">
+                        <tr><th>2003</th><td>148</td></tr>
+                        <tr><th>2004</th><td>245</td></tr>
+                        <tr><th>2005</th><td>206</td></tr>
+                        <tr><th>2006</th><td>198</td></tr>
+                        <tr><th>2007</th><td>233</td></tr>
+                        <tr><th>2008</th><td>163</td></tr>
+                        <tr><th>2009</th><td>198</td></tr>
+                        <tr><th>2010</th><td>252</td></tr>
+                        <tr><th>2011</th><td>215</td></tr>
+                        <tr><th>2012</th><td>177</td></tr>
+
+                    </table>
+                </article>
+                <a href="slice.html">
+          <div class="chart-footer">
+            <span class"amount pull left">-7.2%</span>
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x down"></i>
+                                  <i class="fa fa-chevron-down fa-stack-1x fa-inverse "></i>
+                                </span>
+            <span class"diff pull-right">0.4% change from Jul-Sept 2013</span>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+  <!--  KEY FIGURES  -->
+  <!--  ROW TWO  -->
+  <div class="container ">
+
+    <h2><span class="glyphicon glyphicon-flash"></span> Key Figures</h2>
+
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="chart"><a href="slice.html">
+          <p class="text-muted"><span class"date">Financial year to date (2013/14)</span></p>
+          <span class"title">Public sector net borrowing (exc financial interventions)</span><br/>
+            <h3>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-square fa-stack-2x down"></i>
+                  <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i>
+                </span>
+            £99.3 billion
+            </h3>
+          <div class="chart-footer">
+            <p class=""><span class"">down £4.4 billion on same period year earlier</span></p>
+          </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="chart"><a href="slice.html">
+          <p class="text-muted"><span class"date">Year ending Sept 2013</span></p>
+          <span class"title">Crimes experienced by adult population resident in households</span><br/>
+          <h3>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-square fa-stack-2x down"></i>
+                  <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i>
+                </span>
+            8.0 million
+        </h3>
+          <div class="chart-footer">
+            <p class=""><span class"">down 10% on year ending Sept 2012</span><br/><br/></p>            
+          </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="chart"><a href="slice.html">
+          <p class="text-muted"><span class"date">Feb 2014</span></p>
+          <span class"title">Trade in goods and services</span><br/><br/>
+          <h3>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-square fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>
+             -£2.1 billion
+         </h3>
+          <div class="chart-footer">
+            <p class=""><span class"">up 0.1 billion on Jan 2014</span><br/><br/></p>            
+          </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="chart"><a href="slice.html">
+          <p class="text-muted"><span class"date">Feb 2014</span></p>
+          <span class"title">Retail Sales</span><br/><br/>
+          <h3>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-square fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>
+            £26.2 billion 
+        </h3>
+          <div class="chart-footer">
+            <p class=""><span class"">up 3.7% on Feb 13</span><br/><br/></p>            
+          </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!--  ROW TWO  -->
+    <div class="row">
+      <div class="col-md-3">
+        <div class="chart"><a href="slice.html">
+          <p class="text-muted"><span class"date">2012</span></p>
+          <span class"title">Births (UK)</span><br/>
+          <h3>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-square fa-stack-2x down"></i>
+                  <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i>
+                </span>
+            812970
+        </h3>
+          <div class="chart-footer">
+            <p class=""><span class"">down 5,194 on 2011</span></p>
+          </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="chart"><a href="slice.html">
+          <p class="text-muted"><span class"date">2012</span></p>
+          <span class"title">Deaths (UK)</span><br/>
+          <h3>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-square fa-stack-2x down"></i>
+                  <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i>
+                </span>
+            569024
+        </h3>
+          <div class="chart-footer">
+            <p class=""><span class"">down 16,792 on 2011</span></p>            
+          </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="chart"><a href="slice.html">
+          <p class="text-muted"><span class"date">2008-10</span></p>
+          <span class"title">Life expectancy at birth (Males)</span><br/>
+          <h3>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-square fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>
+            78.1 years
+        </h3>
+          <div class="chart-footer">
+            <p class=""><span class"">up 0.9 years on 2005-07</span></p>            
+          </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="chart"><a href="slice.html">
+          <p class="text-muted"><span class"date">2008-10</span></p>
+          <span class"title">Life expectancy at birth (Females)</span><br/>
+          <h3>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-square fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>
+            82.1 years
+        </h3>
+          <div class="chart-footer">
+            <p class=""><span class"">up 0.6 years on 2005-07</span></p>            
+          </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!--  STATS BULLETIN  -->
+  <div class="container ">
+  <div class="box">
+    <h2><span class="glyphicon glyphicon-send"></span> Statistical Bulletin</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <h4><a href="bulletin.html">Consumer Price Index, February 2014</a></h4><br/>
+        <p><a href="bulletin.html">1.9% growth in Consume Price Index (CPI)in the years to January 2014, down fom 2.0% in Deember 2013</a></p><br/>
+      </div>
+      <div class="col-md-4">
+        <h4><a href="bulletin.html">Producer Price Index, February 2014</a></h4><br/>
+        <p><a href="bulletin.html">The output price index for goods produced by UK manufacturers (factory gate prices) rose 0.5% in the year to February.</a></p><br/>
+      </div>
+      <div class="col-md-4">
+        <h4><a href="bulletin.html">Crime Statistics, period ending September 2013</a></h4><br/>
+        <p><a href="bulletin.html">The police recorded 3.7 million offences intheyear ending Spetember 2013, a decrease of 3 % compared with the previous year.</a></p><br/>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+
+  <!--  TIME SERIES AND RELEASES  -->
+  <div class="container">
+   <div class="row">
+    <div class="col-md-4">
+      <div class="box">
+       <h2><span class="glyphicon glyphicon-stats"></span> Time Series Data</h2>
+
+       <form role="form">
+        <div class="form-group">
+          <p class="">Explore ONS economic data and search by series ID.</p>
+
+          <label for="exampleInputEmail1">Search series ID</label>
+          <input type="email" class="form-control" id="exampleInput" placeholder="">
+        </div>
+        <strong>or...</strong>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Select a topic</label>
+          <select class="form-control">
+            <option>Business and Trade</option>
+            <option>National Accounts</option>
+            <option>Labour Market</option>
+            <option>Price Indices</option>
+            <option>Travel and Tourism</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputFile">Select a Dataset</label>
+          <select class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Find time series</button>
+      </form>
+    </div>
+
+  </div>
+
+
+  <div class="col-md-8">
+    <div class="box bg-white">
+    <h2><span class="glyphicon glyphicon-calendar"></span> Upcoming Economy Releases</h2>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#published" data-toggle="tab">Published</a></li>
+      <li><a href="#upcoming" data-toggle="tab">Upcoming Calendar</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="published">
+        <span class"date">30 Apr 14</span><br/>
+        <span class"title"><a href="release.html">Retail Sales - March 2014</a></span><br/>
+        <span class"date">29 Apr 14</span><br/>
+        <span class"title"><a href="release.html">Index of Private Housing Rental prices - January to March 2014 results</a></span><br/>
+        <span class"date">28 Apr 14</span><br/>
+        <span class"title"><a href="release.html">Index of Services - February 2014</a></span><br/>
+        <span class"date">27 Apr 14</span><br/>
+        <span class"title"><a href="release.html">Gross Domestic product: Preliminary estimate- Q1 2014</a></span><br/>
+        <span class"date">26 Apr 14</span><br/>
+        <span class"title"><a href="release.html">GDP and Labour Market - Q1 2014, April GDP Update</a></span><br/>
+        <span class"date">25 Apr 14</span><br/>
+        <span class"title"><a href="release.html">National Accounts Sector Classification - Classifications Update, April 2014</a></span><br/>
+
+      </div>
+      <div class="tab-pane" id="upcoming">
+        <span class"date">1 May 14</span><br/>
+        <span class"title">National Accounts Sector Classification - Classifications Update, April 2014</span><br/>
+
+        <span class"date">2 May 14</span><br/>
+        <span class"title">GDP and Labour Market - Q1 2014, April GDP Update</span><br/>
+        <span class"date">3 May 14</span><br/>
+        <span class"title">Gross Domestic product: Preliminary estimate- Q1 2014</span><br/>
+        <span class"date">4 May 14</span><br/>
+        <span class"title">Index of Services - February 2014</span><br/>
+        <span class"date">5 May 14</span><br/>
+        <span class"title">Index of Private Housing Rental prices - January to March 2014 results</span><br/>
+        <span class"date">6 May 14</span><br/>
+        <span class"title">Retail Sales - March 2014</span><br/>
+        <span>
+        </div>
+      </div>
+
+    </div>
+  <p class="pull-right"><a href="release.html">See all scheduled releases</a></p>
+  </div>
+
+</div>
+
+
+
+<!--  FOOTER -->
+<div class="container footer darkGrey">
+
+ <div class="row">
+  <div class="col-md-4">
+    <h3>Legal</h3>
+    <ul>
+      <li><a href="#">Business Transparency</a></li>
+      <li><a href="#">Terms and Conditions</a></li>
+      <li><a href="#">Copyright</a></li>
+      <li><a href="#">Cookies and Privacy</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h3>About ONS</h3>
+    <ul>
+      <li><a href="#">Who we are</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Products and Services</a></li>
+      <li><a href="#">Contact us</a></li>
+      <li><a href="#">Our Offices</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h3>Connect with us</h3>
+    <ul>
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">Youtube</a></li>
+      <li><a href="#">Email subscriptions</a></li>
+    </ul>
+  </div>
+</div>
+
+  <div class="col-md-12">
+    <p class="text-muted">All content is available under the Open Government Licence v2.0 except where otherwise stated</p>
+  </div>
+</div>
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/libs/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!-- chart library -->
+<script src="js/libs/highstock.js"></script>
+
+<!-- chart library -->
+<script src="js/snap.svg-min.js"></script>
+<script src="js/jquery.ons-charts.js"></script>
+
+<!-- app -->
+<script src="js/alpha.js"></script>
+<script src="js/init-chart.js"></script>
+<script >
+$('.collapse').on('shown.bs.collapse', function (e) {
+  $('.collapse').not(this).removeClass('in');
+});
+
+$('[data-toggle=collapse]').click(function (e) {
+    console.log(e);
+  $('[data-toggle=collapse]').parent('li').removeClass('active');
+  $(this).parent('li').toggleClass('active');
+});
+
+
+</script>
+</body>
+</html>
+
