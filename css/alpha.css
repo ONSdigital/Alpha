@@ -489,3 +489,35 @@ td
 .table > tbody > tr > td.info-btn{
 	padding-top:15px;
 }
+
+/*nav bar menu */
+.navbar-default{
+    background-color:#e2f4ff;
+
+}
+.navbar-default .navbar-nav > li > a {
+    color: #000;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #000;
+    font-weight:600;
+    //background-color: #d1eeff;
+    background-color: #e2f4ff;
+}
+
+#submenu .navbar-default .navbar-nav > li > a {
+
+}
+#submenu  {
+    margin-top: 2px;
+    background-color:#d1eeff;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #e2f4ff;
+    color: #555;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #e2f4ff;
+    border-color: #e2f4ff;
+}
