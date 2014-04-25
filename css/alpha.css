@@ -12,6 +12,13 @@ h3{
 	padding-bottom:10px;
 }
 
+h5{
+	font-family: 'Open Sans Condensed';
+	font-weight: 700;
+	font-size:15px;
+	//padding-bottom:14px;
+}
+
 .navbar {
 	border:0px;
 }
@@ -35,6 +42,8 @@ h3{
 .observation .title, .copy {
 	display:block;
 	font-size:16px;
+	font-family: 'Open Sans Condensed';
+	font-weight: 300;
 	margin-top:8px;
 }
 
@@ -59,8 +68,11 @@ h3{
 }
 
 h1.key-figure{
+	font-family: 'Open Sans Condensed';
 	font-size: 72px;
+	font-weight: 800;
 	text-align: right;
+	color:#002E49;
 }
 .navbar-brand {
 		padding:8px;
@@ -138,31 +150,48 @@ h1.key-figure{
 	color:#fff;
 	text-decoration: none;
 }
+a:hover{
+	color:#52575F;
+	text-decoration: none;
+}
 .icon{
 	padding:8px;
 	color:#fff;
 	border: 1px solid #E3E3E3;
 	border-radius: 6px;
 	margin:10px;
+
+
+
+
+
 }
 .smicon{
 	top:5px;
-	width:20px;
-	height:20px;
+	width:32px;
+	height:32px;
 	padding:2px;
 	margin:0px;
+	margin-top:-2px;
+	padding-top:0px;
+	padding-left:10px;
 	color:#fff;
 	border: 1px solid #E3E3E3;
 	overflow:hidden;
+
+    border-radius:50%;
+    display: inline-block;
+    line-height:32px;
+    //text-align:center;
 }
 .up{
-	background-color: green;
+	color: #0084d1;
 }
 .down{
-	background-color: red;
+	color: #002e49;
 }
 .same{
-	background-color: orange;
+	color: #49bcff ;
 }
 a.menu-font{
 	font-size: 13px;
@@ -206,6 +235,12 @@ a.menu-font{
 
 .pad-left{
 	padding-left: 10px;
+}
+
+.align-right{
+	text-align:right;
+	padding-right: 0px;
+	line-height: 2;
 }
 
 
@@ -300,4 +335,227 @@ a.menu-font{
 
 #equalheight {
     overflow: hidden; 
+}
+
+label {
+    padding-left: 10px; 
+}
+#chart {
+position: relative;
+top:0px;
+left: 30px;
+}
+#y_axis {
+position: absolute;
+top: 20px;
+bottom: 0;
+width: 40px;
+}
+#x_axis {
+position: relative;
+left: 40px;
+height: 40px;
+}
+.tick{
+	font-family: 'Open Sans Condensed';
+	font-weight: 700;
+	font-size:14px;
+	color:#000;
+}
+.title{
+	font-family: 'Open Sans Condensed';
+	font-weight: 700;
+	font-size:14px;
+	color:#000;
+
+}
+.chart-title{
+	font-family: 'Open Sans Condensed';
+	font-weight: 700;
+	font-size:15px;
+	color:#000;
+
+}
+
+table .title{
+	font-family: 'Open Sans';
+	font-weight: 600;
+	font-size:16px;
+	color:#333;
+
+}
+table .subtitle{
+	 display: block;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size:12px;
+	color:#333;
+
+}
+table .currentRate{
+	font-family: 'Open Sans';
+	font-weight: 400;
+	font-size:28px;
+	color:#333;
+	text-align: right;
+	//background-color: #eee;
+
+}
+table .changeRate{
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size:22px;
+	color:#aaa;
+	padding-left:10px;
+	text-align: right;
+
+}
+table .currentDate{
+	text-align: center;
+	line-height: 32px;
+
+}
+table .percent{
+	vertical-align: top;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size:16px;
+	color:#333;
+
+}
+
+
+
+
+.align-right{
+	text-align: right;
+}
+.centered{
+	text-align: center;
+}
+.info{
+	color:#afe2ff;
+	color:#49bcff;
+}
+
+
+.rickshaw_graph .y_ticks .tick, .rickshaw_graph .x_ticks_d3 .tick {
+    stroke: rgba(0, 0, 0, 0.16);
+    stroke-width: 2px;
+    pointer-events: none;
+}
+.rickshaw_graph .y_ticks text, .rickshaw_graph .x_ticks text, .rickshaw_graph .x_ticks_d3 text {
+		font-family: 'Open Sans Condensed';
+	font-weight: 700;
+	font-size:18px;
+	color:#000;
+	stroke: none;
+    opacity: 1;
+
+    pointer-events: none;
+}
+
+
+/* SERIES ID TABLE */
+ul li { list-style: none }
+
+table tr.even.row_selected td 
+{
+   background-color: #D9EDF7;
+}
+
+table tr.odd.row_selected td 
+{
+   background-color: #BBD6E3;
+}
+
+td 
+{
+   font-size: 16px;
+}
+
+
+.table > tbody > tr > td.download{
+	text-align: center;
+	padding-top:15px;
+}
+.table > tbody > tr > td.changeRate{
+	padding-top:13px;
+}
+.table > tbody > tr > td.currentDate{
+	padding-top:16px;
+}
+
+.table > tbody > tr > td.info-btn{
+	padding-top:15px;
+}
+
+/*nav bar menu */
+.navbar-default{
+    background-color:#e2f4ff;
+
+}
+.navbar-default .navbar-nav > li > a {
+    color: #000;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #000;
+    font-weight:600;
+    //background-color: #d1eeff;
+    background-color: #e2f4ff;
+}
+
+#submenu .navbar-default .navbar-nav > li > a {
+
+}
+#submenu  {
+    margin-top: 2px;
+    background-color:#d1eeff;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #e2f4ff;
+    color: #555;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #e2f4ff;
+    border-color: #e2f4ff;
+}
+
+
+.alpha-header {
+    background-color: #BC0031;
+	border-bottom: 1px solid black;
+	padding-left:30px;
+    padding-bottom: 10px;
+}
+
+
+.alpha-header-title {
+	color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+}
+.alpha-header-title {
+	color: #fff;
+
+}
+.alpha-header-copy{
+	color: #fff;
+    margin-bottom: 10px;
+}
+.alpha-header-copy a{
+	color: #fff;
+	font-weight: 600;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+.alpha-header-title span{
+	float:right;
+	text-transform: uppercase;
+	color: #fff;
+    font-size:32px;
+    font-weight:800;
+    padding-top:18px;
+    padding-right:18px;
 }

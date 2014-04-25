@@ -75,7 +75,7 @@
           });
         },
         sanitizeNumber: function(value) {
-          return Number( parseFloat(value.replace(/[^0-9\.]+/g,"")));
+          return Number( parseFloat(value.replace(/[^-0-9\.]+/g,"")));
         },
         defineColours: function($table) {
           if ($table.hasClass('ons-colour')) {
