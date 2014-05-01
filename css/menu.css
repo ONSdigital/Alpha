@@ -37,6 +37,14 @@ color: #333;
   color: #333333;
   white-space: normal;
 }
+
+.megamenu li.dropdown-header > a {
+    color: #428BCA;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+
 .megamenu> li ul > li > a:hover,
 .megamenu> li ul > li > a:focus {
   text-decoration: none;
@@ -59,7 +67,8 @@ color: #333;
 }
 .megamenu li.dropdown-header {
   color: #428bca;
-  font-size: 16px;
+  font-size: 17px;
+  font-weight: 300;
   padding: 3px 0px !important;
 }
 

@@ -6,17 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alpha: Economy Theme Level One</title>
 
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Yamm styles-->
-  <link href="css/yamm.css" rel="stylesheet">
+  <link href="css/menu.css" rel="stylesheet">
   <link href="css/demo.css" rel="stylesheet">
 
   <!-- Alpha -->
   <link href="css/alpha.css" rel="stylesheet">
 
+<link rel="stylesheet" href="css/font-awesome.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -26,6 +27,15 @@
     </head>
     <body>
 
+
+      
+    <div class="container  bg_warning alpha-header">
+      <p class="alpha-header-title">Office for National Statistics
+        <span>Alpha</span>
+      </p>
+      <p class="alpha-header-copy">This is a mock-up of our new website. You should still use the <a href="http://www.ons.gov.uk">current site</a>
+      </p>
+    </div>
 
       <div class="container">
       <nav class="navbar navbar-default" role="navigation">
@@ -72,264 +82,397 @@
 
 
 
-      <!--  MENU BAR  -->
-      <!-- YAMM3 -->
-      <div class="container">
-        <div class="navbar navbar-default yamm">
-          <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a href="#" class="navbar-brand home"><span class="glyphicon glyphicon-home"></span></a>
-          </div>
-          <div id="navbar-collapse-grid" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <!-- 
-              BUSINESS
-              -->
-              <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Business, Industry and Trade<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="grid-demo">
-                    <div class="row">
-                      <div class="business"><a class="menu-font" href="#" id="">Business</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">Changes to Business</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">Construction Industry</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">International Trade</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">IT and Internet Industry</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">Manufacturing and Production Industry</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">Retail Industry</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">Tourism Industry</a></div>
+    <!--  MENU BAR  -->
 
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <!--
-              ECONOMY
-              -->
-              <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Economy<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="grid-demo">
-                    <div class="row">
-                      <div class="economy"><a class="menu-font" href="economy.html" id="">Economic Output and Productivity</a></div>
-                      <div class="economy"><a class="menu-font" href="economy.html" id="">Environmental Accounts</a></div>
-                      <div class="economy"><a class="menu-font" href="economy.html" id="">Government, Public Sector and Taxes</a></div>
-                      <div class="economy"><a class="menu-font" href="economy.html" id="">Gross Domestic Product (GDP)</a></div>
-                      <div class="economy"><a class="menu-font" href="economy.html" id="">Gross Value Added (GVA)</a></div>
-                      <div class="economy"><a class="menu-font" href="inflation.html" id="">Inflation and Price Indices</a></div>
-                      <div class="economy"><a class="menu-font" href="inflation.html" id="">Investments, Pensions and Trusts</a></div>
-                      <div class="economy"><a class="menu-font" href="inflation.html" id="">National Accounts</a></div>
-                      <div class="economy"><a class="menu-font" href="inflation.html" id="">Regional Accounts</a></div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <!--
-              LABOUR
-              -->
-              <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Employment and Labour Market<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="grid-demo">
-                    <div class="row">
-                      <div class="work"><a class="menu-font" href="#" id="">People in Work</a></div>
-                      <div class="work"><a class="menu-font" href="#" id="">People not in Work</a></div>
-                      <div class="work"><a class="menu-font" href="#" id="">Public Sector Personnel</a></div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <!--
-              PEOPLE
-              -->
-              <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">People, Population and Community<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="grid-demo">
-                    <div class="row">
-                      <div class="people"><a class="menu-font" href="#" id="">Births, Deaths and Marriages</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Community</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Crime and Justice</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Cultural Identity</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Education and Childcare</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Elections</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Health and Social Care</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Household Characteristics</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Housing</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Leisure and Tourism</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Personal and Household Finances</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Population and Migration</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Well-being</a></div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
+      <div class="container">
+        <nav class="navbar navbar-default" role="navigation" id="topmenu">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" data-toggle="collapse" data-target="#one">Business, Industry and Trade</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="collapse" data-target="#two">Economy</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="collapse" data-target="#three">Employment and Labour Market</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="collapse" data-target="#four">People, Population and Community</a>
+            </li>
+
+
 
             <li><a href="#">Release Calendar</a></li>
-              <li><a href="#">About</a></li>
-            </ul>
-          </div>
-        </div>
-    </div>
+            
+            <li class="dropdown menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b> </a>
+                  <ul class="dropdown-menu megamenu row">
+                    <li class="col-sm-12">
+                        <ul>
+                            <li class="dropdown-header">Themes</li>
+                            <li><a class="" href="index.html">Home</a></li>
+                            <li><a class="" href="economy.html">Economy</a></li>
+                            <li><a class="" href="inflation.html">Inflation</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <ul>
+                            <li class="dropdown-header">Bulletin</li>
+                            <li><a href="release.html">Release</a></li>
+                            <li><a href="slice.html">Slice</a></li>
+                            <li><a href="summary.html">Summary</a></li>
+                            <li><a href="bulletin.html">Bulletin</a></li>
+                            <li><a href="supplementary.html">Supplementary</a></li>
+                            <li><a href="observation.html">Observation</a></li>
+                        </ul>
+                    </li>
+
+                  </ul>
+            </li>
+            
+          </ul>
+        </nav>
+
+        <nav class="navbar navbar-default" role="navigation" id="submenu">
+
+          <ul class="nav navbar-nav collapse" id="one">
+            <li><a href="#" id="">Business</a></li>
+            <li><a href="#" id="">Changes to Business</a></li>
+            <li><a href="#" id="">International Trade</a></li>
+            <li><a href="#" id="">Construction</a></li>
+            <li><a href="#" id="">IT and Internet</a></li>
+            <li><a href="#" id="">Manufacturing and Production</a></li>
+            <li><a href="#" id="">Retail</a></li>
+            <li><a href="#" id="">Tourism</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav collapse" id="two">
+            <li><a href="economy.html" id="">Economic Output</a></li>
+            <li><a href="economy.html" id="">Environmental Accounts</a></li>
+            <li><a href="economy.html" id="">Government</a></li>
+            <li><a href="economy.html" id="">GDP</a></li>
+            <li><a href="economy.html" id="">GVA</a></li>
+            <li><a href="inflation.html" id="">Inflation</a></li>
+            <li><a href="inflation.html" id="">Investments</a></li>
+            <li><a href="inflation.html" id="">National Accounts</a></li>
+            <li><a href="inflation.html" id="">Regional Accounts</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav collapse" id="three">
+            <li><a href="economy.html">People in Work</a></li>
+            <li><a href="economy.html">People not in Work</a></li>
+            <li><a href="inflation.html">Public Sector Personnel</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav collapse" id="four">
+            <li><a href="#" id="">Births, Deaths and Marriages</a></li>
+            <li><a href="#" id="">Crime</a></li>
+            <li><a href="#" id="">Community</a></li>
+            <li><a href="#" id="">Education</a></li>
+            <li><a href="#" id="">Health and Social Care</a></li>
+            <li><a href="#" id="">Housing</a></li>
+            <li><a href="#" id="">Population</a></li>
+
+            <li class="dropdown menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">More&hellip;&nbsp;<b class="caret"></b> </a>
+                  <ul class="dropdown-menu megamenu row">
+                    <li class="col-sm-12">
+                        <ul>
+                            <li><a href="#" id="">Cultural Identity</a></li>
+                            <li><a href="#" id="">Elections</a></li>
+                            <li><a href="#" id="">Household Characteristics</a></li>
+                            <li><a href="#" id="">Leisure and Tourism</a></li>
+                            <li><a href="#" id="">Personal and Household Finances</a></li>
+                            <li><a href="#" id="">Well-being</a></li>
+
+                        </ul>
+                    </li>
+
+                  </ul>
+            </li>
 
 
 
-      <!--  END MENU BAR  -->
+          </ul>
+
+        </nav>
+      </div>
+
+    <!--  END MENU BAR  -->
 
       <!--  HIGHLIGHTS TABLE  -->
   <div class="container ">
+  <div class="shim ">
+  </div>
 
 
-      <table class="table table-striped">
+      <table class="table table-striped table-hover">
         <tbody>
          <tr>
           <th width="2%"></th>
-          <th width="20%"></th>
-          <th width="20%"></th>
-          <th width="10%"></th>
-          <th width="10%"></th>
-          <th width="10%"></th>
+          <th width="30%">Measure</th>
+          <th width="20%" class="align-right">Current</th>
+          <th width="15%" class="align-right">Change*</th>
+          <th width="15%" class="currentDate">Date</th>
           <th width="4%"></th>
-          <th width="22%"></th>
+          <th width="10%" class="centered">Download</th>
         </tr>
 
 
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">GDP</td>
-          <td class="subtitle">Chained Volume Measure</td>
-          <td class="currentRate" id="CPI_rate">0.7%</td>
-          <td class="currentDate" id="CPI_date">(0.1%)</td>
-          <td class="changeRate" id="CPI_change">Q4, 2013</td>
-          <td class="change"><span class="glyphicon glyphicon-chevron-up up smicon"> &nbsp;</span></td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">GDP
+          <span class="subtitle">Chained Volume Measure</span></td>
+          <td class="currentRate" id="CPI_rate">0.7 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">+0.1%</td>
+          <td class="currentDate" id="CPI_date">Q4, 2013</td>
+          <td class="change">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block">
+            <!-- <button type="button" class="btn btn-primary btn-block">
               <span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            </button> -->
+            <label><input type="checkbox" checked> </label>
           </td>
         </tr>
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">CPI</td>
-          <td class="subtitle">CPI</td>
-          <td class="currentRate" id="CPI_rate">1.9%</td>
-          <td class="currentDate" id="CPI_date">(0.2%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2014</td>
-          <td class="change"><span class="glyphicon glyphicon-chevron-down down smicon"> &nbsp;</span></td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">CPI
+          <span class="subtitle">CPI</span></td>
+          <td class="currentRate" id="CPI_rate">1.9 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">-0.2%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
+          <td class="change">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x down"></i>
+                  <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block">
+            <!-- <button type="button" class="btn btn-primary btn-block">
               <span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            </button> -->
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">CPIH</td>
-          <td class="subtitle">CPIH</td>
-          <td class="currentRate" id="CPI_rate">4.0%</td>
-          <td class="currentDate" id="CPI_date">(1.1%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2014</td>
-          <td class="change"><span class="glyphicon glyphicon-chevron-down down smicon"> &nbsp;</span></td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">CPIH
+          <span class="subtitle">CPIH</span></td>
+          <td class="currentRate" id="CPI_rate">4.0 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">+1.1%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
+          <td class="change">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <!-- <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
+            </button> -->
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">RPIJ</td>
-          <td class="subtitle">RPI / RPIX (excluding mortgage interest)</td>
-          <td class="currentRate" id="CPI_rate">2.6%</td>
-          <td class="currentDate" id="CPI_date">(0.3%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2014</td>
-          <td class="change"><span class="glyphicon glyphicon-chevron-up up smicon"> &nbsp;</span></td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">RPIJ
+          <span class="subtitle">RPI / RPIX (excluding mortgage interest)</span></td>
+          <td class="currentRate" id="CPI_rate">2.6 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">+0.3%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
+          <td class="change">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <!-- <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
+            </button> -->
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">RPI</td>
-          <td class="subtitle">RPI / RPIX (excluding mortgage interest)</td>
-          <td class="currentRate" id="CPI_rate">2.1%</td>
-          <td class="currentDate" id="CPI_date">(0.0%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2014</td>
-          <td class="change"><span class="glyphicon glyphicon-chevron-right same smicon"> &nbsp;</span></td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">RPI
+          <span class="subtitle">RPI / RPIX (excluding mortgage interest)</span></td>
+          <td class="currentRate" id="CPI_rate">2.1 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">&nbsp;0.0%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
+          <td class="change">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x same"></i>
+                  <i class="fa fa-chevron-right fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <!-- <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
+            </button> -->
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">Production Index</td>
-          <td class="subtitle">Output Measure</td>
-          <td class="currentRate" id="CPI_rate">97</td>
-          <td class="currentDate" id="CPI_date">(0.5%)</td>
-          <td class="changeRate" id="CPI_change">Q4, 2013</td>
-          <td class="change"><span class="glyphicon glyphicon-chevron-down down smicon">&nbsp;</span></td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">Production Index
+          <span class="subtitle">Output Measure</span></td>
+          <td class="currentRate" id="CPI_rate">97&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td class="changeRate" id="CPI_change">-0.5%</td>
+          <td class="currentDate" id="CPI_date">Q4, 2013</td>
+          <td class="change">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x down"></i>
+                  <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <!-- <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
+            </button> -->
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">Gross Operating Surplus</td>
-          <td class="subtitle">Income Measure</td>
-          <td class="currentRate" id="CPI_rate">81 579m</td>
-          <td class="currentDate" id="CPI_date">(2.1%)</td>
-          <td class="changeRate" id="CPI_change">Q4, 2013</td>
-          <td class="change"><span class="glyphicon glyphicon-chevron-up up smicon"> &nbsp;</span></td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">Gross Operating Surplus
+          <span class="subtitle">Income Measure</span></td>
+          <td class="currentRate" id="CPI_rate">81 579&nbsp;m&nbsp;</td>
+          <td class="changeRate" id="CPI_change">+2.1%</td>
+          <td class="currentDate" id="CPI_date">Q4, 2013</td>
+          <td class="change">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <!-- <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
+            </button> -->
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">Household</td>
-          <td class="subtitle">Expenditure Measure</td>
-          <td class="currentRate" id="CPI_rate">246 484m</td>
-          <td class="currentDate" id="CPI_date">(1.1%)</td>
-          <td class="changeRate" id="CPI_change">Q4, 2013</td>
-          <td class="change"><span class="glyphicon glyphicon-chevron-up up smicon">&nbsp;</span></td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">Household
+          <span class="subtitle">Expenditure Measure</span></td>
+          <td class="currentRate" id="CPI_rate">246 484&nbsp;m&nbsp;</td>
+          <td class="changeRate" id="CPI_change">+1.1%</td>
+          <td class="currentDate" id="CPI_date">Q4, 2013</td>
+          <td class="change">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <!-- <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
+            </button> -->
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">Output of Manufactured Product Index</td>
-          <td class="subtitle">Producer Price Index</td>
-          <td class="currentRate" id="CPI_rate">108.6</td>
-          <td class="currentDate" id="CPI_date">(0.3%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2014</td>
-          <td class="change"><span class="glyphicon glyphicon-chevron-up up smicon"> &nbsp;</span></td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">Output of Manufactured Product Index
+          <span class="subtitle">Producer Price Index</span></td>
+          <td class="currentRate" id="CPI_rate">108.6 &nbsp;<span class="percent">&nbsp;</span></td>
+          <td class="changeRate" id="CPI_change">+0.3%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
+          <td class="change">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
-            </button>
+            <!-- <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download">&nbsp;</span>Download time series
+            </button> -->
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
           <tr>
-          <td class="" id=""><span class="glyphicon glyphicon-info-sign"></span></td>
-          <td class="title">Household Saving Ratio</td>
-          <td class="subtitle">Households</td>
-          <td class="currentRate" id="CPI_rate">5.0%</td>
-          <td class="currentDate" id="CPI_date">(0.4%)</td>
-          <td class="changeRate" id="CPI_change">Jan 2014</td>
-          <td class="change"><span class="glyphicon glyphicon-chevron-down down smicon"> &nbsp;</span></td>
+          <td class="info-btn" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x info"></i>
+                  <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
+          <td class="title">Household Saving Ratio
+              <span class="subtitle">Households</span>
+          </td>
+          <td class="currentRate" id="CPI_rate">5.0 <span class="percent">%</span></td>
+          <td class="changeRate" id="CPI_change">-0.4%</td>
+          <td class="currentDate" id="CPI_date">Jan 2014</td>
+          <td class="change">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x down"></i>
+                  <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i>
+                </span>
+          </td>
           <td class="download">
-            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download"> &nbsp;</span>Download time series
-            </button>
+            <!-- <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download"> &nbsp;</span>Download time series
+            </button> -->
+            <label><input type="checkbox" checked>  </label>
           </td>
         </tr>
+
 
         <tr>
-          <td colspan="7" class="">*Change in the 12 month rate since last month</td>
-          <td colspan="2" class="rightText" ><span class="updated" id="last_date">Last updated...</span> </td>
+          <td colspan="2" class="">*Change in the rate since last month</td>
+          <td colspan="2" class="rightText" > </td>
+          <td colspan="3" class="" >
+            <div class=""></div>
+            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-download"> &nbsp;</span>Download time series
+            </button>
+        </td>
         </tr>
       </tbody>
     </table>
@@ -500,14 +643,12 @@
 </div>
 
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/libs/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<!-- chart library -->
-<script src="js/libs/highstock.js"></script>
-<!-- app -->
-<script src="js/alpha.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/libs/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- app -->
+    <script src="js/alpha.js"></script>
 </body>
 </html>
 

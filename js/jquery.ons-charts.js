@@ -6,34 +6,34 @@
 */
 ;(function ( $, window, document, undefined ) {
 
-		var pluginName = "onsc",
-				defaults = {
-				breakpoint: 640, // Screen width at which the change to narrow view happens
-				overBreakpoint: true // Needs a default, may as well be this.
-		};
+    var pluginName = "onsc",
+        defaults = {
+        breakpoint: 640, // Screen width at which the change to narrow view happens
+        overBreakpoint: true // Needs a default, may as well be this.
+    };
 
-		function Plugin ( element, options ) {
-				this.element = element; // Reference to chart html element
-				this.$el = $(element); // jQuery object of the above element
-				this.settings = $.extend( {}, defaults, options ); // Standard jQuery plugin settings extend
-				this.instance = {}; // So each instance is a seperate entity
-				this._defaults = defaults;
-				this._name = pluginName;
+    function Plugin ( element, options ) {
+        this.element = element; // Reference to chart html element
+        this.$el = $(element); // jQuery object of the above element
+        this.settings = $.extend( {}, defaults, options ); // Standard jQuery plugin settings extend
+        this.instance = {}; // So each instance is a seperate entity
+        this._defaults = defaults;
+        this._name = pluginName;
         
         // Define Colour Cycle Options
-				this.settings.colours=[];
-				this.settings.colours[0] = ["#0084D1"]
-				this.settings.colours[1] = ["#0084D1", "#FF950E", "#A9BE3A", "#FFD320"]
-				
-				this.init(); // Kick off!
-		}
+        this.settings.colours=[];
+        this.settings.colours[0] = ["#0084D1"]
+        this.settings.colours[1] = ["#0084D1", "#FF950E", "#A9BE3A", "#FFD320"]
+        
+        this.init(); // Kick off!
+    }
 
-		Plugin.prototype = {
-				init: function () {
-					this.settings.overBreakpoint = this.overBreakpoint(); // Check if over breakpoint
-					this.instance.table = this.$el.find('table'); // Find the data table TODO throw polite error if no table
-					var that = this; // Crockford! http://javascript.crockford.com/private.html
-					$(window).resize(function(){
+    Plugin.prototype = {
+        init: function () {
+          this.settings.overBreakpoint = this.overBreakpoint(); // Check if over breakpoint
+          this.instance.table = this.$el.find('table'); // Find the data table TODO throw polite error if no table
+          var that = this; // Crockford! http://javascript.crockford.com/private.html
+          $(window).resize(function(){
             that.checkBreakpoint();
           });
           if (this.supported) {
@@ -42,7 +42,7 @@
             $('body').addClass('no-svg');
           }
           this.create(); // Start the creation process
-				},
+        },
         supported: function() { 
           // Simple check to see if the browser can render SVG
           return !! document.createElementNS &&
@@ -75,7 +75,7 @@
           });
         },
         sanitizeNumber: function(value) {
-          return Number( parseFloat(value.replace(/[^0-9\.]+/g,"")));
+          return Number( parseFloat(value.replace(/[^-0-9\.]+/g,"")));
         },
         defineColours: function($table) {
           if ($table.hasClass('ons-colour')) {
@@ -749,11 +749,12 @@
             });
             
             if (y > 0 && y < 1) {
-              var l = that.instance.svg.text(
-                0,
-                y * this.settings.chart_size.y - 10,
-                this.settings.max - this.settings.max * y
-              ).attr({
+              //console.log("y pos " + ( (this.settings.max - this.settings.min)- (this.settings.max - this.settings.min) * y) );
+              var xPos = 0;
+              var yPos = y * this.settings.chart_size.y - 10;
+              var copy = y + ":" + yPos;//(this.settings.max - this.settings.min)- (this.settings.max - this.settings.min) * y +  this.settings.min; // actual text to display
+              var l = that.instance.svg.text(xPos, yPos, copy)
+                .attr({
                   'font-size': '20px',
                   'font-weight': "bold",
                   'text-anchor': "left",
@@ -761,22 +762,45 @@
               });
             }
           }
+
+          //calculate the position of the chart's origin
+          var origin = 0;
+
+          // only alter origin if negative
+          if(this.settings.min<0 && this.settings.max>=0){
+            origin = this.settings.max  * this.settings.chart_size.y /  (this.settings.max - this.settings.min);
+          }
+
+          // for all negative results set origin at top of chart
+          if( this.settings.min<0 && this.settings.max<=0){
+            origin = this.settings.chart_size.y;
+
+          }
           
           var x = 0;
-          var y = this.settings.chart_size.y;
+          var y = this.settings.chart_size.y - origin;
           var polyline = new Array();
           polyline.push(x);
           polyline.push(y);
 
           $.each($table.find('td'), function(i, e){
-            y = that.settings.chart_size.y - (that.sanitizeNumber($(e).html()) / that.settings.max) * that.settings.chart_size.y;
+            // calculate the ratio for 1 unit in pixels
+            // eg 1 unit is chart ht / range (MIN TO MAX)
+            var ratio = that.settings.chart_size.y / (that.settings.max - that.settings.min) ;
+            // take the actual <td> table value and adjust for the minimum
+            var unit = ( that.sanitizeNumber( $(e).html() ) - that.settings.min )
+            // convert units to pixels
+            var pixel = unit * ratio;
+            // finally set yposition in chart
+            y =   that.settings.chart_size.y - pixel ;
+            
             polyline.push(x);
             polyline.push(y);
             x+=jump;
           });   
           
           polyline.push(x-jump);
-          polyline.push(this.settings.chart_size.y);
+          polyline.push(this.settings.chart_size.y - origin);
 
           var pl = that.instance.svg.polyline(polyline);
           
@@ -800,13 +824,22 @@
               });
             }
             x+=jump;
-          });          
+          });           
 
           x=0;    
 
           $.each($table.find('td'), function(i, e){
             if ($(this).data('callout')) {
-              y = that.settings.chart_size.y - (that.sanitizeNumber($(e).html()) / that.settings.max) * that.settings.chart_size.y;
+              // calculate the ratio for 1 unit in pixels
+              // eg 1 unit is chart ht / range (MIN TO MAX)
+              var ratio = that.settings.chart_size.y / (that.settings.max - that.settings.min) ;
+              // take the actual <td> table value and adjust for the minimum
+              var unit = ( that.sanitizeNumber( $(e).html() ) - that.settings.min )
+              // convert units to pixels
+              var pixel = unit * ratio;
+              // finally set yposition in chart
+              y =   that.settings.chart_size.y - pixel ;
+
               that.calloutLabel($(this).data('callout'), x, y, 550, that, 0, $table);
             }
             x+=jump;
@@ -958,14 +991,14 @@
           
           return g;
         } 
-		};
+    };
 
-		$.fn[ pluginName ] = function ( options ) {
-				return this.each(function() {
-						if ( !$.data( this, "plugin_" + pluginName ) ) {
-								$.data( this, "plugin_" + pluginName, new Plugin( this, options ) );
-						}
-				});
-		};
+    $.fn[ pluginName ] = function ( options ) {
+        return this.each(function() {
+            if ( !$.data( this, "plugin_" + pluginName ) ) {
+                $.data( this, "plugin_" + pluginName, new Plugin( this, options ) );
+            }
+        });
+    };
 
 })( jQuery, window, document );

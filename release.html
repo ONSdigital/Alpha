@@ -7,20 +7,22 @@
   <title>Alpha: Release</title>
 
   
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/font-awesome.min.css">
   <!-- Yamm styles-->
-  <link href="css/yamm.css" rel="stylesheet">
+  <link href="css/menu.css" rel="stylesheet">
   <link href="css/demo.css" rel="stylesheet">
 
+  <link rel="stylesheet" href="css/rickshaw.css">  
   <!-- Alpha -->
   <link href="css/alpha.css" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">  
-  <link rel="stylesheet" href="css/rickshaw.css">  
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,6 +35,15 @@
 
 
 
+
+      
+    <div class="container  bg_warning alpha-header">
+      <p class="alpha-header-title">Office for National Statistics
+        <span>Alpha</span>
+      </p>
+      <p class="alpha-header-copy">This is a mock-up of our new website. You should still use the <a href="http://www.ons.gov.uk">current site</a>
+      </p>
+    </div>
 
       <div class="container">
       <nav class="navbar navbar-default" role="navigation">
@@ -79,173 +90,236 @@
 
 
 
-      <!--  MENU BAR  -->
-      <!-- YAMM3 -->
-      <div class="container">
-        <div class="navbar navbar-default yamm">
-          <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a href="#" class="navbar-brand home"><span class="glyphicon glyphicon-home"></span></a>
-          </div>
-          <div id="navbar-collapse-grid" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <!-- 
-              BUSINESS
-              -->
-              <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Business, Industry and Trade<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="grid-demo">
-                    <div class="row">
-                      <div class="business"><a class="menu-font" href="#" id="">Business</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">Changes to Business</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">Construction Industry</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">International Trade</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">IT and Internet Industry</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">Manufacturing and Production Industry</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">Retail Industry</a></div>
-                      <div class="business"><a class="menu-font" href="#" id="">Tourism Industry</a></div>
+    <!--  MENU BAR  -->
 
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <!--
-              ECONOMY
-              -->
-              <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Economy<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="grid-demo">
-                    <div class="row">
-                      <div class="economy"><a class="menu-font" href="economy.html" id="">Economic Output and Productivity</a></div>
-                      <div class="economy"><a class="menu-font" href="economy.html" id="">Environmental Accounts</a></div>
-                      <div class="economy"><a class="menu-font" href="economy.html" id="">Government, Public Sector and Taxes</a></div>
-                      <div class="economy"><a class="menu-font" href="economy.html" id="">Gross Domestic Product (GDP)</a></div>
-                      <div class="economy"><a class="menu-font" href="economy.html" id="">Gross Value Added (GVA)</a></div>
-                      <div class="economy"><a class="menu-font" href="inflation.html" id="">Inflation and Price Indices</a></div>
-                      <div class="economy"><a class="menu-font" href="inflation.html" id="">Investments, Pensions and Trusts</a></div>
-                      <div class="economy"><a class="menu-font" href="inflation.html" id="">National Accounts</a></div>
-                      <div class="economy"><a class="menu-font" href="inflation.html" id="">Regional Accounts</a></div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <!--
-              LABOUR
-              -->
-              <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Employment and Labour Market<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="grid-demo">
-                    <div class="row">
-                      <div class="work"><a class="menu-font" href="#" id="">People in Work</a></div>
-                      <div class="work"><a class="menu-font" href="#" id="">People not in Work</a></div>
-                      <div class="work"><a class="menu-font" href="#" id="">Public Sector Personnel</a></div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <!--
-              PEOPLE
-              -->
-              <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">People, Population and Community<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="grid-demo">
-                    <div class="row">
-                      <div class="people"><a class="menu-font" href="#" id="">Births, Deaths and Marriages</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Community</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Crime and Justice</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Cultural Identity</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Education and Childcare</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Elections</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Health and Social Care</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Household Characteristics</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Housing</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Leisure and Tourism</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Personal and Household Finances</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Population and Migration</a></div>
-                      <div class="people"><a class="menu-font" href="#" id="">Well-being</a></div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
+      <div class="container">
+        <nav class="navbar navbar-default" role="navigation" id="topmenu">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" data-toggle="collapse" data-target="#one">Business, Industry and Trade</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="collapse" data-target="#two">Economy</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="collapse" data-target="#three">Employment and Labour Market</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="collapse" data-target="#four">People, Population and Community</a>
+            </li>
+
+
 
             <li><a href="#">Release Calendar</a></li>
-              <li><a href="#">About</a></li>
-            </ul>
-          </div>
-        </div>
-    </div>
+            
+            <li class="dropdown menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b> </a>
+                  <ul class="dropdown-menu megamenu row">
+                    <li class="col-sm-12">
+                        <ul>
+                            <li class="dropdown-header">Themes</li>
+                            <li><a class="" href="index.html">Home</a></li>
+                            <li><a class="" href="economy.html">Economy</a></li>
+                            <li><a class="" href="inflation.html">Inflation</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <ul>
+                            <li class="dropdown-header">Bulletin</li>
+                            <li><a href="release.html">Release</a></li>
+                            <li><a href="slice.html">Slice</a></li>
+                            <li><a href="summary.html">Summary</a></li>
+                            <li><a href="bulletin.html">Bulletin</a></li>
+                            <li><a href="supplementary.html">Supplementary</a></li>
+                            <li><a href="observation.html">Observation</a></li>
+                        </ul>
+                    </li>
+
+                  </ul>
+            </li>
+            
+          </ul>
+        </nav>
+
+        <nav class="navbar navbar-default" role="navigation" id="submenu">
+
+          <ul class="nav navbar-nav collapse" id="one">
+            <li><a href="#" id="">Business</a></li>
+            <li><a href="#" id="">Changes to Business</a></li>
+            <li><a href="#" id="">International Trade</a></li>
+            <li><a href="#" id="">Construction</a></li>
+            <li><a href="#" id="">IT and Internet</a></li>
+            <li><a href="#" id="">Manufacturing and Production</a></li>
+            <li><a href="#" id="">Retail</a></li>
+            <li><a href="#" id="">Tourism</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav collapse" id="two">
+            <li><a href="economy.html" id="">Economic Output</a></li>
+            <li><a href="economy.html" id="">Environmental Accounts</a></li>
+            <li><a href="economy.html" id="">Government</a></li>
+            <li><a href="economy.html" id="">GDP</a></li>
+            <li><a href="economy.html" id="">GVA</a></li>
+            <li><a href="inflation.html" id="">Inflation</a></li>
+            <li><a href="inflation.html" id="">Investments</a></li>
+            <li><a href="inflation.html" id="">National Accounts</a></li>
+            <li><a href="inflation.html" id="">Regional Accounts</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav collapse" id="three">
+            <li><a href="economy.html">People in Work</a></li>
+            <li><a href="economy.html">People not in Work</a></li>
+            <li><a href="inflation.html">Public Sector Personnel</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav collapse" id="four">
+            <li><a href="#" id="">Births, Deaths and Marriages</a></li>
+            <li><a href="#" id="">Crime</a></li>
+            <li><a href="#" id="">Community</a></li>
+            <li><a href="#" id="">Education</a></li>
+            <li><a href="#" id="">Health and Social Care</a></li>
+            <li><a href="#" id="">Housing</a></li>
+            <li><a href="#" id="">Population</a></li>
+
+            <li class="dropdown menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">More&hellip;&nbsp;<b class="caret"></b> </a>
+                  <ul class="dropdown-menu megamenu row">
+                    <li class="col-sm-12">
+                        <ul>
+                            <li><a href="#" id="">Cultural Identity</a></li>
+                            <li><a href="#" id="">Elections</a></li>
+                            <li><a href="#" id="">Household Characteristics</a></li>
+                            <li><a href="#" id="">Leisure and Tourism</a></li>
+                            <li><a href="#" id="">Personal and Household Finances</a></li>
+                            <li><a href="#" id="">Well-being</a></li>
+
+                        </ul>
+                    </li>
+
+                  </ul>
+            </li>
 
 
 
+          </ul>
 
+        </nav>
+      </div>
 
-      <!--  END MENU BAR  -->
+    <!--  END MENU BAR  -->
 
       <!--  CHARTS  -->
       <div class="container ">
-        <h2><img id="natstat" src="images/ns.gif" class="pull-left"/>&nbsp;&nbsp;Release for Producer Price Index, February 2014</h2>
+        <h2>Release for Producer Price Index, February 2014</h2>
 
 
 
         <div class="col-md-8">
 
           <!--  CHART  -->
-           
-          <div class=" " id="chart">
-          </div>
+          <div id="y_axis"></div>
+          <div id="chart"></div>
+          <div id="x_axis"></div>
+
+        
            
 
 
           <div class="row">
-            <div class="col-md-6">
-              <div class="chartFooter bg-white"><a href="slice.html" id="">
-              <span>111.5 <span class="glyphicon glyphicon-chevron-up up smicon">&nbsp;</span> Alcoholic Beverages (MC6A)</span>
-            </div>
-            </a>
-            </div>
-            <div class="col-md-6">
-              <div class="chartFooter bg-white"><a href="slice.html" id="">
-              <span>112.1 <span class="glyphicon glyphicon-chevron-up up smicon">&nbsp;</span> Textiles (K37R)</span>
-            </div>
-            </a>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="chartFooter bg-white"><a href="slice.html" id="">
-                <span>113.9 <span class="glyphicon glyphicon-chevron-up up smicon">&nbsp;</span> Soft Drinks (JUSC)</span>
+            <div class="chartFooter bg-white">
+              <a href="slice.html" id="">
+                <div class="col-md-1 align-right">
+                  <span class="align-right">111.5</span>
+                </div>
+                <div class="col-md-5">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>&nbsp;Alcoholic Beverages (MC6A)
+               </div>
+             </a>
+           </div>
+           <div class="chartFooter bg-white">
+            <a href="slice.html" id="">
+              <div class="col-md-1 align-right">
+                <span class="align-right">112.1</span>
+              </div>
+              <div class="col-md-5">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>&nbsp;Textiles (K37R)
               </div>
             </a>
-            </div>
-            <div class="col-md-6">
-              <div class="chartFooter bg-white"><a href="slice.html" id="">
-              <span>99.7 <span class="glyphicon glyphicon-chevron-up up smicon">&nbsp;</span> Printing &amp; recording (K37W)</span>
-            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="chartFooter bg-white">
+            <a href="slice.html" id="">
+              <div class="col-md-1 align-right">
+                <span class="align-right">113.9</span>
+              </div>
+              <div class="col-md-5">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>&nbsp;Soft Drinks (JUSC)
+              </div>
             </a>
+          </div>
+          <div class="chartFooter bg-white">
+            <a href="slice.html" id="">
+              <div class="col-md-1 align-right">
+                <span class="align-right">99.7</span>
+              </div>
+              <div class="col-md-5">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>&nbsp;Printing &amp; recording (K37W)
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="chartFooter bg-white">
+            <a href="slice.html" id="">
+              <div class="col-md-1 align-right">
+               <span class="align-right">108.6</span>
+              </div>
+              <div class="col-md-5">
+                <a href="slice.html" id="">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x same"></i>
+                  <i class="fa fa-chevron-right fa-stack-1x fa-inverse"></i>
+                </span>&nbsp;Net sector output (JVZ7)
+                </div>
+              </a>
+            </div>
+            <div class="chartFooter bg-white">
+              
+                <div class="col-md-1 align-right">
+                  <span class="align-right">100.6</span>
+                </div>
+                <div class="col-md-5">
+                <span class="fa-stack ">
+                  <i class="fa fa-circle fa-stack-2x up"></i>
+                  <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                </span>&nbsp;<a href="slice.html" id="">Basic Metals (K385)</a>
+                </div>
+              
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-md-6"><a href="slice.html" id="">
-              <div class="chartFooter bg-white">
-              <span>108.6 <span class="glyphicon glyphicon-chevron-right same smicon">&nbsp;</span> Net sector output (JVZ7)</span>
-            </div>
-            </a>
-            </div>
-            <div class="col-md-6"><a href="slice.html" id="">
-              <div class="chartFooter bg-white">
-              <span>100.6 <span class="glyphicon glyphicon-chevron-up up smicon">&nbsp;</span> Basic Metals (K385)</span>
-            </div>
-            </a>
-            </div>
+          <div class="row shim">
           </div>
 
+
           <div class="row">
+            <div class="col-md-12">
 
             <h4>Summary</h4>
             <p>
@@ -267,6 +341,7 @@
               </a>
               
 
+            </div>
           </div>
 
 
@@ -338,7 +413,7 @@
           <div class="col-md-8 ">
           <div class=" box bg-white">
               <div class="info-block"><!-- BODY BOX-->
-                  <h3><span class="glyphicon glyphicon-info-sign">&nbsp;</span>Release details</h3>
+                  <h3><img id="natstat" src="images/ns.gif" class="pull-left"/>&nbsp;</span>Release details</h3>
                   <div class="row">
                     <div class="col-md-6">
                       <h5 class="text-muted">Release Date</h5>
@@ -357,6 +432,7 @@
                     </div>
                   </div>
               </div>
+
           </div>  
           </div>  
 
@@ -441,13 +517,26 @@ var graph = new Rickshaw.Graph.Ajax( {
     dataURL: 'slice-data.json',
     onData: function(d) { return d },
     onComplete: function(transport) {
-      var graph = transport.graph;      
+
+      var graph = transport.graph;    
+
+       /* 
       var x_axis = new Rickshaw.Graph.Axis.Time( { 
         graph: graph,
       } );
+*/
+
+      var x_axis = new Rickshaw.Graph.Axis.Time( {
+        graph: graph,
+        orientation: 'bottom',
+        element: document.getElementById('x_axis'),
+      } );
+
+
       
       var y_axis = new Rickshaw.Graph.Axis.Y( {
               graph: graph,
+              orientation: 'left',
               element: document.getElementById('y_axis'),
       } );
       
@@ -465,10 +554,13 @@ var graph = new Rickshaw.Graph.Ajax( {
     },
     element: document.querySelector("#chart"), 
     renderer: 'line',
-    width: 700, 
+    width: 600, 
     height: 400, 
+      left:10,
     padding: {
       top: 0.1
+      ,left:0.06
+      ,right:0.06
     },
     series: [{
         name: 'Price Index',
@@ -481,6 +573,9 @@ var graph = new Rickshaw.Graph.Ajax( {
     <script type="text/javascript">
       $('.label').tooltip();
     </script>
+
+        <!-- app -->
+    <script src="js/alpha.js"></script>
 </body>
 </html>
 
