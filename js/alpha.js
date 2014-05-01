@@ -16,6 +16,6 @@ $(document).ready(function() {
         $(this).parent('li').toggleClass('active');
       });
 
-      //var ann = Annotator(document.body);
-      //ann.setupPlugins()
+
+
 });
