@@ -9,7 +9,8 @@ var series = (function(){
 
   var DOWNLOAD_URL = "http://www.ons.gov.uk/ons/datasets-and-tables/downloads/";
 
-  var DATA_URL = "list.php";
+ // var DATA_URL = "list.php";
+  var DATA_URL = "series-sample.json";
 
   var CHECK_URL = "http://local/cdid/check.php";
   var downloadPath;
