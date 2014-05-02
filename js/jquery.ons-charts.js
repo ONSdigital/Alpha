@@ -66,6 +66,7 @@
           this.instance.chartWrap = $('<div class="ons-chart-wrap"><svg viewBox="0 0 '+this.settings.base_size.x+' '+this.settings.base_size.y+'" preserveAspectRatio="xMinYMin meet" id="'+this.instance.rid+'"></svg></div>');
           $table.after(this.instance.chartWrap);
           this.instance.svg = Snap("#"+this.instance.rid);
+          
         },
         addWrapperPadding: function() {
           // Works out what padding to give the wrapper Div to enable responsive SVGs. http://demosthenes.info/blog/744/Make-SVG-Responsive
@@ -604,7 +605,7 @@
           };
           
           this.createSVG($table);
-          //this.addWrapperPadding();
+          this.addWrapperPadding();
           
           var that = this;
           
@@ -712,6 +713,20 @@
           });          
 
         },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         lineChartSingleW: function($table) {
           
           this.settings.base_size = {
@@ -725,7 +740,7 @@
           };
 
           this.createSVG($table);
-          //this.addWrapperPadding();
+          this.addWrapperPadding();
           
           var count = $table.find('th').length;
           var jump = this.settings.chart_size.x / count+1;
@@ -845,7 +860,25 @@
             x+=jump;
           });          
 
+
+
         },
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
         calloutLabel: function(copy, x, y, width, that, labelSpace, $table) {
           var hoverSpot = that.instance.svg.circle(
             x, 
