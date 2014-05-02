@@ -1,0 +1,61 @@
+.ons-chart {
+  background-color: white;
+  padding: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; }
+  .ons-chart h1, .ons-chart h2, .ons-chart h3, .ons-chart h4, .ons-chart h5, .ons-chart h6 {
+    line-height: 1.2em;
+    letter-spacing: -0.03em;
+    font-size: 2em;
+    margin-bottom: 0.25em;
+    text-align: center;
+    text-transform: uppercase; }
+  .ons-chart h2, .ons-chart h3, .ons-chart h4, .ons-chart h5, .ons-chart h6 {
+    font-size: 1.3em;
+    margin-bottom: 0.5em; }
+  .ons-chart p {
+    margin: 0 0 1em;
+    letter-spacing: -0.02em;
+    text-align: center; }
+  .ons-chart table {
+    border: 1px solid #dddddd;
+    background: #fafafa;
+    width: 100%;
+    border-spacing: 0;
+    font-size: 0.9em; }
+    .ons-chart table th {
+      text-align: left;
+      border-bottom: 1px solid #dddddd;
+      padding: 3px; }
+    .ons-chart table td {
+      border-bottom: 1px dotted #dddddd;
+      padding: 3px; }
+    .ons-chart table tr:nth-child(even) {
+      background: white; }
+    .ons-chart table tr:last-child td {
+      border-bottom: 0; }
+  .ons-chart .ons-icon {
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 10px auto; }
+
+.ons-chart-wrap {
+  position: relative;
+  width: 100%;
+  vertical-align: middle;
+  overflow: hidden; }
+  .ons-chart-wrap svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+
+@media screen and (max-width: 639px) {
+  .ons-chart {
+    font-size: 13px; }
+    .ons-chart h1, .ons-chart h2, .ons-chart h3, .ons-chart h4, .ons-chart h5, .ons-chart h6, .ons-chart p {
+      text-align: left; } }
