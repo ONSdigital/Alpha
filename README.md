@@ -1,9 +1,14 @@
 Alpha
 =====
 
-HTML wireframe
---------------
+HTML wireframes
+---------------
 
-This initial commit contains a series of basic html pages based on the wireframes.
+This is a series of HTML wireframes to show potential content, navigation and layout for a revised ONS website.
 
-N.B. The charts and images are for illustration purposes.
+All data is for illustrative purposes only.
+
+
+The pages contain appropriate sample content and link to other related wireframes to show a potential path (slice) through the information.
+
+Note that the 'About' link in the top menu contains direct links to all the pages.
