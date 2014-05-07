@@ -1,1048 +1,6466 @@
 {
     "aaData": [
         [
-            "AIHA",
-            "M&A : Domestic : Number of companies acquired",
+            "JTU9",
+            "PPI:0811000000:Ornamental and building stone, limestone gypsum, chalk and slate",
             "NSA",
             "0",
             "NONE",
-            "0",
-            "AM"
+            "2010",
+            "MM22"
         ],
         [
-            "AIHD",
-            "M&A : Domestic : Value of ordinary shares : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "AIHE",
-            "M&A : Domestic : Value of preference & loan stock : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBAQ",
-            "M&A : Outward : Number of acquisitions",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBAS",
-            "M&A : Outward : Number of disposals",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBAU",
-            "M&A : Inward : Number of acquisitions",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBAW",
-            "M&A : Inward : Number of disposals",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBAY",
-            "M&A : Outward : Number of acquisitions in EU : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBAZ",
-            "M&A : Outward : Value of acquisitions in EU : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBA",
-            "M&A : Outward : Number of acquisitions in USA : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBB",
-            "M&A : Outward : Value of acquisitions in USA : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBI",
-            "M&A : Outward : Value of acquisitions : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBJ",
-            "M&A : Outward : Number of disposals in EU : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBK",
-            "M&A : Outward : Value of disposals in EU : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBL",
-            "M&A : Outward : Number of disposals in USA : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBM",
-            "M&A : Outward : Value of disposals in USA : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBT",
-            "M&A : Outward : Value of disposals : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBU",
-            "M&A : Outward : Number of acquisitions - direct transactions : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBV",
-            "M&A : Outward : Value of acquisitions - direct transactions : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBW",
-            "M&A : Outward : Number of acquisitions - indirect funded in UK : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBX",
-            "M&A : Outward : Value of acquisitions - indirect funded in UK : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBY",
-            "M&A : Outward : Number of acquisitions - indirect funded locally : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBBZ",
-            "M&A : Outward : Value of acquisitions - indirect funded locally : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCA",
-            "M&A : Outward : Number of disposals - direct transactions : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCB",
-            "M&A : Outward : Value of disposals - direct transactions : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCC",
-            "M&A : Outward : Number of disposals - indirect funded in UK : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCD",
-            "M&A : Outward : Value of disposals - indirect funded in UK : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCE",
-            "M&A : Outward : Number of disposals - indirect funded locally : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCF",
-            "M&A : Outward : Value of disposals - indirect funded locally : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCG",
-            "M&A : Inward : Number of acquisitions in EU : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCH",
-            "M&A : Inward : Value of acquisitions in EU : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCI",
-            "M&A : Inward : Number of acquisitions in USA : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCJ",
-            "M&A : Inward : Value of acquisitions in USA : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCQ",
-            "M&A : Inward : Value of acquisitions : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCR",
-            "M&A : Inward : Number of disposals in EU : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCS",
-            "M&A : Inward : Value of disposals in EU : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCT",
-            "M&A : Inward : Number of disposals in USA : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBCU",
-            "M&A : Inward : Value of disposals in USA : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBDB",
-            "M&A : Inward : Value of disposals : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBDC",
-            "M&A : Inward : Number of acquisitions - direct transactions : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBDD",
-            "M&A : Inward : Value of acquisitions - direct transactions : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBHZ",
-            "M&A : Inward : Number of acquisitions - indirect by overseas parent : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBIA",
-            "M&A : Inward : Value of acquisitions - indirect by overseas parent : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBIB",
-            "M&A : Inward : Number of acquisitions - indirect funded locally : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBIC",
-            "M&A : Inward : Value of acquisitions - indirect funded locally : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBID",
-            "M&A : Inward : Number of disposals - direct transactions : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBIE",
-            "M&A : Inward : Value of disposals - direct transactions : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBIF",
-            "M&A : Inward : Number of disposals - indirect by overseas parent : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBIG",
-            "M&A : Inward : Value of disposals - indirect by overseas parent : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBIH",
-            "M&A : Inward : Number of disposals - indirect funded locally : Annual",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "CBII",
-            "M&A : Inward : Value of disposals - indirect funded locally : Annual : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "DUCM",
-            "M&A : Domestic : Total expenditure - (Initial plus deferred payments) : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "DWVH",
-            "M&A : Domestic : M&A of independents : number acquired",
+            "JU5C",
+            "1107000000:Soft drinks; mineral waters and other bottled waters",
             "NSA",
             "0",
             "NONE",
-            "0",
-            "AM"
+            "2010",
+            "MM22"
         ],
         [
-            "DWVL",
-            "M&A : Domestic : Sales of subsidiaries between groups : number acquired",
+            "JTV3",
+            "PPI:0811200000:Limestone and gypsum",
             "NSA",
             "0",
             "NONE",
-            "0",
-            "AM"
+            "2010",
+            "MM22"
         ],
         [
-            "DWVW",
-            "M&A : Domestic : Cash expenditure on M&A of independent companies : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "DWVX",
-            "M&A : Domestic : Cash expenditure on M&A of subsidiaries : £m",
-            "NSA",
-            "0",
-            "CURR",
-            "0",
-            "AM"
-        ],
-        [
-            "DWVY",
-            "M&A : Domestic : Percentage of M&A in cash",
+            "JVZ7",
+            "7200700000:Net Sector Output - Output of Manufactured Products",
             "NSA",
             "0",
             "NONE",
-            "0",
-            "AM"
+            "2010",
+            "MM22"
         ],
         [
-            "DWVZ",
-            "M&A : Domestic : Percentage of M&A in ordinary shares",
+            "JTV4",
+            "PPI:0811208000:Limestone and gypsum including aggregate tax",
             "NSA",
             "0",
             "NONE",
-            "0",
-            "AM"
+            "2010",
+            "MM22"
         ],
         [
-            "DWWA",
-            "M&A : Domestic : Percentage of M&A in fixed interest securities",
+            "JVZ8",
+            "7200700010:Net Sector Output - All Manufacturing excluding duty",
             "NSA",
             "0",
             "NONE",
-            "0",
-            "AM"
+            "2010",
+            "MM22"
         ],
         [
-            "HCI7",
-            "Europe Total Inward Acquisitions Number",
+            "JTV7",
+            "PPI:0811400000:Slate",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCI8",
-            "Europe Total Inward Acquisitions Value: £m",
+            "K37L",
+            "7112100000:Food Products",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCI9",
-            "Europe Total Inward Disposals Number",
+            "JTV8",
+            "PPI:0812000000:Gravel, sand, clays and kaolin",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCJ2",
-            "Europe Total Inward Disposals Value: £m",
+            "K37Q",
+            "7112120080:Tobacco Products including duty",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCJ3",
-            "Europe Total Outward Acquisitions Number",
+            "JTV9",
+            "PPI:0812008000:Gravel, sand, clays and kaolin including aggregate tax",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCJ4",
-            "Europe Total Outward Acquisitions Value :£m",
+            "K37R",
+            "7112130000:Textiles",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCJ5",
-            "Europe Total Outward Disposals Number",
+            "JTW2",
+            "PPI:0812110000:Natural sands",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCJ6",
-            "Europe Total Outward Disposals Value :£m",
+            "K37S",
+            "7112140000:Wearing Apparel",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCJ7",
-            "Other Europe Inward Acquisitions Number",
+            "JTX6",
+            "PPI:1011000000:Processed and preserved meat",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCJ8",
-            "Other Europe Inward Acquisitions Value :£m",
+            "K37T",
+            "7112150000:Leather and related products",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCJ9",
-            "Other Europe Inward Disposals Number",
+            "JTX7",
+            "PPI:1011120000:Meat of swine, fresh or chilled",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCK2",
-            "Other Europe Inward Disposals Value :£m",
+            "K37U",
+            "7112160000:Wood, products of wood and cork, except furniture; articles of straw",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCK3",
-            "Other Europe Outward Acquisitions Number",
+            "JTX8",
+            "PPI:1011130000:Meat of sheep, fresh or chilled",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCK4",
-            "Other Europe Outward Acquisitions Value :£m",
+            "K37V",
+            "7112170000:Paper and paper products",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCK5",
-            "Other Europe Outward Disposals Number",
+            "JTX9",
+            "PPI:1011200000:Edible offal of bovine animals, swine, sheep, goats, horses and o",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCK6",
-            "Other Europe Outward Disposals Value :£m",
+            "K37W",
+            "7112180000:Printing and recording services",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCK7",
-            "Other Americas Inward Acquisitions Number",
+            "JTY6",
+            "PPI:1012100000:Meat of poultry, fresh or chilled.",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCK8",
-            "Other Americas Inward Acquisitions Value :£m",
+            "K37Y",
+            "7112190080:Coke and refined petroleum products including duty",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCK9",
-            "Other Americas Inward Disposals Number",
+            "JTY7",
+            "PPI:1012200000:Meat of poultry, frozen",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCL2",
-            "Other Americas Inward Disposals Value :£m",
+            "K37Z",
+            "7112200000:Chemicals and chemical products",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCL3",
-            "Other Americas Outward Acquisitions Number",
+            "JTY9",
+            "PPI:1013000000:Meat and poultry meat products",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCL4",
-            "Other Americas Outward Acquisitions Value :£m",
+            "K382",
+            "7112210000:Basic pharmaceutical products and pharmaceutical preparations",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCL5",
-            "Other Americas Outward Disposals Number",
+            "JTZ2",
+            "PPI:1013110000:Swine meat, cuts, salted, dried or smoked (bacon and ham)",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCL6",
-            "Other Americas Outward Disposals Value :£m",
+            "K383",
+            "7112220000:Rubber and plastics products",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCL7",
-            "Americas Total Inward Acquisitions Number",
+            "JTZ5",
+            "PPI:1013140000:Sausages and similar products of meat, offal or blood",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCL8",
-            "Americas Total Inward Acquisitions Value :£m",
+            "K384",
+            "7112230000:Other non-metallic mineral products",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCL9",
-            "Americas Total Inward Disposals Number",
+            "JTZ6",
+            "PPI:1013150000:Other prepared and preserved meat, meat offal or blood, except pr",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCM2",
-            "Americas Total Inward Disposals Value :£m",
+            "K385",
+            "7112240000:Basic metals",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCM3",
-            "Americas Total Outward Acquisitions Number",
+            "JTZ8",
+            "PPI:1020000000:Processed and preserved fish, crustaceans and molluscs",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCM4",
-            "Americas Total Outward Acquisitions Value :£m",
+            "K386",
+            "7112250000:Fabricated metal products, except machinery and equipment",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCM5",
-            "Americas Total Outward Disposals Number",
+            "JU24",
+            "PPI:1020240000:Fish, including fillets, smoked",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCM6",
-            "Americas Total Outward Disposals Value :£m",
+            "K387",
+            "7112260000:Computer, electronic and optical products",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCM7",
-            "Asia Inward Acquisitions Number",
+            "JU25",
+            "PPI:1020250000:Fish, otherwise prepared or preserved, except prepared fish dishe",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCM8",
-            "Asia Inward Acquisitions Value :£m",
+            "K388",
+            "7112270000:Electrical equipment",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCM9",
-            "Asia Inward Disposals Number",
+            "JU2A",
+            "PPI:1031000000:Processed and preserved potatoes",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCN2",
-            "Asia Inward Disposals Value :£m",
+            "K389",
+            "7112280000:Machinery and equipment nec",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCN3",
-            "Asia Outward Acquisitions Number",
+            "JU2D",
+            "PPI:1031140000:Potatoes prepared or preserved",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCN4",
-            "Asia Outward Acquisitions Value :£m",
+            "K38A",
+            "7112290000:Motor vehicles, trailers and semi-trailers",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCN5",
-            "Asia Outward Disposals Number",
+            "JU2K",
+            "PPI:1039000000:Processed and preserved fruit and vegetables",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCN6",
-            "Asia Ouward Disposals Value :£m",
+            "K38B",
+            "7112300000:Other transport equipment",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCN7",
-            "Australasia & Oceania Inward Acquisitions Number",
+            "JU2L",
+            "PPI:1039110000:Vegetables, frozen",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCN8",
-            "Australasia & Oceania Inward Acquisitions Value :£m",
+            "K38C",
+            "7112310000:Furniture",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCN9",
-            "Australasia & Oceania Inward Disposals Number",
+            "JU2Q",
+            "PPI:1039170000:Other vegetables (except potatoes), preserved otherwise than by v",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCO2",
-            "Australasia & Oceania Inward Disposals Value :£m",
+            "K38D",
+            "7112320000:Other manufactured goods",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCO3",
-            "Australasia & Oceania Outward Acquisitions Number",
+            "JU2R",
+            "PPI:1039180000:Vegetables (except potatoes), fruit, nuts and other edible parts",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCO4",
-            "Australasia & Oceania Outward Acquisitions Value :£m",
+            "K38E",
+            "7112330000:Repair and installation services of machinery and equipment",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCO5",
-            "Australasia & Oceania Outward Disposals Number",
+            "JU37",
+            "PPI:1051000000:Dairy and cheese products",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCO6",
-            "Australasia & Oceania Outward Disposals Value :£m",
+            "K3BI",
+            "7200799000:Net Sector Output - All Manufacturing Excl Food,Beverages and Tobacco",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCO7",
-            "Africa Inward Acquisitions Number",
+            "JU38",
+            "PPI:1051120000:Milk and cream of > 6% fat, not concentrated or sweetened",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCO8",
-            "Africa Inward Acquisitions Value :£m",
+            "K644",
+            "6207000010:NSI: All manufacturing, materials only",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCO9",
-            "Africa Inward Disposals Number",
+            "JU39",
+            "PPI:1051210000:Skimmed milk powder",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCP2",
-            "Africa Inward Disposals Value :£m",
+            "K646",
+            "6207000050: NSI: All manufacturing including CCL",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCP3",
-            "Africa Outward Acquisitions Number",
+            "JU3B",
+            "PPI:1051300000:Butter and dairy spreads",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCP4",
-            "Africa Outward Acquisitions Value :£m",
+            "K647",
+            "6207000060: NSI: Fuel purchased by manufacturing industry including CCL",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCP5",
-            "Africa Outward Disposals Number",
+            "JU3D",
+            "PPI:1051520000:Yoghurt and other fermented or acidified milk or cream",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HCP6",
-            "Africa Outward Disposals Value :£m",
+            "JU3G",
+            "PPI:1052000000:Ice cream",
             "NSA",
             "0",
-            "CURR",
-            "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
         ],
         [
-            "HIKB",
-            "M&A : Domestic : M&A of independents : Total payments : £m",
+            "K655",
+            "6207990050: NSI - Materials & fuels purchased other than FBTP industries, NSA",
+            "NSA",
+            "2010",
+            "CONS",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU3I",
+            "PPI:1061000000:Grain mill products",
             "NSA",
             "0",
-            "CURR",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K658",
+            "6207998950: NSI - All manufacturing excl FBTP (incl CCL) - SA",
+            "SA",
+            "2010",
+            "CONS",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU3K",
+            "PPI:1061120000:Rice, semi- or wholly milled or broken",
+            "NSA",
             "0",
-            "AM"
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K65A",
+            "7111101280:Gross Sector Output - Food Products, Beverages and Tobacco",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU3L",
+            "PPI:1061210000:Wheat or maslin flour",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB4P",
+            "6107213000: GSI (excl. CCL) - Inputs for manufacture of textiles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU3Q",
+            "PPI:1062000000:Starches and starch products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB4Q",
+            "6107217000: GSI (excl. CCL) - Inputs for manufacture of paper/paper products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU3T",
+            "PPI:1071000000:Bread; fresh pastry goods and cakes",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB4R",
+            "6107222000: GSI (excl. CCL) - Inputs for manufacture of rubber/plastic products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU3U",
+            "PPI:1071110000:Fresh bread",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB4S",
+            "6107226000: GSI (excl. CCL) - Inputs for manu of computer, elec & optical prods",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU3V",
+            "PPI:1071120000:Fresh pastry goods and cakes",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB4T",
+            "6107227000: GSI (excl. CCL) - Inputs for manufacture of electrical equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU3W",
+            "PPI:1072110000:Crispbread, rusks, toasted bread and similar toasted products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB4U",
+            "6107228000: GSI (excl. CCL) - Inputs for manufacture of machinery and equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU3X",
+            "PPI:1072120000:Gingerbread and the like; sweet biscuits; waffles and wafers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB4V",
+            "6107229000: GSI (excl. CCL) - Inputs for manufacture of motor vehicles, trailers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU3Y",
+            "PPI:1073000000:Macaroni,noodles,couscous and similar fainaceous products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB4W",
+            "6107232000: GSI (excl. CCL) - Inputs for other manufacturing",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU47",
+            "PPI:1082000000:Cocoa,chocolate and sugar confectionery",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB4X",
+            "6107310230: GSI (excl. CCL) - Inputs for processing & preserving of fish, fruit",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4B",
+            "PPI:1082220000:Chocolate and food preparations containing cocoa (except sweetene",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB4Y",
+            "6107310800: GSI (excl. CCL) - Inputs for manf of other food products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4D",
+            "PPI:1083000000:Processed tea and coffee",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB4Z",
+            "6107323990: GSI (excl. CCL) - Inputs for manf of glass,refractory,clay products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4E",
+            "PPI:1083110000:Coffee, decaffeinated or roasted",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB52",
+            "6107324450: GSI (excl. CCL) - Inputs for manf of other basic metals and casting",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4K",
+            "PPI:1085000000:Prepared meals and dishes",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB53",
+            "6107325990: GSI (excl. CCL) - Inputs for manf of fabricated metal products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4L",
+            "PPI:1085110000:Prepared meals and dishes based on meat, meat offal or blood",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB54",
+            "6107330990: GSI (excl. CCL) - Inputs for manufacture of other transport",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4M",
+            "PPI:1085120000:Prepared meals and dishes based on fish, crustaceans and molluscs",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB55",
+            "6107411016: GSI (excl. CCL) - Inputs for manufacture of alcoholic beverages",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4N",
+            "PPI:1085130000:Prepared meals and dishes based on vegetables",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB56",
+            "6107433990: GSI (excl. CCL) - Inputs for rest of repiar; installation",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4O",
+            "PPI:1085190000:Other prepared dishes and meals (including frozen pizza)",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4Q",
+            "PPI:1089000000:Other food products nec",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC35",
+            "6107110120: GSI Sub-section - Inputs for manf of food products,beverages,toabcco",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4R",
+            "PPI:1089110000:Soups and broths and preparations thereof",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC36",
+            "6107113140: GSI Sub-section - Inputs for manf of textiles and textile products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4U",
+            "PPI:1089190000:Miscellaneous food products n.e.c.",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC39",
+            "6107117180: GSI Sub-section - Inputs for manf of pulp,paper and paper products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4V",
+            "PPI:1091000000:Prepared feeds for farm animals",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3B",
+            "6107120000: GSI Sub-section - Inputs for manf of chemicals, chemical products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU4X",
+            "PPI:1092000000:Prepared pet foods",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3F",
+            "6107124250: GSI Sub-section - Inputs of manf of basic metals and fabricated prod",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU53",
+            "PPI:1103000000:Cider and other fruit wines",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3G",
+            "6107126270: GSI Sub-section - Inputs for manf of computer, elec & optical prods",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU54",
+            "PPI:1103008000:Cider and Other Fruit Wines including duty",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3I",
+            "6107129300: GSI Sub-section - Inputs for manufacture of motor vechicles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU56",
+            "PPI:1105000000:Beer",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3J",
+            "6107131330: GSI Sub-section - Inputs for manf of other manufactured goods n.e.c",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU57",
+            "PPI:1105008000:Beer including duty",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3K",
+            "6107208000: GSI (excl. CCL) - Inputs for extraction of metal ores & other",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3M",
+            "6107212000: GSI (excl. CCL) - Inputs for manufacture of tobacco products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU5E",
+            "PPI:1107190000:Other Non-Alcoholic Beverages",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3N",
+            "6107214000: GSI (excl. CCL) - Inputs for manufacture of wearing apparel",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU5J",
+            "PPI:1310000000:Textile yarn and thread",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3O",
+            "6107215000: GSI (excl. CCL) - Inputs for manf of leather and related products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU5Q",
+            "PPI:1320000000: Woven textiles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3P",
+            "6107216000: GSI (excl. CCL) - Inputs for manf of wood & prods of wood & cork",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU5Z",
+            "PPI:1391000000:Knitted and crocheted fabrics",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3Q",
+            "6107218000: GSI (excl. CCL) - Inputs for printing and recording services",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU64",
+            "PPI:1392000000:Made-up textile articles, except apparel",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3R",
+            "6107219000: GSI (excl. CCL) - Inputs for Manf of coke and refined petroleum prod",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU67",
+            "PPI:1392150000:Curtains (including drapes) and interior blinds; curtain or bed",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3S",
+            "6107221000: GSI (excl. CCL) - Inputs for Manf of basic pharmaceutical prod & pre",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU6A",
+            "PPI:1392240000:Quilts, eiderdowns, cushions, pouffes, pillows, sleeping bags and",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3T",
+            "6107231000: GSI (excl. CCL) - Inputs for Manf of furniture",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU6C",
+            "PPI:1393000000:Carpets and rugs",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3V",
+            "6107310100: GSI (excl. CCL) - Inputs for Manf of preserved meat & meat products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU6F",
+            "PPI:1393130000:Carpets and other textile floor coverings, tufted",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3W",
+            "6107310400: GSI (excl. CCL) - Inputs for Manf of vegetable, animal oils & fats",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU6J",
+            "PPI:1395000000:Non-wovens and articles made from non-wovens, except apparel",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3X",
+            "6107310500: GSI (excl. CCL) - Inputs for Manf of dairy products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU6P",
+            "PPI:1399000000:Other textiles nec",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3Y",
+            "6107310600: GSI (excl. CCL) - Inputs for Manf of grain mill,starches & starch pr",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU6Y",
+            "PPI:1413000000: Other outerwear",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3Z",
+            "6107310700: GSI excl. CCL) - Inputs for Manf of bakery and farinaceous products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU7P",
+            "PPI:1431000000:Knitted and crocheted hosiery",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC42",
+            "6107310900: GSI (excl. CCL) - Inputs for Manf of prepared animal feeds",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU82",
+            "PPI:1520000000:Footwear",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC43",
+            "6107320300: GSI (excl. CCL) - Inputs for Manf of paints,varnishes, printing ink",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU84",
+            "PPI:1520130000:Footwear with uppers of leather other than sports footwear",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC44",
+            "6107320400: GSI (excl. CCL) - Inputs for manf of soaps, cleaning, toilet preps",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU89",
+            "PPI:1610000000:Wood, sawn and planed",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC45",
+            "6107320500: GSI (excl. CCL) - Inputs for Manufacture of other chemical products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU8C",
+            "PPI:1610230000:Wood in chips or particles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC46",
+            "6107323560: GSI (excl. CCL) - Inputs for Manf of cement,lime&plaster; Articles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU8F",
+            "PPI:1621000000:Veneer sheets and wood-based panels",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC47",
+            "6107324130: GSI (ex.CCL) - Inputs for manf of basic iron,steel & alloys",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU8H",
+            "PPI:1621130000:Particle boards and similar boards of wood or other ligneous mate",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC48",
+            "6107325400: GSI (excl. CCL) - Inputs for Manufacture of weapons and ammunition",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU8J",
+            "PPI:1623000000:Other Builders' carpentry and joinery",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC49",
+            "6107330100: GSI (excl. CCL) - Inputs for manufacture of ships and boats",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU8K",
+            "PPI:1623110000:Windows, French windows and their frames, doors and their frames",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC4A",
+            "6107330300: GSI (excl. CCL) - Inputs for manf of air & spacecraft & related mach",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU8L",
+            "PPI:1624110000:Pallets, box pallets and other load boards of wood",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC4D",
+            "6107411070: GSI (excl. CCL) - Inputs for manu of soft drinks; mineral waters",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU8O",
+            "PPI:1629000000:Other products of wood; articles of cork, straw and plaiting mate",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC4E",
+            "6107420910: GSI (excl. CCL) - Inputs for manf of industrial gases; fertilisers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU93",
+            "PPI:1712350000:Testliner (recycled liner board)",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC4F",
+            "6107420920: GSI (excl.CCL) - Inputs for manufacture of petrochemicals",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU98",
+            "PPI:1712730000:Paper and paperboard of a kind used for writing, printing or othe",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC4G",
+            "6107420930: GSI (excl. CCL) - Inputs for manf of dyes and pigments; pesticides",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU9B",
+            "PPI:1721000000:Corrugated paper and paperboard and of containers of paper and pa",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC4H",
+            "6107433150: GSI (excl. CCL) - Inputs for repair & maint services of ships&boats",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU9C",
+            "PPI:1721110000:Corrugated board, in rolls or sheets",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC4I",
+            "PPI: 6107433160: GSI (excl. CCL) - Inputs for repair & maint of air & spacecraft",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU9D",
+            "PPI:1721140000:Folding cartons, boxes and cases, of non-corrugated paper or pape",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU9I",
+            "PPI:1723120000:Envelopes,letter cards,plain postcards and similar of paper/paper",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU9J",
+            "PPI:1723130000:Registers, account books, binders, forms and other articles of st",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU9T",
+            "PPI:1812000000:Other printing services",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU9U",
+            "PPI:1812120000:Printing services for advertising catalogues, prospects, posters",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU9V",
+            "PPI:1812130000:Printing services for journals and periodicals, appearing less th",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JU9Y",
+            "PPI:1813000000:Pre-press and pre-media services",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUA4",
+            "PPI:1820000000:Reproduction services of recorded media",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUA8",
+            "PPI:1920000000: Refined petroleum products - excluding duty",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUB3",
+            "PPI:2012000000:Dyes and pigments",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUB7",
+            "PPI:2013000000:Other inorganic basic chemicals",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUD3",
+            "PPI:2014000000:Other organic basic chemicals",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUF3",
+            "PPI:2015000000:Fertilisers and nitrogen compounds",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUG6",
+            "PPI:2016000000:Plastics in primary forms",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUI2",
+            "PPI:2030000000:Paints, varnishes & similar coatings, printing ink & mastics",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUI4",
+            "PPI:2030120000:Paints & varnishes based on polyesters, acrylic or vinyl polymers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUI6",
+            "PPI:2030220000:Other paints and varnishes; prepared driers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUI8",
+            "PPI:2030240000:Printing ink",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUI9",
+            "PPI:2041000000:Soap and detergents, cleaning and polishing preparations",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUJ7",
+            "PPI:2042000000:Perfumes and toilet preparations",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUK3",
+            "PPI:2042190000:Shaving preparations; personal deodorants and antiperspirants; ba",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUK4",
+            "PPI:2051000000:Explosives",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUK8",
+            "PPI:2052000000:Glues",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUL2",
+            "PPI:2053000000:Essential oils",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUL4",
+            "PPI:2059000000:Other chemical products nec",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUM5",
+            "PPI:2060000000:Man-made fibres",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUM8",
+            "PPI:2110000000:Basic pharmaceutical products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUN2",
+            "PPI:2120000000:Pharmaceutical preparations",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUN4",
+            "PPI:2120130000:Medicaments, containing alkaloids or derivatives thereof, but not",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUN9",
+            "PPI:2219000000:Other rubber products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUO8",
+            "PPI:2219730000:Other articles of vulcanised rubber n.e.c.; hard rubber in all fo",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUO9",
+            "PPI:2221000000:Plastic plates, sheets, tubes and profiles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUP3",
+            "PPI:2221210000:Artificial guts, of hardened proteins or of cellulosic materials;",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUP4",
+            "PPI:2221300000:Plates, sheets, film, foil and strip, of plastics, not supported",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUP5",
+            "PPI:2221410000:Other plates, sheets, film, foil and strip, of plastics, cellular",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUP7",
+            "PPI:2222000000:Plastic packing goods",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUQ2",
+            "PPI:2222140000:Carboys, bottles, flasks and similar articles of plastics",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUQ3",
+            "PPI:2222190000:Other plastic packing goods",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUQ4",
+            "PPI:2223000000:Builders' ware of plastic",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUQ5",
+            "PPI:2223120000:Baths, wash basins, lavatory pans and covers, flushing cisterns a",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUQ7",
+            "PPI:2223190000:Builders' ware of plastics n.e.c.",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUR3",
+            "PPI:2229230000:Tableware, kitchenware, other household articles and toilet artic",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUR6",
+            "PPI:2229290000:Other articles of plastics",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUR7",
+            "PPI:2229910000:Manufacturing services of other plastic products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUS4",
+            "PPI:2312130000:Glass mirrors; multiple walled insulating units of glass",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUS5",
+            "PPI:2313000000:Hollow glass",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUT6",
+            "PPI:2320000000:Refractory products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUV3",
+            "PPI:2344000000:Other technical ceramic products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUV6",
+            "PPI:2351000000:Cement",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUV8",
+            "PPI:2352000000:Lime and plaster",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUW4",
+            "PPI:2361000000:Concrete products for construction purposes",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUW5",
+            "PPI:2361110000:Tiles, flagstones, bricks and similar articles, of cement, concre",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUW6",
+            "PPI:2361120000:Prefabricated structural components for building or civil enginee",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUW8",
+            "PPI:2363000000:Ready-mixed concrete",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUW9",
+            "PPI:2364000000:Mortars",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUX6",
+            "PPI:2369000000:Other articles of concrete, plaster and cement",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUX8",
+            "PPI:2370000000:Cut, shaped and finished stone",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUY4",
+            "PPI:2399000000:Other non-metallic mineral products nec",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUY6",
+            "PPI:2399130000:Bituminous mixtures based on natural and artificial stone materia",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUY8",
+            "PPI:2399190000:Non-metallic mineral products n.e.c.",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JUZ9",
+            "PPI:2420000000:Tubes, pipes, hollow profiles & related fittings, of steel",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV2C",
+            "PPI:2434000000:Cold drawn wire",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV2E",
+            "PPI:2441000000:Precious metals",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV2H",
+            "PPI:2442000000:Aluminium",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV2I",
+            "PPI:2442110000:Aluminium, unwrought",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV2N",
+            "PPI:2443000000:Lead, zinc and tin",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV2R",
+            "PPI:2444000000:Copper",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV2U",
+            "PPI:2444230000:Copper wire",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV33",
+            "PPI:2451000000:Casting services of iron",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV35",
+            "PPI:2451120000:Casting services of spheroidal cast iron",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV3B",
+            "PPI:2453000000:Casting services of light metals",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV3D",
+            "PPI:2511000000:Metal structures and parts of structures",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV3H",
+            "PPI:2521000000:Central heating radiators and boilers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV3K",
+            "PPI:2529000000:Other tanks, reservoirs and containers of metal",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV3U",
+            "PPI:2550000000:Forging, pressing, stamping and roll-forming services of metal; p",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV3X",
+            "PPI:2550130000:Other forming services of metal",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV3Y",
+            "PPI:2561000000:Treatment and coating services of metals",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV3Z",
+            "PPI:2561110000:Metallic coating services of metal",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV45",
+            "PPI:2562000000:Machining services",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV47",
+            "PPI:2572000000:Locks and hinges",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV4B",
+            "PPI:2573000000:Tools",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV4G",
+            "PPI:2591000000:Steel drums and similar containers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV4J",
+            "PPI:2592000000:Light metal packaging",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV4K",
+            "PPI:2592110000:Cans, of iron or steel, to be closed by soldering or crimping, of",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV4T",
+            "PPI:2594000000:Fasteners and screw machine products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV4X",
+            "PPI:2599000000:Other fabricated metal products nec",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV52",
+            "PPI:2611000000: Electronic components",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV57",
+            "PPI:2612000000:Loaded electronic boards",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV5A",
+            "PPI:2620000000:Computers and peripheral equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV5I",
+            "PPI:2620400000:Parts and accessories of computing machines",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV5J",
+            "PPI:2630000000:Communication equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV5N",
+            "PPI:2630500000:Burglar or fire alarms and similar apparatus",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV5O",
+            "PPI:2640000000:Consumer electronics",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV6R",
+            "PPI:2711000000:Electric motors, generators and transformers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV72",
+            "PPI:2712000000:Electricity distribution and control apparatus",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV78",
+            "PPI:2712400000:Parts of electricity distribution or control apparatus",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV7B",
+            "PPI:2731000000:Fibre optic cables",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV7F",
+            "PPI:2732130000:Other electric conductors, for a voltage up to and including 1000",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV7H",
+            "PPI:2733000000:Wiring devices",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV7V",
+            "PPI:2751000000:Electric domestic appliances",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV82",
+            "PPI:2751250000:Electrical instantaneous or storage water heaters and immersion h",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV86",
+            "PPI:2751300000:Parts of electric domestic appliances",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV87",
+            "PPI:2752000000:Non-electric domestic appliances",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV8D",
+            "PPI:2790000000:Other electrical equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV8K",
+            "PPI:2790700000:Electrical signalling, safety or traffic control equipment for ra",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV8L",
+            "PPI:2811000000:Engines and turbines, except aircraft, vehicle and cycle engines",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV8M",
+            "PPI:2811410000:Parts for spark-ignition internal combustion engines, excluding p",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV8N",
+            "PPI:2812000000:Fluid power equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV8R",
+            "PPI:2813000000:Other pumps and compressors",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV8Z",
+            "PPI:2814000000:Other taps and valves",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV94",
+            "PPI:2814130000:Process control valves, gate valves, globe valves and other valve",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV95",
+            "PPI:2815000000:Bearings, gears, gearing and driving elements",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV9F",
+            "PPI:2822000000:Lifting and handling equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV9I",
+            "PPI:2822140000:Derricks; cranes; mobile lifting frames, straddle carriers and wo",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV9M",
+            "PPI:2822180000:Other lifting, handling, loading or unloading machinery",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV9N",
+            "PPI:2822200000:Buckets, shovels, grabs and grips for cranes, excavators and the",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV9O",
+            "PPI:2823000000:Office machinery and equipment (except computers and peripheral e",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV9U",
+            "PPI:2825000000:Non-domestic cooling and ventilation equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JV9W",
+            "PPI:2825130000:Refrigeration and freezing equipment and heat pumps, except house",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVB2",
+            "PPI:2830000000:Agricultural and forestry machinery",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVF4",
+            "PPI:2893000000:Machinery for food, beverage and tobacco processing",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVH4",
+            "PPI:2899000000:Other special-purpose machinery nec",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVH7",
+            "PPI:2910000000:Motor vehicles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVI2",
+            "PPI:2910220000:Vehicles with spark-ignition engine of a cylinder capacity > 1 50",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVI3",
+            "PPI:2910230000:Vehicles with compression-ignition internal combustion piston eng",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVI7",
+            "PPI:2910590000:Special-purpose motor vehicles n.e.c.",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVI8",
+            "PPI:2920100000:Bodies for motor vehicles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVI9",
+            "PPI:2920220000:Trailers and semi-trailers of the caravan type, for housing or ca",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVJ2",
+            "PPI:2920230000:Other trailers and semi-trailers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVJ4",
+            "PPI:2931000000: Electrical & electronic equipment for motor vehicles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVK2",
+            "PPI:2932200000:Safety seat belts, airbags & parts & accessories of bodies",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVK3",
+            "PPI:2932300000:Parts and accessories n.e.c., for motor vehicles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVL7",
+            "PPI:3030990000: Manufacture, repair & installation of air & spacecraft",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVM3",
+            "PPI:3092000000:Bicycles and invalid carriages",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVM9",
+            "PPI:3100000000:Seats and parts thereof; parts of furniture",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVN2",
+            "PPI:3100110000:Seats, primarily with metal frames",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVN8",
+            "PPI:3102000000:Kitchen furniture",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVO2",
+            "PPI:3103000000:Mattresses",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVO4",
+            "PPI:3109000000:Other furniture",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVO5",
+            "PPI:3109120000:Wooden furniture of a kind used in the bedroom, in the dining roo",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVO9",
+            "PPI:3212000000:Jewellery and related articles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVP5",
+            "PPI:3220000000:Musical instruments",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVP8",
+            "PPI:3230000000:Sports goods",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVQ4",
+            "PPI:3240000000:Games and toys",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVQ6",
+            "PPI:3250000000:Medical and dental instruments and supplies",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVQ8",
+            "PPI:3250130000:Syringes, needles, catheters, cannulae and the like; ophthalmic a",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVR8",
+            "PPI:3299000000:Other manufactured goods nec",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVT2",
+            "PPI:3312000000:Repair services of machinery",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVU7",
+            "PPI:3316000000:Repair and maintenance services of aircraft and spacecraft",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVU9",
+            "PPI:3317000000:Repair and maintenance services of other transport equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JVV4",
+            "PPI:3320000000:Installation services of industrial machinery and equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY4K",
+            "PPI:0101100100:Processed and preserved meat - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY4N",
+            "PPI:0102000100:Processed and preserved fish, crustaceans and molluscs - EU Expor",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY4W",
+            "PPI:0105100100:Dairy and cheese products - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY57",
+            "PPI:0106100100:Grain mill products - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY58",
+            "PPI:0106100200:Grain mill products - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY5D",
+            "PPI:0107100100:Bread; fresh pastry goods and cakes - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY5I",
+            "PPI:0107200100:Rusks and biscuits; preserved pastry goods and cakes - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY5J",
+            "PPI:0107200200:Rusks and biscuits; preserved pastry goods and cakes - Non EU Exp",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY5U",
+            "PPI:0108400100:Condiments and seasonings - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY62",
+            "PPI:0108900100:Other food products nec - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY6N",
+            "PPI:0131000200:Textile yarn and thread - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY6U",
+            "PPI:0132000100:Woven textiles - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY6V",
+            "PPI:0132000200:Woven textiles - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY74",
+            "PPI:0139600100:Other technical and industrial textiles - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY75",
+            "PPI:0139600200:Other technical and industrial textiles - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY7H",
+            "PPI:0141300100:Other outerwear - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY7V",
+            "PPI:0141900100:Other wearing apparel and accessories nec - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY8A",
+            "PPI:0152000200:Footwear - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY8J",
+            "PPI:0171200100:Paper and paperboard - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY8K",
+            "PPI:0171200200:Paper and paperboard - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY8S",
+            "PPI:0172100100:Corrugated paper and paperboard and of containers of paper and pa",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY8T",
+            "PPI:0172100200:Corrugated paper and paperboard and of containers of paper and pa",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY99",
+            "PPI:0172900100:Other articles of paper and paperboard - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY9J",
+            "PPI:0201200100:Dyes and pigments - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY9K",
+            "PPI:0201200200:Dyes and pigments - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JY9V",
+            "PPI:0201400100:Other organic basic chemicals - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYC6",
+            "PPI:0201600100:Plastics in primary forms - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYC7",
+            "PPI:0201600200:Plastics in primary forms - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYE3",
+            "PPI:0203000100:Paints, varnishes and similar coatings, printing ink and mastics",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYE4",
+            "PPI:0203000200:Paints, varnishes and similar coatings, printing ink and mastics",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYF2",
+            "PPI:0204100100:Soap and detergents, cleaning and polishing preparations - EU Exp",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYG3",
+            "PPI:0204200100:Perfumes and toilet preparations - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYG4",
+            "PPI:0204200200:Perfumes and toilet preparations - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYI3",
+            "PPI:0205200100:Glues - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYI4",
+            "PPI:0205200200:Glues - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYI7",
+            "PPI:0205300100:Essential oils - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYI8",
+            "PPI:0205300200:Essential oils - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYJ3",
+            "PPI:0205900100:Other chemical products nec - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYJ4",
+            "PPI:0205900200:Other chemical products nec - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYM8",
+            "PPI:0212000200:Pharmaceutical preparations - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYO3",
+            "PPI:0221900100:Other rubber products - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYO4",
+            "PPI:0221900200:Other rubber products - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYO9",
+            "PPI:0222100100:Plastic plates, sheets, tubes and profiles - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYP2",
+            "PPI:0222100200:Plastic plates, sheets, tubes and profiles - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYQ6",
+            "PPI:0222200100:Plastic packing goods - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYQ7",
+            "PPI:0222200200:Plastic packing goods - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYS7",
+            "PPI:0222900100:Other plastic products - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYS8",
+            "PPI:0222900200:Other plastic products - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYT7",
+            "PPI:0231400100:Glass fibres - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYT8",
+            "PPI:0231400200:Glass fibres - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYU7",
+            "PPI:0232000100:Refractory products - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYU8",
+            "PPI:0232000200:Refractory products - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYV3",
+            "PPI:0234100100:Ceramic household and ornamental articles - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYV4",
+            "PPI:0234100200:Ceramic household and ornamental articles - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYW7",
+            "PPI:0239900100:Other non-metallic mineral products nec - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JYY6",
+            "PPI:0242000100:Tubes, pipes, hollow profiles and related fittings, of steel - EU",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ2I",
+            "PPI:0244200200:Aluminium - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ2R",
+            "PPI:0244400200:Copper - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ35",
+            "PPI:0251100100:Metal structures and parts of structures - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ3D",
+            "PPI:0251200200:Doors and windows of metal - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ3I",
+            "PPI:0252900100:Other tanks, reservoirs and containers of metal - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ3Z",
+            "PPI:0257300100:Tools - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ42",
+            "PPI:0257300200:Tools - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ4F",
+            "PPI:0259200100:Light metal packaging - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ4G",
+            "PPI:0259200200:Light metal packaging - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ4L",
+            "PPI:0259300100:Wire products, chain and springs - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ4M",
+            "PPI:0259300200:Wire products, chain and springs - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ4T",
+            "PPI:0259400100:Fasteners and screw machine products - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ4U",
+            "PPI:0259400200:Fasteners and screw machine products - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ53",
+            "PPI:0259900100:Other fabricated metal products nec - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ54",
+            "PPI:0259900200:Other fabricated metal products nec - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ5C",
+            "PPI:0261100200:Electronic components - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ5H",
+            "PPI:0262000100:Computers and peripheral equipment - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ5Q",
+            "PPI:0264000100:Consumer electronics - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ5R",
+            "PPI:0264000200:Consumer electronics - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ5X",
+            "PPI:0265100100:Measuring, testing and navigating equipment - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ5Y",
+            "PPI:0265100200:Measuring, testing and navigating equipment - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ6U",
+            "PPI:0266000100:Irradiation, electromedical and electrotherapeutic equipment - EU",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ6V",
+            "PPI:0266000200:Irradiation, electromedical and electrotherapeutic equipment - No",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ76",
+            "PPI:0271100100:Electric motors, generators and transformers - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ77",
+            "PPI:0271100200:Electric motors, generators and transformers - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ7K",
+            "PPI:0271200100:Electricity distribution and control apparatus - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ7L",
+            "PPI:0271200200:Electricity distribution and control apparatus - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ86",
+            "PPI:0273300200:Wiring devices - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ8B",
+            "PPI:0274000100:Electric lighting equipment - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ8C",
+            "PPI:0274000200:Electric lighting equipment - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ8I",
+            "PPI:0275100200:Electric domestic appliances - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ8M",
+            "PPI:0279000100:Other electrical equipment - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ8N",
+            "PPI:0279000200:Other electrical equipment - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ8V",
+            "PPI:0281100100:Engines and turbines, except aircraft, vehicle and cycle engines",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ8W",
+            "PPI:0281100200:Engines and turbines, except aircraft, vehicle and cycle engines",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ98",
+            "PPI:0281200100:Fluid power equipment - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ9E",
+            "PPI:0281300100:Other pumps and compressors - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ9F",
+            "PPI:0281300200:Other pumps and compressors - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ9S",
+            "PPI:0281400100:Other taps and valves - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZ9T",
+            "PPI:0281400200:Other taps and valves - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZA3",
+            "PPI:0281500100:Bearings, gears, gearing and driving elements - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZA4",
+            "PPI:0281500200:Bearings, gears, gearing and driving elements - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZC3",
+            "PPI:0282200100:Lifting and handling equipment - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZC4",
+            "PPI:0282200200:Lifting and handling equipment - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZD5",
+            "PPI:0282500100:Non-domestic cooling and ventilation equipment - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZD6",
+            "PPI:0282500200:Non-domestic cooling and ventilation equipment - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZE2",
+            "PPI:0282900100:Other general-purpose machinery n.e.c. - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZE3",
+            "PPI:0282900200:Other general-purpose machinery n.e.c. - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZG9",
+            "PPI:0284100100:Metal forming machinery - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZH2",
+            "PPI:0284100200:Metal forming machinery - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZH9",
+            "PPI:0284900100:Machine tools nec - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZI2",
+            "PPI:0284900200:Machine tools nec - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZI6",
+            "PPI:0289100200:Machinery for metallurgy - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZI9",
+            "PPI:0289200100:Machinery for mining, quarrying and construction - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZJ2",
+            "PPI:0289200200:Machinery for mining, quarrying and construction - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZK4",
+            "PPI:0289300100:Machinery for food, beverage and tobacco processing - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZK5",
+            "PPI:0289300200:Machinery for food, beverage and tobacco processing - Non EU Expo",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZL2",
+            "PPI:0289400200:Machinery for textile, apparel and leather production - Non EU Ex",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZL6",
+            "PPI:0289500200:Machinery for paper and paperboard production - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZM2",
+            "PPI:0289900100:Other special-purpose machinery nec - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZM3",
+            "PPI:0289900200:Other special-purpose machinery nec - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZO4",
+            "PPI:0292000100:Bodies (coachwork) for motor vehicles; trailers and semi-trailers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZO5",
+            "PPI:0292000200:Bodies (coachwork) for motor vehicles; trailers and semi-trailers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZP3",
+            "PPI:0293100100:Electrical and electronic equipment for motor vehicles - EU Expor",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZP4",
+            "PPI:0293100200:Electrical and electronic equipment for motor vehicles - Non EU E",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZR6",
+            "PPI:0309100200:Motorcycles - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZS8",
+            "PPI:0310000100:Seats and parts thereof; parts of furniture - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZS9",
+            "PPI:0310000200:Seats and parts thereof; parts of furniture - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZT8",
+            "PPI:0310100100:Office and shop furniture - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZU8",
+            "PPI:0310900100:Other furniture - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZU9",
+            "PPI:0310900200:Other furniture - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZV6",
+            "PPI:0323000100:Sports goods - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZV7",
+            "PPI:0323000200:Sports goods - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZW4",
+            "PPI:0324000100:Games and toys - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZW8",
+            "PPI:0325000100:Medical and dental instruments and supplies - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZW9",
+            "PPI:0325000200:Medical and dental instruments and supplies - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZY2",
+            "PPI:0329900100:Other manufactured goods nec - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZY3",
+            "PPI:0329900200:Other manufactured goods nec - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "JZZ9",
+            "PPI:0700700000:Total Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2V6",
+            "PPI:0700700100:Total EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2V7",
+            "PPI:0700700200:Total Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2V8",
+            "PPI:0811008000:Ornamental and building stone, limestone, gypsum, chalk and slate",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2V9",
+            "PPI:0811120000: Granite, sandstone & other ornamental or building stone",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2VB",
+            "PPI:1011110000:Meat of bovine animals, fresh or chilled",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2VE",
+            "PPI:1011600000:Raw offal, inedible",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2VF",
+            "PPI:1012000000:Processed and preserved poultry meat",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2VJ",
+            "PPI:1032000000:Fruit and vegetable juices",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2VM",
+            "PPI:1039250000:Other prepared or preserved fruits",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2VR",
+            "PPI:1051110000:Processed liquid milk",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2VS",
+            "PPI:1051400000:Cheese and curd",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2VU",
+            "PPI:1061240000:Mixes for preparation of bakers' wares",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2VV",
+            "PPI:1061330000:Breakfast cereals and other cereal grain products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2VX",
+            "PPI:1072000000:Rusks and biscuits; preserved pastry goods and cakes",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2VY",
+            "PPI:1072190000:Other dry or preserved bakers' wares",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2W2",
+            "PPI:1082230000:Sugar confectionery (including white chocolate), not containing c",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2W3",
+            "PPI:1083130000:Green tea (not fermented), black tea (fermented) and partly ferme",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2W4",
+            "PPI:1084000000:Condiments and seasonings",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2W5",
+            "PPI:1085140000:Prepared meals and dishes based on pasta",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2WF",
+            "PPI:1330000000:Textile finishing services",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2WK",
+            "PPI:1396000000:Other technical and industrial textiles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2WR",
+            "PPI:1419000000:Other wearing apparel and accessories nec",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2WS",
+            "PPI:1439000000:Other knitted and crocheted apparel",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2X2",
+            "PPI:1623190000:Builders' joinery and carpentry, of wood, n.e.c.",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2X3",
+            "PPI:1623200000:Prefabricated wooden buildings",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2X4",
+            "PPI:1624000000:Wooden containers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2X6",
+            "PPI:1712420000:Sulphite wrapping paper and other uncoated paper (other than that",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2X7",
+            "PPI:1712770000:Paper, paperboard, cellulose wadding and webs of cellulose fibres",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2X9",
+            "PPI:1721130000:Cartons, boxes and cases, of corrugated board or corrugated",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2XA",
+            "PPI:1722000000:Household and sanitary goods and toilet requisites",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2XB",
+            "PPI:1722110000:Toilet paper, handkerchiefs, cleansing or facial tissues/towels,s",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2XC",
+            "PPI:1812140000:Printing services for books, maps, hydrographic or similar charts",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2XD",
+            "PPI:1813300000:Ancillary services related to printing",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2XF",
+            "PPI:1820100000:Reproduction services of sound recording",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2XH",
+            "PPI:1920008000: Refined petroleum products, including duty",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2XO",
+            "PPI:1920268000: Diesel and gas oil - including duty",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2Y2",
+            "PPI:2041320000:Detergents and washing preparations",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2YD",
+            "PPI:2211000000:Rubber tyres and tubes; retreading and rebuilding of rubber tyres",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2YG",
+            "PPI:2222110000:Sacks and bags (inc cones), of polymers of ethylene",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2YI",
+            "PPI:2223140000:Doors, windows and frames and thresholds for doors; shutters, bli",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2YJ",
+            "PPI:2229000000:Other plastic products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2YL",
+            "PPI:2312000000:Shaped and processed flat glass",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2YO",
+            "PPI:2332110000:Non-refractory ceramic building bricks, flooring blocks, support",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2YW",
+            "PPI:2391000000:Abrasive products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2YZ",
+            "PPI:2410000000:Basic iron and steel and of ferro-alloys",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2Z3",
+            "PPI:2433000000:Cold formed or folded products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2Z9",
+            "PPI:2445000000:Other non-ferrous metal",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2ZD",
+            "PPI:2512000000:Doors and windows of metal",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2ZF",
+            "PPI:2530000000:Steam generators, except central heating hot water boilers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2ZG",
+            "PPI:2540000000:Weapons and ammunition",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2ZH",
+            "PPI:2540990000: Manufacture, repair & installation of weapons & ammunition",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2ZI",
+            "PPI:2571000000:Cutlery",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2ZO",
+            "PPI:2593000000:Wire products, chain and springs",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2ZQ",
+            "PPI:2599120000:Table, kitchen or household articles and parts thereof, of iron,",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K2ZT",
+            "PPI:2599290000:Other articles of base metal n.e.c.",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K325",
+            "PPI:2660000000:Irradiation, electromedical and electrotherapeutic equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K32D",
+            "PPI:2720000000:Batteries and accumulators",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K32F",
+            "PPI:2732000000:Other electronic and electric wires and cables",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K32G",
+            "PPI:2740000000:Electric lighting equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K32I",
+            "PPI:2740390000:Other lamps and lighting fittings n.e.c.",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K32O",
+            "PPI:2790520000:Other fixed capacitors",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K334",
+            "PPI:2829000000:Other general-purpose machinery n.e.c.",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K33E",
+            "PPI:2892000000:Machinery for mining, quarrying and construction",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K33K",
+            "PPI:2896000000:Plastics and rubber machinery",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K33Q",
+            "PPI:2920000000:Bodies (coachwork) for motor vehicles; trailers and semi-trailers",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K33S",
+            "PPI:2932000000:Other parts and accessories for motor vehicles",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K33U",
+            "PPI:3020000000:Railway locomotives and rolling stock",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K33V",
+            "PPI:3030000000:Air and spacecraft and related machinery",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K33Z",
+            "PPI:3100120000:Seats, primarily with wooden frames",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K342",
+            "PPI:3101000000:Office and shop furniture",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K344",
+            "PPI:3109110000:Metal furniture n.e.c",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K34A",
+            "PPI:3291000000:Brooms and brushes",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K34G",
+            "PPI:3313000000:Repair services of electronic and optical equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K34H",
+            "PPI:3315000000:Repair and maintenance services of ships and boats",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K34K",
+            "PPI:3320600000:Installation services of industrial process control equipment",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K36V",
+            "PPI:7100700000:Gross Sector Output - Output of All Manufactured Products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K36X",
+            "PPI:7100799000:Gross Sector Output Manufactured Products excluding Food,",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K374",
+            "PPI:7111131400:Textiles and Textile Products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K37J",
+            "PPI:7112080000:Other Mining and Quarrying products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K37P",
+            "PPI:7112120000:Tobacco Products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K37X",
+            "PPI:7112190000:Coke and refined petroleum products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K38L",
+            "PPI:7113104000:Vegetable and animal oils and fats",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K38V",
+            "PPI:7113119900:Gross Sector Output - AlcoholicBeverages excluding duty",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K38W",
+            "PPI:7113119980:Gross Sector Output - Alcoholic Beverage s including duty",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3AW",
+            "PPI:7113284000:Metal forming machinery and machine tools",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3B3",
+            "PPI:7113301000:Ships and boats",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3F7",
+            "PPI:8100700000:Total Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3F8",
+            "PPI:8100700100:Total EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3F9",
+            "PPI:8100700200:Total Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3FA",
+            "PPI:8101100100:Processed and preserved meat - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3FB",
+            "PPI:8101100200:Processed and preserved meat - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3FY",
+            "PPI:8101300100:Meat and poultry meat products - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3G8",
+            "PPI:8102000100:Processed and preserved fish, crustaceans and molluscs - EU Impor",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3G9",
+            "PPI:8102000200:Processed and preserved fish, crustaceans and molluscs - Non EU",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3GJ",
+            "PPI:8103200100:Fruit and vegetable juices - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3GU",
+            "PPI:8103900200:Processed and preserved fruit and vegetables - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3J6",
+            "PPI:8108300200:Processed tea and coffee - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3K3",
+            "PPI:8110100100:Distilled alcoholic beverages - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3K4",
+            "PPI:8110100200:Distilled alcoholic beverages - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3K8",
+            "PPI:8110200200:Wine from grape - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3KS",
+            "PPI:8112100100:Food Products - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3KT",
+            "PPI:8112100200:Food Products - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3KU",
+            "PPI:8112110100:Beverages - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3KV",
+            "PPI:8112110200:Beverages - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3KY",
+            "PPI:8112130100:Textiles - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3KZ",
+            "PPI:8112130200:Textiles - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3L3",
+            "PPI:8112160100:Wood and products of wood and cork, except furniture; articles of",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3L4",
+            "PPI:8112160200:Wood and products of wood and cork, except furniture; articles of",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3L5",
+            "PPI:8112170100:Paper and paper products - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LA",
+            "PPI:8112200100:Chemicals and chemical products - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LB",
+            "PPI:8112200200:Chemicals and chemical products - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LC",
+            "PPI:8112210100:Basic pharmaceutical products and pharmaceutical preparations - E",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LD",
+            "PPI:8112210200:Basic pharmaceutical products and pharmaceutical preparations - N",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LE",
+            "PPI:8112220100:Rubber and plastics products - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LF",
+            "PPI:8112220200:Rubber and plastics products - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LG",
+            "PPI:8112230100:Other non-metallic mineral products - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LH",
+            "PPI:8112230200:Other non-metallic mineral products - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LI",
+            "PPI:8112240100:Basic metals - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LJ",
+            "PPI:8112240200:Basic metals - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LM",
+            "PPI:8112260100:Computer, electronic and optical products - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LN",
+            "PPI:8112260200:Computer, electronic and optical products - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LO",
+            "PPI:8112270100:Electrical equipment - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LP",
+            "PPI:8112270200:Electrical equipment - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LQ",
+            "PPI:8112280100:Machinery and equipment nec - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LR",
+            "PPI:8112280200:Machinery and equipment nec - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LS",
+            "PPI:8112290100:Motor vehicles, trailers and semi-trailers - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LT",
+            "PPI:8112290200:Motor vehicles, trailers and semi-trailers - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LU",
+            "PPI:8112300100:Other transport equipment - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LV",
+            "PPI:8112300200:Other transport equipment - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LX",
+            "PPI:8112320100:Other manufactured goods - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3LY",
+            "PPI:8112320200:Other manufactured goods - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3M7",
+            "PPI:8131000100:Textile yarn and thread - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3M8",
+            "PPI:8131000200:Textile yarn and thread - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3MQ",
+            "PPI:8132000100:Woven textiles - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3MR",
+            "PPI:8132000200:Woven textiles - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3N6",
+            "PPI:8139100100:Knitted and crocheted fabrics - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3N7",
+            "PPI:8139100200:Knitted and crocheted fabrics - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3NB",
+            "PPI:8139200200:Made-up textile articles, except apparel - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3NQ",
+            "PPI:8139400100:Cordage, rope, twine and netting - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3NR",
+            "PPI:8139400200:Cordage, rope, twine and netting - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3OI",
+            "PPI:8161000100:Wood, sawn and planed - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3OJ",
+            "PPI:8161000200:Wood, sawn and planed - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3OP",
+            "PPI:8162100200:Veneer sheets and wood-based panels - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3OZ",
+            "PPI:8162300100:Other Builders' carpentry and joinery - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3PL",
+            "PPI:8171200100:Paper and paperboard - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3PX",
+            "PPI:8172200100:Household and sanitary goods and toilet requisites - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3PY",
+            "PPI:8172200200:Household and sanitary goods and toilet requisites - Non EU Impor",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3Q6",
+            "PPI:8172300100:Paper stationery - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3Q7",
+            "PPI:8172300200:Paper stationery - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3R6",
+            "PPI:8201300100:Other inorganic basic chemicals - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3R7",
+            "PPI:8201300200:Other inorganic basic chemicals - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3RM",
+            "PPI:8201400100:Other organic basic chemicals - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3RN",
+            "PPI:8201400200:Other organic basic chemicals - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3SK",
+            "PPI:8201600100:Plastics in primary forms - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3SL",
+            "PPI:8201600200:Plastics in primary forms - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3TM",
+            "PPI:8204200100:Perfumes and toilet preparations - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3TN",
+            "PPI:8204200200:Perfumes and toilet preparations - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3U3",
+            "PPI:8205900100:Other chemical products nec - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3U4",
+            "PPI:8205900200:Other chemical products nec - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3UR",
+            "PPI:8211000200:Basic pharmaceutical products - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3UV",
+            "PPI:8212000200:Pharmaceutical preparations - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3V4",
+            "PPI:8221100100:Rubber tyres and tubes; retreading and rebuilding of rubber tyres",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3V5",
+            "PPI:8221100200:Rubber tyres and tubes; retreading and rebuilding of rubber tyres",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3VA",
+            "PPI:8221900100:Other rubber products - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3VB",
+            "PPI:8221900200:Other rubber products - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3VK",
+            "PPI:8222100100:Plastic plates, sheets, tubes and profiles - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3VL",
+            "PPI:8222100200:Plastic plates, sheets, tubes and profiles - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3VU",
+            "PPI:8222900100:Other plastic products - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3VZ",
+            "PPI:8231200100:Shaped and processed flat glass - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3W6",
+            "PPI:8231300100:Hollow glass - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3WB",
+            "PPI:8231400200:Glass fibres - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3WH",
+            "PPI:8233100100:Ceramic tiles and flags - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3WL",
+            "PPI:8234100100:Ceramic household and ornamental articles - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3WM",
+            "PPI:8234100200:Ceramic household and ornamental articles - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3WS",
+            "PPI:8237000100:Cut, shaped and finished stone - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3X5",
+            "PPI:8241000200:Basic iron and steel and of ferro-alloys - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3XN",
+            "PPI:8242000100:Tubes, pipes, hollow profiles and related fittings, of steel - EU",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3XO",
+            "PPI:8242000200:Tubes, pipes, hollow profiles and related fittings, of steel - No",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3YI",
+            "PPI:8244200100:Aluminium - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K3Z4",
+            "PPI:8244400100:Copper - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K42O",
+            "PPI:8263000200:Communication equipment - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K42X",
+            "PPI:8264000100:Consumer electronics - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K42Y",
+            "PPI:8264000200:Consumer electronics - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K43D",
+            "PPI:8265100100:Measuring, testing and navigating equipment - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K43E",
+            "PPI:8265100200:Measuring, testing and navigating equipment - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K44K",
+            "PPI:8271100100:Electric motors, generators and transformers - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K44T",
+            "PPI:8271200100:Electricity distribution and control apparatus - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K452",
+            "PPI:8272000200:Batteries and accumulators - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K45B",
+            "PPI:8273300100:Wiring devices - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K45O",
+            "PPI:8275100100:Electric domestic appliances - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K45P",
+            "PPI:8275100200:Electric domestic appliances - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K467",
+            "PPI:8275200100:Non-electric domestic appliances - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K469",
+            "PPI:8279000100:Other electrical equipment - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K46A",
+            "PPI:8279000200:Other electrical equipment - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K46Q",
+            "PPI:8281300100:Other pumps and compressors - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K46R",
+            "PPI:8281300200:Other pumps and compressors - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K47B",
+            "PPI:8282400100:Power-driven hand tools - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K47H",
+            "PPI:8282500200:Non-domestic cooling and ventilation equipment - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K47Y",
+            "PPI:8283000100:Agricultural and forestry machinery - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K47Z",
+            "PPI:8283000200:Agricultural and forestry machinery - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K48R",
+            "PPI:8284900200:Machine tools nec - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K48U",
+            "PPI:8289200100:Machinery for mining, quarrying and construction - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K48V",
+            "PPI:8289200200:Machinery for mining, quarrying and construction - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K4A6",
+            "PPI:8289900100:Other special-purpose machinery nec - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K4A7",
+            "PPI:8289900200:Other special-purpose machinery nec - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K4B8",
+            "PPI:8293100200:Electrical and electronic equipment for motor vehicles - Non EU I",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K4BE",
+            "PPI:8293200200:Other parts and accessories for motor vehicles - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K4C6",
+            "PPI:8325000100:Medical and dental instruments and supplies - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K4C7",
+            "PPI:8325000200:Medical and dental instruments and supplies - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K5UQ",
+            "PPI:1011390000:Other meat and edible offal, fresh, chilled or frozen",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K5VA",
+            "PPI:2445300000:Other non-ferrous metals and articles thereof: cermets; ash and r",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K653",
+            "6207990010: NSI - Materials purchased other than FBTP industries, NSA",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K656",
+            "6207990060: NSI - Fuel purchased other than FBTP industries, unadjusted",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K6DQ",
+            "PPI:8237000200:Cut, shaped and finished stone - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "K7JJ",
+            "PPI:9123158500:OUTPUT OF MANUF PROD MINUS DIVISION 19 (JVZ7 MINUS DIV 19)",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KNS6",
+            "PPI:3311000000:Repair services of fabricated metal products",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KO5H",
+            "PPI:0103900100:Processed and preserved fruit and vegetables - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KO65",
+            "PPI:0108200100:Cocoa,chocolate and sugar confectionery - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KO66",
+            "PPI:0108200200:Cocoa,chocolate and sugar confectionery - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KO75",
+            "PPI:0139200100:Made-up textile articles, except apparel - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KO7G",
+            "PPI:0139400100:Cordage, rope, twine and netting - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KO7H",
+            "PPI:0139400200:Cordage, rope, twine and netting - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KO7L",
+            "PPI:0139500100:Non-wovens and articles made from non-wovens, except apparel - EU",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KO7M",
+            "PPI:0139500200:Non-wovens and articles made from non-wovens, except apparel - No",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KO85",
+            "PPI:0151200200:Luggage,handbags and the like; saddlery and harness - Non EU Expo",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KO8A",
+            "PPI:0161000200:Wood, sawn and planed - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KO94",
+            "PPI:0172300200:Paper stationery - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KO9C",
+            "PPI:0172900200:Other articles of paper and paperboard - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KOA8",
+            "PPI:0201700100:Synthetic rubber in primary forms - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KOD7",
+            "PPI:0206000200:Man-made fibres - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KOG7",
+            "PPI:0231900200:Other processed glass, including technical glassware - Non EU Exp",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KOJ7",
+            "PPI:0234900200:Other ceramic products - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KON3",
+            "PPI:0239100200:Abrasive products - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KON7",
+            "PPI:0239900200:Other non-metallic mineral products nec - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KPO6",
+            "PPI:8231900200:Other processed glass, including technical glassware - Non EU Imp",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KPP5",
+            "PPI:8232000100:Refractory products - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KPQ5",
+            "PPI:8233200100:Bricks, tiles and construction products, in baked clay - EU Impor",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KPR4",
+            "PPI:8234200200:Ceramic sanitary fixtures - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KPT7",
+            "PPI:8252100100:Central heating radiators and boilers - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KPZ5",
+            "PPI:8275200200:Non-electric domestic appliances - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KQ25",
+            "PPI:8281200100:Fluid power equipment - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KQ2S",
+            "PPI:8281400100:Other taps and valves - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KQ2T",
+            "PPI:8281400200:Other taps and valves - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KQ2Z",
+            "PPI:8281500100:Bearings, gears, gearing and driving elements - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KQ3P",
+            "PPI:8284100200:Metal forming machinery - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KQ4R",
+            "PPI:8322000200:Musical instruments - Non EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KQ56",
+            "PPI:8329900100:Other manufactured goods nec - EU Imports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KV4F",
+            "PPI:0244500200:Other non-ferrous metal - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KV5D",
+            "PPI:0261200100:Loaded electronic boards - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KV5P",
+            "PPI:0267000200:Optical instruments and photographic equipment - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KV67",
+            "PPI:0273200100:Other electronic and electric wires and cables - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KV68",
+            "PPI:0273200200:Other electronic and electric wires and cables - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KV9U",
+            "PPI:0322000200:Musical instruments - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KVA7",
+            "PPI:0329100100:Brooms and brushes - EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "KVA8",
+            "PPI:0329100200:Brooms and brushes - Non EU Exports",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MB4O",
+            "PPI: 6107206070: GSI Groups (excl. CCL) - Purchases of materials and fuels for E",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3L",
+            "PPI: 6107209000: GSI Groups (excl. CCL) - Purchases of materials and fuels for M",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC3U",
+            "PPI: 6107236000: GSI Groups (excl. CCL) - Purchases of materials and fuels for W",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
+        ],
+        [
+            "MC4B",
+            "PPI: 6107335100: GSI Groups (excl. CCL) - Purchases of materials and fuels for E",
+            "NSA",
+            "0",
+            "NONE",
+            "2010",
+            "MM22"
         ]
     ]
 }
