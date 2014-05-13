@@ -634,6 +634,12 @@
           this.settings.min = $table.data('min');
           this.settings.max = $table.data('max');
           this.settings.labelSkip = $table.data('label-skip');
+
+          if( $table.data('colour') ){
+            this.settings.colour = $table.data('colour');
+          }else{
+            this.settings.colour = this.settings.colours[0];
+          }
                     
           // Draw Lines and Legend
           
@@ -665,23 +671,36 @@
           var x = labelSpace;
           var y = 50;
           var polyline = new Array();
-          polyline.push(x);
-          polyline.push(y);
+          //polyline.push(x);
+         // polyline.push(y);
+
+          // calculate the ratio for 1 unit in pixels
+          // eg 1 unit is chart WIDTH(NB!) / range (MIN TO MAX)
+          var ratio = that.settings.chart_size.x / (that.settings.max - that.settings.min) ;
 
           $.each($table.find('td'), function(i, e){
-            x = labelSpace + (that.sanitizeNumber($(e).html()) / that.settings.max) * that.settings.chart_size.x;
+            // take the actual <td> table value and adjust for the minimum
+            var unit = ( that.sanitizeNumber( $(e).html() ) - that.settings.min )
+            // convert units to pixels
+            var pixel = unit * ratio;
+            // finally set yposition in chart
+            x =   labelSpace +  pixel ;
+            //x = labelSpace + (that.sanitizeNumber($(e).html()) / that.settings.max) * that.settings.chart_size.x;
             polyline.push(x);
             polyline.push(y);
             y+=jump;
           });   
           
           polyline.push(labelSpace);
-          polyline.push(y);
+          //polyline.push(y);
 
           var pl = that.instance.svg.polyline(polyline);
           
           pl.attr({
-            'fill': '#0084D1' 
+            'stroke': this.settings.colour ,
+            'strokeWidth': 6,
+            'fill': this.settings.colour ,
+            'fill-opacity' :0
           })
           
           y=70;    
@@ -706,7 +725,13 @@
 
           $.each($table.find('td'), function(i, e){
             if ($(this).data('callout')) {
-              x = labelSpace + (that.sanitizeNumber($(e).html()) / that.settings.max) * that.settings.chart_size.x;
+              // take the actual <td> table value and adjust for the minimum
+              var unit = ( that.sanitizeNumber( $(e).html() ) - that.settings.min )
+              // convert units to pixels
+              var pixel = unit * ratio;
+              // finally set yposition in chart
+              x =   labelSpace +  pixel ;
+             // x = labelSpace + (that.sanitizeNumber($(e).html()) / that.settings.max) * that.settings.chart_size.x;
               that.calloutLabel($(this).data('callout'), x, y, 'auto', that, labelSpace, $table);
             }
             y+=jump;
@@ -750,6 +775,13 @@
           this.settings.min = $table.data('min');
           this.settings.max = $table.data('max');
           this.settings.labelSkip = $table.data('label-skip');
+
+          if( $table.data('colour') ){
+            this.settings.colour = $table.data('colour');
+          }else{
+            this.settings.colour = this.settings.colours[0];
+          }
+
                     
           // Draw Lines and Legend
           
@@ -767,7 +799,7 @@
               //console.log("y pos " + ( (this.settings.max - this.settings.min)- (this.settings.max - this.settings.min) * y) );
               var xPos = 0;
               var yPos = y * this.settings.chart_size.y - 10;
-              var copy = y + ":" + yPos;//(this.settings.max - this.settings.min)- (this.settings.max - this.settings.min) * y +  this.settings.min; // actual text to display
+              var copy = (this.settings.max - this.settings.min)- (this.settings.max - this.settings.min) * y +  this.settings.min; // actual text to display
               var l = that.instance.svg.text(xPos, yPos, copy)
                 .attr({
                   'font-size': '20px',
@@ -795,8 +827,9 @@
           var x = 0;
           var y = this.settings.chart_size.y - origin;
           var polyline = new Array();
-          polyline.push(x);
-          polyline.push(y);
+          // original has a filled polyline : NB also need to set the fill attribut below...
+         // polyline.push(x);
+         // polyline.push(y);
 
           $.each($table.find('td'), function(i, e){
             // calculate the ratio for 1 unit in pixels
@@ -814,13 +847,17 @@
             x+=jump;
           });   
           
-          polyline.push(x-jump);
-          polyline.push(this.settings.chart_size.y - origin);
+          // close the polyline for a filled chart
+         // polyline.push(x-jump);
+         // polyline.push(this.settings.chart_size.y - origin);
 
           var pl = that.instance.svg.polyline(polyline);
           
           pl.attr({
-            'fill': '#0084D1' 
+            'stroke': this.settings.colour ,
+            'strokeWidth': 6,
+            'fill': this.settings.colour ,
+            'fill-opacity' :0
           })
           
           x=0;    
