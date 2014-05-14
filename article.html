@@ -18,7 +18,6 @@
   <link href="css/alpha.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
 
-  <link href="css/rickshaw.css" rel="stylesheet">  
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -505,72 +504,7 @@
 <script src="js/libs/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
-<!-- chart library -->
 
-<!-- D3 CDN -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.2/d3.min.js"></script>
-
-<script src="js/rickshaw.min.js"></script>
-<script src="js/moment.min.js"></script>
-
-<script type="text/javascript">
-var graph = new Rickshaw.Graph.Ajax( {
-
-  dataURL: 'slice-data.json',
-  onData: function(d) { return d },
-  onComplete: function(transport) {
-
-    var graph = transport.graph;    
-
-       /* 
-      var x_axis = new Rickshaw.Graph.Axis.Time( { 
-        graph: graph,
-      } );
-*/
-
-var x_axis = new Rickshaw.Graph.Axis.Time( {
-  graph: graph,
-  orientation: 'bottom',
-  element: document.getElementById('x_axis'),
-} );
-
-
-
-var y_axis = new Rickshaw.Graph.Axis.Y( {
-  graph: graph,
-  orientation: 'left',
-  element: document.getElementById('y_axis'),
-} );
-
-var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-  graph: graph,
-  xFormatter: function(x) { return moment.unix(x).format('MMM YYYY') },
-  formatter: function(series, x, y, formattedX, formattedY, d) {
-    var provisional = (d.value.provisional == 'false' ? '' : '&nbsp;(Provisional)');
-    var content = series.name + ": " + parseInt(y) + '<br>' + provisional;
-    return content;                              
-  }  
-} );
-
-graph.render();
-},
-element: document.querySelector("#chart"), 
-renderer: 'line',
-width: 600, 
-height: 400, 
-left:10,
-padding: {
-  top: 0.1
-  ,left:0.06
-  ,right:0.06
-},
-series: [{
-  name: 'Price Index',
-  color: 'steelblue',
-}]
-} );
-
-</script>  
 
 <script type="text/javascript">
 $('.label').tooltip();
