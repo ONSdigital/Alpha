@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototype: alt.Article</title>
+  
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Yamm styles-->
+  <link href="css/menu.css" rel="stylesheet">
+  <link href="css/demo.css" rel="stylesheet">
+
+  <!-- Alpha -->
+  <link href="css/alpha.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/rickshaw.css" rel="stylesheet">  
+
+
+
+
+<style>
+.rickshaw_legend {
+  width:100%;
+  color: #404040;
+  background-color: #fff;
+  padding-left:30px;
+}
+
+.rickshaw_legend .line {
+    clear: none;
+}
+
+.rickshaw_legend li{
+  float:left;
+}
+
+
+.chart_container {
+        display: inline-block;
+        font-family: "Open Sans";
+}
+#figure1, #figure2, #figure3, #figure4 {
+  margin-top:20px;
+        float: left;
+}
+#legend1, #legend2, #legend3, #legend4 {
+        float: left;
+
+        margin-left: 15px;
+}
+
+
+
+#y_axis1, #y_axis2, #y_axis3, #y_axis4 {
+  margin-top:20px;
+        float: left;
+        padding-left:40px;
+        width: 40px;
+        height:260px;
+
+}
+
+.article .title{
+  font-size:20px;
+
+}
+
+.heading{
+  height:230px;
+
+}
+
+
+  #sidebar.affix-top {
+    position: static;
+  }
+
+  #sidebar.affix {
+    position: fixed;
+    top:10px;
+    width:28.5%;
+  }
+
+
+
+</style>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+    <body>
+
+
+
+
+
+      <div class="container  bg_warning alpha-header">
+        <p class="alpha-header-title">Office for National Statistics
+          <span>Prototype</span>
+        </p>
+        <p class="alpha-header-copy">This is a mock-up of our new website. You should still use the <a href="http://www.ons.gov.uk">current site</a>
+        </p>
+      </div>
+
+      <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid" id="topbar">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html"><img id="logo" src="images/70x140ONScolourlogo.png" class="pull-left"/></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+<!-- 
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="#">Release Calendar</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          -->
+
+          <!--  SEARCH  -->
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search form-control-feedback"></span></button>
+              </form>
+            </li>
+
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
+
+
+
+
+  <!--  MENU BAR  -->
+
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation" id="topmenu">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" data-toggle="collapse" data-target="#one">Business, Industry and Trade</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" data-toggle="collapse" data-target="#two">Economy</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" data-toggle="collapse" data-target="#three">Employment and Labour Market</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" data-toggle="collapse" data-target="#four">People, Population and Community</a>
+        </li>
+
+
+
+        <li><a href="#">Release Calendar</a></li>
+
+        <li class="dropdown menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b> </a>
+          <ul class="dropdown-menu megamenu row">
+            <li class="col-sm-12">
+              <ul>
+                <li class="dropdown-header">Themes</li>
+                <li><a class="" href="index.html">Home</a></li>
+                <li><a class="" href="economy.html">Economy</a></li>
+                <li><a class="" href="inflation.html">Inflation</a></li>
+              </ul>
+            </li>
+
+            <li class="col-sm-12">
+              <ul>
+                <li class="dropdown-header">Bulletin</li>
+                <li><a href="release.html">Release</a></li>
+                <li><a href="slice.html">Slice</a></li>
+                <li><a href="summary.html">Summary</a></li>
+                <li><a href="bulletin.html">Bulletin</a></li>
+                <li><a href="supplementary.html">Supplementary</a></li>
+                <li><a href="observation.html">Observation</a></li>
+              </ul>
+            </li>
+            <li class="col-sm-12">
+              <ul>
+                <li class="dropdown-header">Other</li>
+                <li><a href="article.html">Article</a></li>
+                <li><a href="series.html">Search ID</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+
+    <nav class="navbar navbar-default" role="navigation" id="submenu">
+
+      <ul class="nav navbar-nav collapse" id="one">
+        <li><a href="#" id="">Business</a></li>
+        <li><a href="#" id="">Changes to Business</a></li>
+        <li><a href="#" id="">International Trade</a></li>
+        <li><a href="#" id="">Construction</a></li>
+        <li><a href="#" id="">IT and Internet</a></li>
+        <li><a href="#" id="">Manufacturing and Production</a></li>
+        <li><a href="#" id="">Retail</a></li>
+        <li><a href="#" id="">Tourism</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav collapse" id="two">
+        <li><a href="economy.html" id="">Economic Output</a></li>
+        <li><a href="economy.html" id="">Environmental Accounts</a></li>
+        <li><a href="economy.html" id="">Government</a></li>
+        <li><a href="economy.html" id="">GDP</a></li>
+        <li><a href="economy.html" id="">GVA</a></li>
+        <li><a href="inflation.html" id="">Inflation</a></li>
+        <li><a href="inflation.html" id="">Investments</a></li>
+        <li><a href="inflation.html" id="">National Accounts</a></li>
+        <li><a href="inflation.html" id="">Regional Accounts</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav collapse" id="three">
+        <li><a href="economy.html">People in Work</a></li>
+        <li><a href="economy.html">People not in Work</a></li>
+        <li><a href="inflation.html">Public Sector Personnel</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav collapse" id="four">
+        <li><a href="#" id="">Births, Deaths and Marriages</a></li>
+        <li><a href="#" id="">Crime</a></li>
+        <li><a href="#" id="">Community</a></li>
+        <li><a href="#" id="">Education</a></li>
+        <li><a href="#" id="">Health and Social Care</a></li>
+        <li><a href="#" id="">Housing</a></li>
+        <li><a href="#" id="">Population</a></li>
+
+        <li class="dropdown menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">More&hellip;&nbsp;<b class="caret"></b> </a>
+          <ul class="dropdown-menu megamenu row">
+            <li class="col-sm-12">
+              <ul>
+                <li><a href="#" id="">Cultural Identity</a></li>
+                <li><a href="#" id="">Elections</a></li>
+                <li><a href="#" id="">Household Characteristics</a></li>
+                <li><a href="#" id="">Leisure and Tourism</a></li>
+                <li><a href="#" id="">Personal and Household Finances</a></li>
+                <li><a href="#" id="">Well-being</a></li>
+
+              </ul>
+            </li>
+
+          </ul>
+        </li>
+
+
+
+      </ul>
+
+    </nav>
+  </div>
+
+  <!--  END MENU BAR  -->
+
+  <!--  CHARTS  -->
+  <div class="container article">
+    <div class="row">
+      <div class="col-md-12">
+
+        <h2 class="">Economic Review, May 2014</h2>
+
+      </div>
+    </div>
+
+
+    <div class="col-md-8">
+
+
+      <div class="row">
+        <div class="col-md-12">
+
+
+            <div class="row well heading">
+            <div class="col-md-6">
+              <h4><span class="title"> Series:</span> Economic Review </h4>
+              <h4><span class="title"> Author:</span> Philip Wales </h4>
+              <h4><span class="title"> Date:</span> 02 May 2014 </h4>
+
+            </div>
+            <div class="col-md-6 pull-right">
+                <h5 class="">Contact</h5>
+                <span class="">Philip Wales</span><br/>
+                <span class="">Office of the Chief Economic Adviser</span><br/>
+                <span class=""><a href "mailto:macro@ons.gsi.gov.uk">macro@ons.gsi.gov.uk</a></span><br/>
+                <span class="">Tel. +44 (0) 1633 65 1609 </span><br/>
+            </div>
+            </div>
+
+
+
+
+            <div class="row well">
+              <h4> Abstract </h4>
+              <p>The key economic stories from National Statistics produced over the latest month, painting a coherent picture of the UK economic performance using recent economic data.
+              </p>
+              <p>
+                The preliminary estimate of Gross Domestic Product (GDP) indicated that the UK economy continued to grow in the first three months of 2014. Output grew by 0.8% in Q1 2014, following growth of 0.8% and 0.7% in Q3 and Q4 2013 respectively. Output is now 3.1% higher than the same period a year ago and while GDP remains 0.6% below its pre-downturn peak, the pace of annual growth is now faster than at any point since the onset of the economic downturn. Excluding oil &amp; gas production, Gross Value Added (GVA) in the UK surpassed its pre-downturn peak in Q1 2014.
+              </p>
+              <hr>
+              <p><small><strong>Acknowledgements: </strong>This paper has benefitted from the valuable comments from Kirk Hamilton (Grantham Research Institute on Climate Change and Environment, London School of Economics), colleagues from the Ecosystems Evidence team (Department of Environment, Food and Rural Affairs), Natural Capital Committee Secretariat and members of the Natural Capital Committee, and members of the Natural Capital Steering Group.</small>
+              </p> 
+            </div>
+
+
+
+          <div>
+            <h3><a name = "key-finding">Key Findings </a></h3>
+             <ul>
+              <li>Gross Domestic Product (GDP) grew by 0.8% in the first quarter of 2014. Following growth of 0.8% and 0.7% in Q3 and Q4 2013 respectively, output is now 3.1% higher than the same period a year ago and 0.6% below its pre-downturn peak.</li>
+              <li>The recent moderation of inflation has involved weaker services inflation than at almost any point during the history of the Consumer Price Index (CPI). Excluding the upwards impact of recent changes in university tuition fees, services inflation was just 1.9% in the year to March 2014. CPI inflation excluding education was just 1.4% over the same period.</li>
+              <li>Much of the upwards pressure on prices since 2007 has been driven by household energy costs, and in particular by electricity, gas, other fuels and fuels associated with motor vehicles. Lower price increases in these same categories have contributed to the recent fall in inflation rates. The appreciation of Sterling and a reduction in price pressure abroad is also likely to have contributed to weaker domestic inflation.</li>
+              <li>The recent recovery in the employment rate was led by London, which accounted for as much as 39% of the increase in the employment rate between Q3 2011 and Q4 2012. However, stronger employment rates have subsequently spread across the country, widening the labour market recovery.</li>
+              <li>Stronger self-employment cushioned the fall in the level of employment in each of the regions of Great Britain between 2008 and 2011. However, between 2011 and 2013, much of the recovery in employment is due to a combination of higher numbers of employees and self-employment.</li>
+              <li>While recent analysis of capacity utilisation in the UK economy has suggested that there remains a degree of spare capacity in the labour market (Economic Review - March 2014), the number of vacancies advertised by construction firms has risen sharply in recent months.</li>
+            </ul>          
+          </div>
+
+
+          <div>
+            <h3><a name = "introduction">Introduction</a></h3>
+            <p>The preliminary estimate of Gross Domestic Product (GDP) indicated that the UK economy continued to grow in the first three months of 2014. Output grew by 0.8% in Q1 2014, following growth of 0.8% and 0.7% in Q3 and Q4 2013 respectively. Output is now 3.1% higher than the same period a year ago and while GDP remains 0.6% below its pre-downturn peak, the pace of annual growth is now faster than at any point since the onset of the economic downturn. Excluding oil &amp; gas production, Gross Value Added (GVA) in the UK surpassed its pre-downturn peak in Q1 2014.</p>
+            <p>Against this background of stronger growth, the May edition of the Economic Review examines several trends which underpin the sustainability of the recovery. Firstly, it examines the recent moderation of UK inflation. Following six consecutive months of lower Consumer Prices Index inflation, services inflation is now lower than at almost any point in the history of CPI, notwithstanding upwards pressure from the recent introduction of higher university tuition fees. Examining the goods and services which have contributed to annual price changes since 2007, this edition of the Review finds that household energy and food, drink &amp; tobacco account for much of the changes in inflation over this period. These same products have contributed to the recent moderation of price rises.</p>
+            <p>The reduction of domestic price pressure has come alongside an appreciation in the value of Sterling and a fall in the rates of inflation in many of the UK’s international trading partners. Both of these effects are likely to reduce the price of UK imports. This edition of the Economic Review finds that input prices for manufacturing firms have moved with the exchange rate to differing extents, partly reflecting their relative import intensity and in a manner consistent with lower upwards price pressure from UK imports.</p>
+            <p>Thirdly, this Review examines how the different regions of Great Britain have contributed to the recent strengthening of the labour market. It finds that while the recent recovery in the employment rate appears to have been led by London, more recent increases in the employment rate have arisen as a consequence of a more widespread labour market recovery. Higher self-employment cushioned the fall in employment in many regions between 2008 and 2011.</p>
+            <p>Finally, while recent analysis of capacity utilisation in the UK economy (Economic Review - March 2014) has suggested that there remains a degree of spare capacity in the labour market, the number of vacancies posted by firms has risen to a post-downturn high. Vacancies in the construction industry in particular have risen recently, consistent with firms seeking to recruit more staff to meet growing demand.</p>
+          </div>
+
+          
+          <div>
+            <h3><a name = "preliminary-gdp-estimate">Preliminary GDP estimate </a></h3>
+            <p>The preliminary estimate of Gross Domestic Product (GDP) indicated that the UK economy continued to grow in the first three months of 2014. Following quarter-on-quarter growth of 0.8% and 0.7% in Q3 and Q4 2013 respectively, output grew by a further 0.8% in the first three months of 2014. The UK economy has now grown for five consecutive quarters - the longest run of growth since the onset of the economic downturn in 2008. The sustained nature of recent economic growth has also helped to propel the UK economy to its fastest annual rate of expansion since Q4 2007. GDP is estimated to have been around 3.1% higher in Q1 2014 than in the same period a year earlier, and as a result, the volume of output in the UK is now just 0.6% below its pre-downturn peak.</p>
+            <p>While the recovery of the UK economy continues to gather pace, it has been slow by historical and international standards (An international perspective on the UK - Gross Domestic Product) and the performance of different industries remains strikingly varied. Figure 1 shows the output of each of the main industrial groupings indexed to their respective pre-downturn levels, and indicates that only the services industry has re-attained the level of output it achieved in Q1 2008. Despite a recent recovery in construction - led by strong growth in particular in the building of new homes - output in this industry remains 12.2% below its pre-downturn peak. Output in the production industry - which grew by 0.8% on the quarter and added around 0.1 percentage points to total output growth in Q1 2014 - is relatively little changed since the trough of the economic downturn.</p>
+
+            <h4 class="charttitle">Figure 1: UK output growth, Q1 2008=100, constant prices, seasonally adjusted</h4>
+
+ 
+
+
+<div class="chart_container">
+        <div id="figure1"></div>
+        <div id="y_axis1"></div>
+        <div id="legend1"></div>
+
+</div>
+
+
+            <p>The weakness of output growth in the production industry reflects the performance of its constituent sub-industries, and in particular the pronounced fall in output from mining &amp; quarrying. As Figure 1 highlights, oil &amp; gas production has been a drag on GDP growth over this period. Gross Value Added (GVA) excluding oil &amp; gas output has grown more quickly than GDP - in particular since 2010 - and surpassed its pre-downturn peak in Q1 2014.</p>
+
+            <p>Figure 2 analyses the impact of mining &amp; quarrying output growth on production as a whole by indexing the constituent sub-industries of production to their respective pre-downturn peaks. It shows that while manufacturing and the utilities industries all experienced a fall in output during the downturn, the contraction of mining &amp; quarrying output  was particularly marked. Output from this industry was 35.6% below its pre-downturn peak in Q1 2014, substantially lower than in manufacturing (7.7%), electricity, gas, steam &amp; air conditioning (12.0%) and water &amp; sewerage (2.2% above its pre-downturn peak in Q1 2014). While production output has risen by just 2.5% since Q1 2013, manufacturing output has risen by 3.4% over the same period.</p>
+
+            <h4 class="charttitle">Figure 2: Output growth in the production industries, Q1 2008=100, constant prices, seasonally adjusted</h4>
+
+<div class="chart_container">
+        <div id="figure2"></div>
+        <div id="y_axis2"></div>
+        <div id="legend2"></div>
+
+</div>
+<!-- 
+            <iframe src="http://cf.datawrapper.de/nbEZ8/2/" frameborder="0" allowtransparency="true" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen" width="100%" height="400"></iframe>
+            <div class="shim"></div>
+             -->
+          </div>  
+
+
+          <div>
+            <h3><a name = "inflation">Inflation </a></h3>
+            <p>
+              Despite concerns about the extent of available spare capacity in the UK economy, the recent acceleration of growth has been accompanied by a marked weakening of inflationary pressure. The all-items Consumer Prices Index increased by 1.6% in the year to March - down from 1.9% and 1.7% in January and February respectively and down from 2.8% a year earlier - and the lowest annual rate since October 2009. Figure 3 shows the annual inflation rates for goods and services alongside the growth of the all-item index, between 1989 and 2014 . It suggests that following two peaks of inflation in 2008 and 2011, both goods and services inflation have moderated recently and the current rate of services inflation (2.3%) is weaker than at almost any point during the history of the CPI. This reduction in services inflation is particularly marked given the recent upwards pressure applied by the introduction of higher university tuition fees. Excluding education from the analysis, services inflation was 1.9% in March, while the annual percentage change in the equivalent all-items index was just 1.4%.
+            </p>
+            <h4 class="charttitle">Figure 3: Consumer Prices Index inflation: Annual % change in Goods, Services &amp; All items</h4>
+
+
+<div class="chart_container">
+        <div id="figure3"></div>
+        <div id="y_axis3"></div>
+        <div id="legend3"></div>
+
+</div>
+<!-- 
+            <iframe src="http://cf.datawrapper.de/jSE8e/1/" frameborder="0" allowtransparency="true" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen" width="100%" height="400"></iframe>
+            <div class="shim"></div>
+ -->
+            <p>What factors have driven these recent changes in inflation? Figure 4 shows how a selection of goods and services has contributed to the annual rate of CPI inflation since 2007. It suggests that the primary drivers of higher inflation rates in 2008 were the costs of household energy - including electricity, gas, other household fuels and fuels &amp; lubricants used in transport equipment (primarily petrol and diesel prices) - and price increases in food, drink &amp; tobacco. Combined, these products accounted for around 3.5 percentage points of the 5.2% inflation rate experienced in September 2008. While upwards pressure from these products abated during 2009, they also contributed to the resurgence of inflation during 2011. Since 2010, the rise in prices has become more broad-based, with positive contributions arising from a wide range of different goods and services - represented by the larger contribution of the ‘other’ category.</p>
+            <h4 class="charttitle">Figure 4: Consumer Prices Index inflation (%) and component contributions (percentage points): 2007-present</h4>
+
+
+<div class="chart_container">
+        <div id="figure4"></div>
+        <div id="y_axis4"></div>
+        <div id="legend4"></div>
+
+</div>
+
+            <!-- 
+            <iframe src="http://cf.datawrapper.de/mYCrw/1/" frameborder="0" allowtransparency="true" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen" width="100%" height="400"></iframe>
+            <div class="shim"></div>
+ -->
+
+            <p>The moderation of inflation over the last six months - shown in the shorter bars to the right of Figure 4 - also appears to be partly a result of abating energy costs. On this measure, the contribution of household energy bills to overall CPI inflation has fallen from 0.37 percentage points (pp) in the year to March 2013, to 0.25 pp in January 2014 and actually reduced inflation in March for the first time since October 2009. The contributions of food, drink &amp; tobacco and housing costs have fallen sharply between January 2013 and January 2014 (0.8 pp to 0.4 pp and 0.2 pp to 0.1 pp respectively). Lower price increases in transport &amp; package holidays (and lower prices of air passenger transport in particular), have also helped reduce the overall annual rate of increase.</p>
+            <br/>
+
+            <table class='table table-striped' cellpadding='0' cellspacing='0' border='0'> 
+
+              <tr>
+                <th class='ui-widget-content first'> Period </th>
+                <th> Electricity </th>
+                <th> Gas </th>
+                <th> Fuels &amp; Lubricants </th>
+                <th> Other Fuels </th>
+                <th> Total contribution </th>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> 2007 </td>
+                <td class='ui-widget-content' >0.14</td>
+                <td class='ui-widget-content' >0.13</td>
+                <td class='ui-widget-content' >0.12</td>
+                <td class='ui-widget-content' >0</td>
+                <td class='ui-widget-content' >0.39</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> 2008</td>
+                <td class='ui-widget-content stripe' >0.27</td>
+                <td class='ui-widget-content stripe' >0.31</td>
+                <td class='ui-widget-content stripe' >0.55</td>
+                <td class='ui-widget-content stripe' >0.09</td>
+                <td class='ui-widget-content stripe' >1.21</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> 2009 </td>
+                <td class='ui-widget-content' >0.1</td>
+                <td class='ui-widget-content' >0.25</td>
+                <td class='ui-widget-content' >-0.27</td>
+                <td class='ui-widget-content' >-0.05</td>
+                <td class='ui-widget-content' >0.02</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> 2010</td>
+                <td class='ui-widget-content stripe' >-0.05</td>
+                <td class='ui-widget-content stripe' >-0.14</td>
+                <td class='ui-widget-content stripe' >0.63</td>
+                <td class='ui-widget-content stripe' >0.06</td>
+                <td class='ui-widget-content stripe' >0.51</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> 2011</td>
+                <td class='ui-widget-content' >0.14</td>
+                <td class='ui-widget-content' >0.24</td>
+                <td class='ui-widget-content' >0.61</td>
+                <td class='ui-widget-content' >0.06</td>
+                <td class='ui-widget-content' >1.04</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> 2012</td>
+                <td class='ui-widget-content stripe' >0.11</td>
+                <td class='ui-widget-content stripe' >0.23</td>
+                <td class='ui-widget-content stripe' >0.09</td>
+                <td class='ui-widget-content stripe' >0.01</td>
+                <td class='ui-widget-content stripe' >0.45</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> 2013</td>
+                <td class='ui-widget-content' >0.14</td>
+                <td class='ui-widget-content' >0.23</td>
+                <td class='ui-widget-content' >-0.05</td>
+                <td class='ui-widget-content' >0.01</td>
+                <td class='ui-widget-content' >0.33</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> 2014</td>
+                <td class='ui-widget-content stripe' >0.14</td>
+                <td class='ui-widget-content stripe' >0.16</td>
+                <td class='ui-widget-content stripe' >-0.18</td>
+                <td class='ui-widget-content stripe' >-0.02</td>
+                <td class='ui-widget-content stripe' >0.1</td>
+              </tr>
+            </table> 
+
+
+            <div class="shim"></div>
+
+
+          </div>  
+
+
+          <div>
+
+          </div>  
+
+
+          <div>
+
+          </div>
+
+
+
+        </div>
+      </div><!--  end of row  -->
+
+
+
+    </div>
+
+
+
+    <div class="col-md-4">
+
+      <div class=" well heading">
+
+        <h5>Table of Contents</h5>
+        <ol>
+          <li><a href = "#key-finding">Key Findings</a></li>
+          <li><a href = "#introduction">Introduction</a></li>
+          <li><a href = "#preliminary-gdp-estimate">Preliminary GDP estimate</a></li>
+          <li><a href = "#inflation">Inflation</a></li>
+          <li>International inflation, the exchange rate and producer prices</li>
+          <li>Labour market</li>
+        </ol>
+      </div>
+
+      <div class="well" id="sidebar">
+        <button type="button" class="btn btn-primary btn-block ">
+          <span class="glyphicon glyphicon-download pull-left pad-left">&nbsp;</span>
+          <span class="pull-left">Download as PDF</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-block ">
+          <span class="glyphicon glyphicon-download pull-left pad-left">&nbsp;</span>
+          <span class="pull-left">Download all data</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-block ">
+          <span class="glyphicon glyphicon-download pull-left pad-left">&nbsp;</span>
+          <span class="pull-left">Explore data</span>
+        </button>
+
+        <h5>Explore</h5>
+
+        <div class="form-group">
+          <select class="form-control">
+            <option>Categories</option>
+            <option>National Accounts</option>
+            <option>Labour Market</option>
+            <option>Price Indices</option>
+            <option>Travel and Tourism</option>
+          </select>
+
+          <select class="form-control">
+            <option>Related releases</option>
+            <option>National Accounts</option>
+            <option>Labour Market</option>
+            <option>Price Indices</option>
+            <option>Travel and Tourism</option>
+          </select>
+
+          <select class="form-control">
+            <option>Previous releases</option>
+            <option>National Accounts</option>
+            <option>Labour Market</option>
+            <option>Price Indices</option>
+            <option>Travel and Tourism</option>
+          </select>
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <div class="container shim"></div>
+
+
+
+  <div class = "container">
+    <div class="row">
+
+
+      <div class="col-md-8 ">
+        <div class=" box bg-white">
+          <div class="info-block"><!-- BODY BOX-->
+            <h3><span class="glyphicon glyphicon-cog">&nbsp;</span>References</h3>
+            <div class="row">
+              <div class="col-md-12">
+
+                <p>OECD (2011), <a href="#">How's life? Measuring Well-Being, OECD Publishing, Paris</a></p>
+                <p>OECD (2013), <a href="#">OECD Framework for Statistics on the Distribution of Household Income, Consumption and Wealth</a></p>
+                <p>ONS (2013), <a href="#">United Kingdom National Accounts</a></p>
+                <p>ONS (2013), <a href="#">United Kingdom Economic Account</a></p>
+                <p>Stiglitz et al. (2009), <a href="#">Report by the Commission on the Measurement of Economic Performance and Social Progress</a></p>
+              </div>
+            </div>
+          </div>
+
+        </div>  
+      </div>  
+
+
+
+<!--       <div class="col-md-4 ">
+        <div class=" box bg-white">
+          <div class="info-block">
+            
+
+
+          </div>
+        </div>  
+      </div>   -->
+
+
+    </div>
+  </div>
+
+
+
+  <div class="container shim"></div>
+
+
+
+
+  <!--  FOOTER -->
+  <div class="container footer darkGrey">
+
+   <div class="row">
+    <div class="col-md-4">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="#">Business Transparency</a></li>
+        <li><a href="#">Terms and Conditions</a></li>
+        <li><a href="#">Copyright</a></li>
+        <li><a href="#">Cookies and Privacy</a></li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h3>About ONS</h3>
+      <ul>
+        <li><a href="#">Who we are</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Products and Services</a></li>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Our Offices</a></li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h3>Connect with us</h3>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Youtube</a></li>
+        <li><a href="#">Email subscriptions</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <p class="text-muted">All content is available under the Open Government Licence v2.0 except where otherwise stated</p>
+  </div>
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/libs/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+$('.label').tooltip();
+</script>
+
+
+<!-- app -->
+<script src="js/alpha.js"></script>
+
+
+<!-- chart library -->
+  <!-- D3 CDN -->
+  <script src="js/libs/d3.v3.min.js"></script>
+<!-- <script src="js/libs/d3.layout.min.js"></script> -->
+  <script src="js/rickshaw.min.js"></script>
+  <script src="js/moment.min.js"></script>
+  
+<script>
+var palette = new Rickshaw.Color.Palette();
+
+var graph1 = new Rickshaw.Graph( {
+        element: document.querySelector("#figure1"),
+        width: 640,
+        height: 240,
+        padding: {
+          top: 0.1
+          ,bottom:0.1
+        },
+        renderer: 'line',
+        series: 
+[
+{"name": "Total Production",
+"data": [ {x:1199059200,y:100},{x:1209510000,y:99.0036231884},{x:1217458800,y:97.4637681159},{x:1225411200,y:93.0253623188},{x:1230681600,y:88.4057971014},{x:1241046000,y:88.3152173913},{x:1248994800,y:87.5},{x:1256947200,y:88.134057971},{x:1262217600,y:89.2210144928},{x:1272582000,y:90.7608695652},{x:1280530800,y:90.8514492754},{x:1288479600,y:91.4855072464},{x:1293753600,y:90.4891304348},{x:1304118000,y:89.4927536232},{x:1312066800,y:89.2210144928},{x:1320019200,y:88.768115942},{x:1325289600,y:88.4057971014},{x:1335740400,y:87.5},{x:1343689200,y:87.6811594203},{x:1351641600,y:85.8695652174},{x:1356912000,y:86.231884058},{x:1367276400,y:86.865942029},{x:1375225200,y:87.4094202899},{x:1383177600,y:87.8623188406},{x:1388448000,y:88.4963768116}],
+                        color: palette.color()
+},
+
+{"name": "Mining & Quarrying",
+"data": [ {x:1199059200,y:100},{x:1209510000,y:99.9135695765},{x:1217458800,y:98.2713915298},{x:1225411200,y:94.0363007779},{x:1230681600,y:91.7891097666},{x:1241046000,y:91.3569576491},{x:1248994800,y:85.911840968},{x:1256947200,y:85.2203975799},{x:1262217600,y:87.8133102852},{x:1272582000,y:88.4183232498},{x:1280530800,y:86.2575626621},{x:1288479600,y:83.2324978392},{x:1293753600,y:78.4788245462},{x:1304118000,y:72.6879861711},{x:1312066800,y:71.823681936},{x:1320019200,y:71.477960242},{x:1325289600,y:70.0950734659},{x:1335740400,y:68.1936041487},{x:1343689200,y:68.1936041487},{x:1351641600,y:62.2299049265},{x:1356912000,y:64.9956784788},{x:1367276400,y:66.205704408},{x:1375225200,y:66.4649956785},{x:1383177600,y:65.3414001729},{x:1388448000,y:64.6499567848}],
+                        color: palette.color()
+},
+
+{"name": "Manufacturing",
+"data": [ {x:1199059200,y:100},{x:1209510000,y:98.5494106981},{x:1217458800,y:96.9174977335},{x:1225411200,y:92.1124206709},{x:1230681600,y:86.7633726201},{x:1241046000,y:86.8540344515},{x:1248994800,y:86.6727107888},{x:1256947200,y:87.7606527652},{x:1262217600,y:88.5766092475},{x:1272582000,y:90.3898458749},{x:1280530800,y:91.4777878513},{x:1288479600,y:92.2030825023},{x:1293753600,y:92.384406165},{x:1304118000,y:92.6563916591},{x:1312066800,y:92.2937443336},{x:1320019200,y:91.9310970082},{x:1325289600,y:91.8404351768},{x:1335740400,y:90.661831369},{x:1343689200,y:91.1151405258},{x:1351641600,y:89.3925657298},{x:1356912000,y:89.2112420671},{x:1367276400,y:89.8458748867},{x:1375225200,y:90.4805077063},{x:1383177600,y:91.1151405258},{x:1388448000,y:92.2937443336}],
+                        color: palette.color()
+},
+
+{"name": "Electrical,Gas ",
+"data": [ {x:1199059200,y:100},{x:1209510000,y:101.1764705882},{x:1217458800,y:98.2352941176},{x:1225411200,y:97.1568627451},{x:1230681600,y:94.6078431373},{x:1241046000,y:92.9411764706},{x:1248994800,y:95.0980392157},{x:1256947200,y:94.7058823529},{x:1262217600,y:99.0196078431},{x:1272582000,y:98.6274509804},{x:1280530800,y:94.3137254902},{x:1288479600,y:100.2941176471},{x:1293753600,y:94.6078431373},{x:1304118000,y:91.3725490196},{x:1312066800,y:93.7254901961},{x:1320019200,y:89.5098039216},{x:1325289600,y:89.0196078431},{x:1335740400,y:93.3333333333},{x:1343689200,y:91.2745098039},{x:1351641600,y:94.4117647059},{x:1356912000,y:95.5882352941},{x:1367276400,y:93.6274509804},{x:1375225200,y:88.137254902},{x:1383177600,y:89.7058823529},{x:1388448000,y:87.9411764706}],
+                        color: palette.color()
+},
+
+{"name": "Water supply & sewage",
+"data": [ {x:1199059200,y:100},{x:1209510000,y:99.0187332739},{x:1217458800,y:100.089206066},{x:1225411200,y:95.0044603033},{x:1230681600,y:90.2765388046},{x:1241046000,y:90.1873327386},{x:1248994800,y:90.9009812667},{x:1256947200,y:90.2765388046},{x:1262217600,y:87.9571810883},{x:1272582000,y:89.7413024086},{x:1280530800,y:89.5628902765},{x:1288479600,y:89.5628902765},{x:1293753600,y:92.506690455},{x:1304118000,y:92.952720785},{x:1312066800,y:91.9714540589},{x:1320019200,y:94.0231935772},{x:1325289600,y:93.131132917},{x:1335740400,y:91.7038358608},{x:1343689200,y:92.0606601249},{x:1351641600,y:92.506690455},{x:1356912000,y:91.9714540589},{x:1367276400,y:94.6476360393},{x:1375225200,y:99.3755575379},{x:1383177600,y:100.9812667261},{x:1388448000,y:102.1409455843}],
+                        color: palette.color()
+}
+]
+
+} );
+
+var x_axis = new Rickshaw.Graph.Axis.Time( { graph: graph1 } );
+
+var y_axis = new Rickshaw.Graph.Axis.Y( {
+        graph: graph1,
+        orientation: 'right',
+        tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+        element: document.getElementById('y_axis1'),
+} );
+
+
+
+var legend = new Rickshaw.Graph.Legend( {
+        element: document.querySelector('#legend1'),
+        graph: graph1
+} );
+
+graph1.render();
+
+
+
+
+
+
+var graph2 = new Rickshaw.Graph( {
+        element: document.querySelector("#figure2"),
+        width: 640,
+        height: 240,
+        padding: {
+          top: 0.1
+          ,bottom:0.1
+        },
+        renderer: 'line',
+        min:'auto',
+        series: 
+[
+{name: "Goods",
+data: [ {x:599529600,y:4},{x:602208000,y:4.3},{x:604627200,y:4.3},{x:607302000,y:4.9},{x:609894000,y:4.7},{x:612572400,y:4.7},{x:615164400,y:4.4},{x:617842800,y:4.3},{x:620521200,y:4.4},{x:623113200,y:4.9},{x:625795200,y:4.9},{x:628387200,y:5},{x:631065600,y:5.2},{x:633744000,y:5.3},{x:636163200,y:5.6},{x:638838000,y:5.7},{x:641430000,y:6.3},{x:644108400,y:6.2},{x:646700400,y:6},{x:649378800,y:7.2},{x:652057200,y:7.6},{x:654649200,y:7.5},{x:657331200,y:7},{x:659923200,y:6.5},{x:662601600,y:5.8},{x:665280000,y:5.9},{x:667699200,y:5.6},{x:670377600,y:6.8},{x:672966000,y:6.5},{x:675644400,y:7},{x:678236400,y:6.9},{x:680914800,y:6.3},{x:683593200,y:5.5},{x:686185200,y:5},{x:688867200,y:5.6},{x:691459200,y:5.9},{x:694137600,y:5.6},{x:696816000,y:5.6},{x:699321600,y:5.9},{x:701996400,y:3.8},{x:704588400,y:3.3},{x:707266800,y:2.7},{x:709858800,y:2.5},{x:712537200,y:1.7},{x:715215600,y:1.7},{x:717807600,y:1.7},{x:720489600,y:1.4},{x:723081600,y:1.3},{x:725760000,y:0.8},{x:728438400,y:1.1},{x:730857600,y:1.2},{x:733532400,y:1.1},{x:736124400,y:1.3},{x:738802800,y:1.2},{x:741394800,y:1.4},{x:744073200,y:1.8},{x:746751600,y:2.1},{x:749343600,y:1.5},{x:752025600,y:0.9},{x:754617600,y:1.2},{x:757296000,y:1.8},{x:759974400,y:1.6},{x:762393600,y:1.3},{x:765068400,y:1.3},{x:767660400,y:1.2},{x:770338800,y:1.2},{x:772930800,y:0.9},{x:775609200,y:1.2},{x:778287600,y:0.8},{x:780879600,y:0.8},{x:783561600,y:1.3},{x:786153600,y:1.5},{x:788832000,y:2},{x:791510400,y:2},{x:793929600,y:2.1},{x:796604400,y:1.8},{x:799196400,y:2},{x:801874800,y:2.1},{x:804466800,y:2.3},{x:807145200,y:2.2},{x:809823600,y:2.7},{x:812415600,y:2.5},{x:815097600,y:2.4},{x:817689600,y:2.8},{x:820368000,y:2.3},{x:823046400,y:2.4},{x:825552000,y:2.3},{x:828230400,y:2.3},{x:830818800,y:2},{x:833497200,y:2},{x:836089200,y:1.7},{x:838767600,y:1.7},{x:841446000,y:1.7},{x:844038000,y:2.1},{x:846720000,y:2.1},{x:849312000,y:1.6},{x:851990400,y:1.3},{x:854668800,y:0.9},{x:857088000,y:0.6},{x:859762800,y:0.4},{x:862354800,y:0.4},{x:865033200,y:0.6},{x:867625200,y:1.1},{x:870303600,y:1},{x:872982000,y:0.8},{x:875574000,y:0.7},{x:878256000,y:0.8},{x:880848000,y:0.5},{x:883526400,y:0.2},{x:886204800,y:0.4},{x:888624000,y:0.4},{x:891298800,y:0.7},{x:893890800,y:1},{x:896569200,y:0.5},{x:899161200,y:0.2},{x:901839600,y:0},{x:904518000,y:0.1},{x:907110000,y:0.1},{x:909792000,y:0.1},{x:912384000,y:0.4},{x:915062400,y:0.4},{x:917740800,y:0.2},{x:920160000,y:0.6},{x:922834800,y:0.4},{x:925426800,y:0.1},{x:928105200,y:0.1},{x:930697200,y:0},{x:933375600,y:-0.1},{x:936054000,y:-0.1},{x:938646000,y:-0.2},{x:941324400,y:-0.1},{x:943920000,y:-0.2},{x:946598400,y:-0.8},{x:949276800,y:-0.6},{x:951782400,y:-1.1},{x:954457200,y:-0.9},{x:957049200,y:-1},{x:959727600,y:-0.6},{x:962319600,y:-0.7},{x:964998000,y:-1.2},{x:967676400,y:-0.7},{x:970268400,y:-0.7},{x:972950400,y:-0.5},{x:975542400,y:-1},{x:978220800,y:-1},{x:980899200,y:-1},{x:983318400,y:-0.8},{x:985993200,y:-1},{x:988585200,y:-0.2},{x:991263600,y:-0.2},{x:993855600,y:-0.9},{x:996534000,y:-0.4},{x:999212400,y:-0.7},{x:1001804400,y:-0.8},{x:1004486400,y:-1.4},{x:1007078400,y:-1.2},{x:1009756800,y:-0.2},{x:1012435200,y:-0.5},{x:1014854400,y:-0.6},{x:1017532800,y:-0.8},{x:1020121200,y:-1.7},{x:1022799600,y:-2.3},{x:1025391600,y:-1.5},{x:1028070000,y:-1.7},{x:1030748400,y:-1.5},{x:1033340400,y:-1.2},{x:1036022400,y:-0.9},{x:1038614400,y:-1.2},{x:1041292800,y:-1.2},{x:1043971200,y:-0.8},{x:1046390400,y:-0.8},{x:1049065200,y:-0.8},{x:1051657200,y:-0.8},{x:1054335600,y:-0.8},{x:1056927600,y:-0.6},{x:1059606000,y:-0.1},{x:1062284400,y:-0.3},{x:1064876400,y:-0.2},{x:1067558400,y:-0.3},{x:1070150400,y:-0.1},{x:1072828800,y:-0.1},{x:1075507200,y:-0.4},{x:1078012800,y:-0.6},{x:1080687600,y:-0.5},{x:1083279600,y:-0.1},{x:1085958000,y:0.1},{x:1088550000,y:-0.3},{x:1091228400,y:-0.6},{x:1093906800,y:-0.8},{x:1096498800,y:-0.6},{x:1099177200,y:-0.3},{x:1101772800,y:-0.1},{x:1104451200,y:-0.2},{x:1107129600,y:-0.2},{x:1109548800,y:0.2},{x:1112223600,y:0.1},{x:1114815600,y:-0.1},{x:1117494000,y:0.2},{x:1120086000,y:0.5},{x:1122764400,y:0.6},{x:1125442800,y:0.7},{x:1128034800,y:0.6},{x:1130716800,y:0.4},{x:1133308800,y:0.3},{x:1135987200,y:0.3},{x:1138665600,y:0.6},{x:1141084800,y:0.2},{x:1143759600,y:0.5},{x:1146351600,y:1.3},{x:1149030000,y:1.7},{x:1151622000,y:1.8},{x:1154300400,y:2.2},{x:1156978800,y:1.8},{x:1159570800,y:1.5},{x:1162252800,y:1.8},{x:1164844800,y:2.3},{x:1167523200,y:2},{x:1170201600,y:2},{x:1172620800,y:2.5},{x:1175295600,y:2.3},{x:1177887600,y:1.6},{x:1180566000,y:1.4},{x:1183158000,y:0.5},{x:1185836400,y:0.1},{x:1188514800,y:0.4},{x:1191106800,y:1},{x:1193788800,y:1.1},{x:1196380800,y:1.1},{x:1199059200,y:1.3},{x:1201737600,y:1.9},{x:1204243200,y:1.7},{x:1206918000,y:2.3},{x:1209510000,y:3},{x:1212188400,y:3.8},{x:1214780400,y:4.7},{x:1217458800,y:5.1},{x:1220137200,y:5.7},{x:1222729200,y:4.6},{x:1225411200,y:3.7},{x:1228003200,y:1.8},{x:1230681600,y:2},{x:1233360000,y:2.2},{x:1235779200,y:2},{x:1238454000,y:1.2},{x:1241046000,y:1.1},{x:1243724400,y:0.6},{x:1246316400,y:0.7},{x:1248994800,y:0.6},{x:1251673200,y:0},{x:1254265200,y:0.8},{x:1256947200,y:1.6},{x:1259539200,y:3.2},{x:1262217600,y:3.9},{x:1264896000,y:2.9},{x:1267315200,y:3.4},{x:1269990000,y:4},{x:1272582000,y:3.4},{x:1275260400,y:2.8},{x:1277852400,y:2.6},{x:1280530800,y:2.4},{x:1283209200,y:2.6},{x:1285801200,y:2.6},{x:1288479600,y:2.9},{x:1291075200,y:3.5},{x:1293753600,y:3.8},{x:1296432000,y:4.4},{x:1298851200,y:3.9},{x:1301526000,y:4.1},{x:1304118000,y:4.4},{x:1306796400,y:4.2},{x:1309388400,y:4.5},{x:1312066800,y:4.8},{x:1314745200,y:5.7},{x:1317337200,y:5.6},{x:1320019200,y:5.1},{x:1322611200,y:4.2},{x:1325289600,y:3.5},{x:1327968000,y:3.4},{x:1330473600,y:3.5},{x:1333148400,y:3.1},{x:1335740400,y:2.3},{x:1338418800,y:1.8},{x:1341010800,y:1.9},{x:1343689200,y:1.8},{x:1346367600,y:1.4},{x:1348959600,y:1.5},{x:1351641600,y:1.5},{x:1354233600,y:2},{x:1356912000,y:1.9},{x:1359590400,y:1.9},{x:1362009600,y:2},{x:1364688000,y:1.7},{x:1367276400,y:2},{x:1369954800,y:2.5},{x:1372546800,y:2.4},{x:1375225200,y:2.4},{x:1377903600,y:2.1},{x:1380495600,y:1.7},{x:1383177600,y:1.6},{x:1385769600,y:1.7},{x:1388448000,y:1.4},{x:1391126400,y:1.2},{x:1393545600,y:1}],
+                        color: palette.color()
+},
+
+{name: "Services",
+data: [ {x:599529600,y:6.9},{x:602208000,y:6.9},{x:604627200,y:6.8},{x:607302000,y:6.5},{x:609894000,y:6.7},{x:612572400,y:6.4},{x:615164400,y:6.9},{x:617842800,y:6.8},{x:620521200,y:6.8},{x:623113200,y:7},{x:625795200,y:7},{x:628387200,y:7.2},{x:631065600,y:7.3},{x:633744000,y:7.5},{x:636163200,y:7.5},{x:638838000,y:8.6},{x:641430000,y:9},{x:644108400,y:9.4},{x:646700400,y:9.5},{x:649378800,y:9.7},{x:652057200,y:10.1},{x:654649200,y:10.2},{x:657331200,y:10.2},{x:659923200,y:10.1},{x:662601600,y:10.2},{x:665280000,y:9.8},{x:667699200,y:9.9},{x:670377600,y:12.2},{x:672966000,y:11.9},{x:675644400,y:11.6},{x:678236400,y:11.4},{x:680914800,y:11.3},{x:683593200,y:11},{x:686185200,y:10.7},{x:688867200,y:10.7},{x:691459200,y:10.3},{x:694137600,y:9.8},{x:696816000,y:9.8},{x:699321600,y:9.6},{x:701996400,y:6.7},{x:704588400,y:6.5},{x:707266800,y:6.5},{x:709858800,y:6.3},{x:712537200,y:5.9},{x:715215600,y:5.5},{x:717807600,y:5.4},{x:720489600,y:5.2},{x:723081600,y:5.3},{x:725760000,y:5.3},{x:728438400,y:5.3},{x:730857600,y:5.4},{x:733532400,y:5.2},{x:736124400,y:5},{x:738802800,y:4.8},{x:741394800,y:4.8},{x:744073200,y:5},{x:746751600,y:4.9},{x:749343600,y:4.9},{x:752025600,y:4.9},{x:754617600,y:4.7},{x:757296000,y:4.4},{x:759974400,y:4.2},{x:762393600,y:4.1},{x:765068400,y:3.4},{x:767660400,y:3.4},{x:770338800,y:3.4},{x:772930800,y:3.2},{x:775609200,y:3.2},{x:778287600,y:3},{x:780879600,y:2.9},{x:783561600,y:2.7},{x:786153600,y:3},{x:788832000,y:3},{x:791510400,y:3.2},{x:793929600,y:3.2},{x:796604400,y:3.1},{x:799196400,y:3.3},{x:801874800,y:3.4},{x:804466800,y:3.3},{x:807145200,y:3.2},{x:809823600,y:3.4},{x:812415600,y:3.4},{x:815097600,y:3.5},{x:817689600,y:3.4},{x:820368000,y:3.4},{x:823046400,y:3.4},{x:825552000,y:3.4},{x:828230400,y:3},{x:830818800,y:3},{x:833497200,y:3.2},{x:836089200,y:3.4},{x:838767600,y:3.4},{x:841446000,y:3.4},{x:844038000,y:3.4},{x:846720000,y:3.4},{x:849312000,y:3.5},{x:851990400,y:3.6},{x:854668800,y:3.7},{x:857088000,y:3.6},{x:859762800,y:3.7},{x:862354800,y:3.7},{x:865033200,y:3.7},{x:867625200,y:3.6},{x:870303600,y:3.7},{x:872982000,y:3.8},{x:875574000,y:4},{x:878256000,y:4},{x:880848000,y:3.8},{x:883526400,y:3.9},{x:886204800,y:3.8},{x:888624000,y:3.9},{x:891298800,y:3.8},{x:893890800,y:3.9},{x:896569200,y:3.8},{x:899161200,y:3.8},{x:901839600,y:3.7},{x:904518000,y:3.8},{x:907110000,y:3.7},{x:909792000,y:3.6},{x:912384000,y:3.7},{x:915062400,y:3.6},{x:917740800,y:3.5},{x:920160000,y:3.5},{x:922834800,y:3.6},{x:925426800,y:3.4},{x:928105200,y:3.5},{x:930697200,y:3.4},{x:933375600,y:3.4},{x:936054000,y:3.4},{x:938646000,y:3.4},{x:941324400,y:3.4},{x:943920000,y:3.4},{x:946598400,y:3.4},{x:949276800,y:3.4},{x:951782400,y:3.4},{x:954457200,y:2.9},{x:957049200,y:3},{x:959727600,y:3},{x:962319600,y:3.2},{x:964998000,y:3.3},{x:967676400,y:3.4},{x:970268400,y:3.5},{x:972950400,y:3.4},{x:975542400,y:3.4},{x:978220800,y:3.4},{x:980899200,y:3.3},{x:983318400,y:3.3},{x:985993200,y:4.2},{x:988585200,y:4.3},{x:991263600,y:4.3},{x:993855600,y:4.5},{x:996534000,y:4.7},{x:999212400,y:4},{x:1001804400,y:3.9},{x:1004486400,y:3.7},{x:1007078400,y:4},{x:1009756800,y:4},{x:1012435200,y:4.1},{x:1014854400,y:4.3},{x:1017532800,y:4.1},{x:1020121200,y:4},{x:1022799600,y:4.3},{x:1025391600,y:4.2},{x:1028070000,y:4.3},{x:1030748400,y:4.1},{x:1033340400,y:4.5},{x:1036022400,y:4.5},{x:1038614400,y:5.1},{x:1041292800,y:4.4},{x:1043971200,y:4.4},{x:1046390400,y:4.3},{x:1049065200,y:4.1},{x:1051657200,y:3.7},{x:1054335600,y:3.3},{x:1056927600,y:3.5},{x:1059606000,y:3.1},{x:1062284400,y:3.4},{x:1064876400,y:3.2},{x:1067558400,y:3.2},{x:1070150400,y:2.8},{x:1072828800,y:3.1},{x:1075507200,y:3.2},{x:1078012800,y:3.1},{x:1080687600,y:3},{x:1083279600,y:3.3},{x:1085958000,y:3.3},{x:1088550000,y:3.4},{x:1091228400,y:3.5},{x:1093906800,y:3.2},{x:1096498800,y:3.2},{x:1099177200,y:3.5},{x:1101772800,y:3.7},{x:1104451200,y:3.7},{x:1107129600,y:3.8},{x:1109548800,y:3.9},{x:1112223600,y:4},{x:1114815600,y:4.2},{x:1117494000,y:4.1},{x:1120086000,y:4.5},{x:1122764400,y:4.6},{x:1125442800,y:4.5},{x:1128034800,y:4.4},{x:1130716800,y:4.1},{x:1133308800,y:3.8},{x:1135987200,y:3.9},{x:1138665600,y:3.7},{x:1141084800,y:3.7},{x:1143759600,y:3.8},{x:1146351600,y:3.3},{x:1149030000,y:3.4},{x:1151622000,y:3.2},{x:1154300400,y:2.9},{x:1156978800,y:3.2},{x:1159570800,y:3.6},{x:1162252800,y:3.7},{x:1164844800,y:3.8},{x:1167523200,y:3.6},{x:1170201600,y:3.8},{x:1172620800,y:3.7},{x:1175295600,y:3.3},{x:1177887600,y:3.6},{x:1180566000,y:3.7},{x:1183158000,y:3.5},{x:1185836400,y:3.8},{x:1188514800,y:3.4},{x:1191106800,y:3.4},{x:1193788800,y:3.2},{x:1196380800,y:3.3},{x:1199059200,y:3.3},{x:1201737600,y:3.1},{x:1204243200,y:3.4},{x:1206918000,y:3.7},{x:1209510000,y:3.8},{x:1212188400,y:3.9},{x:1214780400,y:4.1},{x:1217458800,y:4.3},{x:1220137200,y:4.6},{x:1222729200,y:4.3},{x:1225411200,y:4.5},{x:1228003200,y:4.6},{x:1230681600,y:4.2},{x:1233360000,y:4.2},{x:1235779200,y:3.9},{x:1238454000,y:3.6},{x:1241046000,y:3.5},{x:1243724400,y:3.2},{x:1246316400,y:3.1},{x:1248994800,y:2.9},{x:1251673200,y:2.5},{x:1254265200,y:2.3},{x:1256947200,y:2.3},{x:1259539200,y:2.6},{x:1262217600,y:3},{x:1264896000,y:3},{x:1267315200,y:3.3},{x:1269990000,y:3.5},{x:1272582000,y:3.4},{x:1275260400,y:3.9},{x:1277852400,y:3.6},{x:1280530800,y:4},{x:1283209200,y:3.7},{x:1285801200,y:3.8},{x:1288479600,y:3.7},{x:1291075200,y:3.9},{x:1293753600,y:4.1},{x:1296432000,y:4.3},{x:1298851200,y:4.1},{x:1301526000,y:4.9},{x:1304118000,y:4.5},{x:1306796400,y:4.2},{x:1309388400,y:4.4},{x:1312066800,y:4.2},{x:1314745200,y:4.6},{x:1317337200,y:4.2},{x:1320019200,y:4.3},{x:1322611200,y:4.2},{x:1325289600,y:3.6},{x:1327968000,y:3.4},{x:1330473600,y:3.4},{x:1333148400,y:2.9},{x:1335740400,y:3.3},{x:1338418800,y:3.3},{x:1341010800,y:3.4},{x:1343689200,y:3.2},{x:1346367600,y:3.2},{x:1348959600,y:4.1},{x:1351641600,y:4.2},{x:1354233600,y:3.6},{x:1356912000,y:3.7},{x:1359590400,y:3.8},{x:1362009600,y:3.9},{x:1364688000,y:3.4},{x:1367276400,y:3.6},{x:1369954800,y:3.4},{x:1372546800,y:3.1},{x:1375225200,y:3},{x:1377903600,y:3.4},{x:1380495600,y:2.7},{x:1383177600,y:2.6},{x:1385769600,y:2.4},{x:1388448000,y:2.4},{x:1391126400,y:2.4},{x:1393545600,y:2.3}],
+                        color: palette.color()
+},
+
+{name: "All items",
+data: [ {x:599529600,y:4.9},{x:602208000,y:5},{x:604627200,y:5},{x:607302000,y:5.3},{x:609894000,y:5.3},{x:612572400,y:5.2},{x:615164400,y:5.2},{x:617842800,y:5},{x:620521200,y:5.2},{x:623113200,y:5.5},{x:625795200,y:5.5},{x:628387200,y:5.5},{x:631065600,y:5.7},{x:633744000,y:5.9},{x:636163200,y:6},{x:638838000,y:6.4},{x:641430000,y:6.8},{x:644108400,y:6.9},{x:646700400,y:6.8},{x:649378800,y:7.7},{x:652057200,y:8.1},{x:654649200,y:8.1},{x:657331200,y:7.8},{x:659923200,y:7.6},{x:662601600,y:7.1},{x:665280000,y:7},{x:667699200,y:6.9},{x:670377600,y:8.5},{x:672966000,y:8.2},{x:675644400,y:8.4},{x:678236400,y:8.3},{x:680914800,y:7.7},{x:683593200,y:7.1},{x:686185200,y:6.8},{x:688867200,y:7.1},{x:691459200,y:7.2},{x:694137600,y:7},{x:696816000,y:6.9},{x:699321600,y:7.1},{x:701996400,y:4.7},{x:704588400,y:4.3},{x:707266800,y:3.8},{x:709858800,y:3.6},{x:712537200,y:3.2},{x:715215600,y:3},{x:717807600,y:2.9},{x:720489600,y:2.6},{x:723081600,y:2.6},{x:725760000,y:2.2},{x:728438400,y:2.4},{x:730857600,y:2.5},{x:733532400,y:2.5},{x:736124400,y:2.5},{x:738802800,y:2.4},{x:741394800,y:2.6},{x:744073200,y:2.9},{x:746751600,y:3},{x:749343600,y:2.6},{x:752025600,y:2.3},{x:754617600,y:2.4},{x:757296000,y:2.7},{x:759974400,y:2.5},{x:762393600,y:2.2},{x:765068400,y:2},{x:767660400,y:2},{x:770338800,y:2},{x:772930800,y:1.7},{x:775609200,y:1.9},{x:778287600,y:1.5},{x:780879600,y:1.5},{x:783561600,y:1.8},{x:786153600,y:2},{x:788832000,y:2.4},{x:791510400,y:2.4},{x:793929600,y:2.6},{x:796604400,y:2.3},{x:799196400,y:2.5},{x:801874800,y:2.6},{x:804466800,y:2.6},{x:807145200,y:2.6},{x:809823600,y:3},{x:812415600,y:2.9},{x:815097600,y:2.8},{x:817689600,y:3},{x:820368000,y:2.7},{x:823046400,y:2.7},{x:825552000,y:2.6},{x:828230400,y:2.6},{x:830818800,y:2.4},{x:833497200,y:2.4},{x:836089200,y:2.3},{x:838767600,y:2.3},{x:841446000,y:2.3},{x:844038000,y:2.5},{x:846720000,y:2.6},{x:849312000,y:2.3},{x:851990400,y:2.1},{x:854668800,y:1.9},{x:857088000,y:1.7},{x:859762800,y:1.6},{x:862354800,y:1.6},{x:865033200,y:1.7},{x:867625200,y:2},{x:870303600,y:2},{x:872982000,y:1.8},{x:875574000,y:1.9},{x:878256000,y:1.9},{x:880848000,y:1.7},{x:883526400,y:1.5},{x:886204800,y:1.6},{x:888624000,y:1.7},{x:891298800,y:1.8},{x:893890800,y:2},{x:896569200,y:1.7},{x:899161200,y:1.4},{x:901839600,y:1.3},{x:904518000,y:1.4},{x:907110000,y:1.4},{x:909792000,y:1.4},{x:912384000,y:1.6},{x:915062400,y:1.6},{x:917740800,y:1.4},{x:920160000,y:1.7},{x:922834800,y:1.5},{x:925426800,y:1.3},{x:928105200,y:1.3},{x:930697200,y:1.3},{x:933375600,y:1.2},{x:936054000,y:1.2},{x:938646000,y:1.1},{x:941324400,y:1.2},{x:943920000,y:1.1},{x:946598400,y:0.8},{x:949276800,y:0.9},{x:951782400,y:0.6},{x:954457200,y:0.6},{x:957049200,y:0.5},{x:959727600,y:0.8},{x:962319600,y:0.9},{x:964998000,y:0.6},{x:967676400,y:1},{x:970268400,y:1},{x:972950400,y:1.1},{x:975542400,y:0.8},{x:978220800,y:0.9},{x:980899200,y:0.8},{x:983318400,y:0.9},{x:985993200,y:1.2},{x:988585200,y:1.7},{x:991263600,y:1.7},{x:993855600,y:1.4},{x:996534000,y:1.8},{x:999212400,y:1.3},{x:1001804400,y:1.2},{x:1004486400,y:0.8},{x:1007078400,y:1.1},{x:1009756800,y:1.6},{x:1012435200,y:1.5},{x:1014854400,y:1.5},{x:1017532800,y:1.4},{x:1020121200,y:0.8},{x:1022799600,y:0.6},{x:1025391600,y:1.1},{x:1028070000,y:1},{x:1030748400,y:1},{x:1033340400,y:1.4},{x:1036022400,y:1.5},{x:1038614400,y:1.7},{x:1041292800,y:1.3},{x:1043971200,y:1.6},{x:1046390400,y:1.5},{x:1049065200,y:1.4},{x:1051657200,y:1.3},{x:1054335600,y:1.1},{x:1056927600,y:1.3},{x:1059606000,y:1.4},{x:1062284400,y:1.4},{x:1064876400,y:1.4},{x:1067558400,y:1.3},{x:1070150400,y:1.3},{x:1072828800,y:1.4},{x:1075507200,y:1.3},{x:1078012800,y:1.1},{x:1080687600,y:1.1},{x:1083279600,y:1.5},{x:1085958000,y:1.6},{x:1088550000,y:1.4},{x:1091228400,y:1.3},{x:1093906800,y:1.1},{x:1096498800,y:1.2},{x:1099177200,y:1.5},{x:1101772800,y:1.7},{x:1104451200,y:1.6},{x:1107129600,y:1.7},{x:1109548800,y:1.9},{x:1112223600,y:1.9},{x:1114815600,y:1.9},{x:1117494000,y:2},{x:1120086000,y:2.3},{x:1122764400,y:2.4},{x:1125442800,y:2.5},{x:1128034800,y:2.3},{x:1130716800,y:2.1},{x:1133308800,y:1.9},{x:1135987200,y:1.9},{x:1138665600,y:2},{x:1141084800,y:1.8},{x:1143759600,y:2},{x:1146351600,y:2.2},{x:1149030000,y:2.5},{x:1151622000,y:2.4},{x:1154300400,y:2.5},{x:1156978800,y:2.4},{x:1159570800,y:2.4},{x:1162252800,y:2.7},{x:1164844800,y:3},{x:1167523200,y:2.7},{x:1170201600,y:2.8},{x:1172620800,y:3.1},{x:1175295600,y:2.8},{x:1177887600,y:2.5},{x:1180566000,y:2.4},{x:1183158000,y:1.9},{x:1185836400,y:1.8},{x:1188514800,y:1.8},{x:1191106800,y:2.1},{x:1193788800,y:2.1},{x:1196380800,y:2.1},{x:1199059200,y:2.2},{x:1201737600,y:2.5},{x:1204243200,y:2.5},{x:1206918000,y:3},{x:1209510000,y:3.3},{x:1212188400,y:3.8},{x:1214780400,y:4.4},{x:1217458800,y:4.7},{x:1220137200,y:5.2},{x:1222729200,y:4.5},{x:1225411200,y:4.1},{x:1228003200,y:3.1},{x:1230681600,y:3},{x:1233360000,y:3.2},{x:1235779200,y:2.9},{x:1238454000,y:2.3},{x:1241046000,y:2.2},{x:1243724400,y:1.8},{x:1246316400,y:1.8},{x:1248994800,y:1.6},{x:1251673200,y:1.1},{x:1254265200,y:1.5},{x:1256947200,y:1.9},{x:1259539200,y:2.9},{x:1262217600,y:3.5},{x:1264896000,y:3},{x:1267315200,y:3.4},{x:1269990000,y:3.7},{x:1272582000,y:3.4},{x:1275260400,y:3.2},{x:1277852400,y:3.1},{x:1280530800,y:3.1},{x:1283209200,y:3.1},{x:1285801200,y:3.2},{x:1288479600,y:3.3},{x:1291075200,y:3.7},{x:1293753600,y:4},{x:1296432000,y:4.4},{x:1298851200,y:4},{x:1301526000,y:4.5},{x:1304118000,y:4.5},{x:1306796400,y:4.2},{x:1309388400,y:4.4},{x:1312066800,y:4.5},{x:1314745200,y:5.2},{x:1317337200,y:5},{x:1320019200,y:4.8},{x:1322611200,y:4.2},{x:1325289600,y:3.6},{x:1327968000,y:3.4},{x:1330473600,y:3.5},{x:1333148400,y:3},{x:1335740400,y:2.8},{x:1338418800,y:2.4},{x:1341010800,y:2.6},{x:1343689200,y:2.5},{x:1346367600,y:2.2},{x:1348959600,y:2.7},{x:1351641600,y:2.7},{x:1354233600,y:2.7},{x:1356912000,y:2.7},{x:1359590400,y:2.8},{x:1362009600,y:2.8},{x:1364688000,y:2.4},{x:1367276400,y:2.7},{x:1369954800,y:2.9},{x:1372546800,y:2.8},{x:1375225200,y:2.7},{x:1377903600,y:2.7},{x:1380495600,y:2.2},{x:1383177600,y:2.1},{x:1385769600,y:2},{x:1388448000,y:1.9},{x:1391126400,y:1.7},{x:1393545600,y:1.6}],
+                        color: palette.color()
+}
+]
+
+} );
+
+var x_axis = new Rickshaw.Graph.Axis.Time( { graph: graph2 } );
+
+var y_axis = new Rickshaw.Graph.Axis.Y( {
+        graph: graph2,
+        orientation: 'right',
+        tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+        element: document.getElementById('y_axis2'),
+} );
+
+
+
+var legend = new Rickshaw.Graph.Legend( {
+        element: document.querySelector('#legend2'),
+        graph: graph2
+} );
+
+graph2.render();
+
+
+
+
+
+var graph3 = new Rickshaw.Graph( {
+        element: document.querySelector("#figure3"),
+        width: 640,
+        height: 240,
+        padding: {
+          top: 0.1
+          ,bottom:0.1
+        },
+        renderer: 'line',
+        series: [
+                {
+                        name: "Total Production",
+                        data: [ { x: -1893456000, y: 25868573 }, { x: -1577923200, y: 29662053 }, { x: -1262304000, y: 34427091 }, { x: -946771200, y: 35976777 }, { x: -631152000, y: 39477986 }, { x: -315619200, y: 44677819 }, { x: 0, y: 49040703 }, { x: 315532800, y: 49135283 }, { x: 631152000, y: 50809229 }, { x: 946684800, y: 53594378 }, { x: 1262304000, y: 55317240 } ],
+                        color: palette.color()
+                },
+                {
+                        name: "Mining",
+                        data: [ { x: -1893456000, y: 29888542 }, { x: -1577923200, y: 34019792 }, { x: -1262304000, y: 38594100 }, { x: -946771200, y: 40143332 }, { x: -631152000, y: 44460762 }, { x: -315619200, y: 51619139 }, { x: 0, y: 56571663 }, { x: 315532800, y: 58865670 }, { x: 631152000, y: 59668632 }, { x: 946684800, y: 64392776 }, { x: 1262304000, y: 66927001 } ],
+                        color: palette.color()
+                },
+                {
+                        name: "Manufacturing",
+                        data: [ { x: -1893456000, y: 29389330 }, { x: -1577923200, y: 33125803 }, { x: -1262304000, y: 37857633 }, { x: -946771200, y: 41665901 }, { x: -631152000, y: 47197088 }, { x: -315619200, y: 54973113 }, { x: 0, y: 62795367 }, { x: 315532800, y: 75372362 }, { x: 631152000, y: 85445930 }, { x: 946684800, y: 100236820 }, { x: 1262304000, y: 114555744 } ],
+                        color: palette.color()
+                },
+                {
+                        name: "Electrical, Gas, etc.",
+                        data: [ { x: -1893456000, y: 7082086 }, { x: -1577923200, y: 9213920 }, { x: -1262304000, y: 12323836 }, { x: -946771200, y: 14379119 }, { x: -631152000, y: 20189962 }, { x: -315619200, y: 28053104 }, { x: 0, y: 34804193 }, { x: 315532800, y: 43172490 }, { x: 631152000, y: 52786082 }, { x: 946684800, y: 63197932 }, { x: 1262304000, y: 71945553 } ],
+                        color: palette.color()
+                },
+                {
+                        name: "Water & sewage",
+                        data: [ { x: -1893456000, y: 7082086 }, { x: -1577923200, y: 9213920 }, { x: -1262304000, y: 12323836 }, { x: -946771200, y: 14379119 }, { x: -631152000, y: 20189962 }, { x: -315619200, y: 28053104 }, { x: 0, y: 34804193 }, { x: 315532800, y: 43172490 }, { x: 631152000, y: 52786082 }, { x: 946684800, y: 63197932 }, { x: 1262304000, y: 71945553 } ],
+                        color: palette.color()
+                }
+        ]
+} );
+
+var x_axis = new Rickshaw.Graph.Axis.Time( { graph: graph3 } );
+
+var y_axis = new Rickshaw.Graph.Axis.Y( {
+        graph: graph3,
+        orientation: 'right',
+        tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+        element: document.getElementById('y_axis3'),
+} );
+
+
+
+var legend = new Rickshaw.Graph.Legend( {
+        element: document.querySelector('#legend3'),
+        graph: graph3
+} );
+
+graph3.render();
+
+
+
+
+
+
+var graph4 = new Rickshaw.Graph( {
+        element: document.querySelector("#figure4"),
+        width: 640,
+        height: 240,
+        padding: {
+          top: 0.1
+          ,bottom:0.1
+        },
+        renderer: 'line',
+        min:'auto',
+        series: 
+[
+
+{"name": "CPI",
+"data": [ {x:1167523200,y:2.7},{x:1170201600,y:2.8},{x:1172620800,y:3.1},{x:1175295600,y:2.8},{x:1177887600,y:2.5},{x:1180566000,y:2.4},{x:1183158000,y:1.9},{x:1185836400,y:1.8},{x:1188514800,y:1.8},{x:1191106800,y:2.1},{x:1193788800,y:2.1},{x:1196380800,y:2.1},{x:1199059200,y:2.2},{x:1201737600,y:2.5},{x:1204243200,y:2.5},{x:1206918000,y:3},{x:1209510000,y:3.3},{x:1212188400,y:3.8},{x:1214780400,y:4.4},{x:1217458800,y:4.7},{x:1220137200,y:5.2},{x:1222729200,y:4.5},{x:1225411200,y:4.1},{x:1228003200,y:3.1},{x:1230681600,y:3},{x:1233360000,y:3.2},{x:1235779200,y:2.9},{x:1238454000,y:2.3},{x:1241046000,y:2.2},{x:1243724400,y:1.8},{x:1246316400,y:1.8},{x:1248994800,y:1.6},{x:1251673200,y:1.1},{x:1254265200,y:1.5},{x:1256947200,y:1.9},{x:1259539200,y:2.9},{x:1262217600,y:3.5},{x:1264896000,y:3},{x:1267315200,y:3.4},{x:1269990000,y:3.7},{x:1272582000,y:3.4},{x:1275260400,y:3.2},{x:1277852400,y:3.1},{x:1280530800,y:3.1},{x:1283209200,y:3.1},{x:1285801200,y:3.2},{x:1288479600,y:3.3},{x:1291075200,y:3.7},{x:1293753600,y:4},{x:1296432000,y:4.4},{x:1298851200,y:4},{x:1301526000,y:4.5},{x:1304118000,y:4.5},{x:1306796400,y:4.2},{x:1309388400,y:4.4},{x:1312066800,y:4.5},{x:1314745200,y:5.2},{x:1317337200,y:5},{x:1320019200,y:4.8},{x:1322611200,y:4.2},{x:1325289600,y:3.6},{x:1327968000,y:3.4},{x:1330473600,y:3.5},{x:1333148400,y:3},{x:1335740400,y:2.8},{x:1338418800,y:2.4},{x:1341010800,y:2.6},{x:1343689200,y:2.5},{x:1346367600,y:2.2},{x:1348959600,y:2.7},{x:1351641600,y:2.7},{x:1354233600,y:2.7},{x:1356912000,y:2.7},{x:1359590400,y:2.8},{x:1362009600,y:2.8},{x:1364688000,y:2.4},{x:1367276400,y:2.7},{x:1369954800,y:2.9},{x:1372546800,y:2.8},{x:1375225200,y:2.7},{x:1377903600,y:2.7},{x:1380495600,y:2.2},{x:1383177600,y:2.1},{x:1385769600,y:2},{x:1388448000,y:1.9},{x:1391126400,y:1.7},{x:1393545600,y:1.6}],
+                        color: palette.color()
+}
+,
+{"name": "Food Drink & Tobacco",
+"data": [ {x:1167523200,y:0.56},{x:1170201600,y:0.63},{x:1172620800,y:0.76},{x:1175295600,y:0.8},{x:1177887600,y:0.69},{x:1180566000,y:0.63},{x:1183158000,y:0.44},{x:1185836400,y:0.44},{x:1188514800,y:0.52},{x:1191106800,y:0.6},{x:1193788800,y:0.62},{x:1196380800,y:0.67},{x:1199059200,y:0.72},{x:1201737600,y:0.7},{x:1204243200,y:0.67},{x:1206918000,y:0.86},{x:1209510000,y:1.03},{x:1212188400,y:1.19},{x:1214780400,y:1.46},{x:1217458800,y:1.55},{x:1220137200,y:1.37},{x:1222729200,y:1.26},{x:1225411200,y:1.32},{x:1228003200,y:1.31},{x:1230681600,y:1.34},{x:1233360000,y:1.49},{x:1235779200,y:1.39},{x:1238454000,y:1.06},{x:1241046000,y:1.04},{x:1243724400,y:0.75},{x:1246316400,y:0.64},{x:1248994800,y:0.43},{x:1251673200,y:0.36},{x:1254265200,y:0.44},{x:1256947200,y:0.34},{x:1259539200,y:0.38},{x:1262217600,y:0.48},{x:1264896000,y:0.33},{x:1267315200,y:0.43},{x:1269990000,y:0.61},{x:1272582000,y:0.4},{x:1275260400,y:0.43},{x:1277852400,y:0.58},{x:1280530800,y:0.64},{x:1283209200,y:0.77},{x:1285801200,y:0.74},{x:1288479600,y:0.86},{x:1291075200,y:0.89},{x:1293753600,y:0.96},{x:1296432000,y:0.94},{x:1298851200,y:0.73},{x:1301526000,y:0.85},{x:1304118000,y:1.05},{x:1306796400,y:1.16},{x:1309388400,y:1.12},{x:1312066800,y:1.1},{x:1314745200,y:1.13},{x:1317337200,y:0.94},{x:1320019200,y:0.87},{x:1322611200,y:0.82},{x:1325289600,y:0.68},{x:1327968000,y:0.77},{x:1330473600,y:0.86},{x:1333148400,y:0.73},{x:1335740400,y:0.58},{x:1338418800,y:0.47},{x:1341010800,y:0.46},{x:1343689200,y:0.5},{x:1346367600,y:0.48},{x:1348959600,y:0.66},{x:1351641600,y:0.68},{x:1354233600,y:0.67},{x:1356912000,y:0.84},{x:1359590400,y:0.71},{x:1362009600,y:0.69},{x:1364688000,y:0.75},{x:1367276400,y:0.74},{x:1369954800,y:0.7},{x:1372546800,y:0.71},{x:1375225200,y:0.72},{x:1377903600,y:0.71},{x:1380495600,y:0.66},{x:1383177600,y:0.56},{x:1385769600,y:0.45},{x:1388448000,y:0.41},{x:1391126400,y:0.38},{x:1393545600,y:0.4}],
+                        color: palette.color()
+},
+
+{"name": "Housing",
+"data": [ {x:1167523200,y:0.23},{x:1170201600,y:0.22},{x:1172620800,y:0.22},{x:1175295600,y:0.22},{x:1177887600,y:0.23},{x:1180566000,y:0.23},{x:1183158000,y:0.24},{x:1185836400,y:0.22},{x:1188514800,y:0.22},{x:1191106800,y:0.24},{x:1193788800,y:0.24},{x:1196380800,y:0.23},{x:1199059200,y:0.24},{x:1201737600,y:0.24},{x:1204243200,y:0.25},{x:1206918000,y:0.26},{x:1209510000,y:0.25},{x:1212188400,y:0.24},{x:1214780400,y:0.24},{x:1217458800,y:0.25},{x:1220137200,y:0.27},{x:1222729200,y:0.3},{x:1225411200,y:0.3},{x:1228003200,y:0.27},{x:1230681600,y:0.23},{x:1233360000,y:0.23},{x:1235779200,y:0.22},{x:1238454000,y:0.18},{x:1241046000,y:0.17},{x:1243724400,y:0.17},{x:1246316400,y:0.18},{x:1248994800,y:0.17},{x:1251673200,y:0.15},{x:1254265200,y:0.11},{x:1256947200,y:0.1},{x:1259539200,y:0.13},{x:1262217600,y:0.14},{x:1264896000,y:0.13},{x:1267315200,y:0.14},{x:1269990000,y:0.15},{x:1272582000,y:0.17},{x:1275260400,y:0.19},{x:1277852400,y:0.15},{x:1280530800,y:0.15},{x:1283209200,y:0.17},{x:1285801200,y:0.17},{x:1288479600,y:0.19},{x:1291075200,y:0.18},{x:1293753600,y:0.21},{x:1296432000,y:0.22},{x:1298851200,y:0.23},{x:1301526000,y:0.23},{x:1304118000,y:0.23},{x:1306796400,y:0.2},{x:1309388400,y:0.25},{x:1312066800,y:0.27},{x:1314745200,y:0.26},{x:1317337200,y:0.26},{x:1320019200,y:0.23},{x:1322611200,y:0.26},{x:1325289600,y:0.24},{x:1327968000,y:0.23},{x:1330473600,y:0.23},{x:1333148400,y:0.27},{x:1335740400,y:0.26},{x:1338418800,y:0.27},{x:1341010800,y:0.27},{x:1343689200,y:0.25},{x:1346367600,y:0.23},{x:1348959600,y:0.25},{x:1351641600,y:0.26},{x:1354233600,y:0.24},{x:1356912000,y:0.2},{x:1359590400,y:0.2},{x:1362009600,y:0.19},{x:1364688000,y:0.15},{x:1367276400,y:0.13},{x:1369954800,y:0.14},{x:1372546800,y:0.13},{x:1375225200,y:0.14},{x:1377903600,y:0.14},{x:1380495600,y:0.12},{x:1383177600,y:0.11},{x:1385769600,y:0.11},{x:1388448000,y:0.13},{x:1391126400,y:0.12},{x:1393545600,y:0.12}],
+                        color: palette.color()
+},
+
+{"name": "Elect. Gas & Fuel",
+"data": [ {x:1167523200,y:0.86},{x:1170201600,y:0.8},{x:1172620800,y:0.79},{x:1175295600,y:0.56},{x:1177887600,y:0.32},{x:1180566000,y:0.24},{x:1183158000,y:0.07},{x:1185836400,y:-0.04},{x:1188514800,y:0.11},{x:1191106800,y:0.28},{x:1193788800,y:0.38},{x:1196380800,y:0.32},{x:1199059200,y:0.43},{x:1201737600,y:0.82},{x:1204243200,y:0.86},{x:1206918000,y:0.98},{x:1209510000,y:1.12},{x:1212188400,y:1.36},{x:1214780400,y:1.51},{x:1217458800,y:1.58},{x:1220137200,y:2.09},{x:1222729200,y:1.71},{x:1225411200,y:1.2},{x:1228003200,y:0.88},{x:1230681600,y:0.68},{x:1233360000,y:0.41},{x:1235779200,y:0.18},{x:1238454000,y:0.03},{x:1241046000,y:-0.11},{x:1243724400,y:-0.15},{x:1246316400,y:-0.22},{x:1248994800,y:-0.19},{x:1251673200,y:-0.55},{x:1254265200,y:-0.32},{x:1256947200,y:0.12},{x:1259539200,y:0.36},{x:1262217600,y:0.63},{x:1264896000,y:0.46},{x:1267315200,y:0.69},{x:1269990000,y:0.78},{x:1272582000,y:0.74},{x:1275260400,y:0.49},{x:1277852400,y:0.46},{x:1280530800,y:0.36},{x:1283209200,y:0.24},{x:1285801200,y:0.34},{x:1288479600,y:0.3},{x:1291075200,y:0.6},{x:1293753600,y:0.69},{x:1296432000,y:0.84},{x:1298851200,y:0.87},{x:1301526000,y:0.83},{x:1304118000,y:0.86},{x:1306796400,y:0.92},{x:1309388400,y:0.91},{x:1312066800,y:1.03},{x:1314745200,y:1.51},{x:1317337200,y:1.49},{x:1320019200,y:1.44},{x:1322611200,y:1.1},{x:1325289600,y:0.9},{x:1327968000,y:0.83},{x:1330473600,y:0.75},{x:1333148400,y:0.74},{x:1335740400,y:0.52},{x:1338418800,y:0.38},{x:1341010800,y:0.38},{x:1343689200,y:0.43},{x:1346367600,y:0.14},{x:1348959600,y:0.05},{x:1351641600,y:0.02},{x:1354233600,y:0.25},{x:1356912000,y:0.22},{x:1359590400,y:0.38},{x:1362009600,y:0.37},{x:1364688000,y:0.21},{x:1367276400,y:0.27},{x:1369954800,y:0.47},{x:1372546800,y:0.54},{x:1375225200,y:0.46},{x:1377903600,y:0.32},{x:1380495600,y:0.22},{x:1383177600,y:0.16},{x:1385769600,y:0.29},{x:1388448000,y:0.25},{x:1391126400,y:0.06},{x:1393545600,y:-0.02}],
+                        color: palette.color()
+},
+
+{"name": "Transp. & Package Hol",
+"data": [ {x:1167523200,y:0.1},{x:1170201600,y:0.2},{x:1172620800,y:0.14},{x:1175295600,y:0.1},{x:1177887600,y:0.25},{x:1180566000,y:0.28},{x:1183158000,y:0.28},{x:1185836400,y:0.36},{x:1188514800,y:0.19},{x:1191106800,y:0.26},{x:1193788800,y:0.19},{x:1196380800,y:0.23},{x:1199059200,y:0.21},{x:1201737600,y:0.17},{x:1204243200,y:0.3},{x:1206918000,y:0.25},{x:1209510000,y:0.24},{x:1212188400,y:0.29},{x:1214780400,y:0.34},{x:1217458800,y:0.46},{x:1220137200,y:0.56},{x:1222729200,y:0.44},{x:1225411200,y:0.5},{x:1228003200,y:0.69},{x:1230681600,y:0.62},{x:1233360000,y:0.58},{x:1235779200,y:0.5},{x:1238454000,y:0.51},{x:1241046000,y:0.51},{x:1243724400,y:0.46},{x:1246316400,y:0.39},{x:1248994800,y:0.32},{x:1251673200,y:0.23},{x:1254265200,y:0.32},{x:1256947200,y:0.37},{x:1259539200,y:0.38},{x:1262217600,y:0.32},{x:1264896000,y:0.36},{x:1267315200,y:0.44},{x:1269990000,y:0.44},{x:1272582000,y:0.41},{x:1275260400,y:0.51},{x:1277852400,y:0.52},{x:1280530800,y:0.68},{x:1283209200,y:0.5},{x:1285801200,y:0.51},{x:1288479600,y:0.42},{x:1291075200,y:0.54},{x:1293753600,y:0.54},{x:1296432000,y:0.53},{x:1298851200,y:0.48},{x:1301526000,y:0.82},{x:1304118000,y:0.56},{x:1306796400,y:0.55},{x:1309388400,y:0.54},{x:1312066800,y:0.39},{x:1314745200,y:0.54},{x:1317337200,y:0.44},{x:1320019200,y:0.46},{x:1322611200,y:0.37},{x:1325289600,y:0.4},{x:1327968000,y:0.38},{x:1330473600,y:0.36},{x:1333148400,y:0.12},{x:1335740400,y:0.31},{x:1338418800,y:0.3},{x:1341010800,y:0.37},{x:1343689200,y:0.36},{x:1346367600,y:0.37},{x:1348959600,y:0.41},{x:1351641600,y:0.41},{x:1354233600,y:0.23},{x:1356912000,y:0.31},{x:1359590400,y:0.36},{x:1362009600,y:0.39},{x:1364688000,y:0.26},{x:1367276400,y:0.4},{x:1369954800,y:0.27},{x:1372546800,y:0.17},{x:1375225200,y:0.12},{x:1377903600,y:0.23},{x:1380495600,y:0.18},{x:1383177600,y:0.19},{x:1385769600,y:0.13},{x:1388448000,y:0.11},{x:1391126400,y:0.09},{x:1393545600,y:0.05}],
+                        color: palette.color()
+},
+
+{"name": "Education",
+"data": [ {x:1167523200,y:0.24},{x:1170201600,y:0.24},{x:1172620800,y:0.24},{x:1175295600,y:0.24},{x:1177887600,y:0.23},{x:1180566000,y:0.23},{x:1183158000,y:0.23},{x:1185836400,y:0.23},{x:1188514800,y:0.24},{x:1191106800,y:0.24},{x:1193788800,y:0.23},{x:1196380800,y:0.23},{x:1199059200,y:0.24},{x:1201737600,y:0.23},{x:1204243200,y:0.23},{x:1206918000,y:0.23},{x:1209510000,y:0.23},{x:1212188400,y:0.23},{x:1214780400,y:0.23},{x:1217458800,y:0.23},{x:1220137200,y:0.2},{x:1222729200,y:0.16},{x:1225411200,y:0.16},{x:1228003200,y:0.16},{x:1230681600,y:0.16},{x:1233360000,y:0.16},{x:1235779200,y:0.16},{x:1238454000,y:0.16},{x:1241046000,y:0.16},{x:1243724400,y:0.16},{x:1246316400,y:0.16},{x:1248994800,y:0.16},{x:1251673200,y:0.15},{x:1254265200,y:0.11},{x:1256947200,y:0.11},{x:1259539200,y:0.11},{x:1262217600,y:0.11},{x:1264896000,y:0.11},{x:1267315200,y:0.11},{x:1269990000,y:0.11},{x:1272582000,y:0.11},{x:1275260400,y:0.11},{x:1277852400,y:0.11},{x:1280530800,y:0.11},{x:1283209200,y:0.13},{x:1285801200,y:0.1},{x:1288479600,y:0.1},{x:1291075200,y:0.1},{x:1293753600,y:0.1},{x:1296432000,y:0.1},{x:1298851200,y:0.1},{x:1301526000,y:0.1},{x:1304118000,y:0.1},{x:1306796400,y:0.1},{x:1309388400,y:0.1},{x:1312066800,y:0.1},{x:1314745200,y:0.09},{x:1317337200,y:0.09},{x:1320019200,y:0.09},{x:1322611200,y:0.09},{x:1325289600,y:0.09},{x:1327968000,y:0.09},{x:1330473600,y:0.09},{x:1333148400,y:0.09},{x:1335740400,y:0.09},{x:1338418800,y:0.09},{x:1341010800,y:0.09},{x:1343689200,y:0.09},{x:1346367600,y:0.06},{x:1348959600,y:0.38},{x:1351641600,y:0.37},{x:1354233600,y:0.37},{x:1356912000,y:0.37},{x:1359590400,y:0.37},{x:1362009600,y:0.37},{x:1364688000,y:0.37},{x:1367276400,y:0.37},{x:1369954800,y:0.37},{x:1372546800,y:0.37},{x:1375225200,y:0.37},{x:1377903600,y:0.4},{x:1380495600,y:0.22},{x:1383177600,y:0.22},{x:1385769600,y:0.21},{x:1388448000,y:0.22},{x:1391126400,y:0.21},{x:1393545600,y:0.21}],
+                        color: palette.color()
+},
+
+{"name": "Other",
+"data": [ {x:1167523200,y:0.72},{x:1170201600,y:0.72},{x:1172620800,y:0.95},{x:1175295600,y:0.89},{x:1177887600,y:0.78},{x:1180566000,y:0.78},{x:1183158000,y:0.65},{x:1185836400,y:0.58},{x:1188514800,y:0.53},{x:1191106800,y:0.47},{x:1193788800,y:0.43},{x:1196380800,y:0.41},{x:1199059200,y:0.36},{x:1201737600,y:0.33},{x:1204243200,y:0.18},{x:1206918000,y:0.42},{x:1209510000,y:0.43},{x:1212188400,y:0.48},{x:1214780400,y:0.63},{x:1217458800,y:0.62},{x:1220137200,y:0.71},{x:1222729200,y:0.63},{x:1225411200,y:0.62},{x:1228003200,y:-0.2},{x:1230681600,y:-0.03},{x:1233360000,y:0.33},{x:1235779200,y:0.43},{x:1238454000,y:0.35},{x:1241046000,y:0.43},{x:1243724400,y:0.41},{x:1246316400,y:0.65},{x:1248994800,y:0.71},{x:1251673200,y:0.75},{x:1254265200,y:0.85},{x:1256947200,y:0.86},{x:1259539200,y:1.54},{x:1262217600,y:1.82},{x:1264896000,y:1.61},{x:1267315200,y:1.6},{x:1269990000,y:1.61},{x:1272582000,y:1.56},{x:1275260400,y:1.47},{x:1277852400,y:1.28},{x:1280530800,y:1.17},{x:1283209200,y:1.29},{x:1285801200,y:1.35},{x:1288479600,y:1.43},{x:1291075200,y:1.39},{x:1293753600,y:1.49},{x:1296432000,y:1.78},{x:1298851200,y:1.6},{x:1301526000,y:1.68},{x:1304118000,y:1.7},{x:1306796400,y:1.28},{x:1309388400,y:1.48},{x:1312066800,y:1.62},{x:1314745200,y:1.67},{x:1317337200,y:1.78},{x:1320019200,y:1.71},{x:1322611200,y:1.55},{x:1325289600,y:1.29},{x:1327968000,y:1.11},{x:1330473600,y:1.22},{x:1333148400,y:1.06},{x:1335740400,y:1.03},{x:1338418800,y:0.9},{x:1341010800,y:1.04},{x:1343689200,y:0.88},{x:1346367600,y:0.92},{x:1348959600,y:0.96},{x:1351641600,y:0.96},{x:1354233600,y:0.94},{x:1356912000,y:0.76},{x:1359590400,y:0.77},{x:1362009600,y:0.79},{x:1364688000,y:0.67},{x:1367276400,y:0.79},{x:1369954800,y:0.94},{x:1372546800,y:0.88},{x:1375225200,y:0.9},{x:1377903600,y:0.9},{x:1380495600,y:0.81},{x:1383177600,y:0.87},{x:1385769600,y:0.81},{x:1388448000,y:0.79},{x:1391126400,y:0.83},{x:1393545600,y:0.84}],
+                        color: palette.color()
+}
+
+]
+
+} );
+
+var x_axis = new Rickshaw.Graph.Axis.Time( { graph: graph3 } );
+
+var y_axis = new Rickshaw.Graph.Axis.Y( {
+        graph: graph4,
+        orientation: 'right',
+        tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+        element: document.getElementById('y_axis4'),
+} );
+
+
+
+var legend = new Rickshaw.Graph.Legend( {
+        element: document.querySelector('#legend4'),
+        graph: graph4
+} );
+
+graph4.render();
+
+
+
+
+
+
+//scrollspy
+
+$('#sidebar').affix({
+      offset: {
+        top: 645
+      }
+});
+/*
+var $body   = $(document.body);
+var navHeight = $('.navbar').outerHeight(true) + 10;
+
+$body.scrollspy({
+  target: '#leftCol',
+  offset: navHeight
+});
+
+*/
+
+</script>
+
+</body>
+</html>
+
