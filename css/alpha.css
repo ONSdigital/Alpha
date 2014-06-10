@@ -578,3 +578,14 @@ td
     padding-top:18px;
     padding-right:18px;
 }
+
+.dk-grey{
+	background-color: #ddd;
+}
+.red{
+	color: #f33;
+}
+.note{
+	font-size: 12px;
+	color:#aaa;
+}
