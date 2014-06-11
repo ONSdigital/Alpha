@@ -18,6 +18,25 @@
   <link href="css/alpha.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
 
+  <style>
+
+    #sidebar.affix-top {
+    position: static;
+    visibility: hidden;
+  }
+
+  #sidebar.affix {
+    position: fixed;
+    bottom:30px;
+    right:30px;
+    visibility: block;
+  }
+  #sidebar {
+    
+
+  }
+  </style>
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -247,6 +266,10 @@
                   </div>
               </div>
           </div> 
+
+
+
+
           <a name="summary"></a>
         <h3>Producer Price Inflation Summary</h3>
 
@@ -459,6 +482,13 @@ The input price indices measure change in the prices of materials and fuels boug
           </div>
 
 
+          <a href="#top">
+                <div class="well pull-right " id="sidebar">
+                  <i class="fa fa-chevron-up fa-lg"></i>
+                </div>
+          </a>
+
+
       </div>
 
     </div>
@@ -568,6 +598,20 @@ The input price indices measure change in the prices of materials and fuels boug
   <script src="js/bootstrap.min.js"></script>
     <!-- app -->
     <script src="js/alpha.js"></script>
+    <script>
+
+
+$('#sidebar').affix({
+      offset: {
+        top: 740
+      }
+});
+
+
+
+
+
+    </script>
 </body>
 </html>
 
