@@ -63,10 +63,27 @@
         height:260px;
 
 }
+  #sidebar.affix-top {
+    position: static;
+    visibility: hidden;
+  }
+
+  #sidebar.affix {
+    position: fixed;
+    bottom:30px;
+    right:30px;
+    visibility: block;
+  }
+  #sidebar {
+    
+
+  }
 
 
 
 </style>
+
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -76,7 +93,7 @@
       <![endif]-->
     </head>
     <body>
-
+      <a name="top"></a>
 
 
 
@@ -277,8 +294,57 @@
       <div class="row">
         <div class="col-md-12">
 
+          <div class="row well heading">
+
+            <div class="col-md-6">
+              <h4><span class="title"> Series:</span><a href="#"> National Accounts</a> </h4>
+              <h4><span class="title"> Author:</span> Philip Wales</h4>
+              <h4><span class="title"> Date:</span> 04 June 2014 </h4>
+
+            </div>
+              <div class="col-md-6 pull-right">
+                <h5 class="text-muted"></h5>
+                <span class="">Philip Wales</span><br/>
+                <span class="">Office of the Chief Economic Adviser</span><br/>
+                <span class=""><a href "mailto:macro@ons.gsi.gov.uk">macro@ons.gsi.gov.uk</a></span><br/>
+                <span class="">Tel. +44 (0) 1633 65 1609 </span><br/>
+              </div>
+
+          </div>
+
+
+          <div class="row ">
+            <div class="box bg-white">
+                <div class="info-block"><!-- BODY BOX-->
+                    <!-- <p><i class="fa fa-chevron-left">&nbsp;</i><a href="release.html">Back to release</a></p> -->
+                    <h5>Table of contents</h5>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <ol>
+                          <li><a href = "#key-finding">Key Findings</a></li>
+                          <li><a href = "#introduction">Introduction</a></li>
+                          <li><a href = "#preliminary-gdp-estimate">Preliminary GDP estimate</a></li>
+                        </ol>
+                      </div>
+                      <div class="col-md-6">
+                         <ol start="4">
+                          <li><a href="#inflation">Inflation</a></li>
+                          <li><a href="#inflation">International inflation, the exchange rate and producer prices</a></li>
+                          <li><a href="#inflation">Labour market</a></li>
+
+                        </ol>
+                      </div>
+                    </div>
+                </div>
+            </div> 
+            <br/>
+          </div> 
+
+
+
+
           <div>
-            <div class="well">
+            <div class="row well">
               <h4> Abstract </h4>
               <p>The key economic stories from National Statistics produced over the latest month, painting a coherent picture of the UK economic performance using recent economic data.
               </p>
@@ -291,6 +357,53 @@
             </div>
           </div>
 
+          <div class="row ">
+            <button type="button" class="btn btn-block btn-default" data-toggle="collapse" data-target="#demo"> 
+              <h4>References   <span class="caret"></h4>
+            </button>
+
+            <div id="demo" class="collapse">
+              <div = "panel">
+                <div class="panel-body">
+                  <br>
+                  <p>Arnett, J.J, (2004) Emerging Adulthood; The Winding Road from Late Teens through the Twenties, Oxford University Press</p>
+                  <p>Beaumont, J., Lofts, H., (2013c) <a href="http://www.ons.gov.uk/ons/dcp171766_310300.pdf">Measuring National Well-being - Health</a></p>
+                  <p>Croll, P and Fuller, C., (2012) <a href="http://blogs.reading.ac.uk/the-forum/2012/01/30/understanding-young-people%E2%80%99s-aspirations/">Understanding Young People's Aspirations</a></p>
+                  <p>Department for Education (2012) <a href="http://www.education.gov.uk/aboutdfe/departmentalinformation/Business%20Plan">Business plan key measures</a></p>
+                  <p>Deputy Prime Minister's Office (2011) <a href="http://www.dpm.cabinetoffice.gov.uk/news/social-mobility-strategy-launched">Social Mobility Strategy</a></p>
+                  <p>Diener, E., Sandvik, E., Seidlitz. L., Diener, M. (1993) <a href="http://link.springer.com/article/10.1007/BF01079018#">The relationship between income and subjective well-being: Relative or absolute?</a></p>
+                  <p>Donovan, R., (2014c) <a href="http://www.ons.gov.uk/ons/rel/lmac/young-people-in-the-labour-market/2014/rpt-young-people.html">Young People in the Labour Market</a></p>
+                  <p>Health Scotland (2008) <a href="http://www.healthscotland.com/uploads/documents/7551-WEMWBS%20User%20Guide%20Version%201%20June%202008.pdf">Warwick-Edinburgh Mental Well-being Scale</a></p>
+                  <p>Health Survey for England (2012) <a href="http://www.hscic.gov.uk/searchcatalogue?q=title%3A%22Health+Survey+for+England%22&amp;area=&amp;size=10&amp;sort=Relevanc">Trend tables</a></p>
+                  <p>Helliwell, J.F., Putnam, R.D., (2004) <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1693420/">The Social Context of Wellbeing</a></p>
+                  <p>Humby, P., (2013d) <a href="http://www.ons.gov.uk/ons/rel/regional-trends/area-based-analysis/conceptions-and-deprivation-analysis--england-and-wales--2008-10/art-an-analysis-of-under-18-conceptions-2008-10.html">Analysis of Under 18 Conceptions and their links to Measures of Deprivation, England and Wales, 2008-10</a></p>
+                  <p>Jackson, C., (2007) <a href="http://occmed.oxfordjournals.org/content/57/1/79.full">The General Health Questionnaire</a></p>
+                  <p>Loughton, T. (2010) <a href="http://www.childrenssociety.org.uk/news-views/press-release/fatherhood-commission">Speech to the Fatherhood Institute</a></p>
+                  <p>Marks, N. (2008) <a href="http://www.neweconomics.org/publications/entry/five-ways-to-well-being-postcards">The New Economics Foundation's Five Ways to Well-being</a></p>
+                  <p><a href="http://www.mentalhealth.org.uk/help-information/mental-health-a-z/C/children-young-people/">Mental Health Foundation: Children and Young People</a>.</p>
+                  <p>Michaelson, J., Abdullah, S., Steuer, N., Thompson, S., and Marks, N., (2009) <a href="http://www.nationalaccountsofwellbeing.org/learn/download-report.html">National Accounts of Well-being - bringing real wealth onto the balance sheet</a></p>
+                  <p><a href="https://www.moneyadviceservice.org.uk/en/static/indebted-lives-the-complexities-of-life-in-debt-press-office">Money Advice Service (2013)</a> Indebted lives: the complexities of life in debt</p>
+                  <p>National Alliance for Arts Health and Wellbeing (2012) <a href="http://www.artshealthandwellbeing.org.uk/what-is-arts-in-health/charter">A Charter for Arts, Health and Wellbeing</a></p>
+                  <p>OECD (2009) <a href="http://www.oecd.org/berlin/42675407.pdf">Special Focus: Measuring Leisure in OECD Countries</a></p>
+                  <p>Oguz, S., Merad, S., Snape, D., (2013b) <a href="http://www.ons.gov.uk/ons/dcp171766_312125.pdf">Measuring National Well-being - What matters most to Personal Well-being?</a>, ONS</p>
+                  <p>ONS (2012b) <a href="http://www.ons.gov.uk/ons/about-ons/get-involved/consultations/archived-consultations/2012/measuring-national-well-being-domains/consultation-on-proposed-domains-and-measures-of-national-well-being--responses-received.pdf">Consultation on proposed domains and measures of national well-being: responses received</a></p>
+                  <p>ONS (2013a) <a href="http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-315018">Population Estimates for UK, England and Wales, Scotland and Northern Ireland, Mid-2001 to Mid-2010 Revised</a></p>
+                  <p>ONS (2014a) <a href="http://www.ons.gov.uk/ons/rel/family-demography/young-adults-living-with-parents/2013/sty-young-adults.html">Young adults living with parents</a></p>
+                  <p>ONS (2014b) <a href="http://www.ons.gov.uk/ons/rel/lms/labour-market-statistics/january-2014/table-vacs01.xls">Vacancies and Unemployment</a></p>
+                  <p>ONS (2013e) <a href="http://www.ons.gov.uk/ons/rel/household-income/the-effects-of-taxes-and-benefits-on-household-income/2011-2012/etb-stats-bulletin-2011-12.html#tab-Longer-term-trends-in-household-income">The Effects of Taxes and Benefits on Household Income 2011/12</a></p>
+                  <p>Oxford University Centre for Educational Assessment (2013) <a href="http://oucea.education.ox.ac.uk/wordpress/wp-content/uploads/2013/04/WCQ-report-final.pdf">Research evidence relating to proposals for reform of the GCSE</a></p>
+                  <p>Randall, C., (2012a) <a href="http://www.ons.gov.uk/ons/rel/wellbeing/measuring-national-well-being/our-relationships/artourrelationships.html">Measuring National Well-being - Our Relationships</a></p>
+                  <p>Sabates, R., Hammond, C., (2008) <a href="http://www.niace.org.uk/lifelonglearninginquiry/docs/Ricardo-Wellbeing-evidence.pdf">The Impact of Lifelong Learning on Happiness and Well-being</a></p>
+                  <p>Seddon, C., (2012c) <a href="http://www.ons.gov.uk/ons/dcp171766_278355.pdf">Measuring National Well-being - Personal Finance</a></p>
+                  <p><a href="https://www.sportengland.org/research/benefits-of-sport/health-benefits-of-sport/">Sport England Sport and Health</a></p>
+                  <p>The Prince's Trust (2014) <a href="http://www.princes-trust.org.uk/PDF/YOUTH_INDEX_2014.pdf">The Prince's Trust Macquarie Youth Index 2014</a></p>
+                  <p><a href="http://www.kingsfund.org.uk/time-to-think-differently/trends/demography/life-expectancy">The King's Fund Life Expectancy</a></p>
+                  <p><a href="https://www.victimsupport.org.uk/help-victims/practical-information/how-crime-can-affect-you">Victim Support: How crime can affect you</a></p>
+                  <p><a href="http://www.who.int/hia/evidence/doh/en/">World Health Organisation Health Impact Assessment</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
           <div>
@@ -537,22 +650,15 @@
           </select>
         </div>
 
-
-        <h5>Table of Contents</h5>
-        <ol>
-          <li><a href = "#key-finding">Key Findings</a></li>
-          <li><a href = "#introduction">Introduction</a></li>
-          <li><a href = "#preliminary-gdp-estimate">Preliminary GDP estimate</a></li>
-          <li><a href = "#inflation">Inflation</a></li>
-          <li>International inflation, the exchange rate and producer prices</li>
-          <li>Labour market</li>
-        </ol>
-
-
-
       </div>
 
 
+<a href="#top">
+      <div class="well pull-right " id="sidebar">
+        <i class="fa fa-chevron-up fa-lg"></i>
+      </div>
+</a>
+
     </div>
 
   </div>
@@ -562,60 +668,6 @@
 
 
 
-  <div class = "container">
-    <div class="row">
-
-
-      <div class="col-md-8 ">
-        <div class=" box bg-white">
-          <div class="info-block"><!-- BODY BOX-->
-            <h3><img id="natstat" src="images/ns.gif" class="pull-left"/>&nbsp;</span>Details</h3>
-            <div class="row">
-              <div class="col-md-6">
-                <h5 class="text-muted">Release Date</h5>
-                <p >02 May 2014 (latest)</p>
-                <h5 class="text-muted">Next Release Date</h5>
-                <span class="">02 June 2014</span>
-                <h5 class="text-muted">Previous Release Date</h5>
-                <span class="">03 April 2014</span>
-              </div>
-              <div class="col-md-6">
-                <h5 class="text-muted">Contact</h5>
-                <span class="">Philip Wales</span><br/>
-                <span class="">Office of the Chief Economic Adviser</span><br/>
-                <span class=""><a href "mailto:macro@ons.gsi.gov.uk">macro@ons.gsi.gov.uk</a></span><br/>
-                <span class="">Tel. +44 (0) 1633 65 1609 </span><br/>
-              </div>
-            </div>
-          </div>
-
-        </div>  
-      </div>  
-
-
-
-      <div class="col-md-4 ">
-        <div class=" box bg-white">
-          <div class="info-block"><!-- BODY BOX-->
-            <h3><span class="glyphicon glyphicon-cog">&nbsp;</span>References</h3>
-            <p>OECD (2011), <a href="#">How's life? Measuring Well-Being, OECD Publishing, Paris</a></p>
-              <p>OECD (2013), <a href="#">OECD Framework for Statistics on the Distribution of Household Income, Consumption and Wealth</a></p>
-              <p>ONS (2013), <a href="#">United Kingdom National Accounts</a></p>
-              <p>ONS (2013), <a href="#">United Kingdom Economic Account</a></p>
-              <p>Stiglitz et al. (2009), <a href="#">Report by the Commission on the Measurement of Economic Performance and Social Progress</a></p>
-
-
-          </div>
-        </div>  
-      </div>  
-
-
-    </div>
-  </div>
-
-
-
-  <div class="container shim"></div>
 
 
 
@@ -934,6 +986,11 @@ graph4.render();
 
 
 
+$('#sidebar').affix({
+      offset: {
+        top: 740
+      }
+});
 
 
 
