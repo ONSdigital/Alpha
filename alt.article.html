@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prototype: Article</title>
+  <title>Prototype: alt.Article</title>
   
   <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 
@@ -63,6 +63,27 @@
         height:260px;
 
 }
+
+.article .title{
+  font-size:20px;
+
+}
+
+.heading{
+  height:230px;
+
+}
+
+
+  #sidebar.affix-top {
+    position: static;
+  }
+
+  #sidebar.affix {
+    position: fixed;
+    top:10px;
+    width:28.5%;
+  }
 
 
 
@@ -261,7 +282,7 @@
   <!--  END MENU BAR  -->
 
   <!--  CHARTS  -->
-  <div class="container ">
+  <div class="container article">
     <div class="row">
       <div class="col-md-12">
 
@@ -277,8 +298,27 @@
       <div class="row">
         <div class="col-md-12">
 
-          <div>
-            <div class="well">
+
+            <div class="row well heading">
+            <div class="col-md-6">
+              <h4><span class="title"> Series:</span> Economic Review </h4>
+              <h4><span class="title"> Author:</span> Philip Wales </h4>
+              <h4><span class="title"> Date:</span> 02 May 2014 </h4>
+
+            </div>
+            <div class="col-md-6 pull-right">
+                <h5 class="">Contact</h5>
+                <span class="">Philip Wales</span><br/>
+                <span class="">Office of the Chief Economic Adviser</span><br/>
+                <span class=""><a href "mailto:macro@ons.gsi.gov.uk">macro@ons.gsi.gov.uk</a></span><br/>
+                <span class="">Tel. +44 (0) 1633 65 1609 </span><br/>
+            </div>
+            </div>
+
+
+
+
+            <div class="row well">
               <h4> Abstract </h4>
               <p>The key economic stories from National Statistics produced over the latest month, painting a coherent picture of the UK economic performance using recent economic data.
               </p>
@@ -289,7 +329,6 @@
               <p><small><strong>Acknowledgements: </strong>This paper has benefitted from the valuable comments from Kirk Hamilton (Grantham Research Institute on Climate Change and Environment, London School of Economics), colleagues from the Ecosystems Evidence team (Department of Environment, Food and Rural Affairs), Natural Capital Committee Secretariat and members of the Natural Capital Committee, and members of the Natural Capital Steering Group.</small>
               </p> 
             </div>
-          </div>
 
 
 
@@ -495,7 +534,20 @@
 
     <div class="col-md-4">
 
-      <div class="well">
+      <div class=" well heading">
+
+        <h5>Table of Contents</h5>
+        <ol>
+          <li><a href = "#key-finding">Key Findings</a></li>
+          <li><a href = "#introduction">Introduction</a></li>
+          <li><a href = "#preliminary-gdp-estimate">Preliminary GDP estimate</a></li>
+          <li><a href = "#inflation">Inflation</a></li>
+          <li>International inflation, the exchange rate and producer prices</li>
+          <li>Labour market</li>
+        </ol>
+      </div>
+
+      <div class="well" id="sidebar">
         <button type="button" class="btn btn-primary btn-block ">
           <span class="glyphicon glyphicon-download pull-left pad-left">&nbsp;</span>
           <span class="pull-left">Download as PDF</span>
@@ -538,15 +590,7 @@
         </div>
 
 
-        <h5>Table of Contents</h5>
-        <ol>
-          <li><a href = "#key-finding">Key Findings</a></li>
-          <li><a href = "#introduction">Introduction</a></li>
-          <li><a href = "#preliminary-gdp-estimate">Preliminary GDP estimate</a></li>
-          <li><a href = "#inflation">Inflation</a></li>
-          <li>International inflation, the exchange rate and producer prices</li>
-          <li>Labour market</li>
-        </ol>
+
 
 
 
@@ -569,22 +613,15 @@
       <div class="col-md-8 ">
         <div class=" box bg-white">
           <div class="info-block"><!-- BODY BOX-->
-            <h3><img id="natstat" src="images/ns.gif" class="pull-left"/>&nbsp;</span>Details</h3>
+            <h3><span class="glyphicon glyphicon-cog">&nbsp;</span>References</h3>
             <div class="row">
-              <div class="col-md-6">
-                <h5 class="text-muted">Release Date</h5>
-                <p >02 May 2014 (latest)</p>
-                <h5 class="text-muted">Next Release Date</h5>
-                <span class="">02 June 2014</span>
-                <h5 class="text-muted">Previous Release Date</h5>
-                <span class="">03 April 2014</span>
-              </div>
-              <div class="col-md-6">
-                <h5 class="text-muted">Contact</h5>
-                <span class="">Philip Wales</span><br/>
-                <span class="">Office of the Chief Economic Adviser</span><br/>
-                <span class=""><a href "mailto:macro@ons.gsi.gov.uk">macro@ons.gsi.gov.uk</a></span><br/>
-                <span class="">Tel. +44 (0) 1633 65 1609 </span><br/>
+              <div class="col-md-12">
+
+                <p>OECD (2011), <a href="#">How's life? Measuring Well-Being, OECD Publishing, Paris</a></p>
+                <p>OECD (2013), <a href="#">OECD Framework for Statistics on the Distribution of Household Income, Consumption and Wealth</a></p>
+                <p>ONS (2013), <a href="#">United Kingdom National Accounts</a></p>
+                <p>ONS (2013), <a href="#">United Kingdom Economic Account</a></p>
+                <p>Stiglitz et al. (2009), <a href="#">Report by the Commission on the Measurement of Economic Performance and Social Progress</a></p>
               </div>
             </div>
           </div>
@@ -594,20 +631,15 @@
 
 
 
-      <div class="col-md-4 ">
+<!--       <div class="col-md-4 ">
         <div class=" box bg-white">
-          <div class="info-block"><!-- BODY BOX-->
-            <h3><span class="glyphicon glyphicon-cog">&nbsp;</span>References</h3>
-            <p>OECD (2011), <a href="#">How's life? Measuring Well-Being, OECD Publishing, Paris</a></p>
-              <p>OECD (2013), <a href="#">OECD Framework for Statistics on the Distribution of Household Income, Consumption and Wealth</a></p>
-              <p>ONS (2013), <a href="#">United Kingdom National Accounts</a></p>
-              <p>ONS (2013), <a href="#">United Kingdom Economic Account</a></p>
-              <p>Stiglitz et al. (2009), <a href="#">Report by the Commission on the Measurement of Economic Performance and Social Progress</a></p>
+          <div class="info-block">
+            
 
 
           </div>
         </div>  
-      </div>  
+      </div>   -->
 
 
     </div>
@@ -935,11 +967,23 @@ graph4.render();
 
 
 
+//scrollspy
 
+$('#sidebar').affix({
+      offset: {
+        top: 645
+      }
+});
+/*
+var $body   = $(document.body);
+var navHeight = $('.navbar').outerHeight(true) + 10;
 
+$body.scrollspy({
+  target: '#leftCol',
+  offset: navHeight
+});
 
-
-
+*/
 
 </script>
 

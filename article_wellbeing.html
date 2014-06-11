@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototype: Article, Well Being</title>
+  
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Yamm styles-->
+  <link href="css/menu.css" rel="stylesheet">
+  <link href="css/demo.css" rel="stylesheet">
+
+  <!-- Alpha -->
+  <link href="css/alpha.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/ons-charts.css" rel="stylesheet"/>
+
+
+
+
+  <style>
+
+  table td{
+    font-size: 80%;
+  }
+
+
+  #sidebar.affix {
+    top: 10px;
+    width:30%;
+  }
+
+
+
+  </style>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+    <body>
+
+
+
+
+
+      <div class="container  bg_warning alpha-header">
+        <p class="alpha-header-title">Office for National Statistics
+          <span>Prototype</span>
+        </p>
+        <p class="alpha-header-copy">This is a mock-up of our new website. You should still use the <a href="http://www.ons.gov.uk">current site</a>
+        </p>
+      </div>
+
+      <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid" id="topbar">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html"><img id="logo" src="images/70x140ONScolourlogo.png" class="pull-left"/></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+<!-- 
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="#">Release Calendar</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          -->
+
+          <!--  SEARCH  -->
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search form-control-feedback"></span></button>
+              </form>
+            </li>
+
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
+
+
+
+
+  <!--  MENU BAR  -->
+
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation" id="topmenu">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" data-toggle="collapse" data-target="#one">Business, Industry and Trade</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" data-toggle="collapse" data-target="#two">Economy</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" data-toggle="collapse" data-target="#three">Employment and Labour Market</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" data-toggle="collapse" data-target="#four">People, Population and Community</a>
+        </li>
+
+
+
+        <li><a href="#">Release Calendar</a></li>
+
+        <li class="dropdown menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b> </a>
+          <ul class="dropdown-menu megamenu row">
+            <li class="col-sm-12">
+              <ul>
+                <li class="dropdown-header">Themes</li>
+                <li><a class="" href="index.html">Home</a></li>
+                <li><a class="" href="economy.html">Economy</a></li>
+                <li><a class="" href="inflation.html">Inflation</a></li>
+              </ul>
+            </li>
+
+            <li class="col-sm-12">
+              <ul>
+                <li class="dropdown-header">Bulletin</li>
+                <li><a href="release.html">Release</a></li>
+                <li><a href="slice.html">Slice</a></li>
+                <li><a href="summary.html">Summary</a></li>
+                <li><a href="bulletin.html">Bulletin</a></li>
+                <li><a href="supplementary.html">Supplementary</a></li>
+                <li><a href="observation.html">Observation</a></li>
+              </ul>
+            </li>
+            <li class="col-sm-12">
+              <ul>
+                <li class="dropdown-header">Other</li>
+                <li><a href="article.html">Article</a></li>
+                <li><a href="series.html">Search ID</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+
+    <nav class="navbar navbar-default" role="navigation" id="submenu">
+
+      <ul class="nav navbar-nav collapse" id="one">
+        <li><a href="#" id="">Business</a></li>
+        <li><a href="#" id="">Changes to Business</a></li>
+        <li><a href="#" id="">International Trade</a></li>
+        <li><a href="#" id="">Construction</a></li>
+        <li><a href="#" id="">IT and Internet</a></li>
+        <li><a href="#" id="">Manufacturing and Production</a></li>
+        <li><a href="#" id="">Retail</a></li>
+        <li><a href="#" id="">Tourism</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav collapse" id="two">
+        <li><a href="economy.html" id="">Economic Output</a></li>
+        <li><a href="economy.html" id="">Environmental Accounts</a></li>
+        <li><a href="economy.html" id="">Government</a></li>
+        <li><a href="economy.html" id="">GDP</a></li>
+        <li><a href="economy.html" id="">GVA</a></li>
+        <li><a href="inflation.html" id="">Inflation</a></li>
+        <li><a href="inflation.html" id="">Investments</a></li>
+        <li><a href="inflation.html" id="">National Accounts</a></li>
+        <li><a href="inflation.html" id="">Regional Accounts</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav collapse" id="three">
+        <li><a href="economy.html">People in Work</a></li>
+        <li><a href="economy.html">People not in Work</a></li>
+        <li><a href="inflation.html">Public Sector Personnel</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav collapse" id="four">
+        <li><a href="#" id="">Births, Deaths and Marriages</a></li>
+        <li><a href="#" id="">Crime</a></li>
+        <li><a href="#" id="">Community</a></li>
+        <li><a href="#" id="">Education</a></li>
+        <li><a href="#" id="">Health and Social Care</a></li>
+        <li><a href="#" id="">Housing</a></li>
+        <li><a href="#" id="">Population</a></li>
+
+        <li class="dropdown menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">More&hellip;&nbsp;<b class="caret"></b> </a>
+          <ul class="dropdown-menu megamenu row">
+            <li class="col-sm-12">
+              <ul>
+                <li><a href="#" id="">Cultural Identity</a></li>
+                <li><a href="#" id="">Elections</a></li>
+                <li><a href="#" id="">Household Characteristics</a></li>
+                <li><a href="#" id="">Leisure and Tourism</a></li>
+                <li><a href="#" id="">Personal and Household Finances</a></li>
+                <li><a href="#" id="">Well-being</a></li>
+
+              </ul>
+            </li>
+
+          </ul>
+        </li>
+
+
+
+      </ul>
+
+    </nav>
+  </div>
+
+  <!--  END MENU BAR  -->
+
+  <!--  CHARTS  -->
+  <div class="container ">
+
+    <ol class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Analysis</a></li>
+      <li><a href="#">Measuring National Well-being</a></li>
+      <li class="active">Young People's Well-being, 2014</li>
+    </ol>
+
+    <div class="row">
+      <div class="col-md-12">
+
+        <h2 class="">Young People's Well-being, 2014</h2>
+
+      </div>
+    </div>
+
+
+    <div class="col-md-8">
+
+
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="row well heading">
+            <div class="col-md-6">
+              <h4><span class="title"> Series:</span><a href="#"> Measuring National Well-being </a> </h4>
+              <h4><span class="title"> Author:</span> Rachel Beardsmore, Helen Lofts </h4>
+              <h4><span class="title"> Date:</span> 06 March 2014 </h4>
+
+            </div>
+            <div class="col-md-6 pull-right">
+              <h5 class="">Contact</h5>
+              <span class="">Jen Beaumont</span><br/>
+              <span class="">Office for National Statistics (ONS)</span><br/>
+              <span class=""><a href "mailto:nationalwell-being@ons.gov.uk">nationalwell-being@ons.gov.uk</a></span><br/>
+              <span class="">Tel. +44 (0) 1633 65 1622 </span><br/>
+            </div>
+          </div>
+
+          <div>
+            <div class="row well">
+              <h4> Abstract </h4>
+              <p>The key economic stories from National Statistics produced over the latest month, painting a coherent picture of the UK economic performance using recent economic data.
+              </p>
+              <p>
+                The preliminary estimate of Gross Domestic Product (GDP) indicated that the UK economy continued to grow in the first three months of 2014. Output grew by 0.8% in Q1 2014, following growth of 0.8% and 0.7% in Q3 and Q4 2013 respectively. Output is now 3.1% higher than the same period a year ago and while GDP remains 0.6% below its pre-downturn peak, the pace of annual growth is now faster than at any point since the onset of the economic downturn. Excluding oil &amp; gas production, Gross Value Added (GVA) in the UK surpassed its pre-downturn peak in Q1 2014.
+              </p>
+              <hr>
+              <p><small><strong>Acknowledgements: </strong>This paper has benefitted from the valuable comments from Kirk Hamilton (Grantham Research Institute on Climate Change and Environment, London School of Economics), colleagues from the Ecosystems Evidence team (Department of Environment, Food and Rural Affairs), Natural Capital Committee Secretariat and members of the Natural Capital Committee, and members of the Natural Capital Steering Group.</small>
+              </p> 
+            </div>
+          </div>
+
+
+          <div class="row ">
+            <button type="button" class="btn btn-block btn-default" data-toggle="collapse" data-target="#demo"> 
+              <h4>References   <span class="caret"></h4>
+            </button>
+
+            <div id="demo" class="collapse">
+              <div = "panel">
+                <div class="panel-body">
+                  <br>
+                  <p>Arnett, J.J, (2004) Emerging Adulthood; The Winding Road from Late Teens through the Twenties, Oxford University Press</p>
+                  <p>Beaumont, J., Lofts, H., (2013c) <a href="http://www.ons.gov.uk/ons/dcp171766_310300.pdf">Measuring National Well-being - Health</a></p>
+                  <p>Croll, P and Fuller, C., (2012) <a href="http://blogs.reading.ac.uk/the-forum/2012/01/30/understanding-young-people%E2%80%99s-aspirations/">Understanding Young People's Aspirations</a></p>
+                  <p>Department for Education (2012) <a href="http://www.education.gov.uk/aboutdfe/departmentalinformation/Business%20Plan">Business plan key measures</a></p>
+                  <p>Deputy Prime Minister's Office (2011) <a href="http://www.dpm.cabinetoffice.gov.uk/news/social-mobility-strategy-launched">Social Mobility Strategy</a></p>
+                  <p>Diener, E., Sandvik, E., Seidlitz. L., Diener, M. (1993) <a href="http://link.springer.com/article/10.1007/BF01079018#">The relationship between income and subjective well-being: Relative or absolute?</a></p>
+                  <p>Donovan, R., (2014c) <a href="http://www.ons.gov.uk/ons/rel/lmac/young-people-in-the-labour-market/2014/rpt-young-people.html">Young People in the Labour Market</a></p>
+                  <p>Health Scotland (2008) <a href="http://www.healthscotland.com/uploads/documents/7551-WEMWBS%20User%20Guide%20Version%201%20June%202008.pdf">Warwick-Edinburgh Mental Well-being Scale</a></p>
+                  <p>Health Survey for England (2012) <a href="http://www.hscic.gov.uk/searchcatalogue?q=title%3A%22Health+Survey+for+England%22&amp;area=&amp;size=10&amp;sort=Relevanc">Trend tables</a></p>
+                  <p>Helliwell, J.F., Putnam, R.D., (2004) <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1693420/">The Social Context of Wellbeing</a></p>
+                  <p>Humby, P., (2013d) <a href="http://www.ons.gov.uk/ons/rel/regional-trends/area-based-analysis/conceptions-and-deprivation-analysis--england-and-wales--2008-10/art-an-analysis-of-under-18-conceptions-2008-10.html">Analysis of Under 18 Conceptions and their links to Measures of Deprivation, England and Wales, 2008-10</a></p>
+                  <p>Jackson, C., (2007) <a href="http://occmed.oxfordjournals.org/content/57/1/79.full">The General Health Questionnaire</a></p>
+                  <p>Loughton, T. (2010) <a href="http://www.childrenssociety.org.uk/news-views/press-release/fatherhood-commission">Speech to the Fatherhood Institute</a></p>
+                  <p>Marks, N. (2008) <a href="http://www.neweconomics.org/publications/entry/five-ways-to-well-being-postcards">The New Economics Foundation's Five Ways to Well-being</a></p>
+                  <p><a href="http://www.mentalhealth.org.uk/help-information/mental-health-a-z/C/children-young-people/">Mental Health Foundation: Children and Young People</a>.</p>
+                  <p>Michaelson, J., Abdullah, S., Steuer, N., Thompson, S., and Marks, N., (2009) <a href="http://www.nationalaccountsofwellbeing.org/learn/download-report.html">National Accounts of Well-being - bringing real wealth onto the balance sheet</a></p>
+                  <p><a href="https://www.moneyadviceservice.org.uk/en/static/indebted-lives-the-complexities-of-life-in-debt-press-office">Money Advice Service (2013)</a> Indebted lives: the complexities of life in debt</p>
+                  <p>National Alliance for Arts Health and Wellbeing (2012) <a href="http://www.artshealthandwellbeing.org.uk/what-is-arts-in-health/charter">A Charter for Arts, Health and Wellbeing</a></p>
+                  <p>OECD (2009) <a href="http://www.oecd.org/berlin/42675407.pdf">Special Focus: Measuring Leisure in OECD Countries</a></p>
+                  <p>Oguz, S., Merad, S., Snape, D., (2013b) <a href="http://www.ons.gov.uk/ons/dcp171766_312125.pdf">Measuring National Well-being - What matters most to Personal Well-being?</a>, ONS</p>
+                  <p>ONS (2012b) <a href="http://www.ons.gov.uk/ons/about-ons/get-involved/consultations/archived-consultations/2012/measuring-national-well-being-domains/consultation-on-proposed-domains-and-measures-of-national-well-being--responses-received.pdf">Consultation on proposed domains and measures of national well-being: responses received</a></p>
+                  <p>ONS (2013a) <a href="http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-315018">Population Estimates for UK, England and Wales, Scotland and Northern Ireland, Mid-2001 to Mid-2010 Revised</a></p>
+                  <p>ONS (2014a) <a href="http://www.ons.gov.uk/ons/rel/family-demography/young-adults-living-with-parents/2013/sty-young-adults.html">Young adults living with parents</a></p>
+                  <p>ONS (2014b) <a href="http://www.ons.gov.uk/ons/rel/lms/labour-market-statistics/january-2014/table-vacs01.xls">Vacancies and Unemployment</a></p>
+                  <p>ONS (2013e) <a href="http://www.ons.gov.uk/ons/rel/household-income/the-effects-of-taxes-and-benefits-on-household-income/2011-2012/etb-stats-bulletin-2011-12.html#tab-Longer-term-trends-in-household-income">The Effects of Taxes and Benefits on Household Income 2011/12</a></p>
+                  <p>Oxford University Centre for Educational Assessment (2013) <a href="http://oucea.education.ox.ac.uk/wordpress/wp-content/uploads/2013/04/WCQ-report-final.pdf">Research evidence relating to proposals for reform of the GCSE</a></p>
+                  <p>Randall, C., (2012a) <a href="http://www.ons.gov.uk/ons/rel/wellbeing/measuring-national-well-being/our-relationships/artourrelationships.html">Measuring National Well-being - Our Relationships</a></p>
+                  <p>Sabates, R., Hammond, C., (2008) <a href="http://www.niace.org.uk/lifelonglearninginquiry/docs/Ricardo-Wellbeing-evidence.pdf">The Impact of Lifelong Learning on Happiness and Well-being</a></p>
+                  <p>Seddon, C., (2012c) <a href="http://www.ons.gov.uk/ons/dcp171766_278355.pdf">Measuring National Well-being - Personal Finance</a></p>
+                  <p><a href="https://www.sportengland.org/research/benefits-of-sport/health-benefits-of-sport/">Sport England Sport and Health</a></p>
+                  <p>The Prince's Trust (2014) <a href="http://www.princes-trust.org.uk/PDF/YOUTH_INDEX_2014.pdf">The Prince's Trust Macquarie Youth Index 2014</a></p>
+                  <p><a href="http://www.kingsfund.org.uk/time-to-think-differently/trends/demography/life-expectancy">The King's Fund Life Expectancy</a></p>
+                  <p><a href="https://www.victimsupport.org.uk/help-victims/practical-information/how-crime-can-affect-you">Victim Support: How crime can affect you</a></p>
+                  <p><a href="http://www.who.int/hia/evidence/doh/en/">World Health Organisation Health Impact Assessment</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+          <div class="row ">
+            <h3><a name = "1">Introduction</a></h3>
+            <p>This article outlines a first draft set of 29 headline measures of young people's well-being and the reasons for their selection across seven of the ten domains used in the national set. These domains are Personal Well-being, Our Relationships, Health, What We Do, Where We Live, Personal Finance and Education &amp; Skills. The remaining three domains (Governance, Natural Environment and Economy) are more relevant to all age groups and have not been included here.
+            </p>
+            <p>The full list of headline measures can be found in the <a href="#" title="RFT Young people's well-being proposed measures">data section</a> of this article. Other potential measures have been included which reflect possible additional or alternatives to the proposed headline measures.
+            </p>
+            <p>Findings from the MNW Children and Young People's project have been used to inform this work. Where new measures have been proposed, the <a href="#">criteria to determine the original set of broader measures</a> have been used. As outlined in the criteria, UK data has been used where available; in cases where there is not a measure for the UK, England or England and Wales has been used.
+            </p>
+            <h4>Why measure young people's well-being?</h4>
+            <p>There were around 7.5 million young people aged 16 to 24 in the UK in 2010 according to the Office for National Statistics (ONS) mid-year population estimates (ONS, 2013a). This age is important as it is a time of transition from childhood to adulthood, and the ways in which this transition is negotiated may affect well-being. Arnett (2004) coined the phrase 'emerging adulthood' to describe this stage of life. He explained how it is different from 'late adolescence' as it is a period of life "much freer from parental control [and] much more a period of independent exploration". Furthermore, Arnett argues this period of life is different from 'young adulthood' as many 18-24 year olds have yet to make "the transitions historically associated with adult status" such as marriage and parenthood. </p>
+            <hr class="shim">
+          </div>
+
+
+
+          <div class="row ">
+            <h3><a name = "2">Personal Well-being</a></h3>
+            <p>An important component of national well-being is the subjective well-being of all individuals, including young people. It is measured by finding out how people think and feel about their own lives. Subjective well-being measures are grounded in individuals' preferences and take account of what matters to people by allowing them to decide what is important. By looking at young people as a separate sub-group, we can see if they differ from the general population. While subjective well-being is important, it is just one component of national well-being.</p>
+            <br/>
+
+            <table class='table table-striped' cellpadding='0' cellspacing='0' border='0'> 
+
+              <tr>
+                <th class='ui-widget-content first'> Measure </th>
+                <th> Latest Data </th>
+                <th> Geographic Coverage </th>
+                <th> Source </th>
+                <th> Latest Year</th>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Mental well-being (mean score out of 35)* </td>
+                <td class='ui-widget-content' >25 out of 35</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >Understanding Society</td>
+                <td class='ui-widget-content' >2009-10</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> Proportion of young people with a medium-high level of feeling their activities are worthwhile*</td>
+                <td class='ui-widget-content stripe' >79%</td>
+                <td class='ui-widget-content stripe' >UK</td>
+                <td class='ui-widget-content stripe' >ONS</td>
+                <td class='ui-widget-content stripe' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Proportion of young people with a medium-high level of happiness yesterday* </td>
+                <td class='ui-widget-content' >72%</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >ONS</td>
+                <td class='ui-widget-content' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> Proportion of young people with a medium-high level of life satisfaction*</td>
+                <td class='ui-widget-content stripe' >81%</td>
+                <td class='ui-widget-content stripe' >UK</td>
+                <td class='ui-widget-content stripe' >ONS</td>
+                <td class='ui-widget-content stripe' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Proportion of young people with a medium-low level of anxiety yesterday*</td>
+                <td class='ui-widget-content' >64%</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >ONS</td>
+                <td class='ui-widget-content' >2012-13</td>
+              </tr>
+
+            </table> 
+            
+            <h5>Table notes:</h5>
+            <ol><li><small>*Measure also included in the National Measures of Well-being</small></li></ol>
+
+            <hr class="">
+
+            <h4>Personal Well-being</h4>
+            <p>Since April 2011, the Annual Population Survey, which samples people from age 16, has included four questions which are used to monitor personal wellbeing in the UK:</p>
+            <ol><li>Overall, how satisfied are you with your life nowadays?</li>
+              <li>Overall, to what extent do you feel the things you do in your life are worthwhile?</li>
+              <li>Overall, how happy did you feel yesterday?</li>
+              <li>Overall, how anxious did you feel yesterday?</li></p>
+            </ol>
+            <p>Responses are on a scale of 0 to 10 where 0 is 'not at all' and 10 is 'completely'. Higher levels of personal well-being for life satisfaction, worthwhile and happiness are defined as 7 or more out of 10. However, for anxiety 3 or less out of 10 is used because lower levels of anxiety indicate better personal well-being.
+            </p>
+            <p>Young people are more likely to report higher levels of satisfaction with their life and lower levels of anxiety compared with all adults. This may relate to the increase in freedom, independence and self-focus associated with the 'emerging adulthood' lifestage. Similar proportions of young people have higher levels of happiness yesterday and feel that the things they do are worthwhile as all adults.
+            </p>
+            <h4>Mental Well-being</h4>
+            <p>The mental well-being measure is the shortened version of the Warwick-Edinburgh Mental Well-being Scale (SWEMWBS). This was developed to measure the mental well-being of populations and groups over time. As such, we can compare young people as a sub-group with the general population. The SWEMWBS provides a mean score (out of 35) of mental well-being for the population and changes over time can be assessed by examining differences in the mean score; however, it cannot be used to categorise good, average or poor mental well-being<a href = "#21"><sup>1</sup></a>. "WEMWBS has been validated for use in the UK with those aged 16 and above. Validation involved both student and general population samples, and focus groups"  (Health Scotland). </p></p>
+            <hr>
+            <small>
+              <h4>Notes for Personal Well-being</h4>
+              <ol><li><p><a name = "21"> </a>As well as not being designed to identify people who have or probably have a mental illness, <a href="#">WEMWBS</a> does not have a 'cut off' level to divide the population into those who have 'good' and those who have 'poor' mental well-being in the way that scores on other mental health measures, for example the GHQ 12.</p></li></ol>
+            </small>
+            <hr class="shim">          
+          </div>
+
+
+
+
+          <div class="row ">
+            <h3><a name = "3">Our Relationships</a></h3>
+            <p>An important component of national well-being is the subjective well-being of all individuals, including young people. It is measured by finding out how people think and feel about their own lives. Subjective well-being measures are grounded in individuals' preferences and take account of what matters to people by allowing them to decide what is important. By looking at young people as a separate sub-group, we can see if they differ from the general population. While subjective well-being is important, it is just one component of national well-being.</p>
+            <br/>
+
+            <table class='table table-striped' cellpadding='0' cellspacing='0' border='0'> 
+
+              <tr>
+                <th class='ui-widget-content first'> Measure </th>
+                <th> Latest Data </th>
+                <th> Geographic Coverage </th>
+                <th> Source </th>
+                <th> Latest Year</th>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Mental well-being (mean score out of 35)* </td>
+                <td class='ui-widget-content' >25 out of 35</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >Understanding Society</td>
+                <td class='ui-widget-content' >2009-10</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> Proportion of young people with a medium-high level of feeling their activities are worthwhile*</td>
+                <td class='ui-widget-content stripe' >79%</td>
+                <td class='ui-widget-content stripe' >UK</td>
+                <td class='ui-widget-content stripe' >ONS</td>
+                <td class='ui-widget-content stripe' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Proportion of young people with a medium-high level of happiness yesterday* </td>
+                <td class='ui-widget-content' >72%</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >ONS</td>
+                <td class='ui-widget-content' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> Proportion of young people with a medium-high level of life satisfaction*</td>
+                <td class='ui-widget-content stripe' >81%</td>
+                <td class='ui-widget-content stripe' >UK</td>
+                <td class='ui-widget-content stripe' >ONS</td>
+                <td class='ui-widget-content stripe' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Proportion of young people with a medium-low level of anxiety yesterday*</td>
+                <td class='ui-widget-content' >64%</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >ONS</td>
+                <td class='ui-widget-content' >2012-13</td>
+              </tr>
+
+            </table> 
+            
+            <h5>Table notes:</h5>
+            <ol><li><small>*Measure also included in the National Measures of Well-being</small></li></ol>
+
+            <hr class="">
+
+            <h4>Our Relationships</h4>
+            <p>Since April 2011, the Annual Population Survey, which samples people from age 16, has included four questions which are used to monitor personal wellbeing in the UK:</p>
+            <ol><li>Overall, how satisfied are you with your life nowadays?</li>
+              <li>Overall, to what extent do you feel the things you do in your life are worthwhile?</li>
+              <li>Overall, how happy did you feel yesterday?</li>
+              <li>Overall, how anxious did you feel yesterday?</li></p>
+            </ol>
+            <p>Responses are on a scale of 0 to 10 where 0 is 'not at all' and 10 is 'completely'. Higher levels of personal well-being for life satisfaction, worthwhile and happiness are defined as 7 or more out of 10. However, for anxiety 3 or less out of 10 is used because lower levels of anxiety indicate better personal well-being.
+            </p>
+            <p>Young people are more likely to report higher levels of satisfaction with their life and lower levels of anxiety compared with all adults. This may relate to the increase in freedom, independence and self-focus associated with the 'emerging adulthood' lifestage. Similar proportions of young people have higher levels of happiness yesterday and feel that the things they do are worthwhile as all adults.
+            </p>
+            <h4>Mental Well-being</h4>
+            <p>The mental well-being measure is the shortened version of the Warwick-Edinburgh Mental Well-being Scale (SWEMWBS). This was developed to measure the mental well-being of populations and groups over time. As such, we can compare young people as a sub-group with the general population. The SWEMWBS provides a mean score (out of 35) of mental well-being for the population and changes over time can be assessed by examining differences in the mean score; however, it cannot be used to categorise good, average or poor mental well-being<a href = "#21"><sup>1</sup></a>. "WEMWBS has been validated for use in the UK with those aged 16 and above. Validation involved both student and general population samples, and focus groups"  (Health Scotland). </p></p>
+            <hr>
+            <small>
+              <h4>Notes for Personal Well-being</h4>
+              <ol><li><p><a name = "21"> </a>As well as not being designed to identify people who have or probably have a mental illness, <a href="#">WEMWBS</a> does not have a 'cut off' level to divide the population into those who have 'good' and those who have 'poor' mental well-being in the way that scores on other mental health measures, for example the GHQ 12.</p></li></ol>
+            </small>
+            <hr class="shim">          
+          </div>
+
+
+
+
+
+
+
+
+          <div class="row ">
+            <h3><a name = "4">Health</a></h3>
+            <p>An important component of national well-being is the subjective well-being of all individuals, including young people. It is measured by finding out how people think and feel about their own lives. Subjective well-being measures are grounded in individuals' preferences and take account of what matters to people by allowing them to decide what is important. By looking at young people as a separate sub-group, we can see if they differ from the general population. While subjective well-being is important, it is just one component of national well-being.</p>
+            <br/>
+
+            <table class='table table-striped' cellpadding='0' cellspacing='0' border='0'> 
+
+              <tr>
+                <th class='ui-widget-content first'> Measure </th>
+                <th> Latest Data </th>
+                <th> Geographic Coverage </th>
+                <th> Source </th>
+                <th> Latest Year</th>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Mental well-being (mean score out of 35)* </td>
+                <td class='ui-widget-content' >25 out of 35</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >Understanding Society</td>
+                <td class='ui-widget-content' >2009-10</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> Proportion of young people with a medium-high level of feeling their activities are worthwhile*</td>
+                <td class='ui-widget-content stripe' >79%</td>
+                <td class='ui-widget-content stripe' >UK</td>
+                <td class='ui-widget-content stripe' >ONS</td>
+                <td class='ui-widget-content stripe' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Proportion of young people with a medium-high level of happiness yesterday* </td>
+                <td class='ui-widget-content' >72%</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >ONS</td>
+                <td class='ui-widget-content' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> Proportion of young people with a medium-high level of life satisfaction*</td>
+                <td class='ui-widget-content stripe' >81%</td>
+                <td class='ui-widget-content stripe' >UK</td>
+                <td class='ui-widget-content stripe' >ONS</td>
+                <td class='ui-widget-content stripe' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Proportion of young people with a medium-low level of anxiety yesterday*</td>
+                <td class='ui-widget-content' >64%</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >ONS</td>
+                <td class='ui-widget-content' >2012-13</td>
+              </tr>
+
+            </table> 
+
+            <h5>Table notes:</h5>
+            <ol><li><small>*Measure also included in the National Measures of Well-being</small></li></ol>
+
+            <hr class="">
+
+            <h4>Health</h4>
+            <p>Since April 2011, the Annual Population Survey, which samples people from age 16, has included four questions which are used to monitor personal wellbeing in the UK:</p>
+            <ol><li>Overall, how satisfied are you with your life nowadays?</li>
+              <li>Overall, to what extent do you feel the things you do in your life are worthwhile?</li>
+              <li>Overall, how happy did you feel yesterday?</li>
+              <li>Overall, how anxious did you feel yesterday?</li></p>
+            </ol>
+            <p>Responses are on a scale of 0 to 10 where 0 is 'not at all' and 10 is 'completely'. Higher levels of personal well-being for life satisfaction, worthwhile and happiness are defined as 7 or more out of 10. However, for anxiety 3 or less out of 10 is used because lower levels of anxiety indicate better personal well-being.
+            </p>
+            <p>Young people are more likely to report higher levels of satisfaction with their life and lower levels of anxiety compared with all adults. This may relate to the increase in freedom, independence and self-focus associated with the 'emerging adulthood' lifestage. Similar proportions of young people have higher levels of happiness yesterday and feel that the things they do are worthwhile as all adults.
+            </p>
+            <h4>Mental Well-being</h4>
+            <p>The mental well-being measure is the shortened version of the Warwick-Edinburgh Mental Well-being Scale (SWEMWBS). This was developed to measure the mental well-being of populations and groups over time. As such, we can compare young people as a sub-group with the general population. The SWEMWBS provides a mean score (out of 35) of mental well-being for the population and changes over time can be assessed by examining differences in the mean score; however, it cannot be used to categorise good, average or poor mental well-being<a href = "#21"><sup>1</sup></a>. "WEMWBS has been validated for use in the UK with those aged 16 and above. Validation involved both student and general population samples, and focus groups"  (Health Scotland). </p></p>
+            <hr>
+            <small>
+              <h4>Notes for Personal Well-being</h4>
+              <ol><li><p><a name = "21"> </a>As well as not being designed to identify people who have or probably have a mental illness, <a href="#">WEMWBS</a> does not have a 'cut off' level to divide the population into those who have 'good' and those who have 'poor' mental well-being in the way that scores on other mental health measures, for example the GHQ 12.</p></li></ol>
+            </small>
+            <hr class="shim">          
+          </div>
+
+
+
+
+
+
+
+
+
+
+          <div class="row ">
+            <h3><a name = "5">What We Do</a></h3>
+            <p>An important component of national well-being is the subjective well-being of all individuals, including young people. It is measured by finding out how people think and feel about their own lives. Subjective well-being measures are grounded in individuals' preferences and take account of what matters to people by allowing them to decide what is important. By looking at young people as a separate sub-group, we can see if they differ from the general population. While subjective well-being is important, it is just one component of national well-being.</p>
+            <br/>
+
+            <table class='table table-striped' cellpadding='0' cellspacing='0' border='0'> 
+
+              <tr>
+                <th class='ui-widget-content first'> Measure </th>
+                <th> Latest Data </th>
+                <th> Geographic Coverage </th>
+                <th> Source </th>
+                <th> Latest Year</th>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Mental well-being (mean score out of 35)* </td>
+                <td class='ui-widget-content' >25 out of 35</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >Understanding Society</td>
+                <td class='ui-widget-content' >2009-10</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> Proportion of young people with a medium-high level of feeling their activities are worthwhile*</td>
+                <td class='ui-widget-content stripe' >79%</td>
+                <td class='ui-widget-content stripe' >UK</td>
+                <td class='ui-widget-content stripe' >ONS</td>
+                <td class='ui-widget-content stripe' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Proportion of young people with a medium-high level of happiness yesterday* </td>
+                <td class='ui-widget-content' >72%</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >ONS</td>
+                <td class='ui-widget-content' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> Proportion of young people with a medium-high level of life satisfaction*</td>
+                <td class='ui-widget-content stripe' >81%</td>
+                <td class='ui-widget-content stripe' >UK</td>
+                <td class='ui-widget-content stripe' >ONS</td>
+                <td class='ui-widget-content stripe' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Proportion of young people with a medium-low level of anxiety yesterday*</td>
+                <td class='ui-widget-content' >64%</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >ONS</td>
+                <td class='ui-widget-content' >2012-13</td>
+              </tr>
+
+            </table> 
+
+            <h5>Table notes:</h5>
+            <ol><li><small>*Measure also included in the National Measures of Well-being</small></li></ol>
+
+            <hr class="">
+
+            <h4>What We Do</h4>
+            <p>Since April 2011, the Annual Population Survey, which samples people from age 16, has included four questions which are used to monitor personal wellbeing in the UK:</p>
+            <ol><li>Overall, how satisfied are you with your life nowadays?</li>
+              <li>Overall, to what extent do you feel the things you do in your life are worthwhile?</li>
+              <li>Overall, how happy did you feel yesterday?</li>
+              <li>Overall, how anxious did you feel yesterday?</li></p>
+            </ol>
+            <p>Responses are on a scale of 0 to 10 where 0 is 'not at all' and 10 is 'completely'. Higher levels of personal well-being for life satisfaction, worthwhile and happiness are defined as 7 or more out of 10. However, for anxiety 3 or less out of 10 is used because lower levels of anxiety indicate better personal well-being.
+            </p>
+            <p>Young people are more likely to report higher levels of satisfaction with their life and lower levels of anxiety compared with all adults. This may relate to the increase in freedom, independence and self-focus associated with the 'emerging adulthood' lifestage. Similar proportions of young people have higher levels of happiness yesterday and feel that the things they do are worthwhile as all adults.
+            </p>
+            <h4>Mental Well-being</h4>
+            <p>The mental well-being measure is the shortened version of the Warwick-Edinburgh Mental Well-being Scale (SWEMWBS). This was developed to measure the mental well-being of populations and groups over time. As such, we can compare young people as a sub-group with the general population. The SWEMWBS provides a mean score (out of 35) of mental well-being for the population and changes over time can be assessed by examining differences in the mean score; however, it cannot be used to categorise good, average or poor mental well-being<a href = "#21"><sup>1</sup></a>. "WEMWBS has been validated for use in the UK with those aged 16 and above. Validation involved both student and general population samples, and focus groups"  (Health Scotland). </p></p>
+            <hr>
+            <small>
+              <h4>Notes for Personal Well-being</h4>
+              <ol><li><p><a name = "21"> </a>As well as not being designed to identify people who have or probably have a mental illness, <a href="#">WEMWBS</a> does not have a 'cut off' level to divide the population into those who have 'good' and those who have 'poor' mental well-being in the way that scores on other mental health measures, for example the GHQ 12.</p></li></ol>
+            </small>
+            <hr class="shim">          
+          </div>
+
+
+
+
+
+
+
+
+
+
+          <div class="row ">
+            <h3><a name = "6">Where We Live</a></h3>
+            <p>An important component of national well-being is the subjective well-being of all individuals, including young people. It is measured by finding out how people think and feel about their own lives. Subjective well-being measures are grounded in individuals' preferences and take account of what matters to people by allowing them to decide what is important. By looking at young people as a separate sub-group, we can see if they differ from the general population. While subjective well-being is important, it is just one component of national well-being.</p>
+            <br/>
+
+            <table class='table table-striped' cellpadding='0' cellspacing='0' border='0'> 
+
+              <tr>
+                <th class='ui-widget-content first'> Measure </th>
+                <th> Latest Data </th>
+                <th> Geographic Coverage </th>
+                <th> Source </th>
+                <th> Latest Year</th>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Mental well-being (mean score out of 35)* </td>
+                <td class='ui-widget-content' >25 out of 35</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >Understanding Society</td>
+                <td class='ui-widget-content' >2009-10</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> Proportion of young people with a medium-high level of feeling their activities are worthwhile*</td>
+                <td class='ui-widget-content stripe' >79%</td>
+                <td class='ui-widget-content stripe' >UK</td>
+                <td class='ui-widget-content stripe' >ONS</td>
+                <td class='ui-widget-content stripe' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Proportion of young people with a medium-high level of happiness yesterday* </td>
+                <td class='ui-widget-content' >72%</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >ONS</td>
+                <td class='ui-widget-content' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> Proportion of young people with a medium-high level of life satisfaction*</td>
+                <td class='ui-widget-content stripe' >81%</td>
+                <td class='ui-widget-content stripe' >UK</td>
+                <td class='ui-widget-content stripe' >ONS</td>
+                <td class='ui-widget-content stripe' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Proportion of young people with a medium-low level of anxiety yesterday*</td>
+                <td class='ui-widget-content' >64%</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >ONS</td>
+                <td class='ui-widget-content' >2012-13</td>
+              </tr>
+
+            </table> 
+
+            <h5>Table notes:</h5>
+            <ol><li><small>*Measure also included in the National Measures of Well-being</small></li></ol>
+
+            <hr class="">
+
+            <h4>Where We Live</h4>
+            <p>Since April 2011, the Annual Population Survey, which samples people from age 16, has included four questions which are used to monitor personal wellbeing in the UK:</p>
+            <ol><li>Overall, how satisfied are you with your life nowadays?</li>
+              <li>Overall, to what extent do you feel the things you do in your life are worthwhile?</li>
+              <li>Overall, how happy did you feel yesterday?</li>
+              <li>Overall, how anxious did you feel yesterday?</li></p>
+            </ol>
+            <p>Responses are on a scale of 0 to 10 where 0 is 'not at all' and 10 is 'completely'. Higher levels of personal well-being for life satisfaction, worthwhile and happiness are defined as 7 or more out of 10. However, for anxiety 3 or less out of 10 is used because lower levels of anxiety indicate better personal well-being.
+            </p>
+            <p>Young people are more likely to report higher levels of satisfaction with their life and lower levels of anxiety compared with all adults. This may relate to the increase in freedom, independence and self-focus associated with the 'emerging adulthood' lifestage. Similar proportions of young people have higher levels of happiness yesterday and feel that the things they do are worthwhile as all adults.
+            </p>
+            <h4>Mental Well-being</h4>
+            <p>The mental well-being measure is the shortened version of the Warwick-Edinburgh Mental Well-being Scale (SWEMWBS). This was developed to measure the mental well-being of populations and groups over time. As such, we can compare young people as a sub-group with the general population. The SWEMWBS provides a mean score (out of 35) of mental well-being for the population and changes over time can be assessed by examining differences in the mean score; however, it cannot be used to categorise good, average or poor mental well-being<a href = "#21"><sup>1</sup></a>. "WEMWBS has been validated for use in the UK with those aged 16 and above. Validation involved both student and general population samples, and focus groups"  (Health Scotland). </p></p>
+            <hr>
+            <small>
+              <h4>Notes for Personal Well-being</h4>
+              <ol><li><p><a name = "21"> </a>As well as not being designed to identify people who have or probably have a mental illness, <a href="#">WEMWBS</a> does not have a 'cut off' level to divide the population into those who have 'good' and those who have 'poor' mental well-being in the way that scores on other mental health measures, for example the GHQ 12.</p></li></ol>
+            </small>
+            <hr class="shim">          
+          </div>
+
+
+
+
+
+
+
+
+
+
+          <div class="row ">
+            <h3><a name = "7">Personal Finance</a></h3>
+            <p>An important component of national well-being is the subjective well-being of all individuals, including young people. It is measured by finding out how people think and feel about their own lives. Subjective well-being measures are grounded in individuals' preferences and take account of what matters to people by allowing them to decide what is important. By looking at young people as a separate sub-group, we can see if they differ from the general population. While subjective well-being is important, it is just one component of national well-being.</p>
+            <br/>
+
+            <table class='table table-striped' cellpadding='0' cellspacing='0' border='0'> 
+
+              <tr>
+                <th class='ui-widget-content first'> Measure </th>
+                <th> Latest Data </th>
+                <th> Geographic Coverage </th>
+                <th> Source </th>
+                <th> Latest Year</th>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Mental well-being (mean score out of 35)* </td>
+                <td class='ui-widget-content' >25 out of 35</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >Understanding Society</td>
+                <td class='ui-widget-content' >2009-10</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> Proportion of young people with a medium-high level of feeling their activities are worthwhile*</td>
+                <td class='ui-widget-content stripe' >79%</td>
+                <td class='ui-widget-content stripe' >UK</td>
+                <td class='ui-widget-content stripe' >ONS</td>
+                <td class='ui-widget-content stripe' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Proportion of young people with a medium-high level of happiness yesterday* </td>
+                <td class='ui-widget-content' >72%</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >ONS</td>
+                <td class='ui-widget-content' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first stripe'> Proportion of young people with a medium-high level of life satisfaction*</td>
+                <td class='ui-widget-content stripe' >81%</td>
+                <td class='ui-widget-content stripe' >UK</td>
+                <td class='ui-widget-content stripe' >ONS</td>
+                <td class='ui-widget-content stripe' >2012-13</td>
+              </tr>
+              <tr>
+                <td class='ui-widget-content first'> Proportion of young people with a medium-low level of anxiety yesterday*</td>
+                <td class='ui-widget-content' >64%</td>
+                <td class='ui-widget-content' >UK</td>
+                <td class='ui-widget-content' >ONS</td>
+                <td class='ui-widget-content' >2012-13</td>
+              </tr>
+
+            </table> 
+
+            <h5>Table notes:</h5>
+            <ol><li><small>*Measure also included in the National Measures of Well-being</small></li></ol>
+
+            <hr class="">
+
+            <h4>Personal Finance</h4>
+            <p>Since April 2011, the Annual Population Survey, which samples people from age 16, has included four questions which are used to monitor personal wellbeing in the UK:</p>
+            <ol><li>Overall, how satisfied are you with your life nowadays?</li>
+              <li>Overall, to what extent do you feel the things you do in your life are worthwhile?</li>
+              <li>Overall, how happy did you feel yesterday?</li>
+              <li>Overall, how anxious did you feel yesterday?</li></p>
+            </ol>
+            <p>Responses are on a scale of 0 to 10 where 0 is 'not at all' and 10 is 'completely'. Higher levels of personal well-being for life satisfaction, worthwhile and happiness are defined as 7 or more out of 10. However, for anxiety 3 or less out of 10 is used because lower levels of anxiety indicate better personal well-being.
+            </p>
+            <p>Young people are more likely to report higher levels of satisfaction with their life and lower levels of anxiety compared with all adults. This may relate to the increase in freedom, independence and self-focus associated with the 'emerging adulthood' lifestage. Similar proportions of young people have higher levels of happiness yesterday and feel that the things they do are worthwhile as all adults.
+            </p>
+            <h4>Mental Well-being</h4>
+            <p>The mental well-being measure is the shortened version of the Warwick-Edinburgh Mental Well-being Scale (SWEMWBS). This was developed to measure the mental well-being of populations and groups over time. As such, we can compare young people as a sub-group with the general population. The SWEMWBS provides a mean score (out of 35) of mental well-being for the population and changes over time can be assessed by examining differences in the mean score; however, it cannot be used to categorise good, average or poor mental well-being<a href = "#21"><sup>1</sup></a>. "WEMWBS has been validated for use in the UK with those aged 16 and above. Validation involved both student and general population samples, and focus groups"  (Health Scotland). </p></p>
+            <hr>
+            <small>
+              <h4>Notes for Personal Well-being</h4>
+              <ol><li><p><a name = "21"> </a>As well as not being designed to identify people who have or probably have a mental illness, <a href="#">WEMWBS</a> does not have a 'cut off' level to divide the population into those who have 'good' and those who have 'poor' mental well-being in the way that scores on other mental health measures, for example the GHQ 12.</p></li></ol>
+            </small>
+            <hr class="shim">          
+          </div>
+
+
+
+
+
+
+
+
+
+
+          <div class="row ">
+            <h3><a name = "8">Education and Skills</a></h3>
+            <p>An important component of national well-being is the subjective well-being of all individuals, including young people. It is measured by finding out how people think and feel about their own lives. Subjective well-being measures are grounded in individuals' preferences and take account of what matters to people by allowing them to decide what is important. By looking at young people as a separate sub-group, we can see if they differ from the general population. While subjective well-being is important, it is just one component of national well-being.</p>
+            <br/>
+
+            <section>
+
+              <article class="ons-chart">
+
+
+                <table class="ons-bar-alt">
+                <tr>
+                  <th> Proportion of young people <br/>with a medium-high level of life satisfaction*</th>
+                  <td>81%</td>
+                </tr>
+                 <tr>
+                  <th> Proportion of young people <br/>with a medium-high level of feeling their activities are worthwhile*</th>
+                  <td>79%</td>
+                </tr>
+                <tr>
+                  <th> Proportion of young people <br/>with a medium-high level of happiness yesterday* </th>
+                  <td>72%</td>
+                </tr>
+                  <tr>
+                   <th> Mental well-being (based on mean score out of 35)* </th>
+                   <td  class="highlight">71%</td>
+                 </tr>
+                <tr>
+                  <th> Proportion of young people <br/>with a medium-low level of anxiety yesterday*</th>
+                  <td>64%</td>
+
+                </table>
+              </article>
+            </section>
+
+            <h5>Table notes:</h5>
+            <ol><li><small>*Measure also included in the National Measures of Well-being</small></li></ol>
+
+            <hr class="">
+
+            <h4>Education and Skills</h4>
+            <p>Since April 2011, the Annual Population Survey, which samples people from age 16, has included four questions which are used to monitor personal wellbeing in the UK:</p>
+            <ol><li>Overall, how satisfied are you with your life nowadays?</li>
+              <li>Overall, to what extent do you feel the things you do in your life are worthwhile?</li>
+              <li>Overall, how happy did you feel yesterday?</li>
+              <li>Overall, how anxious did you feel yesterday?</li></p>
+            </ol>
+            <p>Responses are on a scale of 0 to 10 where 0 is 'not at all' and 10 is 'completely'. Higher levels of personal well-being for life satisfaction, worthwhile and happiness are defined as 7 or more out of 10. However, for anxiety 3 or less out of 10 is used because lower levels of anxiety indicate better personal well-being.
+            </p>
+            <p>Young people are more likely to report higher levels of satisfaction with their life and lower levels of anxiety compared with all adults. This may relate to the increase in freedom, independence and self-focus associated with the 'emerging adulthood' lifestage. Similar proportions of young people have higher levels of happiness yesterday and feel that the things they do are worthwhile as all adults.
+            </p>
+            <h4>Mental Well-being</h4>
+            <p>The mental well-being measure is the shortened version of the Warwick-Edinburgh Mental Well-being Scale (SWEMWBS). This was developed to measure the mental well-being of populations and groups over time. As such, we can compare young people as a sub-group with the general population. The SWEMWBS provides a mean score (out of 35) of mental well-being for the population and changes over time can be assessed by examining differences in the mean score; however, it cannot be used to categorise good, average or poor mental well-being<a href = "#21"><sup>1</sup></a>. "WEMWBS has been validated for use in the UK with those aged 16 and above. Validation involved both student and general population samples, and focus groups"  (Health Scotland). </p></p>
+            <hr>
+            <small>
+              <h4>Notes for Personal Well-being</h4>
+              <ol><li><p><a name = "21"> </a>As well as not being designed to identify people who have or probably have a mental illness, <a href="#">WEMWBS</a> does not have a 'cut off' level to divide the population into those who have 'good' and those who have 'poor' mental well-being in the way that scores on other mental health measures, for example the GHQ 12.</p></li></ol>
+            </small>
+            <hr class="shim">          
+          </div>
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-4" id="">
+      <div id="sidebar" data-spy="affix" data-offset-top="530">
+
+        <div class=" well heading">
+          <h5>Table of Contents</h5>
+          <ol>
+            <li><a href = "#1">Introduction</a></li>
+            <li><a href = "#2">Personal Well-being</a></li>
+            <li><a href = "#3">Our Relationships</a></li>
+            <li><a href = "#4">Health</a></li>
+            <li><a href = "#5">What We Do</a></li>
+            <li><a href = "#6">Where We Live</a></li>
+            <li><a href = "#7">Personal Finance</a></li>
+            <li><a href = "#8">Education and Skills</a></li>
+          </ol>
+        </div>
+
+
+
+        <div class="well">
+          <button type="button" class="btn btn-primary btn-block ">
+            <span class="glyphicon glyphicon-download pull-left pad-left">&nbsp;</span>
+            <span class="pull-left">Download as PDF</span>
+          </button>
+          <button type="button" class="btn btn-primary btn-block ">
+            <span class="glyphicon glyphicon-download pull-left pad-left">&nbsp;</span>
+            <span class="pull-left">Download all data</span>
+          </button>
+          <button type="button" class="btn btn-primary btn-block ">
+            <span class="glyphicon glyphicon-download pull-left pad-left">&nbsp;</span>
+            <span class="pull-left">Explore data</span>
+          </button>
+
+          <h5>Explore</h5>
+
+          <div class="form-group">
+            <select class="form-control">
+              <option>Categories</option>
+              <option>National Accounts</option>
+              <option>Labour Market</option>
+              <option>Price Indices</option>
+              <option>Travel and Tourism</option>
+            </select>
+
+            <select class="form-control">
+              <option>Related releases</option>
+              <option>National Accounts</option>
+              <option>Labour Market</option>
+              <option>Price Indices</option>
+              <option>Travel and Tourism</option>
+            </select>
+
+            <select class="form-control">
+              <option>Previous releases</option>
+              <option>National Accounts</option>
+              <option>Labour Market</option>
+              <option>Price Indices</option>
+              <option>Travel and Tourism</option>
+            </select>
+          </div>
+
+
+
+        </div><!--  end of side bar -->
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <div class="container shim"></div>
+
+
+
+
+  <!--  FOOTER -->
+  <div class="container footer darkGrey">
+
+   <div class="row">
+    <div class="col-md-4">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="#">Business Transparency</a></li>
+        <li><a href="#">Terms and Conditions</a></li>
+        <li><a href="#">Copyright</a></li>
+        <li><a href="#">Cookies and Privacy</a></li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h3>About ONS</h3>
+      <ul>
+        <li><a href="#">Who we are</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Products and Services</a></li>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Our Offices</a></li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h3>Connect with us</h3>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Youtube</a></li>
+        <li><a href="#">Email subscriptions</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <p class="text-muted">All content is available under the Open Government Licence v2.0 except where otherwise stated</p>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/libs/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+
+
+
+
+<!-- app -->
+<script src="js/alpha.js"></script>
+
+
+<!-- chart library -->
+<script src="js/snap.svg-min.js"></script>
+<script src="js/jquery.ons-charts.js"></script>
+
+<!-- app -->
+
+<script src="js/init-chart.js"></script>
+
+
+
+</body>
+</html>
+
