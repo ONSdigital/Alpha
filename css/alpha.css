@@ -407,6 +407,13 @@ table .subtitle{
 	color:#333;
 
 }
+table .category{
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size:12px;
+	color:#333;
+	text-align: right;
+}
 table .currentRate{
 	font-family: 'Open Sans';
 	font-weight: 400;
@@ -577,4 +584,29 @@ td
     font-weight:800;
     padding-top:18px;
     padding-right:18px;
+}
+
+.dk-grey{
+	background-color: #ddd;
+}
+.red{
+	color: #f33;
+}
+.note{
+	font-size: 12px;
+	color:#aaa;
+}
+.footnote{
+	font-size: 10px;
+	line-height: 10px;
+	color:#333;
+}
+.tag{
+	padding:3px;
+
+	background-color: #0084D1;
+	color:#fff;
+}
+.expert{
+	background-color: #002E49;
 }

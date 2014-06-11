@@ -214,8 +214,9 @@
 
       <!--  CHARTS  -->
       <div class="container ">
+        <div class="col-md-12">
         <h2>Release for Producer Price Index, February 2014</h2>
-
+      </div>
 
 
         <div class="col-md-8">
@@ -231,6 +232,10 @@
 
 
           <div class="row">
+            <div class="col-md-12">
+            <h4>Select a series</h4>
+            </div>
+
             <div class="chartFooter bg-white">
               <a href="slice.html" id="">
                 <div class="col-md-1 align-right">
@@ -322,10 +327,20 @@
           </div>
 
 
+
+           <a href="summary.html" class="btn btn-primary btn-block ">
+               <span class="glyphicon glyphicon-chevron-right pull-right">&nbsp;</span>
+               See all data
+              </a>
+
+          <div class="row shim">
+          </div>
+
+
           <div class="row">
             <div class="col-md-12">
 
-            <h4>Summary</h4>
+            <h4>Release Summary</h4>
             <p>
               The output price index for goods produced by UK manufacturers (factory gate
               prices), rose 0.5% in the year to February, compared with a rise of 0.9% in the year
@@ -340,7 +355,8 @@
             </p>
 
              
-           <a href="summary.html" class="btn btn-primary pull-right">
+           <a href="summary.html" class="btn btn-primary btn-block ">
+                <span class="glyphicon glyphicon-chevron-right pull-right">&nbsp;</span>
                 Read Full Summary
               </a>
               
@@ -355,7 +371,7 @@
 
 
         <div class="col-md-4">
-          <div class="well">
+          <div class="well dk-grey">
             <button type="button" class="btn btn-primary btn-block ">
               <span class="glyphicon glyphicon-download pull-left pad-left">&nbsp;</span>
               <span class="pull-left">Download all data</span>
@@ -397,6 +413,13 @@
             <a href="summary.html" id="">Summary</a><br/>
             <a href="bulletin.html" id="">Statistical Bulletin</a><br/>
             <a href="slice.html" id="">Time Series</a><br/>
+
+          </div>
+
+
+          <div class="well">
+            <h4>We need your feedback</h4>
+            <p>Can you spare us two minutes to tell us how we are doing? </p>
 
           </div>
 
@@ -568,7 +591,12 @@ var graph = new Rickshaw.Graph.Ajax( {
     },
     series: [{
         name: 'Price Index',
-        color: 'steelblue',
+        color: 'steelblue'
+        }
+    ,
+    {
+        name: 'Price Index Two',
+        color: '#f00'
         }]
     } );
 
