@@ -20,6 +20,18 @@
   <link href="css/styles.css" rel="stylesheet">  
   <link href="css/rickshaw.css" rel="stylesheet">  
 
+
+
+    <style>
+    .rickshaw_graph .detail .x_label { display: none }
+    .rickshaw_graph .detail .item { line-height: 1.4; padding: 0.5em }
+    .detail_swatch { float: right; display: inline-block; width: 10px; height: 10px; margin: 0 4px 0 0 }
+    .rickshaw_graph .detail .date { color: #a0a0a0 }
+  </style>
+
+
+
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -125,9 +137,9 @@
                             <li class="dropdown-header">Bulletin</li>
                             <li><a href="release.html">Release</a></li>
                             <li><a href="slice.html">Slice</a></li>
-                            <li><a href="summary.html">Summary</a></li>
+                            <!--  <li><a href="summary.html">Summary</a></li> -->
                             <li><a href="bulletin.html">Bulletin</a></li>
-                            <li><a href="supplementary.html">Supplementary</a></li>
+                           <!--  <li><a href="supplementary.html">Supplementary</a></li> -->
                             <li><a href="observation.html">Observation</a></li>
                         </ul>
                     </li>
@@ -539,26 +551,37 @@
   <script src="js/moment.min.js"></script>
   
     <script type="text/javascript">
+    // crea te an array to store the last month values
+    var lastMonth = [];
 var graph = new Rickshaw.Graph.Ajax( {
 
     dataURL: 'slice-data.json',
-    onData: function(d) { return d },
+
+    onData: function(d) { 
+      // when data loads loop through and store the last month property
+      for ( item in d){
+        //console.log(item +":" + d[item].lastMonth);
+        if(d[item].lastMonth){
+          lastMonth[item] = d[item].lastMonth;
+        }
+      };
+      return d 
+    },
+
     onComplete: function(transport) {
 
       var graph = transport.graph;    
+      //once series has been created then pass in the last month property
+      for ( item in lastMonth){
+          this.graph.series[item].lastMonth = lastMonth[item];
+      };
 
-       /* 
-      var x_axis = new Rickshaw.Graph.Axis.Time( { 
-        graph: graph,
-      } );
-*/
 
       var x_axis = new Rickshaw.Graph.Axis.Time( {
         graph: graph,
         orientation: 'bottom',
         element: document.getElementById('x_axis'),
       } );
-
 
       
       var y_axis = new Rickshaw.Graph.Axis.Y( {
@@ -570,17 +593,48 @@ var graph = new Rickshaw.Graph.Ajax( {
       var hoverDetail = new Rickshaw.Graph.HoverDetail( {
           graph: graph,
           xFormatter: function(x) { return moment.unix(x).format('MMM YYYY') },
-          formatter: function(series, x, y, formattedX, formattedY, d) {
-              var provisional = (d.value.provisional == 'false' ? '' : '&nbsp;(Provisional)');
-              var content = series.name + ": " + parseInt(y) + '<br>' + provisional;
-              return content;                              
-          }  
+
+
+            formatter: function(series, x, y) {
+              var index;
+              var lastMonth;
+              var lastYear;
+
+
+              for (i=0; i<18; i++){
+                if(series.data[i].y===y){
+                  index = i;
+                }
+              }
+
+              if(index>0){
+                lastMonth = series.data[index-1].y;
+              }else{
+                lastMonth = series.lastMonth;
+              }
+              lastYear = series.data[index].lastYear;
+
+              var date = moment.unix(x).format('MMM YYYY');
+
+              var up = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i> </span>';
+              var down = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i> </span>';
+
+              var date = '<span class="date">' + date + '</span>';
+              var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
+               var content = swatch + series.name + ": " + y + ' ' + date;
+              content += '<br/><br/>last month: ' + lastMonth + up + ' | '  + 'last year: ' + lastYear + down + '<br/>';
+              content += '<hr><i class="fa fa-warning fa-inverse"></i> Important information available';
+              return content;
+            }
+
+
       } );
       
       graph.render();
     },
     element: document.querySelector("#chart"), 
     renderer: 'line',
+      //renderer: 'scatterplot',
     width: 600, 
     height: 400, 
       left:10,
@@ -600,10 +654,13 @@ var graph = new Rickshaw.Graph.Ajax( {
         }]
     } );
 
+
+
+
     </script>  
 
     <script type="text/javascript">
-      $('.label').tooltip();
+      //$('.label').tooltip();
     </script>
 
         <!-- app -->
