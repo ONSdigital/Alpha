@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prototype: Series ID Search</title>
+  <title>Prototype: Time Series Data</title>
 
   <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 
@@ -212,22 +212,14 @@
 
 
 <div class="container ">
-    <h2>Series ID Search</h2>
+    <h2>Time Series Data</h2>
 
+      <div class="row">
+        <div class="col-sm-12">
 
-    <!--  TWO MAIN COLUMNS 8:4 split use RHS for list of selected CDID's  -->
-    <div class="row">
-    <div class="col-md-8">
-
-        <p>This prototype has been developed to help users explore ONS economic data and search and download by series ID. The vast majority of economic data produced by ONS are given unique, randomly generated, four digit identifiers and user research has shown that many of our users use, and are familiar with, these identifiers.</p>
-
-        <p>If you are not already familiar with our data, or are looking for top level economic series we would recommend visiting the <a href="http://www.ons.gov.uk/ons/site-information/using-the-website/time-series/index.html">Key Economic Time Series</a> page first. </p>
-
-
-        <div class="row">
-            <div class="col-md-4">
+            <div class="col-sm-3">
                 <div class="box bg-white">
-                    <h3 class="heading">1 - Select Topic</h3>
+                    <h5 class="heading">1 - Select Topic</h5>
 
                     <ul class="list-unstyled striped" id="example_list">
                         <form id="topic">
@@ -261,13 +253,13 @@
                 </div>
             </div>
 
-            <div class="col-md-8 ">
+            <div class="col-sm-6 ">
                 <div class=" box bg-white">
-                    <h3 class="heading">2 - Select Dataset</h3>
+                    <h5 class="heading">2 - Select Dataset</h5>
                     <p>Select the dataset that contains the series you require:<br/>
                         &nbsp;
                     </p>
-                    <select name="topicMenu" class="selectpicker topicMenu col-md-12">
+                    <select name="topicMenu" class="selectpicker topicMenu col-sm-12">
                         <option>Please select a topic...</option>
                     </select>
                     <div>
@@ -277,18 +269,22 @@
                     </div>
                 </div>
             </div>
-        </div><!--  END OF ROW  --> 
 
-    </div><!--  END OF LHS  --> 
+            <div class="col-sm-3 ">
+              <button type="button" class="btn btn-primary btn-block ">
+                    <span class="glyphicon glyphicon-download pull-left pad-left" id="downloadCSVBtn">&nbsp;</span>
+                    <span class="pull-left">Review Your Selection (0)</span>
+                </button>
+                <br/>
+                <a href="#">Download Entire Dataset (!)</a>
+            </div>
 
 
+        </div>
+      </div><!--  END OF ROW  -->
 
-    <div class="col-md-4">
-    <!-- <blockquote><p>"There are three kinds of lies: lies, damned lies, and statistics."</p><p><small>Mark Twain</small></p></blockquote> -->
 
-    </div><!--  END OF RHS  --> 
-
-    </div><!--  END OF ROW  --> 
+ 
 
     <!--  STEP 3 TABLE -->           
     
@@ -296,33 +292,106 @@
     <div class="row">
 
             
-        <div class="col-md-8">
-            <h3 class="heading">Step 3 - Search and select data</h3>
-            <p>Use the 'Search series ID' or 'Search boxes' to filter the table and add items to your selection by clicking them</p>
+        <div class="col-sm-3">
+          <h5 class="heading">Step 3 - Search and select data</h5>
+
+
+          <h5>Current Filters</h5>
+            <button type="button" class="btn btn-primary btn-xs" id="">Clear All</button>
+            <hr/>
+
+          <h5>Refine Results</h5>
+
             
-
-            <div id="cdid_filter" class="dataTables_filter pull-left">
-                <label class="">
-                  Search series ID: 
+            <div id="cdid_filter" class="dataTables_filter ">
+                 <h6>Filter by ID: </h6>
                   <input type="text" aria-controls="cdidTable" id="seriesFilter"></input>
-                  <p class="help-block bg-info col-md-12">
-                    <br/>
-                    <span class="glyphicon glyphicon-info-sign">&nbsp;</span> Enter the 4 digit Series ID's separated by a comma. For example: AIHD,CBCT,CBIH
-                    <br/>
-                    <br/>
-                    </p>
-                </label>
             </div>
-        </div>
-        <div class="col-md-4">
-       
+
+            <div class="">
+              <h6>Filter By Text</h6>
+              <input type="text" aria-controls="" id=""></input>
+              <hr/>
+            </div>
+
+
+            <div class="">
+              <button type="button" class="btn btn-primary btn-xs pull-right" id="" data-toggle="collapse" data-target="#cat">+</button><h6>Categories</h6>
+
+              <div id="cat" class="collapse">
+                If you are not already familiar with our data, or are looking for top level economic series we would recommend visiting the Key Economic Time Series page first.
+              </div>
+              <hr/>
+            </div>
+
+
+            <div class="">
+              <button type="button" class="btn btn-primary btn-xs pull-right" id="" data-toggle="collapse" data-target="#last">+</button><h6>Last Updated</h6>
+
+              <div id="last" class="collapse">
+                If you are not already familiar with our data, or are looking for top level economic series we would recommend visiting the Key Economic Time Series page first.
+              </div>
+              <hr/>
+            </div>
+
+            <div class="">
+              <button type="button" class="btn btn-primary btn-xs pull-right" id="" data-toggle="collapse" data-target="#freq">+</button><h6>Frequency</h6>
+
+              <div id="freq" class="collapse">
+                If you are not already familiar with our data, or are looking for top level economic series we would recommend visiting the Key Economic Time Series page first.
+              </div>
+              <hr/>
+            </div>
+
+            <div class="">
+              <button type="button" class="btn btn-primary btn-xs pull-right" id="" data-toggle="collapse" data-target="#sa">+</button><h6>Seasonal Adjustment</h6>
+
+              <div id="sa" class="collapse">
+                If you are not already familiar with our data, or are looking for top level economic series we would recommend visiting the Key Economic Time Series page first.
+              </div>
+              <hr/>
+            </div>
+
+            <div class="">
+              <button type="button" class="btn btn-primary btn-xs pull-right" id="" data-toggle="collapse" data-target="#region">+</button><h6>Region</h6>
+
+              <div id="region" class="collapse">
+                If you are not already familiar with our data, or are looking for top level economic series we would recommend visiting the Key Economic Time Series page first.
+              </div>
+              <hr/>
+            </div>
+
+            <div class="">
+              <button type="button" class="btn btn-primary btn-xs pull-right" id="" data-toggle="collapse" data-target="#source">+</button><h6>Data Source</h6>
+
+              <div id="source" class="collapse">
+                If you are not already familiar with our data, or are looking for top level economic series we would recommend visiting the Key Economic Time Series page first.
+              </div>
+              <hr/>
+            </div>
+
+            <div class="">
+              <button type="button" class="btn btn-primary btn-xs pull-right" id="" data-toggle="collapse" data-target="#tags">+</button><h6>Tags</h6>
+
+              <div id="tags" class="collapse">
+                If you are not already familiar with our data, or are looking for top level economic series we would recommend visiting the Key Economic Time Series page first.
+              </div>
+              <hr/>
+            </div>
+
+            <div class="">
+              <button type="button" class="btn btn-primary btn-xs pull-right" id="" data-toggle="collapse" data-target="#natstat">+</button><h6>National Statistic</h6>
+
+              <div id="natstat" class="collapse">
+                If you are not already familiar with our data, or are looking for top level economic series we would recommend visiting the Key Economic Time Series page first.
+              </div>
+              <hr/>
+            </div>
+
+
         </div>
 
-    </div>
-              
-
-    <div class="row">
-        <div class="col-md-8">
+        <div class="col-sm-9">
           <div class="clearFix">
             <table id="cdidTable" class="table-striped bordered-table table-condensed" cellpadding="0" cellspacing="0" border="0" >
               <thead>
@@ -352,10 +421,19 @@
               </tfoot>
             </table>
           </div>
+
+
         </div>
 
 
-        <div class="col-md-4">
+    </div>
+              
+
+    <div class="row">
+
+
+
+        <div class="">
             <div class="well  alert-success">
                 <h4 class="blockTitle">Your selection:</h4>
                 <p class="" id="dataTitle">Add items by selecting in the table</p>
@@ -403,30 +481,6 @@
 </div>
 
 
-<div class="container shim"></div>
-
-
-
-<div class = "container">
-  <div class="row">
-
-
-      <div class="col-md-8 ">
-          <div class=" box bg-white">
-              <div class="info-block"><!-- BODY BOX-->
-                <br/>
-                 <p>User feedback forms a large part of how we are looking to develop the ONS website. If you have any comments on this page or suggestions on how it could be approved please email: <a href="mailto:web.comments@ons.gsi.gov.uk">web.comments@ons.gsi.gov.uk</a> </p>
-          </div>
-      </div>  
-  </div>  
-
-
-
-
-
-
-</div>
-</div>
 
 
 
