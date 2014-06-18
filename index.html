@@ -286,11 +286,16 @@
 
 <h2><span class="glyphicon glyphicon-pushpin"></span> Selected Highlights</h2>
 
-<div class="row">
+<div class="row"><!-- 
   <div class="col-md-6">
+    </div> -->
+  <div class="col-md-3">
+    <label for="exampleInputPassword1" class="pull-right">Show me</label>
+    </div>
+  <div class="col-md-3">
           <form role="form">
                      <div class="form-group">
-                      <label for="exampleInputPassword1">Show me</label>
+                      
                       <select class="form-control">
                         <option>Popular</option>
                         <option>Recent</option>
@@ -512,53 +517,43 @@
                 <span class="glyphicon glyphicon-chevron-down ">&nbsp;</span>
                 More
               </a>
-              
+
   </div>
   </div>
 
 
 
-  <!--  TIME SERIES AND RELEASES  -->
+  <!--  FAVOURITES  -->
   <div class="container">
    <div class="row">
     <div class="col-md-4">
-      <div class="box">
-       <h2><span class="glyphicon glyphicon-star"></span> Favourites</h2>
 
-       <form role="form">
-        <div class="form-group">
-          <p class="">Explore ONS economic data and search by series ID.</p>
 
-          <label for="exampleInputEmail1">Search series ID</label>
-          <input type="email" class="form-control" id="exampleInput" placeholder="">
+      
+        <h2><span class="glyphicon glyphicon-star"></span> Favourites</h2>
+        <div class="box bg-white">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="images/census.png" />
+          </div>
+          <div class="col-md-8">
+            <h5>2011 Census</h5>
+            Census data and information for England and Wales
+          </div>
         </div>
-        <strong>or...</strong>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Select a topic</label>
-          <select class="form-control">
-            <option>Business and Trade</option>
-            <option>National Accounts</option>
-            <option>Labour Market</option>
-            <option>Price Indices</option>
-            <option>Travel and Tourism</option>
-          </select>
         </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Select a Dataset</label>
-          <select class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-
+        <div class="box">
+        <div class="row">
+          <div class="col-md-4">
+            <h2><span class="glyphicon glyphicon-cog"></span></h2>
+          </div>
+          <div class="col-md-8">
+            <br/>
+          <h5>Interactive Content</h5>
+          See our data in a new light
+          </div>
         </div>
-
-
-        <button type="submit" class="btn btn-primary">Find time series</button>
-      </form>
-    </div>
+      </div>
 
   </div>
 
