@@ -285,7 +285,7 @@ function singleLine(){
     renderer: 'line',
       //renderer: 'scatterplot',
     width: 600, 
-    height: 380, 
+    height: 350, 
       left:10,
     padding: {
       top: 0
