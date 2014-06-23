@@ -407,7 +407,7 @@ $('#chart_prices').highcharts({
     type: 'line'
   },
   title: {
-    text: ''
+    text: 'Prices Indices'
   },
   subtitle: {
     text: ''
