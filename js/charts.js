@@ -249,16 +249,23 @@ function singleLine(){
 
               var up = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i> </span>';
               var down = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i> </span>';
+              var flat = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-minus fa-stack-1x fa-inverse"></i> </span>';
 
 
               var monthIcon = up;
               var yearIcon = up;
 
-              if( lastMonth > series.data[index] ){
+              if( lastMonth > y ){
               	monthIcon = down;
               }
-              if( lastMonth > lastYear ){
-              	monthIcon = down;
+              if( lastMonth === y ){
+              	monthIcon = flat;
+              }
+              if( lastYear > y ){
+              	yearIcon = down;
+              }
+              if( lastYear === y ){
+              	yearIcon = flat;
               }
 
               var date = '<span class="date">' + date + '</span>';
