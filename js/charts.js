@@ -1,21 +1,18 @@
 $(document).ready(
 
 	function(){
-		singleLine();
-		initBar();
-		initMulti();
-
-		showHighcharts();
+		multiseries();
+    barChart();
     stackedBar();
     pieChart();
-
-		populationPyramid();
+    populationPyramid();
+    singleseries();
 	}
 
 	);
 
 
-function initBar(){
+function barChart(){
 
 	    var chart,
         categories = [ 
@@ -100,7 +97,7 @@ function initBar(){
 
 
 
-function initMulti(){
+/*function rickshawMultiseries(){
 		var palette = new Rickshaw.Color.Palette();
 
 		var graph1 = new Rickshaw.Graph( {
@@ -160,10 +157,10 @@ function initMulti(){
 
 		graph1.render();
 
-		}
+		}*/
 
 
-
+/*
 
 function singleLine(){
     // crea te an array to store the last month values
@@ -289,10 +286,10 @@ function singleLine(){
 
 }
 
+*/
 
 
-
-function showHighcharts(){
+function multiseries(){
 
   Highcharts.setOptions({
 
@@ -310,21 +307,20 @@ function showHighcharts(){
             'rgb(128, 128 , 128)'           // mid grey
             ],
 
-            chart: {
+    chart: {
               style: {
                 fontFamily: 'Open Sans',
                 color:'#000'
               },
               spacingTop: 30,
               spacingLeft:30,
-      backgroundColor:'#F9F9F9',
-      events: {
+              backgroundColor:'#F9F9F9',
+              events: {
 
-            load: function () {
+                load: function () {
                 var chart = this,
                     yAxis = chart.yAxis[0]
                     titleWidth=0;
-
 
                     if(yAxis.axisTitle){
                         titleWidth = yAxis.axisTitle.getBBox().width;
@@ -334,17 +330,15 @@ function showHighcharts(){
                             }
                         });
                     }                
-            }
-
+                }
             
-        }
+              }
 
-
-    },
-    symbols: [
+            },
+/*    symbols: [
     'circle'
     ]
-    ,
+    ,*/
     plotOptions: {
       series: {
         animation: false
@@ -371,7 +365,7 @@ function showHighcharts(){
         fontWeight:300
       },
 
-  	align: 'high',
+    align: 'high',
     rotation: 0,
     y: -15,
     }
@@ -426,28 +420,18 @@ $('#chart_prices').highcharts({
 
 
             formatter: function(){
-
-
               var up = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i> </span>';
               var down = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i> </span>';
               var flat = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-minus fa-stack-1x fa-inverse"></i> </span>';
              // var flat = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up" style="color: ' + this.series.color + '></i> <i class="fa fa-minus fa-stack-1x fa-inverse"></i> </span>';
 
-
               var monthIcon = "";
-
-
               var x = this.point.x;
               var lastY;
               var change ="";
 
               if(x>0){
 
-                console.log(this);
-                console.log(this.point);
-                console.log("index:" + x);
-                console.log("index:" +this.point.series.data[x-1].y);
-                
                 lastY = this.point.series.data[x-1].y;
 
                 if(lastY>this.point.y){
@@ -482,16 +466,28 @@ $('#chart_prices').highcharts({
 
   series: [{
       name: 'CPI % change',
-      data: [1.7,1.9,2,2.1,2.2,2.7,2.7,2.8,2.9,2.7,2.4,2.8,2.8]
+      data: [1.7,1.9,2,2.1,2.2,2.7,2.7,2.8,2.9,2.7,2.4,2.8,2.8],
+       marker:{
+        symbol:"circle"
+       }
     }, {
       name: ' CPIH % change',
-      data: [1.6,1.8,1.9,1.9,2,2.5,2.5,2.5,2.7,2.5,2.2,2.6,2.6]
+      data: [1.6,1.8,1.9,1.9,2,2.5,2.5,2.5,2.7,2.5,2.2,2.6,2.6],
+       marker:{
+        symbol:"circle"
+       }
    },{
       name:'RPIJ % change',
-      data:[2,2.1,2,2,1.9,2.5,2.6,2.6,2.7,2.5,2.3,2.7,2.6]
+      data:[2,2.1,2,2,1.9,2.5,2.6,2.6,2.7,2.5,2.3,2.7,2.6],
+       marker:{
+        symbol:"circle"
+       }
     },{
       name:'RPI % change',
-      data:[2.7,2.8,2.7,2.6,2.6,3.2,3.3,3.1,3.3,3.1,2.9,3.3,3.2]
+      data:[2.7,2.8,2.7,2.6,2.6,3.2,3.3,3.1,3.3,3.1,2.9,3.3,3.2],
+       marker:{
+        symbol:"circle"
+       }
     }
   ,
     {
@@ -524,6 +520,115 @@ $('#chart_prices').highcharts({
 
 
 }
+
+function singleseries(){
+
+
+
+
+$('#line').highcharts({
+  chart: {
+    type: 'line'
+  },
+ 
+
+  title: {
+    text: 'Prices Indices'
+  },
+  subtitle: {
+    text: ''
+  },
+  xAxis: {
+    //categories: ['Feb 2013', '', '', '', '', '','', '', '', '', '','', 'Aug 2013', '', '', '', '', '','', '', '', '', '','', 'Feb 2014']
+    categories: ['1987', '1988', '1989', '1990', '1991', '1992','1993', '1994', '1995', '1996', '1997','1998', '1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009','2000', '2010']
+  },
+  yAxis: {
+    title: {
+      text: 'Percentage change'
+    }
+    
+  }
+,
+plotOptions:{
+
+     dataLabels: {
+        enabled: false
+      }
+  ,
+      line: {
+        marker: {
+          enabled:false
+        },
+      enableMouseTracking: false
+      }
+}
+
+
+
+
+
+,
+
+tooltip: {
+  enabled:false
+}
+  
+   , series:
+   [
+    {"name": "Total Production",
+    "data": [ 100, 99.0036231884, 97.4637681159, 93.0253623188, 88.4057971014, 88.3152173913,
+     87.5, 88.134057971, 89.2210144928, 90.7608695652, 90.8514492754, 91.4855072464, 90.4891304348,
+      89.4927536232, 89.2210144928, 88.768115942, 88.4057971014, 87.5, 87.6811594203, 85.8695652174,
+       86.231884058, 86.865942029, 87.4094202899, 87.8623188406, 88.4963768116
+       ]
+    },
+
+    {"name": "Mining & Quarrying",
+    "data": [ 100, 99.9135695765, 98.2713915298, 94.0363007779, 91.7891097666, 91.3569576491
+    ,85.911840968, 85.2203975799, 87.8133102852, 88.4183232498, 86.2575626621, 83.2324978392
+    ,78.4788245462, 72.6879861711, 71.823681936, 71.477960242, 70.0950734659, 68.1936041487
+    ,68.1936041487, 62.2299049265, 64.9956784788, 66.205704408, 66.4649956785, 65.3414001729
+    ,64.6499567848]
+    },
+
+    {"name": "Manufacturing",
+    "data": [ 100, 98.5494106981, 96.9174977335, 92.1124206709, 86.7633726201, 86.8540344515
+    ,86.6727107888, 87.7606527652, 88.5766092475, 90.3898458749, 91.4777878513, 92.2030825023
+    ,92.384406165, 92.6563916591, 92.2937443336, 91.9310970082, 91.8404351768, 90.661831369
+    ,91.1151405258, 89.3925657298, 89.2112420671, 89.8458748867, 90.4805077063, 91.1151405258
+    ,92.2937443336]
+    },
+
+    {"name": "Electrical,Gas ",
+    "data": [ 100, 101.1764705882, 98.2352941176, 97.1568627451, 94.6078431373, 92.9411764706
+    ,95.0980392157, 94.7058823529, 99.0196078431, 98.6274509804, 94.3137254902, 100.2941176471
+    ,94.6078431373, 91.3725490196, 93.7254901961, 89.5098039216, 89.0196078431, 93.3333333333
+    ,91.2745098039, 94.4117647059, 95.5882352941, 93.6274509804, 88.137254902, 89.7058823529
+    , 87.9411764706]
+    },
+
+    {"name": "Water supply & sewage",
+    "data": [ 100, 99.0187332739, 100.089206066, 95.0044603033, 90.2765388046, 90.1873327386
+    ,90.9009812667, 90.2765388046, 87.9571810883, 89.7413024086, 89.5628902765, 89.5628902765
+    ,92.506690455, 92.952720785, 91.9714540589, 94.0231935772, 93.131132917, 91.7038358608
+    ,92.0606601249, 92.506690455, 91.9714540589, 94.6476360393, 99.3755575379, 100.9812667261
+    ,102.1409455843]
+    }
+  ]
+
+
+
+
+
+  });
+
+
+
+
+}
+
+
+
 
 function populationPyramid(){
 
@@ -619,7 +724,7 @@ $('#stackedBar').highcharts({
                 text: 'Energy Consumption by Source, 1990 to 2010'
             },
             xAxis: {
-                categories: [1990, null, null, null, null,1995, null, null, null, null, 2000,  2001,  2002,  2003,  2004,  2005,  2006,  2007,  2008,  2009,  2010]
+                categories: [1990, '', '', '', '', 1995, '', '', '', '', 2000,  2001,  2002,  2003,  2004,  2005,  2006,  2007,  2008,  2009,  2010]
             },
             yAxis: {
                 min: 0,
@@ -667,22 +772,22 @@ $('#stackedBar').highcharts({
             series: [
             {
                 name: 'Net imports',
-                data: [1.0, null, null, null, null,1.4, null, null, null, null, 1.2, 0.9, 0.7, 0.2, 0.6, 0.7, 0.6, 0.4, 0.9, 0.2, 0.2]
+                data: [1.0, '', '', '', '', 1.4, '', '', '', '', 1.2, 0.9, 0.7, 0.2, 0.6, 0.7, 0.6, 0.4, 0.9, 0.2, 0.2]
             }
             , 
             {
                 name: 'Renewable sources',
-                data: [1.3, null, null, null, null,2.1, null, null, null, null, 2.7, 2.8, 3.0, 3.1, 3.6, 4.3, 4.6, 5.0, 6.0, 6.6, 7.1]
+                data: [1.3, '', '', '', '', 2.1, '', '', '', '', 2.7, 2.8, 3.0, 3.1, 3.6, 4.3, 4.6, 5.0, 6.0, 6.6, 7.1]
             }
             ,
             {
                 name: 'Nuclear',
-                data: [16.3, null, null, null, null,21.3, null, null, null, null, 19.6, 20.8, 20.1, 20.0, 18.2, 18.4, 17.1, 14.0, 11.9, 15.2, 13.9]
+                data: [16.3, '', '', '', '', 21.3, '', '', '', '', 19.6, 20.8, 20.1, 20.0, 18.2, 18.4, 17.1, 14.0, 11.9, 15.2, 13.9]
             }
             , 
             {
                 name: 'Fossil Fuels',
-                data: [201.1, null, null, null, null,199.7, null, null, null, null, 214.0, 219.1, 213.9, 218.1, 221.9, 221.6, 218.0, 215.6, 213.7, 195.2, 202.6]
+                data: [201.1, '', '', '', '', 199.7, '', '', '', '', 214.0, 219.1, 213.9, 218.1, 221.9, 221.6, 218.0, 215.6, 213.7, 195.2, 202.6]
             }
 
             ]
