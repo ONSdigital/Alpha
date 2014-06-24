@@ -6,6 +6,8 @@ $(document).ready(
 		initMulti();
 
 		showHighcharts();
+    stackedBar();
+    pieChart();
 
 		populationPyramid();
 	}
@@ -35,7 +37,7 @@ function initBar(){
 		$('#bar').highcharts({
             chart: {
                 type: 'bar'
-                ,width:800
+             
             },
             title: {
                 text: 'Figure B: Contribution to 12 months growth rate (0.5%), February 2014'
@@ -335,7 +337,27 @@ function showHighcharts(){
               },
               spacingTop: 30,
               spacingLeft:30,
-      backgroundColor:'#F9F9F9'
+      backgroundColor:'#F9F9F9',
+      events: {
+
+            load: function () {
+                var chart = this,
+                    yAxis = chart.yAxis[0]
+                    titleWidth=0;
+
+
+                    if(yAxis.axisTitle){
+                        titleWidth = yAxis.axisTitle.getBBox().width;
+                        yAxis.update({
+                            title: {
+                                offset: -titleWidth
+                            }
+                        });
+                    }                
+            }
+
+            
+        }
 
 
     },
@@ -391,22 +413,7 @@ function showHighcharts(){
 
 $('#chart_prices').highcharts({
   chart: {
-    type: 'line',
-      events: {
-
-            load: function () {
-                var chart = this,
-                    yAxis = chart.yAxis[0],                    
-                    titleWidth = yAxis.axisTitle.getBBox().width;
-                yAxis.update({
-                    title: {
-                        offset: -titleWidth
-                    }
-                });
-            }
-
-            
-        }
+    type: 'line'
   },
   title: {
     text: 'Prices Indices'
@@ -559,6 +566,125 @@ function populationPyramid(){
     
 
 }
+
+
+function stackedBar(){
+$('#stackedBar').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Energy Consumption by Source, 1990 to 2010'
+            },
+            xAxis: {
+                categories: [1990, null, null, null, null,1995, null, null, null, null, 2000,  2001,  2002,  2003,  2004,  2005,  2006,  2007,  2008,  2009,  2010]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Energy Consumption'
+                },
+                stackLabels: {
+                    enabled: true,
+                    style: {
+                        fontWeight: 'bold',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                    }
+                }
+            },
+            legend: {
+                align: 'right',
+                x: -70,
+                verticalAlign: 'top',
+                y: 20,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                borderColor: '#CCC',
+                borderWidth: 1,
+                shadow: false
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.x +'</b><br/>'+
+                        this.series.name +': '+ this.y +'<br/>'+
+                        'Total: '+ this.point.stackTotal;
+                }
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                        style: {
+                            textShadow: '0 0 3px black, 0 0 3px black'
+                        }
+                    }
+                }
+            },
+            series: [
+            {
+                name: 'Net imports',
+                data: [1.0, null, null, null, null,1.4, null, null, null, null, 1.2, 0.9, 0.7, 0.2, 0.6, 0.7, 0.6, 0.4, 0.9, 0.2, 0.2]
+            }
+            , 
+            {
+                name: 'Renewable sources',
+                data: [1.3, null, null, null, null,2.1, null, null, null, null, 2.7, 2.8, 3.0, 3.1, 3.6, 4.3, 4.6, 5.0, 6.0, 6.6, 7.1]
+            }
+            ,
+            {
+                name: 'Nuclear',
+                data: [16.3, null, null, null, null,21.3, null, null, null, null, 19.6, 20.8, 20.1, 20.0, 18.2, 18.4, 17.1, 14.0, 11.9, 15.2, 13.9]
+            }
+            , 
+            {
+                name: 'Fossil Fuels',
+                data: [201.1, null, null, null, null,199.7, null, null, null, null, 214.0, 219.1, 213.9, 218.1, 221.9, 221.6, 218.0, 215.6, 213.7, 195.2, 202.6]
+            }
+
+            ]
+        });
+
+
+}
+
+
+function pieChart(){
+        $('#piechart').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Percentage Land Use 2008'
+            },
+            xAxis: {
+                categories: ['Grasses and rough grazing', 'Crops and bare fallow', 'Urban land', 'Forest & woodland', 'Inland water', 'Other agricultural land']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: ''
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+                series: [{
+                name: 'Land Use',
+                data: [52, 20, 14, 12, 1, 1]
+            }
+            ]
+        });
+
+}
+
+
 
 
 
