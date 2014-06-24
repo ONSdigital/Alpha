@@ -71,26 +71,6 @@ function initBar(){
                 }
             },
     
-            tooltip: {
-
-                formatter: function(){
-
-	              var up = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i> </span>';
-	              var down = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i> </span>';
-
-
-	              var swatch = 'Percentage contribution: '+ Highcharts.numberFormat(this.point.y, 2) +'%' +up;
-
-
-	               var content = swatch +  this.series.name + ": " + this.point.y + ' ' + this.series.color;
-	              content += '<br/><br/><b>'+ this.series.name +': '+ this.point.category +'</b><br/>';
-	              content += '<hr><i class="fa fa-warning fa-inverse"></i> Important information available';
-	              return content;
-
-                }
-
-            },
-
             legend:{
             	enabled:false
             },
@@ -380,8 +360,8 @@ function showHighcharts(){
        ,
        dataLabels: {
         enabled: false
-      },
-      enableMouseTracking: false
+      }//,
+      //enableMouseTracking: false
     }
   },
   yAxis: {
@@ -430,14 +410,76 @@ $('#chart_prices').highcharts({
     }
     
   },
-  plotOptions: {
-    line: {
-      dataLabels: {
-        enabled: false
-      },
-      enableMouseTracking: false
-    }
-  },
+
+    tooltip: {
+
+            backgroundColor: '#333',
+            
+            borderWidth: 0,
+            shadow: false,
+            useHTML: true,
+            style: {
+                padding: 10,
+                color: '#eee'
+            }
+            ,
+
+
+            formatter: function(){
+
+
+              var up = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i> </span>';
+              var down = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i> </span>';
+              var flat = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-minus fa-stack-1x fa-inverse"></i> </span>';
+             // var flat = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up" style="color: ' + this.series.color + '></i> <i class="fa fa-minus fa-stack-1x fa-inverse"></i> </span>';
+
+
+              var monthIcon = "";
+
+
+              var x = this.point.x;
+              var lastY;
+              var change ="";
+
+              if(x>0){
+
+                console.log(this);
+                console.log(this.point);
+                console.log("index:" + x);
+                console.log("index:" +this.point.series.data[x-1].y);
+                
+                lastY = this.point.series.data[x-1].y;
+
+                if(lastY>this.point.y){
+                  monthIcon = down;
+                }
+                if(lastY===this.point.y){
+                  monthIcon = flat;
+                }
+                if(lastY<this.point.y){
+                  monthIcon = up;
+                }
+                
+              }
+
+              var block = "<div class='sidebar ' style='background-color: " + this.series.color + "'></div>";
+              var title = '<b>'+ this.series.name +': </b>' + monthIcon + '<br/>';
+              var content = block + title ;
+              content += '<br/>This month: ' + Highcharts.numberFormat(this.point.y, 2) +'%<br/>' ;
+              if(monthIcon!==""){
+                content += 'Last month: '+ Highcharts.numberFormat(lastY, 2) +'%' ;
+                
+              }else{
+                content += "&nbsp;";
+              }
+              content += '<hr><i class="fa fa-warning fa-inverse"></i> Important information available';
+              return content;
+
+            }
+
+        }
+        ,
+
   series: [{
       name: 'CPI % change',
       data: [1.7,1.9,2,2.1,2.2,2.7,2.7,2.8,2.9,2.7,2.4,2.8,2.8]
