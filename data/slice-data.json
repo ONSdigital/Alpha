@@ -49,7 +49,7 @@
             {
                 "x": 1041379200,
                 "y": 78.2,
-                "y": 78.2,
+                "lastYear": 78.2,
                 "provisional": "false"
             },
             {
@@ -119,92 +119,110 @@
         "data": [
             {
                 "x": 820454400,
-                "y": 76,
+                "y": 70.6,
+                "lastYear": 76,
                 "provisional": "false"
             },
             {
                 "x": 852076800,
-                "y": 72.9,
+                "y": 70.6,
+                "lastYear": 72.9,
                 "provisional": "false"
             },
             {
                 "x": 883612800,
-                "y": 71.3,
+                "y": 70.6,
+                "lastYear": 71.3,
                 "provisional": "false"
             },
             {
                 "x": 915148800,
-                "y": 70.1,
+                "y": 70.6,
+                "lastYear": 70.1,
                 "provisional": "false"
             },
             {
                 "x": 946684800,
-                "y": 70.2,
+                "y": 70.6,
+                "lastYear": 70.2,
                 "provisional": "false"
             },
             {
                 "x": 978307200,
-                "y": 68.8,
+                "y": 70.6,
+                "lastYear": 68.8,
                 "provisional": "false"
             },
             {
                 "x": 1009843200,
-                "y": 67.8,
+                "y": 70.6,
+                "lastYear": 67.8,
                 "provisional": "false"
             },
             {
                 "x": 1041379200,
-                "y": 68.2,
+                "y": 70.6,
+                "lastYear": 68.2,
                 "provisional": "false"
             },
             {
                 "x": 1072915200,
-                "y": 69.8,
+                "y": 70.6,
+                "lastYear": 69.8,
                 "provisional": "false"
             },
             {
                 "x": 1104537600,
-                "y": 73.8,
+                "y": 70.6,
+                "lastYear": 73.8,
                 "provisional": "false"
             },
             {
                 "x": 1136073600,
-                "y": 77.6,
+                "y": 70.6,
+                "lastYear": 77.6,
                 "provisional": "false"
             },
             {
                 "x": 1167609600,
-                "y": 79.7,
+                "y": 70.6,
+                "lastYear": 79.7,
                 "provisional": "false"
             },
             {
                 "x": 1199145600,
-                "y": 86.9,
+                "y": 70.6,
+                "lastYear": 86.9,
                 "provisional": "false"
             },
             {
                 "x": 1230768000,
-                "y": 88.1,
+                "y": 70.6,
+                "lastYear": 88.1,
                 "provisional": "false"
             },
             {
                 "x": 1262304000,
-                "y": 90,
+                "y": 70.6,
+                "lastYear": 90,
                 "provisional": "false"
             },
             {
                 "x": 1293840000,
-                "y": 94.4,
+                "y": 70.6,
+                "lastYear": 94.4,
                 "provisional": "false"
             },
             {
                 "x": 1325376000,
-                "y": 95.8,
+                "y": 70.6,
+                "lastYear": 95.8,
                 "provisional": "false"
             },
             {
                 "x": 1356998400,
-                "y": 96.9,
+                "y": 70.6,
+                "lastYear": 96.9,
                 "provisional": "false"
             }
         ]
