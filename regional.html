@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototype: Regional Data: Wales</title>
+
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/menu.css" rel="stylesheet">
+
+
+  <!-- Alpha -->
+  <link href="css/alpha.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+
+
+
+  <style>
+
+  .chart{
+    height:440px;
+  }
+  .piechart{
+    height:200px;
+  }
+  #map{
+    height:440px;
+  }
+  /* CHART: tooltip side bar */
+  .sidebar {
+    width:30px;
+    height:100px;
+    margin-right: 5px;
+    float:left;
+    background-color: #f00;
+  }
+
+.fa-square{
+color:#0084D1;
+  
+}
+
+  </style>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+    <body>
+
+
+      <div class="container  bg_warning alpha-header">
+        <p class="alpha-header-title">Office for National Statistics
+          <span>Prototype</span>
+        </p>
+        <p class="alpha-header-copy">This is a mock-up of our new website. You should still use the <a href="http://www.ons.gov.uk">current site</a>
+        </p>
+      </div>
+
+      <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid" id="topbar">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html"><img id="logo" src="images/70x140ONScolourlogo.png" class="pull-left"/></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+
+          <!--  SEARCH  -->
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <span class="" data-toggle="collapse" data-target="#search-panel">
+                    Advanced
+                    <i class="fa fa-chevron-down  " ></i>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default"><span class="fa fa-search fa-lg form-control-feedback"></span></button>
+              </form>
+            </li>
+
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="">
+
+      <div class="well collapse col-sm-12" id="search-panel"> 
+
+        <div class="col-sm-6">
+          <div class="">
+           <h4><span class="glyphicon glyphicon-stats"></span> Time Series Data</h4>
+
+           <form role="form">
+             <div class="form-group">
+              <label for="exampleInputPassword1">Select a topic</label>
+              <select class="form-control">
+                <option>Business and Trade</option>
+                <option>National Accounts</option>
+                <option>Labour Market</option>
+                <option>Price Indices</option>
+                <option>Travel and Tourism</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputFile">Select a Dataset</label>
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Find time series</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="">
+          <h4><span class="glyphicon glyphicon-map-marker"></span> Local and Regional Data</h4>
+
+          <form role="form">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Select a region</label>
+              <select class="form-control">
+                <option>The North</option>
+                <option>North West</option>
+                <option>North East</option>
+                <option>West Midlands</option>
+                <option>Wales</option>
+              </select>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+
+
+    </div><!--  end of search panel -->
+  </div><!--  end of row -->
+</div><!--  end of continaer -->
+
+
+<!--  MENU BAR  -->
+
+<div class="container">
+  <nav class="navbar navbar-default" role="navigation" id="topmenu">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#one">Business, Industry and Trade</a>
+      </li>
+      <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#two">Economy</a>
+      </li>
+      <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#three">Employment and Labour Market</a>
+      </li>
+      <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#four">People, Population and Community</a>
+      </li>
+
+
+
+      <li><a href="#">Release Calendar</a></li>
+
+      <li class="dropdown menu">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b> </a>
+        <ul class="dropdown-menu megamenu row">
+          <li class="col-sm-12">
+            <ul>
+              <li class="dropdown-header">Themes</li>
+              <li><a class="" href="index.html">Home</a></li>
+              <li><a class="" href="economy.html">Economy</a></li>
+              <li><a class="" href="inflation.html">Inflation</a></li>
+            </ul>
+          </li>
+
+          <li class="col-sm-12">
+            <ul>
+              <li class="dropdown-header">Bulletin</li>
+              <li><a href="release.html">Release</a></li>
+              <li><a href="slice.html">Slice</a></li>
+              <!--  <li><a href="summary.html">Summary</a></li> -->
+              <li><a href="bulletin.html">Bulletin</a></li>
+              <!--  <li><a href="supplementary.html">Supplementary</a></li> -->
+              <li><a href="observation.html">Observation</a></li>
+            </ul>
+          </li>
+          <li class="col-sm-12">
+            <ul>
+              <li class="dropdown-header">Other</li>
+              <li><a href="article.html">Article</a></li>
+              <li><a href="series.html">Search ID</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+
+  <nav class="navbar navbar-default" role="navigation" id="submenu">
+
+    <ul class="nav navbar-nav collapse" id="one">
+      <li><a href="#" id="">Business</a></li>
+      <li><a href="#" id="">Changes to Business</a></li>
+      <li><a href="#" id="">International Trade</a></li>
+      <li><a href="#" id="">Construction</a></li>
+      <li><a href="#" id="">IT and Internet</a></li>
+      <li><a href="#" id="">Manufacturing and Production</a></li>
+      <li><a href="#" id="">Retail</a></li>
+      <li><a href="#" id="">Tourism</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav collapse" id="two">
+      <li><a href="economy.html" id="">Economic Output</a></li>
+      <li><a href="economy.html" id="">Environmental Accounts</a></li>
+      <li><a href="economy.html" id="">Government</a></li>
+      <li><a href="economy.html" id="">GDP</a></li>
+      <li><a href="economy.html" id="">GVA</a></li>
+      <li><a href="inflation.html" id="">Inflation</a></li>
+      <li><a href="inflation.html" id="">Investments</a></li>
+      <li><a href="inflation.html" id="">National Accounts</a></li>
+      <li><a href="inflation.html" id="">Regional Accounts</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav collapse" id="three">
+      <li><a href="economy.html">People in Work</a></li>
+      <li><a href="economy.html">People not in Work</a></li>
+      <li><a href="inflation.html">Public Sector Personnel</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav collapse" id="four">
+      <li><a href="#" id="">Births, Deaths and Marriages</a></li>
+      <li><a href="#" id="">Crime</a></li>
+      <li><a href="#" id="">Community</a></li>
+      <li><a href="#" id="">Education</a></li>
+      <li><a href="#" id="">Health and Social Care</a></li>
+      <li><a href="#" id="">Housing</a></li>
+      <li><a href="#" id="">Population</a></li>
+
+      <li class="dropdown menu">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More&hellip;&nbsp;<b class="caret"></b> </a>
+        <ul class="dropdown-menu megamenu row">
+          <li class="col-sm-12">
+            <ul>
+              <li><a href="#" id="">Cultural Identity</a></li>
+              <li><a href="#" id="">Elections</a></li>
+              <li><a href="#" id="">Household Characteristics</a></li>
+              <li><a href="#" id="">Leisure and Tourism</a></li>
+              <li><a href="#" id="">Personal and Household Finances</a></li>
+              <li><a href="#" id="">Well-being</a></li>
+
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+
+
+
+    </ul>
+
+  </nav>
+</div>
+
+<!--  END MENU BAR  -->
+
+
+
+
+
+<!--  PAGE BODY  -->
+<div class="container ">
+
+
+  <div class="row">
+    <h4><span class="glyphicon glyphicon-map-marker"></span> Regional Data: Wales</h4>
+    <div id="chart_prices" class="">
+
+          <form role="form">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Select a region</label>
+              <select class="form-control" id="areas">
+                <option>Pick an area...</option>
+                <option>Isle of Anglesey</option>
+                <option>Gwynedd</option>
+                <option>Conwy</option>
+                <option>Denbighshire</option>
+                <option>Flintshire</option>
+                <option>Powys</option>
+                <option>Ceredigion</option>
+                <option>Pembrokeshire</option>
+                <option>Carmarthenshire</option>
+                <option>Swansea</option>
+                <option>Bridgend</option>
+                <option>The Vale of Glamorgan</option>
+                <option>Cardiff</option>
+                <option>Caerphilly</option>
+                <option>Blaenau Gwent</option>
+                <option>Monmouthshire</option>
+                <option>Newport</option>
+              </select>
+            </div>
+          </form>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <h2 id="title">Demographics</h2>
+
+    <div id='bar' class='box'>
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Population: <strong><span id="pop2012"></span></strong><span class="fa-stack fa-lg pull-right">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i id="popdirection" class="fa fa-stack-1x fa-inverse"></i>
+                </span></h3>
+          2011:<span id="pop2011"></span><br/>
+          Area:<span id="area"></span><br/>
+          Density:<span id="density"></span> people per km2<br/>
+                
+
+        </div>
+        <div class="col-sm-4">
+          <h3>Gender</h3>
+          <div id='genderChart' class='piechart'>
+
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <h3>Age Groups</h3>
+          <div id='ageChart' class='piechart'>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Natural Changes<span class="fa-stack fa-lg pull-right">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i id="changedirection" class="fa  fa-stack-1x fa-inverse"></i>
+                </span></h3>
+          <span class="title">Births: </span><span id="births"></span><br/>
+          <span class="title">Deaths: </span><span id="deaths"></span><br/>
+          <span class="title">Natural Change: </span><span id="natural"></span><br/>
+                
+
+        </div>
+        <div class="col-sm-4">
+          <h3>Migration within UK <span class="fa-stack fa-lg pull-right">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i id="ukdirection" class="fa fa-stack-1x fa-inverse"></i>
+                </span></h3>
+          <span class="title">In: </span><span id="uk_in"></span><br/>
+          <span class="title">Out: </span><span id="uk_out"></span><br/>
+          <span class="title">Net: </span><span id="uk_net"></span><br/>
+                
+
+        </div>
+        <div class="col-sm-4">
+          <h3>International Migration <span class="fa-stack fa-lg pull-right">
+                  <i class="fa fa-square fa-stack-2x "></i>
+                  <i id="nationaldirection" class="fa fa-stack-1x fa-inverse"></i>
+                </span>
+</h3>
+          <span class="title">In: </span><span id="in"></span><br/>
+          <span class="title">Out: </span><span id="out"></span><br/>
+          <span class="title">Net: </span><span id="net"></span><br/>
+                
+        </div>
+      </div>
+
+    
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Population Pyramid</h2>
+      <div id='pyramid' class='chart'>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <h2>Map</h2>
+      <div id="map"></div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <h2>Population Comparison</h2>
+    <div id='stackedBar' class='chart'>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <h2>Pie Chart</h2>
+    <div id='piechart' class='chart'>
+    </div>
+  </div>
+
+
+
+  <div class="row shim">
+  </div>
+
+
+</div>
+<!--  END PAGE BODY  -->
+
+
+
+
+
+
+
+
+
+<!--  FOOTER -->
+<div class="container footer darkGrey">
+
+ <div class="row">
+  <div class="col-md-4">
+    <h3>Legal</h3>
+    <ul>
+      <li><a href="#">Business Transparency</a></li>
+      <li><a href="#">Terms and Conditions</a></li>
+      <li><a href="#">Copyright</a></li>
+      <li><a href="#">Cookies and Privacy</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h3>About ONS</h3>
+    <ul>
+      <li><a href="#">Who we are</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Products and Services</a></li>
+      <li><a href="#">Contact us</a></li>
+      <li><a href="#">Our Offices</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h3>Connect with us</h3>
+    <ul>
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">Youtube</a></li>
+      <li><a href="#">Email subscriptions</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <p class="text-muted">All content is available under the Open Government Licence v2.0 except where otherwise stated</p>
+</div>
+</div>
+
+
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;region=GB"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/libs/jquery.min.js"></script>
+<script src="js/libs/jquery.csv.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!-- chart library -->
+<script src="js/libs/highcharts.js"></script>
+
+<!-- app -->
+<script src="js/alpha.js"></script>
+
+
+
+
+<!-- charting -->
+<!-- <script src="js/multiseries.js"></script>
+<script src="js/barchart.js"></script> -->
+<script src="js/pyramid_regional.js"></script>
+<script src="js/stackedBar.js"></script>
+<script src="js/piechart.js"></script>
+<!-- <script src="js/lineseries.js"></script> -->
+
+<script src="js/charts_regional.js"></script>
+<script src="js/regional.js"></script>
+
+
+
+</body>
+</html>
+
