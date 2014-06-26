@@ -296,6 +296,8 @@ function processData(  ) {
     total = value.total.split(",").join("");
     areaObj[value.name].male.total = parseInt(total, 10);
 
+
+
   })
 
   console.log(areaObj);
@@ -342,6 +344,8 @@ function processData(  ) {
 
     console.log(areaObj);
 
+    //init with content
+    showData("Newport");
 
 }
 
@@ -686,8 +690,8 @@ function processData(  ) {
             function initialize() {
 
 
-              var myLat = 52.7041845609995;
-              var myLong = -2.7536617935180563;
+              var myLat = 52.5;
+              var myLong = -4;
               var myZoom = 7;
 
               var styles = [

@@ -340,15 +340,30 @@ color:#0084D1;
     <div id='bar' class='box'>
       <div class="row">
         <div class="col-sm-4">
-          <h3>Population: <strong><span id="pop2012"></span></strong><span class="fa-stack fa-lg pull-right">
+
+          <h3>Population: <strong><span id="pop2012"></span></strong>
+          </h3>
+          <div class="row">
+
+            <div class="col-sm-6">
+              2011:<br/>
+              Area:<br/>
+              Density:<br/>
+              <span class="fa-stack fa-lg pull-left">
                   <i class="fa fa-square fa-stack-2x"></i>
                   <i id="popdirection" class="fa fa-stack-1x fa-inverse"></i>
-                </span></h3>
-          2011:<span id="pop2011"></span><br/>
-          Area:<span id="area"></span><br/>
-          Density:<span id="density"></span> people per km2<br/>
-                
+                </span>
+            </div>
+            
+            <div class="col-sm-6">
+              <strong><span id="pop2011"></span></strong><br/>
+              <strong><span id="area"></span></strong><br/>
+              <strong><span id="density"></span></strong><br/> people per km2
+              <br/>
 
+            </div>
+
+          </div>
         </div>
         <div class="col-sm-4">
           <h3>Gender</h3>
@@ -428,7 +443,7 @@ color:#0084D1;
 
 
   <div class="row">
-    <h2>Pie Chart</h2>
+    <h2>Ordered Bar Chart</h2>
     <div id='piechart' class='chart'>
     </div>
   </div>
@@ -510,7 +525,7 @@ color:#0084D1;
 <!-- <script src="js/multiseries.js"></script>
 <script src="js/barchart.js"></script> -->
 <script src="js/pyramid_regional.js"></script>
-<script src="js/stackedBar.js"></script>
+<script src="js/bar_regional.js"></script>
 <script src="js/piechart.js"></script>
 <!-- <script src="js/lineseries.js"></script> -->
 
