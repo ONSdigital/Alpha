@@ -4,26 +4,31 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prototype: Example charts</title>
+  <title>Prototype: Regional Data: Wales</title>
 
   <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 
+
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- MEGA MENU styles-->
   <link href="css/menu.css" rel="stylesheet">
-  <link href="css/demo.css" rel="stylesheet">
+
 
   <!-- Alpha -->
   <link href="css/alpha.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
 
-  <link href="css/rickshaw.css" rel="stylesheet">  
 
 
   <style>
 
   .chart{
+    height:440px;
+  }
+  .piechart{
+    height:200px;
+  }
+  #map{
     height:440px;
   }
   /* CHART: tooltip side bar */
@@ -35,6 +40,10 @@
     background-color: #f00;
   }
 
+.fa-square{
+color:#0084D1;
+  
+}
 
   </style>
 
@@ -293,28 +302,141 @@
 
 
   <div class="row">
-    <h2>Multi-series</h2>
-    <div id="chart_prices" class="chart">
+    <h4><span class="glyphicon glyphicon-map-marker"></span> Regional Data: Wales</h4>
+    <div id="chart_prices" class="">
+
+          <form role="form">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Select a region</label>
+              <select class="form-control" id="areas">
+                <option>Pick an area...</option>
+                <option>Isle of Anglesey</option>
+                <option>Gwynedd</option>
+                <option>Conwy</option>
+                <option>Denbighshire</option>
+                <option>Flintshire</option>
+                <option>Powys</option>
+                <option>Ceredigion</option>
+                <option>Pembrokeshire</option>
+                <option>Carmarthenshire</option>
+                <option>Swansea</option>
+                <option>Bridgend</option>
+                <option>The Vale of Glamorgan</option>
+                <option>Cardiff</option>
+                <option>Caerphilly</option>
+                <option>Blaenau Gwent</option>
+                <option>Monmouthshire</option>
+                <option>Newport</option>
+              </select>
+            </div>
+          </form>
     </div>
   </div>
 
 
   <div class="row">
-    <h2>Bar Chart</h2>
-    <div id='bar' class='chart'>
+    <h2 id="title">Demographics</h2>
+
+    <div id='bar' class='box'>
+      <div class="row">
+        <div class="col-sm-4">
+
+          <h3>Population: <strong><span id="pop2012"></span></strong>
+          </h3>
+          <div class="row">
+
+            <div class="col-sm-6">
+              2011:<br/>
+              Area:<br/>
+              Density:<br/>
+              <span class="fa-stack fa-lg pull-left">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i id="popdirection" class="fa fa-stack-1x fa-inverse"></i>
+                </span>
+            </div>
+            
+            <div class="col-sm-6">
+              <strong><span id="pop2011"></span></strong><br/>
+              <strong><span id="area"></span></strong><br/>
+              <strong><span id="density"></span></strong><br/> people per km2
+              <br/>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <h3>Gender</h3>
+          <div id='genderChart' class='piechart'>
+
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <h3>Age Groups</h3>
+          <div id='ageChart' class='piechart'>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Natural Changes<span class="fa-stack fa-lg pull-right">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i id="changedirection" class="fa  fa-stack-1x fa-inverse"></i>
+                </span></h3>
+          <span class="title">Births: </span><span id="births"></span><br/>
+          <span class="title">Deaths: </span><span id="deaths"></span><br/>
+          <span class="title">Natural Change: </span><span id="natural"></span><br/>
+                
+
+        </div>
+        <div class="col-sm-4">
+          <h3>Migration within UK <span class="fa-stack fa-lg pull-right">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i id="ukdirection" class="fa fa-stack-1x fa-inverse"></i>
+                </span></h3>
+          <span class="title">In: </span><span id="uk_in"></span><br/>
+          <span class="title">Out: </span><span id="uk_out"></span><br/>
+          <span class="title">Net: </span><span id="uk_net"></span><br/>
+                
+
+        </div>
+        <div class="col-sm-4">
+          <h3>International Migration <span class="fa-stack fa-lg pull-right">
+                  <i class="fa fa-square fa-stack-2x "></i>
+                  <i id="nationaldirection" class="fa fa-stack-1x fa-inverse"></i>
+                </span>
+</h3>
+          <span class="title">In: </span><span id="in"></span><br/>
+          <span class="title">Out: </span><span id="out"></span><br/>
+          <span class="title">Net: </span><span id="net"></span><br/>
+                
+        </div>
+      </div>
+
+    
     </div>
   </div>
 
 
   <div class="row">
-    <h2>Population Pyramid</h2>
-    <div id='pyramid' class='chart'>
+    <div class="col-sm-8">
+      <h2>Population Pyramid</h2>
+      <div id='pyramid' class='chart'>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <h2>Map</h2>
+      <div id="map"></div>
     </div>
   </div>
 
 
   <div class="row">
-    <h2>Stacked Bar</h2>
+    <h2>Population Comparison</h2>
     <div id='stackedBar' class='chart'>
     </div>
   </div>
@@ -326,11 +448,7 @@
     </div>
   </div>
 
-  <div class="row">
-    <h2>Line Chart</h2>
-    <div id='line' class='chart'>
-    </div>
-  </div>
+
 
   <div class="row shim">
   </div>
@@ -387,9 +505,11 @@
 </div>
 
 
+  <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&amp;region=GB"></script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/libs/jquery.min.js"></script>
+<script src="js/libs/jquery.csv.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 <!-- chart library -->
@@ -402,14 +522,15 @@
 
 
 <!-- charting -->
-<script src="js/multiseries.js"></script>
-<script src="js/barchart.js"></script>
-<script src="js/pyramid.js"></script>
-<script src="js/stackedBar.js"></script>
+<!-- <script src="js/multiseries.js"></script>
+<script src="js/barchart.js"></script> -->
+<script src="js/pyramid_regional.js"></script>
+<script src="js/bar_regional.js"></script>
 <script src="js/piechart.js"></script>
-<script src="js/lineseries.js"></script>
+<!-- <script src="js/lineseries.js"></script> -->
 
-<script src="js/charts.js"></script>
+<script src="js/charts_regional.js"></script>
+<script src="js/regional.js"></script>
 
 
 
