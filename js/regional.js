@@ -18,6 +18,8 @@ var areaMeasures = {};
 var genderChart;
 var ageChart;
 
+var polygons = [];
+
 
   $(document).ready(function() {
 
@@ -53,7 +55,7 @@ var ageChart;
     var data = areaObj[str]
     //call API for map boundary
     //getBoundaries(data.code);
-    console.log(data);
+   // console.log(data);
 
     var pc_change = 100 * (data.changes.now - data.changes.previous)/data.changes.now;
 
@@ -143,7 +145,7 @@ var ageChart;
     ageChart.series[0].setData( ageData );
     genderChart.series[0].setData( genderData );
 
-    console.log(pyramid);
+    //console.log(pyramid);
     pyramid.setTitle({text: "Population pyramid for " + str + ", midyear 2012" });
 
     
@@ -467,6 +469,8 @@ function processData(  ) {
                     // calculate centroid
                     var centroid = getCentroid(minlon, maxlon, minlat, maxlat);
                     //initialize(centroid.lat, centroid.lon, zoomLevel, latlons);
+
+                    console.log("init map: draw area " + polygons.length);
                     drawArea(latlons, response.results[0].value);
                 } else {
                     alert("No matching ward found");
@@ -755,9 +759,13 @@ function processData(  ) {
 
             var adminBoundaryArea;
             var map ;
+            var selectedAreaId;
+            var lastSelectedPolygon;
 
 
             function drawArea(latlons, code) {
+              //console.log(latlons);
+              console.log("draw " + latlons.length);
                 if (latlons != null) {
 
                     for (var j = 0; j < latlons.length;j++)
@@ -765,9 +773,11 @@ function processData(  ) {
                        var adminCoordsArea = new Array();
                        //alert('j = ' + j + ' adminCoords[i] = null ' + adminCoords[0]);
                        for (var i = 0; i < latlons[j].length; i = i + 1) {
-                          //console.log(latlons[j][i].lat, latlons[j][i].lon);
+                        // console.log( "add poit ; " + latlons[j][i].lat, latlons[j][i].lon);
                            adminCoordsArea[i] = new google.maps.LatLng(latlons[j][i].lat, latlons[j][i].lon);
                        }
+
+                       
             
                        // Construct the polygon
                        // setting up is attributes, eg, fill colour
@@ -778,23 +788,68 @@ function processData(  ) {
                            strokeWeight: .5,
                            fillColor: '#ccc',
                            fillOpacity: 0.7,
-                           id:code
+                           id:code,
+                           selected:false
                        });
 
+                       //polygons.push(adminBoundaryArea);
+
                        google.maps.event.addListener(adminBoundaryArea, 'click', function (event) {
-                          console.log(areaObj);
-                          //console.log(this.id +":"+ areaMap[this.id]);
+                         // console.log(areaObj);
+                         // console.log(this.id +":"+ areaMap[this.id]);
                           showData( areaMap[this.id] );
+
+
+                         // $.each(polygons, function (index,value){    
+                            // console.log(selectedAreaId +":"+ this.id +", " + value.selected+ "::" + value.id);
+                           /* if(selectedAreaId!==value.id){
+                              polygons[index].selected = false;
+                              
+                            }else{
+                              polygons[index].selected = true;
+                            }*/
+                           // lastSelectedPolygon.setOptions({fillColor:'#ccc'})
+
+                          //});
+
+                          //this.selected = ! this.selected;
+
+                          if(selectedAreaId !== this.id){
+                            selectedAreaId = this.id;
+                            if(lastSelectedPolygon){
+                              lastSelectedPolygon.setOptions({fillColor:'#ccc'});
+                              
+                            }
+                              lastSelectedPolygon = this;
+                              lastSelectedPolygon.setOptions({fillColor:'#00c'});
+                          }else{
+                            selectedAreaId="";
+                            if(lastSelectedPolygon){
+                              lastSelectedPolygon.setOptions({fillColor:'#ccc'});
+                            }
+                            lastSelectedPolygon = null;
+                          }
+                          
+                          //console.log("selected: " + this.selected);
                         });
                       google.maps.event.addListener(adminBoundaryArea,"mouseover",function(){
-                       this.setOptions({fillColor: '#333',
-                           fillOpacity: 0.7});
+                        if( this.id !== selectedAreaId){
+                         this.setOptions({fillColor: '#333',
+                             fillOpacity: 0.7});
+
+                        }
                       }); 
 
                       google.maps.event.addListener(adminBoundaryArea,"mouseout",function(){
-                       this.setOptions({fillColor: '#ccc',
+                        var clr = '#ccc';
+                        if( this.id === selectedAreaId){
+                          clr = '#00c';
+                        }
+                       this.setOptions({fillColor: clr,
                            fillOpacity: 0.7});
                       });
+
+                      //console.log("set boudary " +j);
                        adminBoundaryArea.setMap(map);
                     }
 
