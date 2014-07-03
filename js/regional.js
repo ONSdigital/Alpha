@@ -2,16 +2,20 @@
 var BASE_URL = "data/change.csv";
 var MALE_URL = "data/males.csv";
 var FEMALE_URL = "data/females.csv";
+var TREND_URL = "data/population.csv";
 
 var males;
 var females;
 var changes;
+var trend;
 var areaObj = {};
 var barChart;
 
 var areaCodes = [];
 var areaMap = {};
 var areaMeasures = {};
+
+var comparisons = [];
 
 
 
@@ -31,7 +35,7 @@ var polygons = [];
     });
 
 
-    loadData();
+    loadPopData();
 
     // inii charts
     initGenderChart();
@@ -75,8 +79,15 @@ var polygons = [];
     $("#title").text("Demographics: " + str + " (" + suffix + pc_change + "% change from 2011)");
     $("#pop2012").text(data.changes.now );
     $("#pop2011").text( data.changes.previous);
-    $("#area").text( Math.round(data.area) + "km2" );
-    $("#density").text( Math.round( 100* data.changes.now/data.area )/100  );
+
+    if( isNaN(data.area) ){
+      data.area = "";
+      $("#area").text( "Not available" );
+      $("#density").text( "Not available" );
+    }else{
+      $("#area").text( Math.round(data.area) + "km2" );
+      $("#density").text( Math.round( 100* data.changes.now/data.area )/100  );
+    }
 
 
     // direction icon
@@ -156,12 +167,17 @@ var polygons = [];
 
 
     //reset last bar to blue
-    barChart.series[0].data[lastBar].update( {color:'#0084D1'} );
+    //barChart.series[0].data[lastBar].update( {color:'#0084D1'} );
 
     lastBar = comparisonLookUp[str];
+
+    console.log("last abr " + lastBar);
+
     //barChart.series[0].data.update( {color:'#0084D1'} );
-    var highlight = barChart.series[0].data[ lastBar ];
-    barChart.series[0].data[comparisonLookUp[str]].update( {color:'#FF950E'} );
+    if(lastBar){
+     // var highlight = barChart.series[0].data[ lastBar ];
+     // barChart.series[0].data[comparisonLookUp[str]].update( {color:'#FF950E'} );
+    }
 
 
   }
@@ -172,7 +188,7 @@ var polygons = [];
 
 
 
-  function loadData(){
+  function loadPopData(){
 
     //population
     $.ajax({
@@ -217,6 +233,20 @@ var polygons = [];
       });
 
 
+    $.ajax({
+      dataType: "text",
+      url: TREND_URL,
+
+      success: function(data) {
+        trend = $.csv.toObjects(data);
+        checkAllData();
+      },
+      error: function (xhr, textStatus, errorThrown) {
+          console.warn("error");
+        }
+      });
+
+
 
 
   }
@@ -227,7 +257,8 @@ var polygons = [];
 
 
 function checkAllData(  ) {
-  if(males && females && changes){
+  if(males && females && changes && trend){
+    //console.log(trend);
     console.log("GOT BOTH SO PROCESS DATA");
     processData()
   }
@@ -246,9 +277,6 @@ $("#areas").empty();
 
     //TODO: set names in select here
 
-    if(value.CODE.indexOf("E12")>-1){
-      console.log("region:" + value.CODE + ":" + value.NAME);
-    }
     var name = value.NAME;
     // create obj for each area
     areaObj[name] = {};
@@ -346,15 +374,15 @@ $("#areas").empty();
   var totalData = [];
   
 
-  var comparisons = [];
+  comparisons = [];
 
   $.each(changes, function (index,value){
 
     
-    //console.log(  value.code );
+   // console.log(  value.code );
     //console.log(  value.name );
 
-    //console.log( value );
+  // console.log( value );
     //console.log(areaObj[value.name]);
     //console.log(areaObj["UNITED KINGDOM"]);
 
@@ -363,14 +391,17 @@ $("#areas").empty();
     newVal = parseInt( newVal,10 );
     //totalData.push( parseInt( newVal,10 ) );
 
-    comparisons.push( {name:value.name, value: newVal} );
+    comparisons.push( {name:value.name, code: value.code, value: newVal} );
 
     $.each(value, function (col, val){
       //console.log(col, val);
-
-      if(col!=="name" && col!=="code"){
+      //console.log("value " + value.name);
+      if(col!=="name" && col!=="code" ){
         newVal = val.split(",").join("");
-        areaObj[value.name].changes[col] = parseInt( newVal,10 );
+        if(areaObj[value.name]){
+          areaObj[value.name].changes[col] = parseInt( newVal,10 );
+          
+        }
       }
     });
 
@@ -386,15 +417,33 @@ $("#areas").empty();
     comparisonLookUp[value.name] = index;
   });
 
+  // console.log(areaObj);
+  // loop through the trends and store in areaObj
+  $.each(trend, function (index,value){
+    // console.log("trend " + value.Name);
+    if(areaObj[value.Name]){
+      areaObj[value.Name].trends =[];
+      $.each(value, function (col, val){
+        if(col!=="Name" && col!=="Code" ){
+          areaObj[value.Name].trends.push( parseInt(val,10) );
+        }
+      });
+   }else{
+      console.log("NO " + value.Name + " *************");
+    }
+    
+
+  });
 
 
   initialize();
 
   // loop through the codes and get the map shapes
   $.each(areaCodes, function (index,value){
-    console.log("get " + value);
+    //console.log("get " + value);
     //getBoundaries(value);
   });
+
 
   barChart = $('#stackedBar').highcharts();
 
@@ -405,6 +454,8 @@ $("#areas").empty();
 
   //init with content
   showData("Newport");
+  selectedRegion="Wales";
+  showComparison(COUNTY);
 }
 
 

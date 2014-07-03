@@ -50,11 +50,11 @@ function populationPyramid(){
                         return Math.abs(this.value);
                     }
                 }
-
+/*
                 ,
                 min: -22000,
                 max: 22000
-
+*/
             },
 
             plotOptions: {
