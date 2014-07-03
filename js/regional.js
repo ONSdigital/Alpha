@@ -1,7 +1,7 @@
 
-var BASE_URL = "data/wales_change.csv";
-var MALE_URL = "data/wales_male_2012.csv";
-var FEMALE_URL = "data/wales_female_2012.csv";
+var BASE_URL = "data/change.csv";
+var MALE_URL = "data/males.csv";
+var FEMALE_URL = "data/females.csv";
 
 var males;
 var females;
@@ -18,8 +18,11 @@ var areaMeasures = {};
 var genderChart;
 var ageChart;
 
-var polygons = [];
+var lastBar = 0;
 
+var polygons = [];
+//create a look up to highlight bar
+  var comparisonLookUp = {};
 
   $(document).ready(function() {
 
@@ -52,10 +55,13 @@ var polygons = [];
   function showData(str){
 
 
+
+
+
     var data = areaObj[str]
     //call API for map boundary
     //getBoundaries(data.code);
-   // console.log(data);
+     console.log(str);
 
     var pc_change = 100 * (data.changes.now - data.changes.previous)/data.changes.now;
 
@@ -101,30 +107,30 @@ var polygons = [];
 
 
     //uk migration
-    $("#uk_in").text( data.changes["internal in"]);
-    $("#uk_out").text( data.changes["internal out"]);
-    $("#uk_net").text( data.changes["internal net"]);
+    $("#uk_in").text( data.changes["Internal Inflow"]);
+    $("#uk_out").text( data.changes["Internal Outflow"]);
+    $("#uk_net").text( data.changes["Internal Net"]);
 
     // direction icon
     $("#ukdirection").removeClass("fa-chevron-up");
     $("#ukdirection").removeClass("fa-chevron-down");
     var direction = "fa-chevron-up";
-    if(data.changes["internal net"]<0){
+    if(data.changes["Internal Net"]<0){
       direction = "fa-chevron-down";
     }
     $("#ukdirection").addClass(direction);
 
 
     //migration
-    $("#in").text( data.changes["national in"]);
-    $("#out").text( data.changes["national out"]);
-    $("#net").text( data.changes["national net"]);
+    $("#in").text( data.changes["International Inflow"]);
+    $("#out").text( data.changes["International Outflow"]);
+    $("#net").text( data.changes["International Net"]);
 
     // direction icon
     $("#nationaldirection").removeClass("fa-chevron-up");
     $("#nationaldirection").removeClass("fa-chevron-down");
     var direction = "fa-chevron-up";
-    if(data.changes["national net"]<0){
+    if(data.changes["International Net"]<0){
       direction = "fa-chevron-down";
     }
     $("#nationaldirection").addClass(direction);
@@ -140,7 +146,7 @@ var polygons = [];
     pyramid.series[0].setData( data.series[0].data );
 
     var ageData = [["Under 18" , data.ageGroups.u18],["18-64", data.ageGroups.adult],["Over 64", data.ageGroups.over64]];
-    var genderData = [ ["Male", data.male.total],["Female", data.female.total] ];
+    var genderData = [ ["Male", data.male["ALL AGES"] ],["Female", data.female["ALL AGES"]] ];
 
     ageChart.series[0].setData( ageData );
     genderChart.series[0].setData( genderData );
@@ -148,7 +154,16 @@ var polygons = [];
     //console.log(pyramid);
     pyramid.setTitle({text: "Population pyramid for " + str + ", midyear 2012" });
 
-    
+
+    //reset last bar to blue
+    barChart.series[0].data[lastBar].update( {color:'#0084D1'} );
+
+    lastBar = comparisonLookUp[str];
+    //barChart.series[0].data.update( {color:'#0084D1'} );
+    var highlight = barChart.series[0].data[ lastBar ];
+    barChart.series[0].data[comparisonLookUp[str]].update( {color:'#FF950E'} );
+
+
   }
 
 
@@ -222,19 +237,28 @@ function checkAllData(  ) {
 
 function processData(  ) {
 
+
+$("#areas").empty();
+  var selection = "<option>Pick an area...</option>";
+
+
   $.each(males, function (index,value){
 
     //TODO: set names in select here
 
+    if(value.CODE.indexOf("E12")>-1){
+      console.log("region:" + value.CODE + ":" + value.NAME);
+    }
+    var name = value.NAME;
     // create obj for each area
-    areaObj[value.name] = {};
+    areaObj[name] = {};
 
     //create array for population
-    areaObj[value.name].male = [];
-    areaObj[value.name].female = [];
-    areaObj[value.name].changes = {};
-    areaObj[value.name].series = [{name:'female', data:[] },{name:'male', data:[] }];
-    areaObj[value.name].ageGroups = { u18:0, adult:0, over64:0};
+    areaObj[name].male = [];
+    areaObj[name].female = [];
+    areaObj[name].changes = {};
+    areaObj[name].series = [{name:'female', data:[] },{name:'male', data:[] }];
+    areaObj[name].ageGroups = { u18:0, adult:0, over64:0};
 
 
     tempFemaleRow = females[index];
@@ -244,14 +268,14 @@ function processData(  ) {
       var tempMaleCount = 0;
       var tempFemaleCount = 0;
 
+
     //loop through each age
     $.each(value, function (col, val){
 
-
-      if(col!=="name" && col!=="code"){
+      if(col!=="NAME" && col!=="CODE"){
         newVal = val.split(",").join("");
         newVal = parseInt( newVal,10 )
-        areaObj[value.name].male[col] = newVal;
+        areaObj[name].male[col] = newVal;
 
         tempMaleCount += newVal;
 
@@ -259,7 +283,7 @@ function processData(  ) {
         female = tempFemaleRow[col];
         newVal = female.split(",").join("");
         newVal =  parseInt( newVal,10 ) ;
-        areaObj[value.name].female[col] = newVal;
+        areaObj[name].female[col] = newVal;
 
         tempFemaleCount += newVal;
         categoryCount ++;
@@ -267,8 +291,8 @@ function processData(  ) {
 
         if(categoryCount===5 || ageGroup===18){
          // console.log("got group" + tempMaleCount);
-          areaObj[value.name].series[0].data.push(-tempFemaleCount);
-          areaObj[value.name].series[1].data.push(tempMaleCount);
+          areaObj[name].series[0].data.push(-tempFemaleCount);
+          areaObj[name].series[1].data.push(tempMaleCount);
           categoryCount = 0;
           ageGroup ++;
           tempMaleCount = 0;
@@ -276,49 +300,74 @@ function processData(  ) {
         }
 
 
-        var subtotal = areaObj[value.name].female[col] + areaObj[value.name].male[col];
+        var subtotal = areaObj[name].female[col] + areaObj[name].male[col];
         if(col<18){
-          areaObj[value.name].ageGroups.u18 += subtotal;
+          areaObj[name].ageGroups.u18 += subtotal;
         }else if (col>64){
-          areaObj[value.name].ageGroups.over64 += subtotal;
+          areaObj[name].ageGroups.over64 += subtotal;
         }else{
-          areaObj[value.name].ageGroups.adult += subtotal;
+          areaObj[name].ageGroups.adult += subtotal;
         }
 
-      }else if( col==="code"){
-        areaObj[value.name].code = val;
+      }else if( col==="CODE"){
+        areaObj[name].code = val;
         areaCodes.push(val);
 
-        areaMap[val] = value.name; 
+        areaMap[val] = name; 
+
+        
 
       }
 
+
+
     });
 
-    total = value.total.split(",").join("");
-    areaObj[value.name].male.total = parseInt(total, 10);
+    total = value["ALL AGES"].split(",").join("");
+    areaObj[name].male["ALL AGES"] = parseInt(total, 10);
+    //console.log(name);
+    selection += "<option>" + name + "</option";
 
 
+    $('#areas')
+          .append($('<option>', { name : index })
+          .text(name)); 
 
   })
 
-  console.log(areaObj);
+
+  //$("#areas").empty();
+  //$("#areas").append(selection);
+  //console.log(selection);
+
   //get totals for area comparisons
 
   var totalCats = [];
   var totalData = [];
+  
+
+  var comparisons = [];
 
   $.each(changes, function (index,value){
 
     
-   // console.log( value);
+    //console.log(  value.code );
+    //console.log(  value.name );
 
-    totalCats.push(value.name);
+    //console.log( value );
+    //console.log(areaObj[value.name]);
+    //console.log(areaObj["UNITED KINGDOM"]);
+
+    //totalCats.push(value.name);
     newVal = value.now.split(",").join("");
+    newVal = parseInt( newVal,10 );
+    //totalData.push( parseInt( newVal,10 ) );
 
-    totalData.push( parseInt( newVal,10 ) );
+    comparisons.push( {name:value.name, value: newVal} );
 
     $.each(value, function (col, val){
+      //console.log(col, val);
+
       if(col!=="name" && col!=="code"){
         newVal = val.split(",").join("");
         areaObj[value.name].changes[col] = parseInt( newVal,10 );
@@ -327,30 +376,45 @@ function processData(  ) {
 
   })
 
-  // loop through the codes and get the map shapes
+  // sort comparison by size
+  comparisons.sort(compare);
+
+  $.each(comparisons, function (index, value){
+    //console.log(value);
+    totalCats.push( value.name );
+    totalData.push( value.value );
+    comparisonLookUp[value.name] = index;
+  });
+
+
+
   initialize();
-    $.each(areaCodes, function (index,value){
 
-      console.log("get " + value);
-      getBoundaries(value);
-    });
+  // loop through the codes and get the map shapes
+  $.each(areaCodes, function (index,value){
+    console.log("get " + value);
+    //getBoundaries(value);
+  });
 
-    barChart = $('#stackedBar').highcharts();
+  barChart = $('#stackedBar').highcharts();
 
-    barChart.series[0].setData( totalData );
-    barChart.xAxis[0].setCategories(totalCats);
+  barChart.series[0].setData( totalData );
+  barChart.xAxis[0].setCategories(totalCats);
 
+  //console.log(areaObj);
 
-
-
-
-    console.log(areaObj);
-
-    //init with content
-    showData("Newport");
-
+  //init with content
+  showData("Newport");
 }
 
+
+function compare(a,b) {
+  if (a.value < b.value)
+     return 1;
+  if (a.value > b.value)
+    return -1;
+  return 0;
+}
 
 
 

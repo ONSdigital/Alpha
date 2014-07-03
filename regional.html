@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prototype: Regional Data: Wales</title>
+  <title>Prototype: Regional Data</title>
 
   <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 
@@ -40,10 +40,12 @@
     background-color: #f00;
   }
 
-.fa-square{
-color:#0084D1;
-  
-}
+  .fa{
+    padding-top: 2px;
+  }
+  .fa-square{
+    color:#0084D1;
+  }
 
   </style>
 
@@ -302,34 +304,46 @@ color:#0084D1;
 
 
   <div class="row">
-    <h4><span class="glyphicon glyphicon-map-marker"></span> Regional Data: Wales</h4>
-    <div id="chart_prices" class="">
-
+    <h1><span class="glyphicon glyphicon-map-marker"></span> Regional Data:</h1>
+    <div id="chart_prices" class="col-sm-3">
           <form role="form">
             <div class="form-group">
-              <label for="exampleInputPassword1">Select a region</label>
-              <select class="form-control" id="areas">
-                <option>Pick an area...</option>
-                <option>Isle of Anglesey</option>
-                <option>Gwynedd</option>
-                <option>Conwy</option>
-                <option>Denbighshire</option>
-                <option>Flintshire</option>
-                <option>Powys</option>
-                <option>Ceredigion</option>
-                <option>Pembrokeshire</option>
-                <option>Carmarthenshire</option>
-                <option>Swansea</option>
-                <option>Bridgend</option>
-                <option>The Vale of Glamorgan</option>
-                <option>Cardiff</option>
-                <option>Caerphilly</option>
-                <option>Blaenau Gwent</option>
-                <option>Monmouthshire</option>
-                <option>Newport</option>
+              <label for="region">Select a region</label>
+              <select class="form-control" id="region">
               </select>
             </div>
           </form>
+    </div>
+    <div id="chart_prices" class="col-sm-3">
+          <form role="form">
+            <div class="form-group">
+              <label for="county">Select a county</label>
+              <select class="form-control" id="county">
+              </select>
+            </div>
+          </form>
+    </div>
+    <div id="chart_prices" class="col-sm-3">
+          <form role="form">
+            <div class="form-group">
+              <label for="district">Select a district</label>
+              <select class="form-control" id="district">
+              </select>
+            </div>
+          </form>
+    </div>
+
+
+
+    <div class="col-sm-3">
+        <button type="button" class="btn btn-info btn-block ">
+          <span class="fa fa-chevron-right pull-left pad-left">&nbsp;</span>
+          <span class="pull-left">More data about this region</span>
+        </button>
+        <button type="button" class="btn btn-success btn-block ">
+          <span class="fa fa-chevron-down pull-left pad-left">&nbsp;</span>
+          <span class="pull-left">Download all data</span>
+        </button>
     </div>
   </div>
 
@@ -530,7 +544,8 @@ color:#0084D1;
 <!-- <script src="js/lineseries.js"></script> -->
 
 <script src="js/charts_regional.js"></script>
-<script src="js/regional.js"></script>
+<script src="js/areas.js"></script>
+<!-- <script src="js/regional.js"></script> -->
 
 
 

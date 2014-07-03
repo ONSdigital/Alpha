@@ -29,8 +29,8 @@ $('#stackedBar').highcharts({
             tooltip: {
                 formatter: function() {
                     return '<b>'+ this.x +'</b><br/>'+
-                        this.series.name +': '+ this.y +'<br/>'+
-                        'Total: '+ this.point.stackTotal;
+                        this.series.name +': '+ this.y +'<br/>';
+                        //'Total: '+ this.point.stackTotal;
                 }
             },
             plotOptions: {
@@ -47,7 +47,7 @@ $('#stackedBar').highcharts({
             },
             series: [
             {
-                name: 'Areas',
+                name: 'Population',
                 data: [1.0, '', '', '', '', 1.4, '', '', '', '', 1.2, 0.9, 0.7, 0.2, 0.6, 0.7, 0.6, 0.4, 0.9, 0.2, 0.2]
             }
 

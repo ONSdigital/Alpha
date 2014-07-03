@@ -1,0 +1,456 @@
+Code,Name,Entity,County,Region
+E10000007,Derbyshire,county,Derbyshire,East Midlands
+E10000018,Leicestershire,county,Leicestershire,East Midlands
+E10000019,Lincolnshire,county,Lincolnshire,East Midlands
+E10000021,Northamptonshire,county,Northamptonshire,East Midlands
+E10000024,Nottinghamshire,county,Nottinghamshire,East Midlands
+E07000032,Amber Valley,district,Derbyshire,East Midlands
+E07000033,Bolsover,district,Derbyshire,East Midlands
+E07000034,Chesterfield,district,Derbyshire,East Midlands
+E07000035,Derbyshire Dales,district,Derbyshire,East Midlands
+E07000036,Erewash,district,Derbyshire,East Midlands
+E07000037,High Peak,district,Derbyshire,East Midlands
+E07000038,North East Derbyshire,district,Derbyshire,East Midlands
+E07000039,South Derbyshire,district,Derbyshire,East Midlands
+E07000129,Blaby,district,Leicestershire,East Midlands
+E07000130,Charnwood,district,Leicestershire,East Midlands
+E07000131,Harborough,district,Leicestershire,East Midlands
+E07000132,Hinckley and Bosworth,district,Leicestershire,East Midlands
+E07000133,Melton,district,Leicestershire,East Midlands
+E07000134,North West Leicestershire,district,Leicestershire,East Midlands
+E07000135,Oadby and Wigston,district,Leicestershire,East Midlands
+E07000136,Boston,district,Lincolnshire,East Midlands
+E07000137,East Lindsey,district,Lincolnshire,East Midlands
+E07000138,Lincoln,district,Lincolnshire,East Midlands
+E07000139,North Kesteven,district,Lincolnshire,East Midlands
+E07000140,South Holland,district,Lincolnshire,East Midlands
+E07000141,South Kesteven,district,Lincolnshire,East Midlands
+E07000142,West Lindsey,district,Lincolnshire,East Midlands
+E07000150,Corby,district,Northamptonshire,East Midlands
+E07000151,Daventry,district,Northamptonshire,East Midlands
+E07000152,East Northamptonshire,district,Northamptonshire,East Midlands
+E07000153,Kettering,district,Northamptonshire,East Midlands
+E07000154,Northampton,district,Northamptonshire,East Midlands
+E07000155,South Northamptonshire,district,Northamptonshire,East Midlands
+E07000156,Wellingborough,district,Northamptonshire,East Midlands
+E07000170,Ashfield,district,Nottinghamshire,East Midlands
+E07000171,Bassetlaw,district,Nottinghamshire,East Midlands
+E07000172,Broxtowe,district,Nottinghamshire,East Midlands
+E07000173,Gedling,district,Nottinghamshire,East Midlands
+E07000174,Mansfield,district,Nottinghamshire,East Midlands
+E07000175,Newark and Sherwood,district,Nottinghamshire,East Midlands
+E07000176,Rushcliffe,district,Nottinghamshire,East Midlands
+E12000004,East Midlands region,region,,East Midlands
+E06000015,Derby,unitary,,East Midlands
+E06000016,Leicester,unitary,,East Midlands
+E06000017,Rutland,unitary,,East Midlands
+E06000018,Nottingham,unitary,,East Midlands
+E10000003,Cambridgeshire,county,Cambridgeshire,East of England
+E10000012,Essex,county,Essex,East of England
+E10000015,Hertfordshire,county,Hertfordshire,East of England
+E10000020,Norfolk,county,Norfolk,East of England
+E10000029,Suffolk,county,Suffolk,East of England
+E07000008,Cambridge,district,Cambridgeshire,East of England
+E07000009,East Cambridgeshire,district,Cambridgeshire,East of England
+E07000010,Fenland,district,Cambridgeshire,East of England
+E07000011,Huntingdonshire,district,Cambridgeshire,East of England
+E07000012,South Cambridgeshire,district,Cambridgeshire,East of England
+E07000066,Basildon,district,Essex,East of England
+E07000067,Braintree,district,Essex,East of England
+E07000068,Brentwood,district,Essex,East of England
+E07000069,Castle Point,district,Essex,East of England
+E07000070,Chelmsford,district,Essex,East of England
+E07000071,Colchester,district,Essex,East of England
+E07000072,Epping Forest,district,Essex,East of England
+E07000073,Harlow,district,Essex,East of England
+E07000074,Maldon,district,Essex,East of England
+E07000075,Rochford,district,Essex,East of England
+E07000076,Tendring,district,Essex,East of England
+E07000077,Uttlesford,district,Essex,East of England
+E07000095,Broxbourne,district,Hertfordshire,East of England
+E07000096,Dacorum,district,Hertfordshire,East of England
+E07000242,East Hertfordshire,district,Hertfordshire,East of England
+E07000098,Hertsmere,district,Hertfordshire,East of England
+E07000099,North Hertfordshire,district,Hertfordshire,East of England
+E07000100,St Albans,district,Hertfordshire,East of England
+E07000243,Stevenage,district,Hertfordshire,East of England
+E07000102,Three Rivers,district,Hertfordshire,East of England
+E07000103,Watford,district,Hertfordshire,East of England
+E07000104,Welwyn Hatfield,district,Hertfordshire,East of England
+E07000143,Breckland,district,Norfolk,East of England
+E07000144,Broadland,district,Norfolk,East of England
+E07000145,Great Yarmouth,district,Norfolk,East of England
+E07000146,King's Lynn and West Norfolk,district,Norfolk,East of England
+E07000147,North Norfolk,district,Norfolk,East of England
+E07000148,Norwich,district,Norfolk,East of England
+E07000149,South Norfolk,district,Norfolk,East of England
+E07000200,Babergh,district,Suffolk,East of England
+E07000201,Forest Heath,district,Suffolk,East of England
+E07000202,Ipswich,district,Suffolk,East of England
+E07000203,Mid Suffolk,district,Suffolk,East of England
+E07000204,St Edmundsbury,district,Suffolk,East of England
+E07000205,Suffolk Coastal,district,Suffolk,East of England
+E07000206,Waveney,district,Suffolk,East of England
+E12000006,East of England region,region,,East of England
+E06000031,Peterborough,unitary,,East of England
+E06000032,Luton,unitary,,East of England
+E06000055,Bedford,unitary,,East of England
+E06000056,Central Bedfordshire,unitary,,East of England
+E06000033,Southend-on-Sea,unitary,,East of England
+E06000034,Thurrock,unitary,,East of England
+E09000001,City of London,London borough,,London
+E09000002,Barking and Dagenham,London borough,,London
+E09000003,Barnet,London borough,,London
+E09000004,Bexley,London borough,,London
+E09000005,Brent,London borough,,London
+E09000006,Bromley,London borough,,London
+E09000007,Camden,London borough,,London
+E09000008,Croydon,London borough,,London
+E09000009,Ealing,London borough,,London
+E09000010,Enfield,London borough,,London
+E09000011,Greenwich,London borough,,London
+E09000012,Hackney,London borough,,London
+E09000013,Hammersmith and Fulham,London borough,,London
+E09000014,Haringey,London borough,,London
+E09000015,Harrow,London borough,,London
+E09000016,Havering,London borough,,London
+E09000017,Hillingdon,London borough,,London
+E09000018,Hounslow,London borough,,London
+E09000019,Islington,London borough,,London
+E09000020,Kensington and Chelsea,London borough,,London
+E09000021,Kingston upon Thames,London borough,,London
+E09000022,Lambeth,London borough,,London
+E09000023,Lewisham,London borough,,London
+E09000024,Merton,London borough,,London
+E09000025,Newham,London borough,,London
+E09000026,Redbridge,London borough,,London
+E09000027,Richmond upon Thames,London borough,,London
+E09000028,Southwark,London borough,,London
+E09000029,Sutton,London borough,,London
+E09000030,Tower Hamlets,London borough,,London
+E09000031,Waltham Forest,London borough,,London
+E09000032,Wandsworth,London borough,,London
+E09000033,Westminster,London borough,,London
+E12000007,Greater London,region,,London
+N92000002,Northern Ireland,country,,N. Ireland
+–,Derry,NI district,,N. Ireland
+–,Limavady,NI district,,N. Ireland
+–,Coleraine,NI district,,N. Ireland
+–,Ballymoney,NI district,,N. Ireland
+–,Moyle,NI district,,N. Ireland
+–,Larne,NI district,,N. Ireland
+–,Ballymena,NI district,,N. Ireland
+–,Magherafelt,NI district,,N. Ireland
+–,Cookstown,NI district,,N. Ireland
+–,Strabane,NI district,,N. Ireland
+–,Omagh,NI district,,N. Ireland
+–,Fermanagh,NI district,,N. Ireland
+–,Dungannon and South Tyrone,NI district,,N. Ireland
+–,Craigavon,NI district,,N. Ireland
+–,Armagh,NI district,,N. Ireland
+–,Newry and Mourne,NI district,,N. Ireland
+–,Banbridge,NI district,,N. Ireland
+–,Down,NI district,,N. Ireland
+–,Lisburn,NI district,,N. Ireland
+–,Antrim,NI district,,N. Ireland
+–,Newtownabbey,NI district,,N. Ireland
+–,Carrickfergus,NI district,,N. Ireland
+–,North Down,NI district,,N. Ireland
+–,Ards,NI district,,N. Ireland
+–,Castlereagh,NI district,,N. Ireland
+–,Belfast,NI district,,N. Ireland
+E11000004,Tyne and Wear,met county,Tyne and Wear,North East England
+E08000020,Gateshead,Metropolitan district,Tyne and Wear,North East England
+E08000021,Newcastle upon Tyne,Metropolitan district,Tyne and Wear,North East England
+E08000022,North Tyneside,Metropolitan district,Tyne and Wear,North East England
+E08000023,South Tyneside,Metropolitan district,Tyne and Wear,North East England
+E08000024,Sunderland,Metropolitan district,Tyne and Wear,North East England
+E12000001,North East England region,region,,North East England
+E06000001,Hartlepool,unitary,,North East England
+E06000002,Middlesbrough,unitary,,North East England
+E06000003,Redcar and Cleveland,unitary,,North East England
+E06000004,Stockton-on-Tees,unitary,,North East England
+E06000005,Darlington,unitary,,North East England
+E06000047,County Durham,unitary,,North East England
+E06000048,Northumberland,unitary,,North East England
+E10000006,Cumbria,county,Cumbria,North West England
+E10000017,Lancashire,county,Lancashire,North West England
+E07000026,Allerdale,district,Cumbria,North West England
+E07000027,Barrow-in-Furness,district,Cumbria,North West England
+E07000028,Carlisle,district,Cumbria,North West England
+E07000029,Copeland,district,Cumbria,North West England
+E07000030,Eden,district,Cumbria,North West England
+E07000031,South Lakeland,district,Cumbria,North West England
+E07000117,Burnley,district,Lancashire,North West England
+E07000118,Chorley,district,Lancashire,North West England
+E07000119,Fylde,district,Lancashire,North West England
+E07000120,Hyndburn,district,Lancashire,North West England
+E07000121,Lancaster,district,Lancashire,North West England
+E07000122,Pendle,district,Lancashire,North West England
+E07000123,Preston,district,Lancashire,North West England
+E07000124,Ribble Valley,district,Lancashire,North West England
+E07000125,Rossendale,district,Lancashire,North West England
+E07000126,South Ribble,district,Lancashire,North West England
+E07000127,West Lancashire,district,Lancashire,North West England
+E07000128,Wyre,district,Lancashire,North West England
+E11000001,Greater Manchester,met county,Greater Manchester,North West England
+E11000002,Merseyside,met county,Merseyside,North West England
+E08000001,Bolton,Metropolitan district,Greater Manchester,North West England
+E08000002,Bury,Metropolitan district,Greater Manchester,North West England
+E08000003,Manchester,Metropolitan district,Greater Manchester,North West England
+E08000004,Oldham,Metropolitan district,Greater Manchester,North West England
+E08000005,Rochdale,Metropolitan district,Greater Manchester,North West England
+E08000006,Salford,Metropolitan district,Greater Manchester,North West England
+E08000007,Stockport,Metropolitan district,Greater Manchester,North West England
+E08000008,Tameside,Metropolitan district,Greater Manchester,North West England
+E08000009,Trafford,Metropolitan district,Greater Manchester,North West England
+E08000010,Wigan,Metropolitan district,Greater Manchester,North West England
+E08000011,Knowsley,Metropolitan district,Merseyside,North West England
+E08000012,Liverpool,Metropolitan district,Merseyside,North West England
+E08000013,St Helens,Metropolitan district,Merseyside,North West England
+E08000014,Sefton,Metropolitan district,Merseyside,North West England
+E08000015,Wirral,Metropolitan district,Merseyside,North West England
+E12000002,North West England region,region,,North West England
+E06000049,Cheshire East,unitary,,North West England
+E06000006,Halton,unitary,,North West England
+E06000007,Warrington,unitary,,North West England
+E06000050,Cheshire West and Chester,unitary,,North West England
+E06000008,Blackburn with Darwen,unitary,,North West England
+E06000009,Blackpool,unitary,,North West England
+S92000003,Scotland,country,,Scotland
+S12000033,Aberdeen,Sc district,,Scotland
+S12000034,Aberdeenshire,Sc district,,Scotland
+S12000041,Angus,Sc district,,Scotland
+S12000035,Argyll and Bute,Sc district,,Scotland
+S12000026,Scottish Borders,Sc district,,Scotland
+S12000005,Clackmannanshire,Sc district,,Scotland
+S12000039,West Dunbartonshire,Sc district,,Scotland
+S12000006,Dumfries and Galloway,Sc district,,Scotland
+S12000042,Dundee,Sc district,,Scotland
+S12000008,East Ayrshire,Sc district,,Scotland
+S12000045,East Dunbartonshire,Sc district,,Scotland
+S12000010,East Lothian,Sc district,,Scotland
+S12000011,East Renfrewshire,Sc district,,Scotland
+S12000036,Edinburgh,Sc district,,Scotland
+S12000014,Falkirk,Sc district,,Scotland
+S12000015,Fife,Sc district,,Scotland
+S12000046,Glasgow,Sc district,,Scotland
+S12000017,Highland,Sc district,,Scotland
+S12000018,Inverclyde,Sc district,,Scotland
+S12000019,Midlothian,Sc district,,Scotland
+S12000020,Moray,Sc district,,Scotland
+S12000021,North Ayrshire,Sc district,,Scotland
+S12000044,North Lanarkshire,Sc district,,Scotland
+S12000023,Orkney Islands,Sc district,,Scotland
+S12000024,Perth and Kinross,Sc district,,Scotland
+S12000038,Renfrewshire,Sc district,,Scotland
+S12000027,Shetland Islands,Sc district,,Scotland
+S12000028,South Ayrshire,Sc district,,Scotland
+S12000029,South Lanarkshire,Sc district,,Scotland
+S12000030,Stirling,Sc district,,Scotland
+S12000040,West Lothian,Sc district,,Scotland
+S12000013,Eileanan an lar (Western Isles),Sc district,,Scotland
+E10000002,Buckinghamshire,county,Buckinghamshire,South East England
+E10000011,East Sussex,county,East Sussex,South East England
+E10000014,Hampshire,county,Hampshire,South East England
+E10000016,Kent,county,Kent,South East England
+E10000025,Oxfordshire,county,Oxfordshire,South East England
+E10000030,Surrey,county,Surrey,South East England
+E10000032,West Sussex,county,West Sussex,South East England
+E07000004,Aylesbury Vale,district,Buckinghamshire,South East England
+E07000005,Chiltern,district,Buckinghamshire,South East England
+E07000006,South Bucks,district,Buckinghamshire,South East England
+E07000007,Wycombe,district,Buckinghamshire,South East England
+E07000061,Eastbourne,district,East Sussex,South East England
+E07000062,Hastings,district,East Sussex,South East England
+E07000063,Lewes,district,East Sussex,South East England
+E07000064,Rother,district,East Sussex,South East England
+E07000065,Wealden,district,East Sussex,South East England
+E07000084,Basingstoke and Deane,district,Hampshire,South East England
+E07000085,East Hampshire,district,Hampshire,South East England
+E07000086,Eastleigh,district,Hampshire,South East England
+E07000087,Fareham,district,Hampshire,South East England
+E07000088,Gosport,district,Hampshire,South East England
+E07000089,Hart,district,Hampshire,South East England
+E07000090,Havant,district,Hampshire,South East England
+E07000091,New Forest,district,Hampshire,South East England
+E07000092,Rushmoor,district,Hampshire,South East England
+E07000093,Test Valley,district,Hampshire,South East England
+E07000094,Winchester,district,Hampshire,South East England
+E07000105,Ashford,district,Kent,South East England
+E07000106,Canterbury,district,Kent,South East England
+E07000107,Dartford,district,Kent,South East England
+E07000108,Dover,district,Kent,South East England
+E07000109,Gravesham,district,Kent,South East England
+E07000110,Maidstone,district,Kent,South East England
+E07000111,Sevenoaks,district,Kent,South East England
+E07000112,Shepway,district,Kent,South East England
+E07000113,Swale,district,Kent,South East England
+E07000114,Thanet,district,Kent,South East England
+E07000115,Tonbridge and Malling,district,Kent,South East England
+E07000116,Tunbridge Wells,district,Kent,South East England
+E07000177,Cherwell,district,Oxfordshire,South East England
+E07000178,Oxford,district,Oxfordshire,South East England
+E07000179,South Oxfordshire,district,Oxfordshire,South East England
+E07000180,Vale of White Horse,district,Oxfordshire,South East England
+E07000181,West Oxfordshire,district,Oxfordshire,South East England
+E07000207,Elmbridge,district,Surrey,South East England
+E07000208,Epsom and Ewell,district,Surrey,South East England
+E07000209,Guildford,district,Surrey,South East England
+E07000210,Mole Valley,district,Surrey,South East England
+E07000211,Reigate and Banstead,district,Surrey,South East England
+E07000212,Runnymede,district,Surrey,South East England
+E07000213,Spelthorne,district,Surrey,South East England
+E07000214,Surrey Heath,district,Surrey,South East England
+E07000215,Tandridge,district,Surrey,South East England
+E07000216,Waverley,district,Surrey,South East England
+E07000217,Woking (borough),district,Surrey,South East England
+E07000223,Adur,district,West Sussex,South East England
+E07000224,Arun,district,West Sussex,South East England
+E07000225,Chichester,district,West Sussex,South East England
+E07000226,Crawley,district,West Sussex,South East England
+E07000227,Horsham,district,West Sussex,South East England
+E07000228,Mid Sussex,district,West Sussex,South East England
+E07000229,Worthing,district,West Sussex,South East England
+E12000008,South East England region,region,,South East England
+E06000035,Medway,unitary,,South East England
+E06000036,Bracknell Forest,unitary,,South East England
+E06000037,West Berkshire,unitary,,South East England
+E06000038,Reading,unitary,,South East England
+E06000039,Slough,unitary,,South East England
+E06000040,Windsor and Maidenhead,unitary,,South East England
+E06000041,Wokingham,unitary,,South East England
+E06000042,Milton Keynes,unitary,,South East England
+E06000043,Brighton and Hove,unitary,,South East England
+E06000044,Portsmouth,unitary,,South East England
+E06000045,Southampton,unitary,,South East England
+E06000046,Isle of Wight,unitary,,South East England
+E10000008,Devon,county,Devon,South West England
+E10000009,Dorset,county,Dorset,South West England
+E10000013,Gloucestershire,county,Gloucestershire,South West England
+E10000027,Somerset,county,Somerset,South West England
+E07000040,East Devon,district,Devon,South West England
+E07000041,Exeter,district,Devon,South West England
+E07000042,Mid Devon,district,Devon,South West England
+E07000043,North Devon,district,Devon,South West England
+E07000044,South Hams,district,Devon,South West England
+E07000045,Teignbridge,district,Devon,South West England
+E07000046,Torridge,district,Devon,South West England
+E07000047,West Devon,district,Devon,South West England
+E07000048,Christchurch,district,Dorset,South West England
+E07000049,East Dorset,district,Dorset,South West England
+E07000050,North Dorset,district,Dorset,South West England
+E07000051,Purbeck,district,Dorset,South West England
+E07000052,West Dorset,district,Dorset,South West England
+E07000053,Weymouth and Portland,district,Dorset,South West England
+E07000078,Cheltenham,district,Gloucestershire,South West England
+E07000079,Cotswold,district,Gloucestershire,South West England
+E07000080,Forest of Dean,district,Gloucestershire,South West England
+E07000081,Gloucester,district,Gloucestershire,South West England
+E07000082,Stroud,district,Gloucestershire,South West England
+E07000083,Tewkesbury,district,Gloucestershire,South West England
+E07000187,Mendip,district,Somerset,South West England
+E07000188,Sedgemoor,district,Somerset,South West England
+E07000189,South Somerset,district,Somerset,South West England
+E07000190,Taunton Deane,district,Somerset,South West England
+E07000191,West Somerset,district,Somerset,South West England
+E12000009,South West England region,region,,South West England
+E06000022,Bath and North East Somerset,unitary,,South West England
+E06000023,Bristol,unitary,,South West England
+E06000024,North Somerset,unitary,,South West England
+E06000025,South Gloucestershire,unitary,,South West England
+E06000052,Cornwall,unitary,,South West England
+E06000053,Isles of Scilly,unitary,,South West England
+E06000026,Plymouth,unitary,,South West England
+E06000027,Torbay,unitary,,South West England
+E06000028,Bournemouth,unitary,,South West England
+E06000029,Poole,unitary,,South West England
+E06000030,Swindon,unitary,,South West England
+E06000054,Wiltshire,unitary,,South West England
+W92000004,Wales,country,,Wales
+W06000001,Ynys Môn,W district,,Wales
+W06000002,Gwynedd,W district,,Wales
+W06000003,Conwy,W district,,Wales
+W06000004,Denbighshire,W district,,Wales
+W06000005,Flintshire,W district,,Wales
+W06000006,Wrexham,W district,,Wales
+W06000023,Powys,W district,,Wales
+W06000008,Ceredigion,W district,,Wales
+W06000009,Pembrokeshire,W district,,Wales
+W06000010,Carmarthenshire,W district,,Wales
+W06000011,Swansea,W district,,Wales
+W06000012,Neath Port Talbot,W district,,Wales
+W06000013,Bridgend,W district,,Wales
+W06000014,Vale of Glamorgan,W district,,Wales
+W06000016,Rhondda Cynon Taf,W district,,Wales
+W06000024,Merthyr Tydfil,W district,,Wales
+W06000018,Caerphilly,W district,,Wales
+W06000019,Blaenau Gwent,W district,,Wales
+W06000020,Torfaen,W district,,Wales
+W06000021,Monmouthshire,W district,,Wales
+W06000022,Newport,W district,,Wales
+W06000015,Cardiff,W district,,Wales
+E10000028,Staffordshire,county,Staffordshire,West Midlands
+E10000031,Warwickshire,county,Warwickshire,West Midlands
+E10000034,Worcestershire,county,Worcestershire,West Midlands
+E07000192,Cannock Chase,district,Staffordshire,West Midlands
+E07000193,East Staffordshire,district,Staffordshire,West Midlands
+E07000194,Lichfield,district,Staffordshire,West Midlands
+E07000195,Newcastle-under-Lyme,district,Staffordshire,West Midlands
+E07000196,South Staffordshire,district,Staffordshire,West Midlands
+E07000197,Stafford,district,Staffordshire,West Midlands
+E07000198,Staffordshire Moorlands,district,Staffordshire,West Midlands
+E07000199,Tamworth,district,Staffordshire,West Midlands
+E07000218,North Warwickshire,district,Warwickshire,West Midlands
+E07000219,Nuneaton and Bedworth,district,Warwickshire,West Midlands
+E07000220,Rugby,district,Warwickshire,West Midlands
+E07000221,Stratford-on-Avon,district,Warwickshire,West Midlands
+E07000222,Warwick,district,Warwickshire,West Midlands
+E07000234,Bromsgrove,district,Worcestershire,West Midlands
+E07000235,Malvern Hills,district,Worcestershire,West Midlands
+E07000236,Redditch,district,Worcestershire,West Midlands
+E07000237,Worcester,district,Worcestershire,West Midlands
+E07000238,Wychavon,district,Worcestershire,West Midlands
+E07000239,Wyre Forest,district,Worcestershire,West Midlands
+E11000005,West Midlands,met county,West Midlands,West Midlands
+E08000025,Birmingham,Metropolitan district,West Midlands,West Midlands
+E08000026,Coventry,Metropolitan district,West Midlands,West Midlands
+E08000027,Dudley,Metropolitan district,West Midlands,West Midlands
+E08000028,Sandwell,Metropolitan district,West Midlands,West Midlands
+E08000029,Solihull,Metropolitan district,West Midlands,West Midlands
+E08000030,Walsall,Metropolitan district,West Midlands,West Midlands
+E08000031,Wolverhampton,Metropolitan district,West Midlands,West Midlands
+E12000005,West Midlands region,region,,West Midlands
+E06000019,Herefordshire,unitary,,West Midlands
+E06000020,Telford and Wrekin,unitary,,West Midlands
+E06000051,Shropshire,unitary,,West Midlands
+E06000021,Stoke-on-Trent,unitary,,West Midlands
+E10000023,North Yorkshire,county,North Yorkshire,Yorkshire and the Humber
+E07000163,Craven,district,North Yorkshire,Yorkshire and the Humber
+E07000164,Hambleton,district,North Yorkshire,Yorkshire and the Humber
+E07000165,Harrogate,district,North Yorkshire,Yorkshire and the Humber
+E07000166,Richmondshire,district,North Yorkshire,Yorkshire and the Humber
+E07000167,Ryedale,district,North Yorkshire,Yorkshire and the Humber
+E07000168,Scarborough,district,North Yorkshire,Yorkshire and the Humber
+E07000169,Selby,district,North Yorkshire,Yorkshire and the Humber
+E11000003,South Yorkshire,met county,South Yorkshire,Yorkshire and the Humber
+E11000006,West Yorkshire,met county,West Yorkshire,Yorkshire and the Humber
+E08000016,Barnsley,Metropolitan district,South Yorkshire,Yorkshire and the Humber
+E08000017,Doncaster,Metropolitan district,South Yorkshire,Yorkshire and the Humber
+E08000018,Rotherham,Metropolitan district,South Yorkshire,Yorkshire and the Humber
+E08000019,Sheffield,Metropolitan district,South Yorkshire,Yorkshire and the Humber
+E08000032,Bradford,Metropolitan district,West Yorkshire,Yorkshire and the Humber
+E08000033,Calderdale,Metropolitan district,West Yorkshire,Yorkshire and the Humber
+E08000034,Kirklees,Metropolitan district,West Yorkshire,Yorkshire and the Humber
+E08000035,Leeds,Metropolitan district,West Yorkshire,Yorkshire and the Humber
+E08000036,Wakefield,Metropolitan district,West Yorkshire,Yorkshire and the Humber
+E12000003,Yorkshire and the Humber region,region,,Yorkshire and the Humber
+E06000010,Kingston upon Hull,unitary,,Yorkshire and the Humber
+E06000011,East Riding of Yorkshire,unitary,,Yorkshire and the Humber
+E06000012,North East Lincolnshire,unitary,,Yorkshire and the Humber
+E06000013,North Lincolnshire,unitary,,Yorkshire and the Humber
+E06000014,York,unitary,,Yorkshire and the Humber
+E92000001,England,country,,
+K02000001,United Kingdom,cross border area,,
+K03000001,Great Britain,cross border area,,
+K04000001,England and Wales,cross border area,,
