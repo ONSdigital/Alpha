@@ -11,7 +11,7 @@ $(document).ready(
    // barChart();
     populationPyramid();
     stackedBar();
-    pieChart();
+    initTrend();
     //lineseries();
   }
 

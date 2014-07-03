@@ -1,11 +1,13 @@
 
-var BASE_URL = "data/wales_change.csv";
-var MALE_URL = "data/wales_male_2012.csv";
-var FEMALE_URL = "data/wales_female_2012.csv";
+var BASE_URL = "data/change.csv";
+var MALE_URL = "data/males.csv";
+var FEMALE_URL = "data/females.csv";
+var TREND_URL = "data/population.csv";
 
 var males;
 var females;
 var changes;
+var trend;
 var areaObj = {};
 var barChart;
 
@@ -13,11 +15,18 @@ var areaCodes = [];
 var areaMap = {};
 var areaMeasures = {};
 
+var comparisons = [];
+
 
 
 var genderChart;
 var ageChart;
 
+var lastBar = 0;
+
+var polygons = [];
+//create a look up to highlight bar
+  var comparisonLookUp = {};
 
   $(document).ready(function() {
 
@@ -26,7 +35,7 @@ var ageChart;
     });
 
 
-    loadData();
+    loadPopData();
 
     // inii charts
     initGenderChart();
@@ -50,10 +59,13 @@ var ageChart;
   function showData(str){
 
 
+
+
+
     var data = areaObj[str]
     //call API for map boundary
     //getBoundaries(data.code);
-    console.log(data);
+     console.log(str);
 
     var pc_change = 100 * (data.changes.now - data.changes.previous)/data.changes.now;
 
@@ -67,8 +79,15 @@ var ageChart;
     $("#title").text("Demographics: " + str + " (" + suffix + pc_change + "% change from 2011)");
     $("#pop2012").text(data.changes.now );
     $("#pop2011").text( data.changes.previous);
-    $("#area").text( Math.round(data.area) + "km2" );
-    $("#density").text( Math.round( 100* data.changes.now/data.area )/100  );
+
+    if( isNaN(data.area) ){
+      data.area = "";
+      $("#area").text( "Not available" );
+      $("#density").text( "Not available" );
+    }else{
+      $("#area").text( Math.round(data.area) + "km2" );
+      $("#density").text( Math.round( 100* data.changes.now/data.area )/100  );
+    }
 
 
     // direction icon
@@ -99,30 +118,30 @@ var ageChart;
 
 
     //uk migration
-    $("#uk_in").text( data.changes["internal in"]);
-    $("#uk_out").text( data.changes["internal out"]);
-    $("#uk_net").text( data.changes["internal net"]);
+    $("#uk_in").text( data.changes["Internal Inflow"]);
+    $("#uk_out").text( data.changes["Internal Outflow"]);
+    $("#uk_net").text( data.changes["Internal Net"]);
 
     // direction icon
     $("#ukdirection").removeClass("fa-chevron-up");
     $("#ukdirection").removeClass("fa-chevron-down");
     var direction = "fa-chevron-up";
-    if(data.changes["internal net"]<0){
+    if(data.changes["Internal Net"]<0){
       direction = "fa-chevron-down";
     }
     $("#ukdirection").addClass(direction);
 
 
     //migration
-    $("#in").text( data.changes["national in"]);
-    $("#out").text( data.changes["national out"]);
-    $("#net").text( data.changes["national net"]);
+    $("#in").text( data.changes["International Inflow"]);
+    $("#out").text( data.changes["International Outflow"]);
+    $("#net").text( data.changes["International Net"]);
 
     // direction icon
     $("#nationaldirection").removeClass("fa-chevron-up");
     $("#nationaldirection").removeClass("fa-chevron-down");
     var direction = "fa-chevron-up";
-    if(data.changes["national net"]<0){
+    if(data.changes["International Net"]<0){
       direction = "fa-chevron-down";
     }
     $("#nationaldirection").addClass(direction);
@@ -138,15 +157,29 @@ var ageChart;
     pyramid.series[0].setData( data.series[0].data );
 
     var ageData = [["Under 18" , data.ageGroups.u18],["18-64", data.ageGroups.adult],["Over 64", data.ageGroups.over64]];
-    var genderData = [ ["Male", data.male.total],["Female", data.female.total] ];
+    var genderData = [ ["Male", data.male["ALL AGES"] ],["Female", data.female["ALL AGES"]] ];
 
     ageChart.series[0].setData( ageData );
     genderChart.series[0].setData( genderData );
 
-    console.log(pyramid);
+    //console.log(pyramid);
     pyramid.setTitle({text: "Population pyramid for " + str + ", midyear 2012" });
 
-    
+
+    //reset last bar to blue
+    //barChart.series[0].data[lastBar].update( {color:'#0084D1'} );
+
+    lastBar = comparisonLookUp[str];
+
+    console.log("last abr " + lastBar);
+
+    //barChart.series[0].data.update( {color:'#0084D1'} );
+    if(lastBar){
+     // var highlight = barChart.series[0].data[ lastBar ];
+     // barChart.series[0].data[comparisonLookUp[str]].update( {color:'#FF950E'} );
+    }
+
+
   }
 
 
@@ -155,7 +188,7 @@ var ageChart;
 
 
 
-  function loadData(){
+  function loadPopData(){
 
     //population
     $.ajax({
@@ -200,6 +233,20 @@ var ageChart;
       });
 
 
+    $.ajax({
+      dataType: "text",
+      url: TREND_URL,
+
+      success: function(data) {
+        trend = $.csv.toObjects(data);
+        checkAllData();
+      },
+      error: function (xhr, textStatus, errorThrown) {
+          console.warn("error");
+        }
+      });
+
+
 
 
   }
@@ -210,7 +257,8 @@ var ageChart;
 
 
 function checkAllData(  ) {
-  if(males && females && changes){
+  if(males && females && changes && trend){
+    //console.log(trend);
     console.log("GOT BOTH SO PROCESS DATA");
     processData()
   }
@@ -220,19 +268,25 @@ function checkAllData(  ) {
 
 function processData(  ) {
 
+
+$("#areas").empty();
+  var selection = "<option>Pick an area...</option>";
+
+
   $.each(males, function (index,value){
 
     //TODO: set names in select here
 
+    var name = value.NAME;
     // create obj for each area
-    areaObj[value.name] = {};
+    areaObj[name] = {};
 
     //create array for population
-    areaObj[value.name].male = [];
-    areaObj[value.name].female = [];
-    areaObj[value.name].changes = {};
-    areaObj[value.name].series = [{name:'female', data:[] },{name:'male', data:[] }];
-    areaObj[value.name].ageGroups = { u18:0, adult:0, over64:0};
+    areaObj[name].male = [];
+    areaObj[name].female = [];
+    areaObj[name].changes = {};
+    areaObj[name].series = [{name:'female', data:[] },{name:'male', data:[] }];
+    areaObj[name].ageGroups = { u18:0, adult:0, over64:0};
 
 
     tempFemaleRow = females[index];
@@ -242,14 +296,14 @@ function processData(  ) {
       var tempMaleCount = 0;
       var tempFemaleCount = 0;
 
+
     //loop through each age
     $.each(value, function (col, val){
 
-
-      if(col!=="name" && col!=="code"){
+      if(col!=="NAME" && col!=="CODE"){
         newVal = val.split(",").join("");
         newVal = parseInt( newVal,10 )
-        areaObj[value.name].male[col] = newVal;
+        areaObj[name].male[col] = newVal;
 
         tempMaleCount += newVal;
 
@@ -257,7 +311,7 @@ function processData(  ) {
         female = tempFemaleRow[col];
         newVal = female.split(",").join("");
         newVal =  parseInt( newVal,10 ) ;
-        areaObj[value.name].female[col] = newVal;
+        areaObj[name].female[col] = newVal;
 
         tempFemaleCount += newVal;
         categoryCount ++;
@@ -265,8 +319,8 @@ function processData(  ) {
 
         if(categoryCount===5 || ageGroup===18){
          // console.log("got group" + tempMaleCount);
-          areaObj[value.name].series[0].data.push(-tempFemaleCount);
-          areaObj[value.name].series[1].data.push(tempMaleCount);
+          areaObj[name].series[0].data.push(-tempFemaleCount);
+          areaObj[name].series[1].data.push(tempMaleCount);
           categoryCount = 0;
           ageGroup ++;
           tempMaleCount = 0;
@@ -274,81 +328,144 @@ function processData(  ) {
         }
 
 
-        var subtotal = areaObj[value.name].female[col] + areaObj[value.name].male[col];
+        var subtotal = areaObj[name].female[col] + areaObj[name].male[col];
         if(col<18){
-          areaObj[value.name].ageGroups.u18 += subtotal;
+          areaObj[name].ageGroups.u18 += subtotal;
         }else if (col>64){
-          areaObj[value.name].ageGroups.over64 += subtotal;
+          areaObj[name].ageGroups.over64 += subtotal;
         }else{
-          areaObj[value.name].ageGroups.adult += subtotal;
+          areaObj[name].ageGroups.adult += subtotal;
         }
 
-      }else if( col==="code"){
-        areaObj[value.name].code = val;
+      }else if( col==="CODE"){
+        areaObj[name].code = val;
         areaCodes.push(val);
 
-        areaMap[val] = value.name; 
+        areaMap[val] = name; 
+
+        
 
       }
 
+
+
     });
 
-    total = value.total.split(",").join("");
-    areaObj[value.name].male.total = parseInt(total, 10);
+    total = value["ALL AGES"].split(",").join("");
+    areaObj[name].male["ALL AGES"] = parseInt(total, 10);
+    //console.log(name);
+    selection += "<option>" + name + "</option";
 
 
+    $('#areas')
+          .append($('<option>', { name : index })
+          .text(name)); 
 
   })
 
-  console.log(areaObj);
+
+  //$("#areas").empty();
+  //$("#areas").append(selection);
+  //console.log(selection);
+
   //get totals for area comparisons
 
   var totalCats = [];
   var totalData = [];
+  
+
+  comparisons = [];
 
   $.each(changes, function (index,value){
 
     
-   // console.log( value);
+   // console.log(  value.code );
+    //console.log(  value.name );
 
-    totalCats.push(value.name);
+  // console.log( value );
+    //console.log(areaObj[value.name]);
+    //console.log(areaObj["UNITED KINGDOM"]);
+
+    //totalCats.push(value.name);
     newVal = value.now.split(",").join("");
+    newVal = parseInt( newVal,10 );
+    //totalData.push( parseInt( newVal,10 ) );
 
-    totalData.push( parseInt( newVal,10 ) );
+    comparisons.push( {name:value.name, code: value.code, value: newVal} );
 
     $.each(value, function (col, val){
-      if(col!=="name" && col!=="code"){
+      //console.log(col, val);
+      //console.log("value " + value.name);
+      if(col!=="name" && col!=="code" ){
         newVal = val.split(",").join("");
-        areaObj[value.name].changes[col] = parseInt( newVal,10 );
+        if(areaObj[value.name]){
+          areaObj[value.name].changes[col] = parseInt( newVal,10 );
+          
+        }
       }
     });
 
   })
 
-  // loop through the codes and get the map shapes
+  // sort comparison by size
+  comparisons.sort(compare);
+
+  $.each(comparisons, function (index, value){
+    //console.log(value);
+    totalCats.push( value.name );
+    totalData.push( value.value );
+    comparisonLookUp[value.name] = index;
+  });
+
+  // console.log(areaObj);
+  // loop through the trends and store in areaObj
+  $.each(trend, function (index,value){
+    // console.log("trend " + value.Name);
+    if(areaObj[value.Name]){
+      areaObj[value.Name].trends =[];
+      $.each(value, function (col, val){
+        if(col!=="Name" && col!=="Code" ){
+          areaObj[value.Name].trends.push( parseInt(val,10) );
+        }
+      });
+   }else{
+      console.log("NO " + value.Name + " *************");
+    }
+    
+
+  });
+
+
   initialize();
-    $.each(areaCodes, function (index,value){
 
-      console.log("get " + value);
-      getBoundaries(value);
-    });
-
-    barChart = $('#stackedBar').highcharts();
-
-    barChart.series[0].setData( totalData );
-    barChart.xAxis[0].setCategories(totalCats);
+  // loop through the codes and get the map shapes
+  $.each(areaCodes, function (index,value){
+    //console.log("get " + value);
+    //getBoundaries(value);
+  });
 
 
+  barChart = $('#stackedBar').highcharts();
 
+  barChart.series[0].setData( totalData );
+  barChart.xAxis[0].setCategories(totalCats);
 
+  //console.log(areaObj);
 
-    console.log(areaObj);
-
-    //init with content
-    showData("Newport");
-
+  //init with content
+  showData("Newport");
+  selectedRegion="Wales";
+  showComparison(COUNTY);
 }
 
+
+function compare(a,b) {
+  if (a.value < b.value)
+     return 1;
+  if (a.value > b.value)
+    return -1;
+  return 0;
+}
 
 
 
@@ -467,6 +584,8 @@ function processData(  ) {
                     // calculate centroid
                     var centroid = getCentroid(minlon, maxlon, minlat, maxlat);
                     //initialize(centroid.lat, centroid.lon, zoomLevel, latlons);
+
+                    console.log("init map: draw area " + polygons.length);
                     drawArea(latlons, response.results[0].value);
                 } else {
                     alert("No matching ward found");
@@ -755,9 +874,13 @@ function processData(  ) {
 
             var adminBoundaryArea;
             var map ;
+            var selectedAreaId;
+            var lastSelectedPolygon;
 
 
             function drawArea(latlons, code) {
+              //console.log(latlons);
+              console.log("draw " + latlons.length);
                 if (latlons != null) {
 
                     for (var j = 0; j < latlons.length;j++)
@@ -765,9 +888,11 @@ function processData(  ) {
                        var adminCoordsArea = new Array();
                        //alert('j = ' + j + ' adminCoords[i] = null ' + adminCoords[0]);
                        for (var i = 0; i < latlons[j].length; i = i + 1) {
-                          //console.log(latlons[j][i].lat, latlons[j][i].lon);
+                        // console.log( "add poit ; " + latlons[j][i].lat, latlons[j][i].lon);
                            adminCoordsArea[i] = new google.maps.LatLng(latlons[j][i].lat, latlons[j][i].lon);
                        }
+
+                       
             
                        // Construct the polygon
                        // setting up is attributes, eg, fill colour
@@ -778,23 +903,68 @@ function processData(  ) {
                            strokeWeight: .5,
                            fillColor: '#ccc',
                            fillOpacity: 0.7,
-                           id:code
+                           id:code,
+                           selected:false
                        });
 
+                       //polygons.push(adminBoundaryArea);
+
                        google.maps.event.addListener(adminBoundaryArea, 'click', function (event) {
-                          console.log(areaObj);
-                          //console.log(this.id +":"+ areaMap[this.id]);
+                         // console.log(areaObj);
+                         // console.log(this.id +":"+ areaMap[this.id]);
                           showData( areaMap[this.id] );
+
+
+                         // $.each(polygons, function (index,value){    
+                            // console.log(selectedAreaId +":"+ this.id +", " + value.selected+ "::" + value.id);
+                           /* if(selectedAreaId!==value.id){
+                              polygons[index].selected = false;
+                              
+                            }else{
+                              polygons[index].selected = true;
+                            }*/
+                           // lastSelectedPolygon.setOptions({fillColor:'#ccc'})
+
+                          //});
+
+                          //this.selected = ! this.selected;
+
+                          if(selectedAreaId !== this.id){
+                            selectedAreaId = this.id;
+                            if(lastSelectedPolygon){
+                              lastSelectedPolygon.setOptions({fillColor:'#ccc'});
+                              
+                            }
+                              lastSelectedPolygon = this;
+                              lastSelectedPolygon.setOptions({fillColor:'#00c'});
+                          }else{
+                            selectedAreaId="";
+                            if(lastSelectedPolygon){
+                              lastSelectedPolygon.setOptions({fillColor:'#ccc'});
+                            }
+                            lastSelectedPolygon = null;
+                          }
+                          
+                          //console.log("selected: " + this.selected);
                         });
                       google.maps.event.addListener(adminBoundaryArea,"mouseover",function(){
-                       this.setOptions({fillColor: '#333',
-                           fillOpacity: 0.7});
+                        if( this.id !== selectedAreaId){
+                         this.setOptions({fillColor: '#333',
+                             fillOpacity: 0.7});
+
+                        }
                       }); 
 
                       google.maps.event.addListener(adminBoundaryArea,"mouseout",function(){
-                       this.setOptions({fillColor: '#ccc',
+                        var clr = '#ccc';
+                        if( this.id === selectedAreaId){
+                          clr = '#00c';
+                        }
+                       this.setOptions({fillColor: clr,
                            fillOpacity: 0.7});
                       });
+
+                      //console.log("set boudary " +j);
                        adminBoundaryArea.setMap(map);
                     }
 
