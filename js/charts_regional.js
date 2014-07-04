@@ -5,6 +5,9 @@ $(document).ready(
   // init options and then load individual charts
 
 	function(){
+    
+
+
 		setOptions();
 
     //multiseries();
