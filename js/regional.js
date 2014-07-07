@@ -3,6 +3,8 @@ var BASE_URL = "data/change.csv";
 var POP_URL = "data/pyramid.csv";
 var TREND_URL = "data/population.csv";
 
+var POSTCODE_URL = url = "http://mapit.mysociety.org/postcode/";
+
 var pyramidData;
 
 var changes;
@@ -10,7 +12,7 @@ var trend;
 var areaObj = {};
 var barChart;
 
-var areaCodes = [];
+var areaCodes = {};
 var areaMap = {};
 var areaMeasures = {};
 
@@ -28,26 +30,27 @@ var polygons = [];
 var startTime;
 var endTime;
 //create a look up to highlight bar
-  var comparisonLookUp = {};
+var comparisonLookUp = {};
+
+
 
   $(document).ready(function() {
-
     startTime = Date.now();
-
     $('#loader').modal('show');
-
 
     $("#areas").change(function(e) {
       return getSelect(); 
     });
 
-
-    //loadPopData();
+    $("#search").click( function(evt){
+      evt.preventDefault();
+      console.log("got code : " + $("#postcode").val() );
+      testPostCode();
+    })
 
     // init charts
     initGenderChart();
     initAgeChart();
-
   });
 
 
@@ -59,16 +62,54 @@ var endTime;
 
     console.log(str);
     showData(str);
+  }
 
+
+
+function testPostCode () {
+  var newPostCode = checkPostCode( $("#postcode").val() );
+  if (newPostCode) {
+    postcode = newPostCode;
+    $("#postcode").val( newPostCode );
+    console.log ("Postcode has a valid format")
+    var url = POSTCODE_URL + newPostCode;
+
+    loader.setUrl( url );
+    console.log("Data URL " + url);
+    loader.loadData( parseData );
+
+  } 
+  else {
+    console.log ("Postcode has invalid format");
+  }
+}
+
+
+
+  function parseData(returned){
+    data = returned;
+    console.log("parse");
+    console.log(data);
+
+    //get lat and lng
+    var lat = data.wgs84_lat;
+    var lon = data.wgs84_lon;
+
+    var council = data.shortcuts.council;
+
+    var ons_id = data.areas[council].codes.gss;
+    console.log("ONS " + ons_id + ": " + areaCodes[ons_id]);
+
+
+
+    showData( areaCodes[ons_id] );
+
+    //assume it is county level...
+    showComparison(COUNTY);
   }
 
 
   function showData(str){
-
-
-
-
-
     var data = areaObj[str]
     //call API for map boundary
     //getBoundaries(data.code);
@@ -280,6 +321,7 @@ $("#areas").empty();
     //TODO: set names in select here
     //console.log(value)
     var name = value.name;
+    areaCodes[value.code] = name;
     // create obj for each area
     areaObj[name] = {};
 
@@ -383,6 +425,7 @@ $("#areas").empty();
 endTime = Date.now();
 
   console.log("TIME " + ( endTime - startTime ));
+  console.log(areaCodes);
   initialize();
 
   // loop through the codes and get the map shapes
