@@ -30,14 +30,17 @@ var polygons = [];
 
   $(document).ready(function() {
 
+    $('#loader').modal('show');
+
+
     $("#areas").change(function(e) {
       return getSelect(); 
     });
 
 
-    loadPopData();
+    //loadPopData();
 
-    // inii charts
+    // init charts
     initGenderChart();
     initAgeChart();
 
@@ -166,18 +169,7 @@ var polygons = [];
     pyramid.setTitle({text: "Population pyramid for " + str + ", midyear 2012" });
 
 
-    //reset last bar to blue
-    //barChart.series[0].data[lastBar].update( {color:'#0084D1'} );
 
-    lastBar = comparisonLookUp[str];
-
-    console.log("last abr " + lastBar);
-
-    //barChart.series[0].data.update( {color:'#0084D1'} );
-    if(lastBar){
-     // var highlight = barChart.series[0].data[ lastBar ];
-     // barChart.series[0].data[comparisonLookUp[str]].update( {color:'#FF950E'} );
-    }
 
 
   }
@@ -189,34 +181,7 @@ var polygons = [];
 
 
   function loadPopData(){
-
-    //population
-    $.ajax({
-      dataType: "text",
-      url: MALE_URL,
-
-      success: function(data) {
-        males = $.csv.toObjects(data);
-        checkAllData();
-      },
-      error: function (xhr, textStatus, errorThrown) {
-          console.warn("error");
-       }
-      });
-
-    //population
-    $.ajax({
-      dataType: "text",
-      url: FEMALE_URL,
-
-      success: function(data) {
-        females = $.csv.toObjects(data);
-        checkAllData();
-      },
-      error: function (xhr, textStatus, errorThrown) {
-          console.warn("error");
-       }
-      });
+    $("#message").text( "Loading Population Data" );
 
 
     $.ajax({
@@ -246,6 +211,34 @@ var polygons = [];
         }
       });
 
+    //population
+    $.ajax({
+      dataType: "text",
+      url: MALE_URL,
+
+      success: function(data) {
+        males = $.csv.toObjects(data);
+        checkAllData();
+      },
+      error: function (xhr, textStatus, errorThrown) {
+          console.warn("error");
+       }
+      });
+
+
+    //population
+    $.ajax({
+      dataType: "text",
+      url: FEMALE_URL,
+
+      success: function(data) {
+        females = $.csv.toObjects(data);
+        checkAllData();
+      },
+      error: function (xhr, textStatus, errorThrown) {
+          console.warn("error");
+       }
+      });
 
 
 
@@ -254,9 +247,12 @@ var polygons = [];
 
 
 
-
+var count = 0;
 
 function checkAllData(  ) {
+  count++;
+  $("#message").text( "Checking data " + count );
+
   if(males && females && changes && trend){
     //console.log(trend);
     console.log("GOT BOTH SO PROCESS DATA");
@@ -435,13 +431,14 @@ $("#areas").empty();
 
   });
 
+ $('#loader').modal('hide');
 
   initialize();
 
   // loop through the codes and get the map shapes
   $.each(areaCodes, function (index,value){
     //console.log("get " + value);
-    //getBoundaries(value);
+   // getBoundaries(value);
   });
 
 
@@ -452,9 +449,11 @@ $("#areas").empty();
 
   //console.log(areaObj);
 
+  showCounty("Wales");
   //init with content
   showData("Newport");
   selectedRegion="Wales";
+  selectedCounty="Newport";
   showComparison(COUNTY);
 }
 
@@ -997,9 +996,11 @@ function compare(a,b) {
                       }
                   },
                   tooltip: {
-                      formatter: function() {
-                          return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
-                      }
+                     /* formatter: function() {
+                          return '<b>'+ this.point.name +'</b>: '+ this.y +' (' + 20 + '%)';
+                      }*/
+
+                      pointFormat: '<b>{point.y}</b> ({point.percentage:.1f}%)'
                   },
                   series: [{
                       name: 'Gender',
@@ -1055,3 +1056,7 @@ function compare(a,b) {
               });
             }
             
+  
+  function loadMessage(str) {
+    $("#view-loading #message").text(str);
+  }

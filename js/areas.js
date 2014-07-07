@@ -61,6 +61,7 @@ var selectedDistrict;
       str += $( this ).text();
     });
 
+    selectedDistrict = str;
     console.log("district: " + str);
     showArea(str);
     showTrend(str);
@@ -95,6 +96,8 @@ var selectedDistrict;
 
 
   function splitAreas(  ) {
+$("#message").text( "Processing Area Data" );
+
     console.log("splitAreas");
     //console.log(areaArray);
     //Code,Name,Entity,County,Region
@@ -142,6 +145,8 @@ var selectedDistrict;
     console.log(regions);
 
     createSelectMenu();
+
+    loadPopData();
   }
 
 
@@ -159,7 +164,7 @@ var selectedDistrict;
    // })
 
 
-    showCounty("West Midlands");
+    //showCounty("West Midlands");
   }
 
 
@@ -229,6 +234,7 @@ var selectedDistrict;
     console.log("showComparison " + area );
 
     var displayText = "";
+    var selected = "";
     var localComparisons = [];
     totalCats = [];
     totalData = [];
@@ -236,6 +242,7 @@ var selectedDistrict;
 
     switch (area){
       case REGION:
+        selected = selectedRegion;
  console.log(regions);
       //loop thru all the compariosn data
         $.each(comparisons, function (index,value){
@@ -247,7 +254,8 @@ var selectedDistrict;
               console.log("match " + regionVal.code +",  "+ value.code);
               totalCats.push( value.name );
               totalData.push( value.value );
-              comparisonLookUp[value.name] = index;
+              console.log("REGION set look up " + value.name + ": " + totalData.length);
+              comparisonLookUp[value.name] = totalData.length-1;
               comparisons.push( {name:index, value: value.population} );
             }
           });
@@ -258,6 +266,7 @@ var selectedDistrict;
       break;
 
       case COUNTY:
+      selected = selectedCounty;
         counties = regions[selectedRegion].county;
 
       //loop thru all the compariosn data
@@ -267,7 +276,8 @@ var selectedDistrict;
             if(val.code === value.code){
               totalCats.push( value.name );
               totalData.push( value.value );
-              comparisonLookUp[value.name] = index;
+              console.log("COUNTY set look up " + value.name + ": " + totalData.length);
+              comparisonLookUp[value.name] = totalData.length-1;
               comparisons.push( {name:index, value: value.population} );
             }
           });
@@ -277,6 +287,7 @@ var selectedDistrict;
       break;
 
       case DISTRICT:
+      selected = selectedDistrict;
         districts = regions[selectedRegion].district[selectedCounty];
        // console.log(districts);
       //loop thru all the compariosn data
@@ -288,7 +299,8 @@ var selectedDistrict;
               //console.log("got match " + value);
               totalCats.push( value.name );
               totalData.push( value.value );
-              comparisonLookUp[value.name] = index;
+              console.log("DISTRICT set look up " + value.name + ": " + totalData.length);
+              comparisonLookUp[value.name] = totalData.length-1;
               comparisons.push( {name:index, value: value.population} );
             }
           });
@@ -305,6 +317,20 @@ var selectedDistrict;
     barChart = $('#stackedBar').highcharts();
     barChart.series[0].setData( totalData );
     barChart.xAxis[0].setCategories(totalCats);
+
+
+    //reset last bar to blue
+    //barChart.series[0].data[lastBar].update( {color:'#0084D1'} );
+
+    lastBar = comparisonLookUp[selected];
+
+    console.log("last BAR" + lastBar + " for " + selected);
+
+    //barChart.series[0].data.update( {color:'#0084D1'} );
+    if(lastBar){
+      var highlight = barChart.series[0].data[ lastBar ];
+      barChart.series[0].data[lastBar].update( {color:'#FF950E'} );
+    }
 
   }
 
