@@ -1,17 +1,18 @@
 
 var BASE_URL = "data/change.csv";
-var MALE_URL = "data/males.csv";
-var FEMALE_URL = "data/females.csv";
+var POP_URL = "data/pyramid.csv";
 var TREND_URL = "data/population.csv";
 
-var males;
-var females;
+var POSTCODE_URL = url = "http://mapit.mysociety.org/postcode/";
+
+var pyramidData;
+
 var changes;
 var trend;
 var areaObj = {};
 var barChart;
 
-var areaCodes = [];
+var areaCodes = {};
 var areaMap = {};
 var areaMeasures = {};
 
@@ -25,25 +26,31 @@ var ageChart;
 var lastBar = 0;
 
 var polygons = [];
+
+var startTime;
+var endTime;
 //create a look up to highlight bar
-  var comparisonLookUp = {};
+var comparisonLookUp = {};
+
+
 
   $(document).ready(function() {
-
+    startTime = Date.now();
     $('#loader').modal('show');
-
 
     $("#areas").change(function(e) {
       return getSelect(); 
     });
 
-
-    //loadPopData();
+    $("#search").click( function(evt){
+      evt.preventDefault();
+      console.log("got code : " + $("#postcode").val() );
+      testPostCode();
+    })
 
     // init charts
     initGenderChart();
     initAgeChart();
-
   });
 
 
@@ -55,16 +62,66 @@ var polygons = [];
 
     console.log(str);
     showData(str);
+  }
 
+
+
+function testPostCode () {
+  var newPostCode = checkPostCode( $("#postcode").val() );
+  if (newPostCode) {
+    postcode = newPostCode;
+    $("#postcode").val( newPostCode );
+    console.log ("Postcode has a valid format")
+    var url = POSTCODE_URL + newPostCode;
+
+    loader.setUrl( url );
+    console.log("Data URL " + url);
+    loader.loadData( parseData );
+
+  } 
+  else {
+    console.log ("Postcode has invalid format");
+  }
+}
+
+
+
+  function parseData(returned){
+    data = returned;
+    console.log("parse");
+    console.log(data);
+
+    //get lat and lng
+    var lat = data.wgs84_lat;
+    var lon = data.wgs84_lon;
+
+    var council = data.shortcuts.council;
+
+    var ons_id = data.areas[council].codes.gss;
+    console.log("ONS " + ons_id + ": " + areaCodes[ons_id]);
+
+
+
+    showData( areaCodes[ons_id] );
+
+    showPoint(lat,lon);
+
+    //assume it is county level...
+    $.each(areaArray, function(index, value){
+     
+      if(value.Code===ons_id){
+        console.log("***************************");
+        selectedRegion = value.Region;
+        selectedCounty = value.Name;
+      }
+
+    })
+
+    showComparison(COUNTY);
   }
 
 
   function showData(str){
-
-
-
-
-
     var data = areaObj[str]
     //call API for map boundary
     //getBoundaries(data.code);
@@ -156,11 +213,11 @@ var polygons = [];
     //change chart
     pyramid = $('#pyramid').highcharts();
 
-    pyramid.series[1].setData( data.series[1].data );
-    pyramid.series[0].setData( data.series[0].data );
+    pyramid.series[1].setData( data.series.female );
+    pyramid.series[0].setData( data.series.male );
 
     var ageData = [["Under 18" , data.ageGroups.u18],["18-64", data.ageGroups.adult],["Over 64", data.ageGroups.over64]];
-    var genderData = [ ["Male", data.male["ALL AGES"] ],["Female", data.female["ALL AGES"]] ];
+    var genderData = [ ["Male", data.maleTotal ],["Female", data.femaleTotal] ];
 
     ageChart.series[0].setData( ageData );
     genderChart.series[0].setData( genderData );
@@ -214,10 +271,10 @@ var polygons = [];
     //population
     $.ajax({
       dataType: "text",
-      url: MALE_URL,
+      url: POP_URL,
 
       success: function(data) {
-        males = $.csv.toObjects(data);
+        pyramidData = $.csv.toObjects(data);
         checkAllData();
       },
       error: function (xhr, textStatus, errorThrown) {
@@ -225,7 +282,7 @@ var polygons = [];
        }
       });
 
-
+/*
     //population
     $.ajax({
       dataType: "text",
@@ -240,7 +297,7 @@ var polygons = [];
        }
       });
 
-
+*/
 
   }
 
@@ -250,10 +307,12 @@ var polygons = [];
 var count = 0;
 
 function checkAllData(  ) {
+  var now = Date.now();
+  console.log("CHECK: "  + (now-startTime) );
   count++;
   $("#message").text( "Checking data " + count );
 
-  if(males && females && changes && trend){
+  if(pyramidData && changes && trend){
     //console.log(trend);
     console.log("GOT BOTH SO PROCESS DATA");
     processData()
@@ -269,11 +328,12 @@ $("#areas").empty();
   var selection = "<option>Pick an area...</option>";
 
 
-  $.each(males, function (index,value){
+  $.each(pyramidData, function (index,value){
 
     //TODO: set names in select here
-
-    var name = value.NAME;
+    //console.log(value)
+    var name = value.name;
+    areaCodes[value.code] = name;
     // create obj for each area
     areaObj[name] = {};
 
@@ -281,77 +341,19 @@ $("#areas").empty();
     areaObj[name].male = [];
     areaObj[name].female = [];
     areaObj[name].changes = {};
-    areaObj[name].series = [{name:'female', data:[] },{name:'male', data:[] }];
-    areaObj[name].ageGroups = { u18:0, adult:0, over64:0};
+    areaObj[name].series = {};
+    areaObj[name].series.male = [];
+    areaObj[name].series.female = [];
+    areaObj[name].ageGroups = { u18:parseInt(value.u18,10) , adult:parseInt(value.adult,10) , over64:parseInt(value.over64,10) };
 
+    for ( var i=0; i<19;i++){
+      areaObj[name].series.male[i] = parseInt(value["male"+i],10) ;
+      areaObj[name].series.female[i] = -parseInt(value["male"+i],10) ;
+    }
 
-    tempFemaleRow = females[index];
-
-      var categoryCount = 0;
-      var ageGroup = 0;
-      var tempMaleCount = 0;
-      var tempFemaleCount = 0;
-
-
-    //loop through each age
-    $.each(value, function (col, val){
-
-      if(col!=="NAME" && col!=="CODE"){
-        newVal = val.split(",").join("");
-        newVal = parseInt( newVal,10 )
-        areaObj[name].male[col] = newVal;
-
-        tempMaleCount += newVal;
-
-        //get female pop for same area and range
-        female = tempFemaleRow[col];
-        newVal = female.split(",").join("");
-        newVal =  parseInt( newVal,10 ) ;
-        areaObj[name].female[col] = newVal;
-
-        tempFemaleCount += newVal;
-        categoryCount ++;
-
-
-        if(categoryCount===5 || ageGroup===18){
-         // console.log("got group" + tempMaleCount);
-          areaObj[name].series[0].data.push(-tempFemaleCount);
-          areaObj[name].series[1].data.push(tempMaleCount);
-          categoryCount = 0;
-          ageGroup ++;
-          tempMaleCount = 0;
-          tempFemaleCount = 0;
-        }
-
-
-        var subtotal = areaObj[name].female[col] + areaObj[name].male[col];
-        if(col<18){
-          areaObj[name].ageGroups.u18 += subtotal;
-        }else if (col>64){
-          areaObj[name].ageGroups.over64 += subtotal;
-        }else{
-          areaObj[name].ageGroups.adult += subtotal;
-        }
-
-      }else if( col==="CODE"){
-        areaObj[name].code = val;
-        areaCodes.push(val);
-
-        areaMap[val] = name; 
-
-        
-
-      }
-
-
-
-    });
-
-    total = value["ALL AGES"].split(",").join("");
-    areaObj[name].male["ALL AGES"] = parseInt(total, 10);
-    //console.log(name);
+    areaObj[name].maleTotal = parseInt( value.males,10);
+    areaObj[name].femaleTotal = parseInt( value.females,10);
     selection += "<option>" + name + "</option";
-
 
     $('#areas')
           .append($('<option>', { name : index })
@@ -432,7 +434,10 @@ $("#areas").empty();
   });
 
  $('#loader').modal('hide');
+endTime = Date.now();
 
+  console.log("TIME " + ( endTime - startTime ));
+  console.log(areaCodes);
   initialize();
 
   // loop through the codes and get the map shapes
@@ -875,6 +880,21 @@ function compare(a,b) {
             var map ;
             var selectedAreaId;
             var lastSelectedPolygon;
+            var marker;
+
+
+            function showPoint(lat,lon){
+              var myLatlng = new google.maps.LatLng(lat,lon);
+              map.panTo(myLatlng);
+
+
+              marker = new google.maps.Marker({
+                  position: myLatlng,
+                  map: map,
+                  title: ''
+              });
+
+            }
 
 
             function drawArea(latlons, code) {

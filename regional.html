@@ -322,36 +322,49 @@
 
   <div class="row">
     <h1><span class="glyphicon glyphicon-map-marker"></span> Regional Data:</h1>
-    <div id="chart_prices" class="col-sm-3">
+    <div id="" class="col-sm-3">
           <form role="form">
+            
             <div class="form-group">
               <label for="region">Select a region</label>
               <select class="form-control" id="region">
               </select>
             </div>
-          </form>
-    </div>
-    <div id="chart_prices" class="col-sm-3">
-          <form role="form">
+
             <div class="form-group">
               <label for="county">Select a county</label>
               <select class="form-control" id="county">
               </select>
             </div>
-          </form>
-    </div>
-    <div id="chart_prices" class="col-sm-3">
-          <form role="form">
+
             <div class="form-group">
               <label for="district">Select a district</label>
               <select class="form-control" id="district">
               </select>
             </div>
+
           </form>
+
+
+    </div>
+    <div id="" class="col-sm-1">
+    </div>
+    <div id="" class="col-sm-4">
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <span class="" data-toggle="collapse" data-target="#search-panel">
+                    Search:
+                  </span>
+                  <input id="postcode" type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default" id="search"><span class="fa fa-search fa-lg form-control-feedback"></span></button>
+              </form>
     </div>
 
 
 
+    <div id="" class="col-sm-1">
+    </div>
     <div class="col-sm-3">
         <button type="button" class="btn btn-info btn-block ">
           <span class="fa fa-chevron-right pull-left pad-left">&nbsp;</span>
@@ -563,6 +576,8 @@
 <script src="js/charts_regional.js"></script>
 <script src="js/areas.js"></script>
 <script src="js/regional.js"></script>
+<script src="js/jspostcode.js"></script>
+<script src="js/loader.js"></script>
 
 
 
