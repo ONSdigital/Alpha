@@ -104,7 +104,19 @@ function testPostCode () {
 
     showData( areaCodes[ons_id] );
 
+    showPoint(lat,lon);
+
     //assume it is county level...
+    $.each(areaArray, function(index, value){
+     
+      if(value.Code===ons_id){
+        console.log("***************************");
+        selectedRegion = value.Region;
+        selectedCounty = value.Name;
+      }
+
+    })
+
     showComparison(COUNTY);
   }
 
@@ -868,6 +880,21 @@ function compare(a,b) {
             var map ;
             var selectedAreaId;
             var lastSelectedPolygon;
+            var marker;
+
+
+            function showPoint(lat,lon){
+              var myLatlng = new google.maps.LatLng(lat,lon);
+              map.panTo(myLatlng);
+
+
+              marker = new google.maps.Marker({
+                  position: myLatlng,
+                  map: map,
+                  title: ''
+              });
+
+            }
 
 
             function drawArea(latlons, code) {
