@@ -103,6 +103,8 @@ function testPostCode () {
 
 
     showData( areaCodes[ons_id] );
+
+    showTrend( areaCodes[ons_id] );
      getBoundaries(ons_id);
     showPoint(lat,lon);
 
