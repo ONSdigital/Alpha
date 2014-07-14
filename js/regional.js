@@ -124,12 +124,16 @@ function testPostCode () {
 
 
   function showData(str){
+     console.log( "showData " + str );
     var data = areaObj[str];
     //call API for map boundary
-    //getBoundaries(data.code);
+    //getBoundaries("Newport");
+    getBoundaries(data.code);
      console.log( "getBoundaries " + data.code );
      console.log( areaObj );
      console.log( areaObj[str] );
+     console.log( areaObj[str].code );
+     console.log( areaCodes[str] );
      console.log( str );
 
     var pc_change = 100 * (data.changes.now - data.changes.previous)/data.changes.now;
@@ -343,6 +347,7 @@ $("#areas").empty();
     areaObj[name] = {};
 
     //create array for population
+    areaObj[name].code = value.code;
     areaObj[name].male = [];
     areaObj[name].female = [];
     areaObj[name].changes = {};
@@ -540,9 +545,18 @@ function compare(a,b) {
             //capture area
             if(response.results[0]){
               areaMeasures[response.results[0].attributes.CTYUA13NM] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+              areaObj[response.results[0].attributes.CTYUA13NM].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
 
-            //  areaObj[response.results[0].attributes.CTYUA13NM].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
-              
+                var data = areaObj[response.results[0].attributes.CTYUA13NM];
+                
+                  if( isNaN(data.area) ){
+                    data.area = "";
+                    $("#area").text( "Not available" );
+                    $("#density").text( "Not available" );
+                  }else{
+                    $("#area").text( Math.round(data.area) + "km2" );
+                    $("#density").text( Math.round( 100* data.changes.now/data.area )/100  );
+                  }
             }
 
 
@@ -890,12 +904,15 @@ function compare(a,b) {
             var lastSelectedPolygon;
             var marker;
 
+            var polygons = [];
+
 
             function showPoint(lat,lon){
               var myLatlng = new google.maps.LatLng(lat,lon);
               map.panTo(myLatlng);
 
               if(marker){
+
                 marker.setMap(null);
               }
 
@@ -911,8 +928,13 @@ function compare(a,b) {
             function drawArea(latlons, code) {
 
               //clear area first
-              if(adminBoundaryArea){
-                adminBoundaryArea.setPath([]);
+              if(polygons.length>0){
+                $.each(polygons, function(index, item){
+                  item.setPaths([]);
+                })
+
+                polygons = [];
+                //adminBoundaryArea.setPath([]);
               }
 
               //console.log(latlons);
@@ -934,16 +956,16 @@ function compare(a,b) {
                        // setting up is attributes, eg, fill colour
                        adminBoundaryArea = new google.maps.Polygon({
                            paths: adminCoordsArea,
-                           strokeColor: '#fff',
+                           strokeColor: '#f00',
                            strokeOpacity: 0.8,
                            strokeWeight: .5,
-                           fillColor: '#ccc',
+                           fillColor: '#c00',
                            fillOpacity: 0.7,
                            id:code,
                            selected:false
                        });
 
-                       //polygons.push(adminBoundaryArea);
+                       polygons.push(adminBoundaryArea);
 
                        google.maps.event.addListener(adminBoundaryArea, 'click', function (event) {
                          // console.log(areaObj);
@@ -972,11 +994,11 @@ function compare(a,b) {
                               
                             }
                               lastSelectedPolygon = this;
-                              lastSelectedPolygon.setOptions({fillColor:'#00c'});
+                              lastSelectedPolygon.setOptions({fillColor:'#c00'});
                           }else{
                             selectedAreaId="";
                             if(lastSelectedPolygon){
-                              lastSelectedPolygon.setOptions({fillColor:'#ccc'});
+                              lastSelectedPolygon.setOptions({fillColor:'#c00'});
                             }
                             lastSelectedPolygon = null;
                           }
@@ -992,7 +1014,7 @@ function compare(a,b) {
                       }); 
 
                       google.maps.event.addListener(adminBoundaryArea,"mouseout",function(){
-                        var clr = '#ccc';
+                        var clr = '#c00';
                         if( this.id === selectedAreaId){
                           clr = '#00c';
                         }
