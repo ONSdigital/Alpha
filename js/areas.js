@@ -251,10 +251,10 @@ $("#message").text( "Processing Area Data" );
 
             if(regionVal.code === value.code){
 
-              console.log("match " + regionVal.code +",  "+ value.code);
+              //console.log("match " + regionVal.code +",  "+ value.code);
               totalCats.push( value.name );
               totalData.push( value.value );
-              console.log("REGION set look up " + value.name + ": " + totalData.length);
+             // console.log("REGION set look up " + value.name + ": " + totalData.length);
               comparisonLookUp[value.name] = totalData.length-1;
               comparisons.push( {name:index, value: value.population} );
             }
@@ -276,7 +276,7 @@ $("#message").text( "Processing Area Data" );
             if(val.code === value.code){
               totalCats.push( value.name );
               totalData.push( value.value );
-              console.log("COUNTY set look up " + value.name + ": " + totalData.length);
+             // console.log("COUNTY set look up " + value.name + ": " + totalData.length);
               comparisonLookUp[value.name] = totalData.length-1;
               comparisons.push( {name:index, value: value.population} );
             }
@@ -299,7 +299,7 @@ $("#message").text( "Processing Area Data" );
               //console.log("got match " + value);
               totalCats.push( value.name );
               totalData.push( value.value );
-              console.log("DISTRICT set look up " + value.name + ": " + totalData.length);
+              //console.log("DISTRICT set look up " + value.name + ": " + totalData.length);
               comparisonLookUp[value.name] = totalData.length-1;
               comparisons.push( {name:index, value: value.population} );
             }
