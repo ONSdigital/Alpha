@@ -3,7 +3,7 @@ var BASE_URL = "data/change.csv";
 var POP_URL = "data/pyramid.csv";
 var TREND_URL = "data/population.csv";
 
-var POSTCODE_URL = "http://mapit.mysociety.org/postcode/";
+var POSTCODE_URL = "//mapit.mysociety.org/postcode/";
 
 var pyramidData;
 
