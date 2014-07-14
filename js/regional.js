@@ -103,7 +103,7 @@ function testPostCode () {
 
 
     showData( areaCodes[ons_id] );
-
+     getBoundaries(ons_id);
     showPoint(lat,lon);
 
     //assume it is county level...
@@ -122,10 +122,13 @@ function testPostCode () {
 
 
   function showData(str){
-    var data = areaObj[str]
+    var data = areaObj[str];
     //call API for map boundary
     //getBoundaries(data.code);
-     console.log(str);
+     console.log( "getBoundaries " + data.code );
+     console.log( areaObj );
+     console.log( areaObj[str] );
+     console.log( str );
 
     var pc_change = 100 * (data.changes.now - data.changes.previous)/data.changes.now;
 
@@ -441,10 +444,10 @@ endTime = Date.now();
   initialize();
 
   // loop through the codes and get the map shapes
-  $.each(areaCodes, function (index,value){
+ // $.each(areaCodes, function (index,value){
     //console.log("get " + value);
    // getBoundaries(value);
-  });
+ // });
 
 
   barChart = $('#stackedBar').highcharts();
@@ -528,14 +531,17 @@ function compare(a,b) {
             {
                 
           // get boundaries
-          console.log( response.results[0] );
-          console.log( "got " + response.results[0].attributes.CTYUA13NM);
+          console.log( response );
+         // console.log( "got " + response.results[0].attributes.CTYUA13NM);
             //console.log( response.results[0].attributes.CTYUA13NM );
            /// console.log( response.results[0].attributes.CTYUA13NM+": " + parseInt( response.results[0].attributes["Shape.STArea()"],10)/1000000  );
             //capture area
-            areaMeasures[response.results[0].attributes.CTYUA13NM] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+            if(response.results[0]){
+              areaMeasures[response.results[0].attributes.CTYUA13NM] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
 
-            areaObj[response.results[0].attributes.CTYUA13NM].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+            //  areaObj[response.results[0].attributes.CTYUA13NM].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+              
+            }
 
 
           if (response.results.length > 0) 
@@ -592,7 +598,7 @@ function compare(a,b) {
                     console.log("init map: draw area " + polygons.length);
                     drawArea(latlons, response.results[0].value);
                 } else {
-                    alert("No matching ward found");
+                    console.log("No matching ward found");
                 }
             }
 
@@ -887,6 +893,9 @@ function compare(a,b) {
               var myLatlng = new google.maps.LatLng(lat,lon);
               map.panTo(myLatlng);
 
+              if(marker){
+                marker.setMap(null);
+              }
 
               marker = new google.maps.Marker({
                   position: myLatlng,
@@ -898,6 +907,12 @@ function compare(a,b) {
 
 
             function drawArea(latlons, code) {
+
+              //clear area first
+              if(adminBoundaryArea){
+                adminBoundaryArea.setPath([]);
+              }
+
               //console.log(latlons);
               console.log("draw " + latlons.length);
                 if (latlons != null) {
