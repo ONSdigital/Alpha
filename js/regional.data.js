@@ -113,8 +113,8 @@ function testPostCode () {
     $("#title").text("Demographics: " + str + " (" + suffix + pc_change + "% change from 2011)");
     $("#pop2012").text(data.changes.now );
     $("#pop2011").text( data.changes.previous);
-
-    if( isNaN(data.area) ){
+    console.log("AREA:"  + data.area);
+    if( isNaN(data.area) || data.area==="" ){
       data.area = "";
       $("#area").text( "Not available" );
       $("#density").text( "Not available" );
@@ -449,7 +449,7 @@ $("#areas").empty();
   barChart.xAxis[0].setCategories(totalCats);
 
   //init with content
-  updateDisplay("Blaby");
+  updateDisplay("Newport");
 }
 
 

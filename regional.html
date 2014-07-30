@@ -323,6 +323,20 @@
   <div class="row">
     <h1><span class="glyphicon glyphicon-map-marker"></span> Regional Data:</h1>
     <div id="" class="col-sm-3">
+
+            <form class="form-inline" role="search">
+              <div class="form-group">
+                <span class="" data-toggle="collapse" data-target="#search-panel">
+                  <label for="postcode">Search by Postcode:</label>
+                </span>
+                <input id="postcode" type="text" class="form-control" placeholder="Search">
+              <button type="submit" class="btn btn-default" id="search">
+                <span class="fa fa-search fa-lg form-control-feedback"></span>
+              </button>
+              </div>
+            </form>
+            <br/>
+          <p>or</p>
           <form role="form">
             
             <div class="form-group">
@@ -345,27 +359,7 @@
 
           </form>
 
-
-    </div>
-    <div id="" class="col-sm-1">
-    </div>
-    <div id="" class="col-sm-4">
-              <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <span class="" data-toggle="collapse" data-target="#search-panel">
-                    Search:
-                  </span>
-                  <input id="postcode" type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default" id="search"><span class="fa fa-search fa-lg form-control-feedback"></span></button>
-              </form>
-    </div>
-
-
-
-    <div id="" class="col-sm-1">
-    </div>
-    <div class="col-sm-3">
+          <hr/>
         <button type="button" class="btn btn-info btn-block ">
           <span class="fa fa-chevron-right pull-left pad-left">&nbsp;</span>
           <span class="pull-left">More data about this region</span>
@@ -374,6 +368,29 @@
           <span class="fa fa-chevron-down pull-left pad-left">&nbsp;</span>
           <span class="pull-left">Download all data</span>
         </button>
+
+    </div>
+
+    <div id="" class="col-sm-9">
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="" class="col-sm-3">
+    </div>
+    <div id="" class="col-sm-1">
+    </div>
+    <div id="" class="col-sm-4">
+
+    </div>
+
+
+
+    <div id="" class="col-sm-1">
+    </div>
+    <div class="col-sm-3">
+
     </div>
   </div>
 
@@ -473,18 +490,19 @@
       </div>
     </div>
     <div class="col-sm-8">
-      <h2>Map</h2>
-      <div id="map"></div>
+      <h2 id="popComparison">Population Comparison</h2>
+      <div id='stackedBar' class='chart'>
+      </div>
     </div>
   </div>
 
-
+<!-- 
   <div class="row">
     <h2 id="popComparison">Population Comparison</h2>
     <div id='stackedBar' class='chart'>
     </div>
   </div>
-
+ -->
 
   <div class="row">
     <h2 id="popTrend">Population Trend 2001 to 2013</h2>
