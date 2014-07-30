@@ -1,352 +1,225 @@
 
-var AREA_URL = "data/areas.csv";
-var REGION="region"; 
-var COUNTY="county"; 
-var DISTRICT="district"; 
+
+var areas = (function () {
 
 
-var areaArray = [];
-var regions = {};
-var counties = {};
-var districts = {};
+  var AREA_URL = "data/areas.csv";
+  var REGION="region"; 
+  var COUNTY="county"; 
+  var DISTRICT="district"; 
 
-var selectedRegion;
-var selectedCounty;
-var selectedDistrict;
-
-  $(document).ready(function() {
-    $("#region").change(function(e) {
-      return getRegion(); 
-    });
-    $("#county").change(function(e) {
-      return getCounty(); 
-    });
-    $("#district").change(function(e) {
-      return getDistrict(); 
-    });
-
-    loadAreaData();
-  });
+  //create dictionay obj to stroe parent area
+  var parentArea = {};
 
 
-  function getRegion(){
-    var str = "";
-    $( "#region option:selected" ).each(function() {
-      str += $( this ).text();
-    });
+  var areaArray = [];
+  var regions = {};
+  var counties = {};
+  var districts = {};
 
-    console.log("region: " + str);
-    showArea( str );
-    showCounty(str);
-    showTrend(str);
-    showComparison(REGION);
-  }
-
-  function getCounty(){
-    var str = "";
-    $( "#county option:selected" ).each(function() {
-      str += $( this ).text();
-    });
-
-    console.log("county: " + str);
-    showArea(str);
-    showDistrict(str);
-    showTrend(str);
-    showComparison(COUNTY);
-  }
-
-  function getDistrict(){
-    var str = "";
-    $( "#district option:selected" ).each(function() {
-      str += $( this ).text();
-    });
-
-    selectedDistrict = str;
-    console.log("district: " + str);
-    showArea(str);
-    showTrend(str);
-    showComparison(DISTRICT);
-  }
+  var selectedRegion;
+  var selectedCounty;
+  var selectedDistrict;
 
 
 
-  function showArea(str){
-     console.log(str);
-     showData(str);
-     
-  }
+    function loadData(callBack){
+      $.ajax({
+        dataType: "text",
+        url: AREA_URL,
 
+        success: function(data) {
+          areaArray = $.csv.toObjects(data);
+          splitAreas();
 
-  function loadAreaData(){
-
-    //population
-    $.ajax({
-      dataType: "text",
-      url: AREA_URL,
-
-      success: function(data) {
-        areaArray = $.csv.toObjects(data);
-        splitAreas();
-      },
-      error: function (xhr, textStatus, errorThrown) {
-          console.warn("error");
-       }
-      });
-  }
-
-
-  function splitAreas(  ) {
-$("#message").text( "Processing Area Data" );
-
-    console.log("splitAreas");
-    //console.log(areaArray);
-    //Code,Name,Entity,County,Region
-
-
-    $('#region')
-          .append($('<option>', { name : -1 })
-          .text("Pick a region..."));
-
-    $.each(areaArray, function (index,value){
-     // console.log(value);
-//console.log("region:" + value.CODE + ":" + value.NAME);
-/*
-    if(value.CODE.indexOf("E12")>-1){
-      console.log("region:" + value.CODE + ":" + value.NAME);
+          callBack( regions );
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.warn("error");
+         }
+        });
     }
-    */
-
-      if(!regions[value.Region]){
-        regions[value.Region] = {};
-        regions[value.Region].district = [];
-        regions[value.Region].county = {};
-       
-        $('#region')
-          .append($('<option>', { name : index })
-          .text(value.Region)); 
-      }
-
-      if( value.Entity === "region"  ){
-        regions[value.Region].code = value.Code;
-      }
-      if( value.Entity === "county" || value.Entity === "unitary" || value.Entity === "London borough"  || value.Entity === "Metropolitan district"  || value.Entity === "NI district" || value.Entity === "Sc district"  || value.Entity === "W district"){
-        regions[value.Region].county[value.Name] = {name:value.Name, code:value.Code, entity:value.Entity, district:[] };
-      }
-
-      if( value.Entity === "district"  ){
-        if(!regions[value.Region].district[value.County]){
-          regions[value.Region].district[value.County] = [];
-        }
-        regions[value.Region].district[value.County].push( {name:value.Name, code:value.Code, entity:value.Entity} );
-      }
-
-    });
-
-    console.log(regions);
-
-    createSelectMenu();
-
-    loadPopData();
-  }
 
 
+    function splitAreas(  ) {
+      $("#message").text( "Processing Area Data" );
 
-  function createSelectMenu(  ) {
-    console.log("createSelectMenu");
+      //Code,Name,Entity,County,Region
+      $('#region')
+            .append($('<option>', { name : -1 })
+            .text("Pick a region..."));
 
-    $("#areas").empty();
-    var selection = "<option>Pick an area...</option>";
+      $.each(areaArray, function (index,value){
 
-    //console.log(regions["East Midlands"]);
+        if(value.Region !== ""){
 
-   // $.each( regions, function( key, value ) {
-   //   console.log( key + ": " + value );
-   // })
-
-
-    //showCounty("West Midlands");
-  }
-
-
-  function showCounty(str){
-    var showFirstItem = true;
-    selectedRegion = str;
-    console.log("show county for " + str);
-    console.log(regions[str].county);
-
-    var counties = regions[str].county;
-    $('#county').empty();
-    $('#district').empty();
-    $('#county')
-          .append($('<option>', { name : -1 })
-          .text("Pick a county...."));
-
-    $.each(counties, function (index,value){
-      //console.log(index+":"+ value);
-      //console.log("***********");
-      $('#county')
-          .append($('<option>', { name : index })
-          .text(index)); 
-          if(showFirstItem){
-           // console.log("showFirstItem");
-            showFirstItem = false;
-            showDistrict(index);
+          //console.log(value.Name);
+          if(!parentArea[value.Name]){
+            parentArea[value.Name] = {};
+            parentArea[value.Name].level = 0;
           }
-      //console.log("***********");
-    });
 
-    //showDistrict("Nottinghamshire");
+          if(!regions[value.Region]){
+            regions[value.Region] = {};
+            regions[value.Region].district = {};
+            regions[value.Region].county = {};
+            regions[value.Region].parent = "";
+            regions[value.Region].name = value.Region;
+            parentArea[value.Name].name = "";
+            parentArea[value.Name].level = 0;
+           
+            $('#region')
+              .append($('<option>', { name : index })
+              .text(value.Region)); 
+          }
 
-  }
+          if( value.Entity === "region"  ){
+            regions[value.Region].code = value.Code;
+          }
+          if( value.Entity === "county" || value.Entity === "unitary" || value.Entity === "London borough"  || value.Entity === "Metropolitan district"  || value.Entity === "NI district" || value.Entity === "Sc district"  || value.Entity === "W district"){
+            regions[value.Region].county[value.Name] = {name:value.Name, code:value.Code, entity:value.Entity, district:[], parent:value.Region };
+            parentArea[value.Name].name = value.Region;
+            parentArea[value.Name].level = 1;
+          }
 
+          if( value.Entity === "district"  ){
+            if(!regions[value.Region].district[value.County]){
+              regions[value.Region].district[value.County] = [];
+            }
+            regions[value.Region].district[value.County].push( {name:value.Name, code:value.Code, entity:value.Entity, parent:value.County} );
+            parentArea[value.Name].name = value.County;
+            parentArea[value.Name].level = 2;
+          }
 
-  function showDistrict(str){
-
-    console.log("show district for " + str);
-    //console.log(regions[selectedRegion].district);
-    selectedCounty = str;
-    var districts = regions[selectedRegion].district[str];
-    
-    $('#district').empty();
-    $('#district')
-          .append($('<option>', { name : -1 })
-          .text("Pick a district...."));
-    if(districts){
-  //console.log( districts );
-      $.each(districts, function (index,value){
-        //console.log(index+":"+ value.name);
-        $('#district')
-          .append($('<option>', { name : index })
-          .text(value.name)); 
+        }
       });
+
+    }
+
+
+    function getRegion(){
+      var str = "";
+      $( "#region option:selected" ).each(function() {
+        str += $( this ).text();
+      });
+
+      console.log("region: " + str);
+      showData( str );
+      updateDisplay( str );
+      showCounty(str);
+    }
+
+
+    function getCounty(){
+      var str = "";
+      $( "#county option:selected" ).each(function() {
+        str += $( this ).text();
+      });
+
+      console.log("county: " + str);
+      showData(str);
+      updateDisplay( str );
+      showDistrict(str);
+    }
+
+
+    function getDistrict(){
+      var str = "";
+      $( "#district option:selected" ).each(function() {
+        str += $( this ).text();
+      });
+
+      selectedDistrict = str;
+      console.log("district: " + str);
+      showData(str);
+      updateDisplay( str );
+     }
+
+
+    function showArea(str){
+      console.log("showArea: " + str);
+      var parent = parentArea[str].name;
+      var siblings;
+
+      switch( parentArea[str].level ){
+        case 0:
+          siblings = regions;
+        break;
+
+        case 1:
+          siblings = regions[parent].county;
+        break;
+
+        case 2:
+          var child = str;
+          var grandparent = parentArea[ parent ].name;
+          siblings = regions[grandparent].district[parent];
+        break;
+      }
+       
+      return siblings;
+    }
+
+
+    function showCounty(str){
+      var showFirstItem = true;
+      selectedRegion = str;
+      console.log("show county for " + str);
+      console.log(regions[str].county);
+
+      var counties = regions[str].county;
+      $('#county').empty();
+      $('#district').empty();
+      $('#county')
+            .append($('<option>', { name : -1 })
+            .text("Pick a county...."));
+
+      $.each(counties, function (index,value){
+        $('#county')
+            .append($('<option>', { name : index })
+            .text(index)); 
+            if(showFirstItem){
+             // console.log("showFirstItem");
+              showFirstItem = false;
+              showDistrict(index);
+            }
+      });
+
+    }
+
+
+    function showDistrict(str){
+      console.log("show district for " + str);
+      selectedCounty = str;
+      var districts = regions[selectedRegion].district[str];
       
-    }else{
-      //console.log("UA so no districts");
+      $('#district').empty();
       $('#district')
-          .append($('<option>', { name : "UA" })
-          .text( " - UA: No Districts - " )); 
+            .append($('<option>', { name : -1 })
+            .text("Pick a district...."));
+      if(districts){
+        $.each(districts, function (index,value){
+          $('#district')
+            .append($('<option>', { name : index })
+            .text(value.name)); 
+        });
+        
+      }else{
+        $('#district')
+            .append($('<option>', { name : "UA" })
+            .text( " - UA: No Districts - " )); 
+      }
+
     }
 
-  }
 
 
-  function showComparison(area){
-    console.log("showComparison " + area );
-
-    var displayText = "";
-    var selected = "";
-    var localComparisons = [];
-    totalCats = [];
-    totalData = [];
-    comparisonLookUp = [];
-
-    switch (area){
-      case REGION:
-        selected = selectedRegion;
- console.log(regions);
-      //loop thru all the compariosn data
-        $.each(comparisons, function (index,value){
-          // and check each one to see it is one of the regions
-          $.each(regions, function (regionIdx, regionVal){
-
-            if(regionVal.code === value.code){
-
-              //console.log("match " + regionVal.code +",  "+ value.code);
-              totalCats.push( value.name );
-              totalData.push( value.value );
-             // console.log("REGION set look up " + value.name + ": " + totalData.length);
-              comparisonLookUp[value.name] = totalData.length-1;
-              comparisons.push( {name:index, value: value.population} );
-            }
-          });
-
-        })
-        displayText = "Population Comparison: Regions";
-
-      break;
-
-      case COUNTY:
-      selected = selectedCounty;
-        counties = regions[selectedRegion].county;
-
-      //loop thru all the compariosn data
-        $.each(comparisons, function (index,value){
-          // and check each one to see it is one of the regions
-          $.each(counties, function (idx, val){
-            if(val.code === value.code){
-              totalCats.push( value.name );
-              totalData.push( value.value );
-             // console.log("COUNTY set look up " + value.name + ": " + totalData.length);
-              comparisonLookUp[value.name] = totalData.length-1;
-              comparisons.push( {name:index, value: value.population} );
-            }
-          });
-
-        })
-         displayText = "Population Comparison: Counties & Unitary Authorities";
-      break;
-
-      case DISTRICT:
-      selected = selectedDistrict;
-        districts = regions[selectedRegion].district[selectedCounty];
-       // console.log(districts);
-      //loop thru all the compariosn data
-        $.each(comparisons, function (index,value){
-         // console.log(  value );
-          // and check each one to see it is one of the regions
-          $.each(districts, function (idx, val){
-            if(val.code === value.code){
-              //console.log("got match " + value);
-              totalCats.push( value.name );
-              totalData.push( value.value );
-              //console.log("DISTRICT set look up " + value.name + ": " + totalData.length);
-              comparisonLookUp[value.name] = totalData.length-1;
-              comparisons.push( {name:index, value: value.population} );
-            }
-          });
-
-        })
-       displayText = "Population Comparison: Districts";
-      break;
+    return{
+      loadData:loadData,
+      showArea:showArea,
+      showCounty:showCounty,
+      getRegion:getRegion,
+      getCounty:getCounty,
+      getDistrict:getDistrict
     }
-    //console.log(displayText);
-    $("#popComparison").text( displayText );
-    // sort comparison by size
-    comparisons.sort(compare);
-
-    barChart = $('#stackedBar').highcharts();
-    barChart.series[0].setData( totalData );
-    barChart.xAxis[0].setCategories(totalCats);
-
-
-    //reset last bar to blue
-    //barChart.series[0].data[lastBar].update( {color:'#0084D1'} );
-
-    lastBar = comparisonLookUp[selected];
-
-    console.log("last BAR" + lastBar + " for " + selected);
-
-    //barChart.series[0].data.update( {color:'#0084D1'} );
-    if(lastBar){
-      var highlight = barChart.series[0].data[ lastBar ];
-      barChart.series[0].data[lastBar].update( {color:'#FF950E'} );
-    }
-
-  }
-
-  function showTrend(str){
-   // console.log("show trend " + str);
-
-    var data = areaObj[str].trends;
-   // console.log(data);
-    barChart = $('#trend').highcharts();
-    barChart.series[0].setData( data );
-
-
-
-    $("#popTrend").text( "Population Trend for " + str  + ", (2001 to 2013)" );
-
-  }
-
-
-
+})();

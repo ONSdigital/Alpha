@@ -40,7 +40,7 @@ E07000173,Gedling,district,Nottinghamshire,East Midlands
 E07000174,Mansfield,district,Nottinghamshire,East Midlands
 E07000175,Newark and Sherwood,district,Nottinghamshire,East Midlands
 E07000176,Rushcliffe,district,Nottinghamshire,East Midlands
-E12000004,East Midlands region,region,,East Midlands
+E12000004,East Midlands,region,,East Midlands
 E06000015,Derby,unitary,,East Midlands
 E06000016,Leicester,unitary,,East Midlands
 E06000017,Rutland,unitary,,East Midlands
@@ -91,7 +91,7 @@ E07000203,Mid Suffolk,district,Suffolk,East
 E07000204,St Edmundsbury,district,Suffolk,East
 E07000205,Suffolk Coastal,district,Suffolk,East
 E07000206,Waveney,district,Suffolk,East
-E12000006,East region,region,,East
+E12000006,East,region,,East
 E06000031,Peterborough,unitary,,East
 E06000032,Luton,unitary,,East
 E06000055,Bedford,unitary,,East
@@ -132,40 +132,40 @@ E09000031,Waltham Forest,London borough,,London
 E09000032,Wandsworth,London borough,,London
 E09000033,Westminster,London borough,,London
 E12000007,Greater London,region,,London
-N92000002,Northern Ireland,country,,N. Ireland
-–,Derry,NI district,,N. Ireland
-–,Limavady,NI district,,N. Ireland
-–,Coleraine,NI district,,N. Ireland
-–,Ballymoney,NI district,,N. Ireland
-–,Moyle,NI district,,N. Ireland
-–,Larne,NI district,,N. Ireland
-–,Ballymena,NI district,,N. Ireland
-–,Magherafelt,NI district,,N. Ireland
-–,Cookstown,NI district,,N. Ireland
-–,Strabane,NI district,,N. Ireland
-–,Omagh,NI district,,N. Ireland
-–,Fermanagh,NI district,,N. Ireland
-–,Dungannon and South Tyrone,NI district,,N. Ireland
-–,Craigavon,NI district,,N. Ireland
-–,Armagh,NI district,,N. Ireland
-–,Newry and Mourne,NI district,,N. Ireland
-–,Banbridge,NI district,,N. Ireland
-–,Down,NI district,,N. Ireland
-–,Lisburn,NI district,,N. Ireland
-–,Antrim,NI district,,N. Ireland
-–,Newtownabbey,NI district,,N. Ireland
-–,Carrickfergus,NI district,,N. Ireland
-–,North Down,NI district,,N. Ireland
-–,Ards,NI district,,N. Ireland
-–,Castlereagh,NI district,,N. Ireland
-–,Belfast,NI district,,N. Ireland
+N92000002,Northern Ireland,country,,Northern Ireland
+–,Derry,NI district,,Northern Ireland
+–,Limavady,NI district,,Northern Ireland
+–,Coleraine,NI district,,Northern Ireland
+–,Ballymoney,NI district,,Northern Ireland
+–,Moyle,NI district,,Northern Ireland
+–,Larne,NI district,,Northern Ireland
+–,Ballymena,NI district,,Northern Ireland
+–,Magherafelt,NI district,,Northern Ireland
+–,Cookstown,NI district,,Northern Ireland
+–,Strabane,NI district,,Northern Ireland
+–,Omagh,NI district,,Northern Ireland
+–,Fermanagh,NI district,,Northern Ireland
+–,Dungannon and South Tyrone,NI district,,Northern Ireland
+–,Craigavon,NI district,,Northern Ireland
+–,Armagh,NI district,,Northern Ireland
+–,Newry and Mourne,NI district,,Northern Ireland
+–,Banbridge,NI district,,Northern Ireland
+–,Down,NI district,,Northern Ireland
+–,Lisburn,NI district,,Northern Ireland
+–,Antrim,NI district,,Northern Ireland
+–,Newtownabbey,NI district,,Northern Ireland
+–,Carrickfergus,NI district,,Northern Ireland
+–,North Down,NI district,,Northern Ireland
+–,Ards,NI district,,Northern Ireland
+–,Castlereagh,NI district,,Northern Ireland
+–,Belfast,NI district,,Northern Ireland
 E11000004,Tyne and Wear,met county,Tyne and Wear,North East
 E08000020,Gateshead,Metropolitan district,Tyne and Wear,North East
 E08000021,Newcastle upon Tyne,Metropolitan district,Tyne and Wear,North East
 E08000022,North Tyneside,Metropolitan district,Tyne and Wear,North East
 E08000023,South Tyneside,Metropolitan district,Tyne and Wear,North East
 E08000024,Sunderland,Metropolitan district,Tyne and Wear,North East
-E12000001,North East region,region,,North East
+E12000001,North East,region,,North East
 E06000001,Hartlepool,unitary,,North East
 E06000002,Middlesbrough,unitary,,North East
 E06000003,Redcar and Cleveland,unitary,,North East
@@ -210,7 +210,7 @@ E08000012,Liverpool,Metropolitan district,Merseyside,North West
 E08000013,St Helens,Metropolitan district,Merseyside,North West
 E08000014,Sefton,Metropolitan district,Merseyside,North West
 E08000015,Wirral,Metropolitan district,Merseyside,North West
-E12000002,North West region,region,,North West
+E12000002,North West,region,,North West
 E06000049,Cheshire East,unitary,,North West
 E06000006,Halton,unitary,,North West
 E06000007,Warrington,unitary,,North West
@@ -312,7 +312,7 @@ E07000226,Crawley,district,West Sussex,South East
 E07000227,Horsham,district,West Sussex,South East
 E07000228,Mid Sussex,district,West Sussex,South East
 E07000229,Worthing,district,West Sussex,South East
-E12000008,South East region,region,,South East
+E12000008,South East,region,,South East
 E06000035,Medway,unitary,,South East
 E06000036,Bracknell Forest,unitary,,South East
 E06000037,West Berkshire,unitary,,South East
@@ -354,7 +354,7 @@ E07000188,Sedgemoor,district,Somerset,South West
 E07000189,South Somerset,district,Somerset,South West
 E07000190,Taunton Deane,district,Somerset,South West
 E07000191,West Somerset,district,Somerset,South West
-E12000009,South West region,region,,South West
+E12000009,South West,region,,South West
 E06000022,Bath and North East Somerset,unitary,,South West
 E06000023,Bristol,unitary,,South West
 E06000024,North Somerset,unitary,,South West
@@ -420,7 +420,7 @@ E08000028,Sandwell,Metropolitan district,West Midlands,West Midlands
 E08000029,Solihull,Metropolitan district,West Midlands,West Midlands
 E08000030,Walsall,Metropolitan district,West Midlands,West Midlands
 E08000031,Wolverhampton,Metropolitan district,West Midlands,West Midlands
-E12000005,West Midlands region,region,,West Midlands
+E12000005,West Midlands,region,,West Midlands
 E06000019,Herefordshire,unitary,,West Midlands
 E06000020,Telford and Wrekin,unitary,,West Midlands
 E06000051,Shropshire,unitary,,West Midlands
@@ -444,7 +444,7 @@ E08000033,Calderdale,Metropolitan district,West Yorkshire,Yorkshire and the Humb
 E08000034,Kirklees,Metropolitan district,West Yorkshire,Yorkshire and the Humber
 E08000035,Leeds,Metropolitan district,West Yorkshire,Yorkshire and the Humber
 E08000036,Wakefield,Metropolitan district,West Yorkshire,Yorkshire and the Humber
-E12000003,Yorkshire and the Humber region,region,,Yorkshire and the Humber
+E12000003,Yorkshire and the Humber,region,,Yorkshire and the Humber
 E06000010,Kingston upon Hull,unitary,,Yorkshire and the Humber
 E06000011,East Riding of Yorkshire,unitary,,Yorkshire and the Humber
 E06000012,North East Lincolnshire,unitary,,Yorkshire and the Humber
