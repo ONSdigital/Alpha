@@ -94,6 +94,8 @@ var areas = (function () {
         }
       });
 
+      $('.selectpicker').selectpicker('refresh');
+
     }
 
 
@@ -184,7 +186,7 @@ var areas = (function () {
               showDistrict(index);
             }
       });
-
+      $('.selectpicker').selectpicker('refresh');
     }
 
 
@@ -209,7 +211,7 @@ var areas = (function () {
             .append($('<option>', { name : "UA" })
             .text( " - UA: No Districts - " )); 
       }
-
+      $('.selectpicker').selectpicker('refresh');
     }
 
 

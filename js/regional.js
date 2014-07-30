@@ -12,7 +12,7 @@ var regional = (function () {
     initialise();
     addListeners();
 
-
+    $('.selectpicker').selectpicker('render');
 
 
   });

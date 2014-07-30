@@ -12,7 +12,7 @@
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/menu.css" rel="stylesheet">
-
+  <link href="css/bootstrap-select.min.css" rel="stylesheet">
 
   <!-- Alpha -->
   <link href="css/alpha.css" rel="stylesheet">
@@ -335,25 +335,25 @@
               </button>
               </div>
             </form>
-            <br/>
-          <p>or</p>
+            <hr/>
+          
           <form role="form">
             
             <div class="form-group">
               <label for="region">Select a region</label>
-              <select class="form-control" id="region">
+              <select class="form-control selectpicker" id="region">
               </select>
             </div>
 
             <div class="form-group">
               <label for="county">Select a county</label>
-              <select class="form-control" id="county">
+              <select class="form-control selectpicker" id="county">
               </select>
             </div>
 
             <div class="form-group">
               <label for="district">Select a district</label>
-              <select class="form-control" id="district">
+              <select class="form-control selectpicker" id="district">
               </select>
             </div>
 
@@ -582,7 +582,7 @@
 
 
 
-
+<script src="js/bootstrap-select.min.js"></script>
 <!-- charting -->
 <script src="js/pyramid_regional.js"></script>
 <script src="js/bar_regional.js"></script>
