@@ -362,7 +362,7 @@
 
 
               var myLat = 52.5;
-              var myLong = -4;
+              var myLong = -2;
               var myZoom = 7;
 
               var styles = [
