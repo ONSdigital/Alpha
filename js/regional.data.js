@@ -64,6 +64,7 @@ function testPostCode () {
     var lat = data.wgs84_lat;
     var lon = data.wgs84_lon;
 
+    //todo identify different areas eg district and ward boundaries...
     var council = data.shortcuts.council;
 
     var ons_id = data.areas[council].codes.gss;

@@ -32,7 +32,7 @@ var regional = (function () {
     $('#loader').modal('show');
     // init charts
 
-          // init chart options and then load individual charts
+    // init chart options and then load individual charts
     setOptions();
 
     populationPyramid();
