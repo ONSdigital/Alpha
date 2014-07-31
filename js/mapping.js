@@ -21,10 +21,21 @@
            // var opengep2 =  "&contains=true&searchFields=&sr=&layers=WD_DEC_2011_EW_BGC&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
             var opengep2 =  "&contains=true&searchFields=&sr=&layers=CTYUA_DEC_2013_EW_BGC&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
 
-            var latlons = new Array();
+           // var latlons = new Array();
 
              // start process with call to Open Geography
             function getBoundaries(areaNameOrCode) {
+
+                //clear area first
+                if(polygons.length>0){
+                    $.each(polygons, function(index, item){
+                        item.setPaths([]);
+                    })
+
+                    polygons = [];
+                }
+
+
                 callOpenGeog(opengep1 + areaNameOrCode + opengep2);
             }
 
@@ -38,6 +49,7 @@
             * @return data - the JSON data returned by the ONS API call
             */
             function callOpenGeog(url) {
+                console.log( "callOpenGeog ");
                 // create a new script element 
                 var script = document.createElement('script');
                 // set the src attribute to that url 
@@ -65,15 +77,15 @@
                 
           // get boundaries
          // console.log( response );
-         // console.log( "got " + response.results[0].attributes.CTYUA13NM);
-            //console.log( response.results[0].attributes.CTYUA13NM );
+          //console.log( "got " + response.results[0].attributes.CTYUA13NM);
+           // console.log( response.results[0] );
            /// console.log( response.results[0].attributes.CTYUA13NM+": " + parseInt( response.results[0].attributes["Shape.STArea()"],10)/1000000  );
             //capture area
             if(response.results[0]){
-              areaMeasures[response.results[0].attributes.CTYUA13NM] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
-              areaObj[response.results[0].attributes.CTYUA13NM].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+              areaMeasures[response.results[0].attributes.CTYUA13CD] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+              areaObj[response.results[0].attributes.CTYUA13CD].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
 
-                var data = areaObj[response.results[0].attributes.CTYUA13NM];
+                var data = areaObj[response.results[0].attributes.CTYUA13CD];
 
                   if( isNaN(data.area) ){
                     data.area = "";
@@ -91,7 +103,7 @@
               // document.getElementById("foundward").value = response.results[0].attributes.WD11NM;
 
               var ens = new Array();
-              //alert(response.results[0].geometry.rings.length);
+              //console.log(response.results[0].geometry.rings.length);
               for (var k = 0; k < response.results[0].geometry.rings.length; k++) {
                  ens[k] = response.results[0].geometry.rings[k];
               }
@@ -105,10 +117,12 @@
                     var maxlat = -360.0;
                     var minlon = 360.0;
                     var maxlon = -360.0;
+                    // clear array before adding new coordinates
+                    var latlons = [];
 
                     // create array of points converted to lat/lon (from easting/northing) and capture mins and maxes
                     for (var j = 0; j < ens.length; j++) {
-                       //alert('j = ' + j);
+                       //console.log('j = ' + j);
                        latlons[j] = new Array();
                        for (var i = 0; i < ens[j].length; i++) {
                            var testpoint = ens[j][i];
@@ -401,7 +415,7 @@
                 var mapOptions = {
                     zoom: myZoom,
                     center: myLatLng,
-                    scrollwheel:true,
+                    scrollwheel:false,
                     streetViewControl:false,
                     mapTypeControlOptions: {
                       mapTypeIds:[]
@@ -443,17 +457,6 @@
 
             function drawArea(latlons, code) {
 
-              //clear area first
-              if(polygons.length>0){
-                $.each(polygons, function(index, item){
-                  item.setPaths([]);
-                  //console.log("clear poly path");
-                })
-
-                polygons = [];
-                //adminBoundaryArea.setPath([]);
-              }
-
               //console.log(latlons);
               //console.log("draw " + latlons.length);
                 if (latlons != null) {
@@ -467,8 +470,7 @@
                            adminCoordsArea[i] = new google.maps.LatLng(latlons[j][i].lat, latlons[j][i].lon);
                        }
 
-                       
-            
+                                   
                        // Construct the polygon
                        // setting up is attributes, eg, fill colour
                        adminBoundaryArea = new google.maps.Polygon({
