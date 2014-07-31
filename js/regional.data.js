@@ -13,7 +13,6 @@ var trend;
 var areaObj = {};
 var barChart;
 
-var areaCodes = {};
 var areaMap = {};
 var areaMeasures = {};
 
@@ -33,7 +32,10 @@ var comparisonLookUp = {};
 
 
 
-
+var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EH8 9YL", "EX4 4SB",
+ "G12 8QQ", "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
+  "OX1 2JD",  "BT7 1NN", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD", 
+  "E1 4NS", "WC2A 2AE", "WC2R 2LS" ];
 
 function testPostCode () {
   var newPostCode = checkPostCode( $("#postcode").val() );
@@ -64,23 +66,24 @@ function testPostCode () {
     var lat = data.wgs84_lat;
     var lon = data.wgs84_lon;
 
-    //todo identify different areas eg district and ward boundaries...
     var council = data.shortcuts.council;
 
-    var ons_id = data.areas[council].codes.gss;
-    console.log("ONS " + ons_id + ": " + areaCodes[ons_id]);
+    if(data.shortcuts.council.county){
+      council = data.shortcuts.council.county;
+    }
 
-    updateDisplay( areaCodes[ons_id] );
-    getBoundaries(ons_id);
+    var ons_id = data.areas[council].codes.gss;
+    console.log("ONS " + ons_id );
+
+    updateDisplay( ons_id );
+   // getBoundaries(ons_id);
     showPoint(lat,lon);
   }
 
 
   function updateDisplay(str){
-    console.log( "updateDisplay " + str );
+    var siblingList  = areas.getSiblings( str );
     showData(str);
-    var siblingList  = areas.showArea( str );
-    console.log( siblingList );
     showComparison(siblingList, str);
   }
 
@@ -88,19 +91,21 @@ function testPostCode () {
 
 
   function showData(str){
-     console.log( "showData " + str );
+    console.log( "showData " + str );
     var data = areaObj[str];
-
+    //console.log(data);
     
     //call API for map boundary
     //getBoundaries("Newport");
     getBoundaries(data.code);
-     console.log( "getBoundaries " + data.code );
-     console.log( areaObj );
-     console.log( areaObj[str] );
-     console.log( areaObj[str].code );
-     console.log( areaCodes[str] );
-     console.log( str );
+    /*
+    console.log( "getBoundaries " + data.code );
+    console.log( areaObj );
+    console.log( areaObj[str] );
+    console.log( areaObj[str].code );
+    console.log( str );
+    */
+     var title = areaObj[str].name;
 
     var pc_change = 100 * (data.changes.now - data.changes.previous)/data.changes.now;
 
@@ -111,10 +116,11 @@ function testPostCode () {
     }
 
 
-    $("#title").text("Demographics: " + str + " (" + suffix + pc_change + "% change from 2011)");
+    $("#mainHeading").text(": " + title );
+    $("#title").text("Demographics: " + title + " (" + suffix + pc_change + "% change from 2011)");
     $("#pop2012").text(data.changes.now );
     $("#pop2011").text( data.changes.previous);
-    console.log("AREA:"  + data.area);
+    //console.log("AREA:"  + data.area);
     if( isNaN(data.area) || data.area==="" ){
       data.area = "";
       $("#area").text( "Not available" );
@@ -182,10 +188,13 @@ function testPostCode () {
 
 
     //change chart
+
+    
     pyramid = $('#pyramid').highcharts();
 
     pyramid.series[1].setData( data.series.female );
     pyramid.series[0].setData( data.series.male );
+    pyramid.setTitle({text: "Population pyramid for " + title + ", midyear 2012" });
 
     var ageData = [["Under 18" , data.ageGroups.u18],["18-64", data.ageGroups.adult],["Over 64", data.ageGroups.over64]];
     var genderData = [ ["Male", data.maleTotal ],["Female", data.femaleTotal] ];
@@ -197,10 +206,8 @@ function testPostCode () {
 
     barChart = $('#trend').highcharts();
     barChart.series[0].setData( data.trends );
-    $("#popTrend").text( "Population Trend for " + str  + ", (2001 to 2013)" );
+    $("#popTrend").text( "Population Trend for " + title  + ", (2001 to 2013)" );
 
-    //console.log(pyramid);
-    pyramid.setTitle({text: "Population pyramid for " + str + ", midyear 2012" });
   }
 
 
@@ -210,7 +217,7 @@ function testPostCode () {
 
     function showComparison(list, str){
 
-        console.log(list);
+      //console.log(list);
       var displayText = "";
 
       totalCats = [];
@@ -220,8 +227,8 @@ function testPostCode () {
 
       // loop through the siblings and create a list of pop values
       $.each(list, function (index,value){
-        console.log(value.name);
-        comparisons.push( {name:value.name, value: areaObj[value.name].changes.now} );
+        //console.log(value.name+":" + value.code + " *::* " + index);
+        comparisons.push( {name:value.name, code:value.code, value: areaObj[value.code].changes.now} );
       });
 
       //sort the comparisons by value
@@ -229,9 +236,10 @@ function testPostCode () {
 
       // loop through sorted list and create chart data
       $.each(comparisons, function (index, value){
+       // console.log(value.name+":" + value.code + " *::* " + index);
         totalCats.push( value.name );
         totalData.push( value.value );
-        comparisonLookUp[value.name] = index;
+        comparisonLookUp[value.code] = index;
       });
 
 
@@ -336,30 +344,28 @@ $("#areas").empty();
 
   $.each(pyramidData, function (index,value){
 
-    //TODO: set names in select here
-    //console.log(value)
-    var name = value.name;
-    areaCodes[value.code] = name;
+    var code = value.code;
     // create obj for each area
-    areaObj[name] = {};
+    areaObj[code] = {};
 
     //create array for population
-    areaObj[name].code = value.code;
-    areaObj[name].male = [];
-    areaObj[name].female = [];
-    areaObj[name].changes = {};
-    areaObj[name].series = {};
-    areaObj[name].series.male = [];
-    areaObj[name].series.female = [];
-    areaObj[name].ageGroups = { u18:parseInt(value.u18,10) , adult:parseInt(value.adult,10) , over64:parseInt(value.over64,10) };
+    areaObj[code].name = value.name;
+    areaObj[code].code = value.code;
+    areaObj[code].male = [];
+    areaObj[code].female = [];
+    areaObj[code].changes = {};
+    areaObj[code].series = {};
+    areaObj[code].series.male = [];
+    areaObj[code].series.female = [];
+    areaObj[code].ageGroups = { u18:parseInt(value.u18,10) , adult:parseInt(value.adult,10) , over64:parseInt(value.over64,10) };
 
     for ( var i=0; i<19;i++){
-      areaObj[name].series.male[i] = parseInt(value["male"+i],10) ;
-      areaObj[name].series.female[i] = -parseInt(value["male"+i],10) ;
+      areaObj[code].series.male[i] = parseInt(value["male"+i],10) ;
+      areaObj[code].series.female[i] = -parseInt(value["male"+i],10) ;
     }
 
-    areaObj[name].maleTotal = parseInt( value.males,10);
-    areaObj[name].femaleTotal = parseInt( value.females,10);
+    areaObj[code].maleTotal = parseInt( value.males,10);
+    areaObj[code].femaleTotal = parseInt( value.females,10);
     selection += "<option>" + name + "</option";
 
     $('#areas')
@@ -403,8 +409,8 @@ $("#areas").empty();
       //console.log("value " + value.name);
       if(col!=="name" && col!=="code" ){
         newVal = val.split(",").join("");
-        if(areaObj[value.name]){
-          areaObj[value.name].changes[col] = parseInt( newVal,10 );
+        if(areaObj[value.code]){
+          areaObj[value.code].changes[col] = parseInt( newVal,10 );
           
         }
       }
@@ -425,16 +431,16 @@ $("#areas").empty();
   // console.log(areaObj);
   // loop through the trends and store in areaObj
   $.each(trend, function (index,value){
-    // console.log("trend " + value.Name);
-    if(areaObj[value.Name]){
-      areaObj[value.Name].trends =[];
+    // console.log("trend " + value.Name + ": " + value.Code);
+    if(areaObj[value.Code]){
+      areaObj[value.Code].trends =[];
       $.each(value, function (col, val){
         if(col!=="Name" && col!=="Code" ){
-          areaObj[value.Name].trends.push( parseInt(val,10) );
+          areaObj[value.Code].trends.push( parseInt(val,10) );
         }
       });
    }else{
-      console.log("NO " + value.Name + " *************");
+      console.log("NO " + value.Code + " *************");
     }
     
 
@@ -450,7 +456,7 @@ $("#areas").empty();
   barChart.xAxis[0].setCategories(totalCats);
 
   //init with content
-  updateDisplay("Newport");
+  updateDisplay("W06000022");
 }
 
 

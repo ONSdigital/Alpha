@@ -2,24 +2,17 @@
 
 var areas = (function () {
 
-
   var AREA_URL = "data/areas.csv";
   var REGION="region"; 
   var COUNTY="county"; 
   var DISTRICT="district"; 
-
-  //create dictionay obj to stroe parent area
-  var parentArea = {};
-
-
+ 
   var areaArray = [];
+  var idDictionary = {};
+
   var regions = {};
   var counties = {};
   var districts = {};
-
-  var selectedRegion;
-  var selectedCounty;
-  var selectedDistrict;
 
 
 
@@ -44,51 +37,70 @@ var areas = (function () {
     function splitAreas(  ) {
       $("#message").text( "Processing Area Data" );
 
-      //Code,Name,Entity,County,Region
+      //code,name,entity,county,region
       $('#region')
             .append($('<option>', { name : -1 })
             .text("Pick a region..."));
 
+      regions["TopLevel"] = {};
+      regions["TopLevel"].children = [];
+      // loop thru he list and build a dictionary to look up the parent code based on the name
       $.each(areaArray, function (index,value){
 
-        if(value.Region !== ""){
+          idDictionary[value.name] = value.code;
+          if(value.region !== ""){
 
-          //console.log(value.Name);
-          if(!parentArea[value.Name]){
-            parentArea[value.Name] = {};
-            parentArea[value.Name].level = 0;
+          if(!regions[value.code]){
+            regions[value.code] = {};
+            regions[value.code].children = [];
+            regions[value.code].parent = "";
+            regions[value.code].name = value.region;
+            regions[value.code].code = value.code;
+            regions[value.code].level = 0;
           }
 
-          if(!regions[value.Region]){
-            regions[value.Region] = {};
-            regions[value.Region].district = {};
-            regions[value.Region].county = {};
-            regions[value.Region].parent = "";
-            regions[value.Region].name = value.Region;
-            parentArea[value.Name].name = "";
-            parentArea[value.Name].level = 0;
-           
-            $('#region')
-              .append($('<option>', { name : index })
-              .text(value.Region)); 
+
+          }
+      });
+
+
+      $.each(areaArray, function (index,value){
+       
+        if(value.region !== ""){
+
+          if( value.entity === "region"  ){
+            regions["TopLevel"].children.push( {name:value.name, code:value.code} );
+            $('#region').append($('<option>', { name : index })
+              .text(value.region).val(value.code)); 
           }
 
-          if( value.Entity === "region"  ){
-            regions[value.Region].code = value.Code;
-          }
-          if( value.Entity === "county" || value.Entity === "unitary" || value.Entity === "London borough"  || value.Entity === "Metropolitan district"  || value.Entity === "NI district" || value.Entity === "Sc district"  || value.Entity === "W district"){
-            regions[value.Region].county[value.Name] = {name:value.Name, code:value.Code, entity:value.Entity, district:[], parent:value.Region };
-            parentArea[value.Name].name = value.Region;
-            parentArea[value.Name].level = 1;
+ 
+          if( value.entity === "county" || value.entity === "unitary" || value.entity === "London borough"  || value.entity === "Metropolitan district"  || value.entity === "NI district" || value.entity === "Sc district"  || value.entity === "W district"){
+            //console.log("got entity " + value.code + ":: "+ value.name + ":: "+ value.region + ":: "+ idDictionary[value.region]);
+            var parent = idDictionary[value.region];
+
+            regions[value.code].name = value.name;
+            regions[value.code].code = value.code;
+            regions[value.code].entity = value.entity;
+            regions[value.code].parent = parent;
+            regions[value.code].level = 1;
+            //add entity to parent's child list
+            regions[parent].children.push( {name:value.name, code:value.code} );
           }
 
-          if( value.Entity === "district"  ){
-            if(!regions[value.Region].district[value.County]){
-              regions[value.Region].district[value.County] = [];
-            }
-            regions[value.Region].district[value.County].push( {name:value.Name, code:value.Code, entity:value.Entity, parent:value.County} );
-            parentArea[value.Name].name = value.County;
-            parentArea[value.Name].level = 2;
+
+          if( value.entity === "district"  ){
+            var parent = idDictionary[value.county];
+            var gparent = idDictionary[value.region]
+
+            regions[value.code].name = value.name;
+            regions[value.code].code = value.code;
+            regions[value.code].entity = value.entity;
+            regions[value.code].parent = parent;
+            regions[value.code].grandparent = gparent;
+            regions[value.code].level = 2;
+            //add entity to parent's child list
+            regions[parent].children.push( {name:value.name, code:value.code} );
           }
 
         }
@@ -102,11 +114,10 @@ var areas = (function () {
     function getRegion(){
       var str = "";
       $( "#region option:selected" ).each(function() {
-        str += $( this ).text();
+        str += $( this ).val();
       });
 
-      console.log("region: " + str);
-      showData( str );
+     // showData( str );
       updateDisplay( str );
       showCounty(str);
     }
@@ -115,11 +126,10 @@ var areas = (function () {
     function getCounty(){
       var str = "";
       $( "#county option:selected" ).each(function() {
-        str += $( this ).text();
+        str += $( this ).val();
       });
 
-      console.log("county: " + str);
-      showData(str);
+     // showData(str);
       updateDisplay( str );
       showDistrict(str);
     }
@@ -128,62 +138,46 @@ var areas = (function () {
     function getDistrict(){
       var str = "";
       $( "#district option:selected" ).each(function() {
-        str += $( this ).text();
+        str += $( this ).val();
       });
 
-      selectedDistrict = str;
-      console.log("district: " + str);
-      showData(str);
+    //  showData(str);
       updateDisplay( str );
      }
 
 
-    function showArea(str){
-      console.log("showArea: " + str);
-      var parent = parentArea[str].name;
+    function getSiblings(str){
+      var parent = regions[str].parent;
       var siblings;
 
-      switch( parentArea[str].level ){
-        case 0:
-          siblings = regions;
-        break;
-
-        case 1:
-          siblings = regions[parent].county;
-        break;
-
-        case 2:
-          var child = str;
-          var grandparent = parentArea[ parent ].name;
-          siblings = regions[grandparent].district[parent];
-        break;
+      if(regions[str].level===0){
+        siblings = regions["TopLevel"].children;
+      }else{
+        siblings = regions[parent].children;
       }
-       
+     
       return siblings;
     }
 
 
     function showCounty(str){
       var showFirstItem = true;
-      selectedRegion = str;
-      console.log("show county for " + str);
-      console.log(regions[str].county);
+      var counties = regions[str].children;
 
-      var counties = regions[str].county;
       $('#county').empty();
       $('#district').empty();
+
       $('#county')
             .append($('<option>', { name : -1 })
             .text("Pick a county...."));
 
       $.each(counties, function (index,value){
         $('#county')
-            .append($('<option>', { name : index })
-            .text(index)); 
+            .append($('<option>', { name : value.name })
+            .text(value.name).val(value.code)); 
             if(showFirstItem){
-             // console.log("showFirstItem");
               showFirstItem = false;
-              showDistrict(index);
+              showDistrict(value.code);
             }
       });
       $('.selectpicker').selectpicker('refresh');
@@ -191,19 +185,18 @@ var areas = (function () {
 
 
     function showDistrict(str){
-      console.log("show district for " + str);
-      selectedCounty = str;
-      var districts = regions[selectedRegion].district[str];
+      var districts = regions[str].children;
       
       $('#district').empty();
+
+      if(districts){
       $('#district')
             .append($('<option>', { name : -1 })
             .text("Pick a district...."));
-      if(districts){
         $.each(districts, function (index,value){
           $('#district')
-            .append($('<option>', { name : index })
-            .text(value.name)); 
+            .append($('<option>', { name : value.name })
+            .text(value.name).val(value.code)); 
         });
         
       }else{
@@ -218,7 +211,7 @@ var areas = (function () {
 
     return{
       loadData:loadData,
-      showArea:showArea,
+      getSiblings:getSiblings,
       showCounty:showCounty,
       getRegion:getRegion,
       getCounty:getCounty,
