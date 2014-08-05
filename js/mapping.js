@@ -23,6 +23,17 @@
 
            // var latlons = new Array();
 
+            function showMarker(){
+                if(marker){
+                    marker.setVisible(true);
+                }
+            }
+           function hideMarker(){
+                if(marker){
+                    marker.setVisible(false);
+               }
+           }
+
              // start process with call to Open Geography
             function getBoundaries(areaNameOrCode) {
 

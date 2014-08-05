@@ -85,6 +85,9 @@ function testPostCode () {
     var siblingList  = areas.getSiblings( str );
     showData(str);
     showComparison(siblingList, str);
+
+    //hide marker
+    hideMarker();
   }
 
 
