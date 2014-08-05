@@ -5,6 +5,8 @@ var TREND_URL = "data/population.csv";
 
 var POSTCODE_URL = "//mapit.mysociety.org/postcode/";
 
+var YEAR = "2013";
+
 var ORANGE ='#FF950E';
 var pyramidData;
 
@@ -120,7 +122,7 @@ function testPostCode () {
 
 
     $("#mainHeading").text(": " + title );
-    $("#title").text("Demographics: " + title + " (" + suffix + pc_change + "% change from 2011)");
+    $("#title").text("Demographics: " + title + " (" + suffix + pc_change + "% change from " + YEAR + ")");
     $("#pop2012").text(data.changes.now );
     $("#pop2011").text( data.changes.previous);
     //console.log("AREA:"  + data.area);
@@ -197,7 +199,7 @@ function testPostCode () {
 
     pyramid.series[1].setData( data.series.female );
     pyramid.series[0].setData( data.series.male );
-    pyramid.setTitle({text: "Population pyramid for " + title + ", midyear 2012" });
+    pyramid.setTitle({text: "Population pyramid for " + title + ", midyear " + YEAR });
 
     var ageData = [["Under 18" , data.ageGroups.u18],["18-64", data.ageGroups.adult],["Over 64", data.ageGroups.over64]];
     var genderData = [ ["Male", data.maleTotal ],["Female", data.femaleTotal] ];
@@ -443,7 +445,7 @@ $("#areas").empty();
         }
       });
    }else{
-      console.log("NO " + value.Code + " *************");
+      console.log("NO " + value.Code + " in population trend");
     }
     
 
