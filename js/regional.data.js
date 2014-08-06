@@ -102,7 +102,14 @@ function testPostCode () {
     
     //call API for map boundary
     //getBoundaries("Newport");
-    getBoundaries(data.code);
+
+    var region = areas.getRegionType(str);
+    console.log("get region data " + str + " is " + region );
+    var isDistrict = false;
+    if(region==="district"){
+      isDistrict = true;
+    }
+    getBoundaries(data.code,isDistrict);
     /*
     console.log( "getBoundaries " + data.code );
     console.log( areaObj );
@@ -232,7 +239,7 @@ function testPostCode () {
 
       // loop through the siblings and create a list of pop values
       $.each(list, function (index,value){
-        console.log(value.name+":" + value.code + " *::* " + index);
+        //console.log(value.name+":" + value.code + " *::* " + index);
         comparisons.push( {name:value.name, code:value.code, value: areaObj[value.code].changes.now} );
       });
 

@@ -14,11 +14,13 @@
 
             // Open Geography URL to search for a ward and return its boundaries. Search string goes between the two variables
            // var opengep1 =  "https://mapping.statistics.gov.uk/arcgis/rest/services/WD/WD_DEC_2011_EW_BGC/MapServer/find?searchText=";
+            var district1 =  "https://mapping.statistics.gov.uk/arcgis/rest/services/LAD/LAD_DEC_2011_GB_BFE/MapServer/find?searchText=";
             var opengep1 =  "https://mapping.statistics.gov.uk/arcgis/rest/services/CTYUA/CTYUA_DEC_2013_EW_BGC/MapServer/find?searchText=";
             // Service name relates to a particular geography, eg, Ward, Metropolitan County
             // Layer name relates to a particular geography, eg, Ward, Metropolitan County
             // Here it is only searching for Ward Boundaries using service: 'WD/WD_DEC_2011_EW_BGC' and layer: 'WD_DEC_2011_EW_BGC'
            // var opengep2 =  "&contains=true&searchFields=&sr=&layers=WD_DEC_2011_EW_BGC&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
+            var district2 =  "&contains=true&searchFields=&sr=&layers=LAD_DEC_2011_GB_BFE&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
             var opengep2 =  "&contains=true&searchFields=&sr=&layers=CTYUA_DEC_2013_EW_BGC&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
 
            // var latlons = new Array();
@@ -35,7 +37,7 @@
            }
 
              // start process with call to Open Geography
-            function getBoundaries(areaNameOrCode) {
+            function getBoundaries(areaNameOrCode, isDistrict) {
 
                 //clear area first
                 if(polygons.length>0){
@@ -46,8 +48,11 @@
                     polygons = [];
                 }
 
-
-                callOpenGeog(opengep1 + areaNameOrCode + opengep2);
+                if(isDistrict){
+                    callOpenGeog(district1 + areaNameOrCode + district2);
+                }else{
+                    callOpenGeog(opengep1 + areaNameOrCode + opengep2);
+                }
             }
 
           /**
@@ -85,28 +90,38 @@
              */
             function callback(response) 
             {
-                
-          // get boundaries
-         // console.log( response );
-          //console.log( "got " + response.results[0].attributes.CTYUA13NM);
-           // console.log( response.results[0] );
-           /// console.log( response.results[0].attributes.CTYUA13NM+": " + parseInt( response.results[0].attributes["Shape.STArea()"],10)/1000000  );
-            //capture area
-            if(response.results[0]){
-              areaMeasures[response.results[0].attributes.CTYUA13CD] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
-              areaObj[response.results[0].attributes.CTYUA13CD].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                var data
+                // get boundaries
+                console.log( response );
+                //console.log( "got " + response.results[0].attributes.CTYUA13NM);
+                // console.log( response.results[0] );
+                /// console.log( response.results[0].attributes.CTYUA13NM+": " + parseInt( response.results[0].attributes["Shape.STArea()"],10)/1000000  );
+                //capture area
+                if(response.results[0]){
 
-                var data = areaObj[response.results[0].attributes.CTYUA13CD];
+                    // if district data
+                    if(response.results[0].attributes.LAD11CD){
+                        areaMeasures[response.results[0].attributes.LAD11CD] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                        areaObj[response.results[0].attributes.LAD11CD].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                        data = areaObj[response.results[0].attributes.LAD11CD];
+                    }
 
-                  if( isNaN(data.area) ){
-                    data.area = "";
-                    $("#area").text( "Not available" );
-                    $("#density").text( "Not available" );
-                  }else{
-                    $("#area").text( Math.round(data.area) + "km2" );
-                    $("#density").text( Math.round( 100* data.changes.now/data.area )/100  );
-                  }
-            }
+                    if(response.results[0].attributes.CTYUA13CD){
+                        areaMeasures[response.results[0].attributes.CTYUA13CD] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                        areaObj[response.results[0].attributes.CTYUA13CD].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                        data = areaObj[response.results[0].attributes.CTYUA13CD];
+                    }
+
+
+                      if( isNaN(data.area) ){
+                        data.area = "";
+                        $("#area").text( "Not available" );
+                        $("#density").text( "Not available" );
+                      }else{
+                        $("#area").text( Math.round(data.area) + "km2" );
+                        $("#density").text( Math.round( 100* data.changes.now/data.area )/100  );
+                      }
+                }
 
 
           if (response.results.length > 0) 

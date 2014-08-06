@@ -159,6 +159,9 @@ var areas = (function () {
       return siblings;
     }
 
+    function getRegionType(str){
+      return regions[str].entity;
+    }
 
     function showCounty(str){
       var showFirstItem = true;
@@ -215,6 +218,7 @@ var areas = (function () {
       showCounty:showCounty,
       getRegion:getRegion,
       getCounty:getCounty,
-      getDistrict:getDistrict
+      getDistrict:getDistrict,
+      getRegionType:getRegionType
     }
 })();
