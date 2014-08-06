@@ -57,6 +57,7 @@ var areas = (function () {
             regions[value.code].name = value.region;
             regions[value.code].code = value.code;
             regions[value.code].level = 0;
+            regions[value.code].entity = "region";
           }
 
 

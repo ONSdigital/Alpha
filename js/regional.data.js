@@ -105,11 +105,8 @@ function testPostCode () {
 
     var region = areas.getRegionType(str);
     console.log("get region data " + str + " is " + region );
-    var isDistrict = false;
-    if(region==="district"){
-      isDistrict = true;
-    }
-    getBoundaries(data.code,isDistrict);
+
+    getBoundaries(data.code, region);
     /*
     console.log( "getBoundaries " + data.code );
     console.log( areaObj );

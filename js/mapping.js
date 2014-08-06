@@ -16,14 +16,16 @@
            // var opengep1 =  "https://mapping.statistics.gov.uk/arcgis/rest/services/WD/WD_DEC_2011_EW_BGC/MapServer/find?searchText=";
             var district1 =  "https://mapping.statistics.gov.uk/arcgis/rest/services/LAD/LAD_DEC_2011_GB_BFE/MapServer/find?searchText=";
             var opengep1 =  "https://mapping.statistics.gov.uk/arcgis/rest/services/CTYUA/CTYUA_DEC_2013_EW_BGC/MapServer/find?searchText=";
+            var region1 =  "https://mapping.statistics.gov.uk/arcgis/rest/services/GOR/GOR_DEC_2010_EN_BFE/MapServer/find?searchText=";
             // Service name relates to a particular geography, eg, Ward, Metropolitan County
             // Layer name relates to a particular geography, eg, Ward, Metropolitan County
             // Here it is only searching for Ward Boundaries using service: 'WD/WD_DEC_2011_EW_BGC' and layer: 'WD_DEC_2011_EW_BGC'
            // var opengep2 =  "&contains=true&searchFields=&sr=&layers=WD_DEC_2011_EW_BGC&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
             var district2 =  "&contains=true&searchFields=&sr=&layers=LAD_DEC_2011_GB_BFE&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
             var opengep2 =  "&contains=true&searchFields=&sr=&layers=CTYUA_DEC_2013_EW_BGC&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
+            var region2 =  "&contains=true&searchFields=&sr=&layers=GOR_DEC_2010_EN_BFE&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
 
-           // var latlons = new Array();
+          // var latlons = new Array();
 
             function showMarker(){
                 if(marker){
@@ -37,7 +39,7 @@
            }
 
              // start process with call to Open Geography
-            function getBoundaries(areaNameOrCode, isDistrict) {
+            function getBoundaries(areaNameOrCode, region) {
 
                 //clear area first
                 if(polygons.length>0){
@@ -48,8 +50,11 @@
                     polygons = [];
                 }
 
-                if(isDistrict){
+                if(region==="district"){
                     callOpenGeog(district1 + areaNameOrCode + district2);
+                }
+                if(region==="region"){
+                    callOpenGeog(region1 + areaNameOrCode + region2);
                 }else{
                     callOpenGeog(opengep1 + areaNameOrCode + opengep2);
                 }
@@ -99,13 +104,20 @@
                 //capture area
                 if(response.results[0]){
 
-                    // if district data
+                    // TOP LEVEL REGIOND
+                    if(response.results[0].attributes.GOR10CD){
+                        areaMeasures[response.results[0].attributes.GOR10CD] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                        areaObj[response.results[0].attributes.GOR10CD].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                        data = areaObj[response.results[0].attributes.GOR10CD];
+                    }
+                    // DISTRICTS
                     if(response.results[0].attributes.LAD11CD){
                         areaMeasures[response.results[0].attributes.LAD11CD] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
                         areaObj[response.results[0].attributes.LAD11CD].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
                         data = areaObj[response.results[0].attributes.LAD11CD];
                     }
 
+                    // ALL THE OTHERS...
                     if(response.results[0].attributes.CTYUA13CD){
                         areaMeasures[response.results[0].attributes.CTYUA13CD] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
                         areaObj[response.results[0].attributes.CTYUA13CD].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
@@ -178,7 +190,7 @@
                     //initialize(centroid.lat, centroid.lon, zoomLevel, latlons);
 
                    // console.log("init map: draw area " + polygons.length);
-                    drawArea(latlons, response.results[0].value);
+                    drawArea(latlons, response.results[0].value, centroid, zoomLevel);
                 } else {
                    // console.log("No matching ward found");
                 }
@@ -481,9 +493,13 @@
             }
 
 
-            function drawArea(latlons, code) {
+            function drawArea(latlons, code, centroid, zoomLevel) {
 
-              //console.log(latlons);
+              console.log(centroid);
+
+              var myLatlng = new google.maps.LatLng(centroid.lat,centroid.lon);
+              map.panTo(myLatlng);
+              map.setZoom(zoomLevel);
               //console.log("draw " + latlons.length);
                 if (latlons != null) {
 
