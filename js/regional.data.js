@@ -232,7 +232,7 @@ function testPostCode () {
 
       // loop through the siblings and create a list of pop values
       $.each(list, function (index,value){
-        //console.log(value.name+":" + value.code + " *::* " + index);
+        console.log(value.name+":" + value.code + " *::* " + index);
         comparisons.push( {name:value.name, code:value.code, value: areaObj[value.code].changes.now} );
       });
 
@@ -436,16 +436,16 @@ $("#areas").empty();
   // console.log(areaObj);
   // loop through the trends and store in areaObj
   $.each(trend, function (index,value){
-    // console.log("trend " + value.Name + ": " + value.Code);
-    if(areaObj[value.Code]){
-      areaObj[value.Code].trends =[];
+    //console.log("trend " + value.name + ": " + value.code);
+    if(areaObj[value.code]){
+      areaObj[value.code].trends =[];
       $.each(value, function (col, val){
-        if(col!=="Name" && col!=="Code" ){
-          areaObj[value.Code].trends.push( parseInt(val,10) );
+        if(col!=="name" && col!=="code" ){
+          areaObj[value.code].trends.push( parseInt(val,10) );
         }
       });
    }else{
-      console.log("NO " + value.Code + " in population trend");
+      console.log("NO " + value.code + " in population trend");
     }
     
 
