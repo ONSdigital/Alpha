@@ -29,7 +29,7 @@
     height:200px;
   }
   #map{
-    height:440px;
+    height:620px;
   }
   /* CHART: tooltip side bar */
   .sidebar {
@@ -48,6 +48,13 @@
   }
   .headline{
     font-size:32px;
+  }
+
+  .thumbChart{
+    height:100px;
+  }
+  .thumbPyramid{
+    height:200px;
   }
 
   </style>
@@ -113,7 +120,7 @@
   <div class="container">
     <div class="">
 
-      <div class="well collapse col-sm-12" id="search-panel"> 
+      <div class="well collapse col-sm-12" id="search-panel">
 
         <div class="col-sm-6">
           <div class="">
@@ -321,24 +328,11 @@
 
 
   <div class="row">
-    <h1><span class="glyphicon glyphicon-map-marker"></span> Regional Data:</h1>
+    <h1 ><span class="glyphicon glyphicon-map-marker"></span> Regional Data<span id="mainHeading"></span></h1>
     <div id="" class="col-sm-3">
 
-            <form class="form-inline" role="search">
-              <div class="form-group">
-                <span class="" data-toggle="collapse" data-target="#search-panel">
-                  <label for="postcode">Search by Postcode:</label>
-                </span>
-                <input id="postcode" type="text" class="form-control" placeholder="Search">
-              <button type="submit" class="btn btn-default" id="search">
-                <span class="fa fa-search fa-lg form-control-feedback"></span>
-              </button>
-              </div>
-            </form>
-            <hr/>
-          
           <form role="form">
-            
+
             <div class="form-group">
               <label for="region">Select a region</label>
               <select class="form-control selectpicker" id="region">
@@ -357,152 +351,168 @@
               </select>
             </div>
 
+
+
+
           </form>
 
           <hr/>
-        <button type="button" class="btn btn-info btn-block ">
+
+
+            <form class="form-inline" role="search">
+              <div class="form-group">
+                <span class="" data-toggle="collapse" data-target="#search-panel">
+                  <label for="postcode">Search by postcode:</label>
+                </span>
+                <input id="postcode" type="text" class="form-control" placeholder="Search">
+              <button type="submit" class="btn btn-default" id="search">
+                <span class="fa fa-search fa-lg form-control-feedback"></span>
+              </button>
+              </div>
+            </form>
+          <hr/>
+
+
+
+
+          <button type="button" class="btn btn-primary btn-block" id="addBtn">
+            <span class="fa fa-plus pull-left pad-left">&nbsp;</span>
+            <span class="pull-left">Add to comparison</span>
+          </button>
+          <button type="button" class="btn btn-danger btn-block" id="clearBtn">
+            <span class="fa fa-ban pull-left pad-left">&nbsp;</span>
+            <span class="pull-left">Clear charts</span>
+          </button>
+
+
+        <button type="button" class="btn btn-info btn-block disabled ">
           <span class="fa fa-chevron-right pull-left pad-left">&nbsp;</span>
           <span class="pull-left">More data about this region</span>
         </button>
-        <button type="button" class="btn btn-success btn-block ">
-          <span class="fa fa-chevron-down pull-left pad-left">&nbsp;</span>
+        <button type="button" class="btn btn-info btn-block disabled ">
+          <span class="fa fa-download pull-left pad-left">&nbsp;</span>
           <span class="pull-left">Download all data</span>
         </button>
+    </div>
+
+    <div id="" class="col-sm-3">
+      <div id="" class="panel">
+      <h4>Population</h4>
+
+      <div class="row">
+      <div id="" class="col-sm-8">
+        <span id="name">&nbsp;</span>
+      </div>
+      <div id="" class="col-sm-4 text-right">
+        <span id="pop"></span>
+      </div>
+      </div>
+      <br/>
+      <div class="row">
+      <div id="" class="col-sm-8">
+        <span id="parent_name">&nbsp;</span>
+      </div>
+      <div id="" class="col-sm-4 text-right">
+        <span id="parent_pop"></span>
+      </div>
+      </div>
+      <br/>
+      <div class="row">
+      <div id="" class="col-sm-8">
+        <span id="gparent_name">&nbsp;</span>
+      </div>
+      <div id="" class="col-sm-4 text-right">
+       <span id="gparent_pop"></span>
+      </div>
+      </div>
+      <br/>
+      <div class="row">
+      <div id="" class="col-sm-8">
+        <span id="ancestor_name">&nbsp;</span>
+      </div>
+      <div id="" class="col-sm-4 text-right">
+        <span id="ancestor_pop"></span>
+      </div>
+      </div>
+   
+      <br/>
+      </div>
+
+          <div id="thumbChange" class="thumbChart"></div>
+      <div id="thumbTrend" class="thumbChart"></div>
+      <div id="thumbPyramid" class="thumbPyramid"></div>
+
 
     </div>
 
-    <div id="" class="col-sm-9">
+
+
+
+    <div id="" class="col-sm-6">
       <div id="map"></div>
     </div>
   </div>
 
   <div class="row">
-    <div id="" class="col-sm-3">
-    </div>
-    <div id="" class="col-sm-1">
-    </div>
-    <div id="" class="col-sm-4">
 
-    </div>
-
-
-
-    <div id="" class="col-sm-1">
-    </div>
-    <div class="col-sm-3">
-
-    </div>
   </div>
 
 
-  <div class="row">
-    <h2 id="title">Demographics</h2>
-
-    <div id='bar' class='box'>
-      <div class="row">
-        <div class="col-sm-4">
-
-          <h3>Population: <strong><span id="pop2012" class="headline"></span></strong>
-          </h3>
-          <div class="row">
-
-            <div class="col-sm-6">
-              2011:<br/>
-              Area:<br/>
-              Density:<br/>
-              <span class="fa-stack fa-lg pull-left">
-                  <i class="fa fa-square fa-stack-2x"></i>
-                  <i id="popdirection" class="fa fa-stack-1x fa-inverse"></i>
-                </span>
-            </div>
-            
-            <div class="col-sm-6">
-              <strong><span id="pop2011"></span></strong><br/>
-              <strong><span id="area"></span></strong><br/>
-              <strong><span id="density"></span></strong><br/> people per km2
-              <br/>
-
-            </div>
-
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <h3>Gender</h3>
-          <div id='genderChart' class='piechart'>
 
 
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <h3>Age Groups</h3>
-          <div id='ageChart' class='piechart'>
 
 
-          </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-sm-4">
-          <h3>Natural Changes<span class="fa-stack fa-lg pull-right">
-                  <i class="fa fa-square fa-stack-2x"></i>
-                  <i id="changedirection" class="fa  fa-stack-1x fa-inverse"></i>
-                </span></h3>
-          <span class="title">Births: </span><span id="births"></span><br/>
-          <span class="title">Deaths: </span><span id="deaths"></span><br/>
-          <span class="title">Natural Change: </span><span id="natural" class="headline"></span><br/>
-                
-
-        </div>
-        <div class="col-sm-4">
-          <h3>Migration within UK <span class="fa-stack fa-lg pull-right">
-                  <i class="fa fa-square fa-stack-2x"></i>
-                  <i id="ukdirection" class="fa fa-stack-1x fa-inverse"></i>
-                </span></h3>
-          <span class="title">In: </span><span id="uk_in"></span><br/>
-          <span class="title">Out: </span><span id="uk_out"></span><br/>
-          <span class="title">Net: </span><span id="uk_net" class="headline"></span><br/>
-                
-
-        </div>
-        <div class="col-sm-4">
-          <h3>International Migration <span class="fa-stack fa-lg pull-right">
-                  <i class="fa fa-square fa-stack-2x "></i>
-                  <i id="nationaldirection" class="fa fa-stack-1x fa-inverse"></i>
-                </span>
-</h3>
-          <span class="title">In: </span><span id="in"></span><br/>
-          <span class="title">Out: </span><span id="out"></span><br/>
-          <span class="title">Net: </span><span id="net" class="headline"></span><br/>
-                
-        </div>
-      </div>
-
-    
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-sm-4">
-      <h2>Population Pyramid</h2>
-      <div id='pyramid' class='chart'>
-      </div>
-    </div>
-    <div class="col-sm-8">
-      <h2 id="popComparison">Population Comparison</h2>
-      <div id='stackedBar' class='chart'>
-      </div>
-    </div>
-  </div>
 
 <!-- 
   <div class="row">
-    <h2 id="popComparison">Population Comparison</h2>
-    <div id='stackedBar' class='chart'>
+    <h2 id="comparison">Area Comparisons</h2>
+
+
+    <div id='comparisonsBar' class='chart'>
     </div>
   </div>
  -->
+
+  <div class="row">
+    <h2 id="age">Age Comparisons</h2>
+    <div id='changeAge' class='chart'>
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <h2 id="popChange">Components of Change</h2>
+
+      <div id='changeAnnual' class='chart'>
+      </div>
+
+  </div>
+
+
+  <div class="row">
+    <h2 id="popPyramids">Population Pyramids</h2>
+    <div id="pyramids" class='chart'>
+      <div class="col-sm-3">
+          <div id='pyr1' class='pyramid'></div>
+      </div>
+      <div class="col-sm-3">
+          <div id='pyr2' class='pyramid'></div>
+      </div>
+      <div class="col-sm-3">
+          <div id='pyr3' class='pyramid'></div>
+      </div>
+      <div class="col-sm-3">
+          <div id='pyr4' class='pyramid'></div>
+      </div>
+
+    </div>
+  </div>
+
+
+
 
   <div class="row">
     <h2 id="popTrend">Population Trend 2001 to 2013</h2>
@@ -511,12 +521,21 @@
   </div>
 
 
+<!-- 
+  <div class="row">
+    <h2 id="popTable">Population Table</h2>
+    <div id='table' class='chart'>
+    </div>
+  </div>
+ -->
+
 
   <div class="row shim">
   </div>
 
 
-</div>
+
+
 <!--  END PAGE BODY  -->
 
 
@@ -567,13 +586,14 @@
 </div>
 
 
-  <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&amp;region=GB"></script>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&amp;region=GB"></script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/jquery.csv.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
 <!-- chart library -->
 <script src="js/libs/highcharts.js"></script>
 
@@ -582,21 +602,20 @@
 
 
 
-<script src="js/bootstrap-select.min.js"></script>
 <!-- charting -->
-<script src="js/pyramid_regional.js"></script>
-<script src="js/bar_regional.js"></script>
-<script src="js/col_regional.js"></script>
-<script src="js/chart.config.js"></script>
-<script src="js/regional_chart.js"></script>
+<script src="js/regional.charts.js"></script>
 
-<script src="js/mapping.js"></script>
+
 
 <script src="js/areas.js"></script>
-<script src="js/regional.data.js"></script>
-<script src="js/regional.js"></script>
+<script src="js/loadGeoJson.js"></script>
+<!-- <script src="js/mapping.js"></script> -->
 <script src="js/jspostcode.js"></script>
 <script src="js/loader.js"></script>
+
+
+<script src="js/regional.data.js"></script>
+<script src="js/regional.js"></script>
 
 
 

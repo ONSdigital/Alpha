@@ -1,4 +1,4 @@
-Code,Name,Entity,County,Region
+code,name,entity,county,region
 E10000007,Derbyshire,county,Derbyshire,East Midlands
 E10000018,Leicestershire,county,Leicestershire,East Midlands
 E10000019,Lincolnshire,county,Lincolnshire,East Midlands
@@ -72,11 +72,11 @@ E07000096,Dacorum,district,Hertfordshire,East
 E07000242,East Hertfordshire,district,Hertfordshire,East
 E07000098,Hertsmere,district,Hertfordshire,East
 E07000099,North Hertfordshire,district,Hertfordshire,East
-E07000100,St Albans,district,Hertfordshire,East
+E07000240,St Albans,district,Hertfordshire,East
 E07000243,Stevenage,district,Hertfordshire,East
 E07000102,Three Rivers,district,Hertfordshire,East
 E07000103,Watford,district,Hertfordshire,East
-E07000104,Welwyn Hatfield,district,Hertfordshire,East
+E07000241,Welwyn Hatfield,district,Hertfordshire,East
 E07000143,Breckland,district,Norfolk,East
 E07000144,Broadland,district,Norfolk,East
 E07000145,Great Yarmouth,district,Norfolk,East
@@ -131,36 +131,36 @@ E09000030,Tower Hamlets,London borough,,London
 E09000031,Waltham Forest,London borough,,London
 E09000032,Wandsworth,London borough,,London
 E09000033,Westminster,London borough,,London
-E12000007,Greater London,region,,London
+E12000007,London,region,,London
 N92000002,Northern Ireland,country,,Northern Ireland
-–,Derry,NI district,,Northern Ireland
-–,Limavady,NI district,,Northern Ireland
-–,Coleraine,NI district,,Northern Ireland
-–,Ballymoney,NI district,,Northern Ireland
-–,Moyle,NI district,,Northern Ireland
-–,Larne,NI district,,Northern Ireland
-–,Ballymena,NI district,,Northern Ireland
-–,Magherafelt,NI district,,Northern Ireland
-–,Cookstown,NI district,,Northern Ireland
-–,Strabane,NI district,,Northern Ireland
-–,Omagh,NI district,,Northern Ireland
-–,Fermanagh,NI district,,Northern Ireland
-–,Dungannon and South Tyrone,NI district,,Northern Ireland
-–,Craigavon,NI district,,Northern Ireland
-–,Armagh,NI district,,Northern Ireland
-–,Newry and Mourne,NI district,,Northern Ireland
-–,Banbridge,NI district,,Northern Ireland
-–,Down,NI district,,Northern Ireland
-–,Lisburn,NI district,,Northern Ireland
-–,Antrim,NI district,,Northern Ireland
-–,Newtownabbey,NI district,,Northern Ireland
-–,Carrickfergus,NI district,,Northern Ireland
-–,North Down,NI district,,Northern Ireland
-–,Ards,NI district,,Northern Ireland
-–,Castlereagh,NI district,,Northern Ireland
-–,Belfast,NI district,,Northern Ireland
-E11000004,Tyne and Wear,met county,Tyne and Wear,North East
-E08000020,Gateshead,Metropolitan district,Tyne and Wear,North East
+95A,Derry,NI district,,Northern Ireland
+95B,Limavady,NI district,,Northern Ireland
+95C,Coleraine,NI district,,Northern Ireland
+95D,Ballymoney,NI district,,Northern Ireland
+95E,Moyle,NI district,,Northern Ireland
+95F,Larne,NI district,,Northern Ireland
+95G,Ballymena,NI district,,Northern Ireland
+95H,Magherafelt,NI district,,Northern Ireland
+95I,Cookstown,NI district,,Northern Ireland
+95J,Strabane,NI district,,Northern Ireland
+95K,Omagh,NI district,,Northern Ireland
+95L,Fermanagh,NI district,,Northern Ireland
+95M,Dungannon and South Tyrone,NI district,,Northern Ireland
+95N,Craigavon,NI district,,Northern Ireland
+95O,Armagh,NI district,,Northern Ireland
+95P,Newry and Mourne,NI district,,Northern Ireland
+95Q,Banbridge,NI district,,Northern Ireland
+95R,Down,NI district,,Northern Ireland
+95S,Lisburn,NI district,,Northern Ireland
+95T,Antrim,NI district,,Northern Ireland
+95U,Newtownabbey,NI district,,Northern Ireland
+95V,Carrickfergus,NI district,,Northern Ireland
+95W,North Down,NI district,,Northern Ireland
+95X,Ards,NI district,,Northern Ireland
+95Y,Castlereagh,NI district,,Northern Ireland
+95Z,Belfast,NI district,,Northern Ireland
+E11000007,Tyne and Wear,met county,Tyne and Wear,North East
+E08000037,Gateshead,Metropolitan district,Tyne and Wear,North East
 E08000021,Newcastle upon Tyne,Metropolitan district,Tyne and Wear,North East
 E08000022,North Tyneside,Metropolitan district,Tyne and Wear,North East
 E08000023,South Tyneside,Metropolitan district,Tyne and Wear,North East
@@ -172,7 +172,7 @@ E06000003,Redcar and Cleveland,unitary,,North East
 E06000004,Stockton-on-Tees,unitary,,North East
 E06000005,Darlington,unitary,,North East
 E06000047,County Durham,unitary,,North East
-E06000048,Northumberland,unitary,,North East
+E06000057,Northumberland,unitary,,North East
 E10000006,Cumbria,county,Cumbria,North West
 E10000017,Lancashire,county,Lancashire,North West
 E07000026,Allerdale,district,Cumbria,North West

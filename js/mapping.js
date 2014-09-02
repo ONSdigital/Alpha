@@ -14,18 +14,50 @@
 
             // Open Geography URL to search for a ward and return its boundaries. Search string goes between the two variables
            // var opengep1 =  "https://mapping.statistics.gov.uk/arcgis/rest/services/WD/WD_DEC_2011_EW_BGC/MapServer/find?searchText=";
+            var district1 =  "https://mapping.statistics.gov.uk/arcgis/rest/services/LAD/LAD_DEC_2011_GB_BFE/MapServer/find?searchText=";
             var opengep1 =  "https://mapping.statistics.gov.uk/arcgis/rest/services/CTYUA/CTYUA_DEC_2013_EW_BGC/MapServer/find?searchText=";
+            var region1 =  "https://mapping.statistics.gov.uk/arcgis/rest/services/GOR/GOR_DEC_2010_EN_BFE/MapServer/find?searchText=";
             // Service name relates to a particular geography, eg, Ward, Metropolitan County
             // Layer name relates to a particular geography, eg, Ward, Metropolitan County
             // Here it is only searching for Ward Boundaries using service: 'WD/WD_DEC_2011_EW_BGC' and layer: 'WD_DEC_2011_EW_BGC'
            // var opengep2 =  "&contains=true&searchFields=&sr=&layers=WD_DEC_2011_EW_BGC&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
+            var district2 =  "&contains=true&searchFields=&sr=&layers=LAD_DEC_2011_GB_BFE&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
             var opengep2 =  "&contains=true&searchFields=&sr=&layers=CTYUA_DEC_2013_EW_BGC&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
+            var region2 =  "&contains=true&searchFields=&sr=&layers=GOR_DEC_2010_EN_BFE&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
 
-            var latlons = new Array();
+          // var latlons = new Array();
+
+            function showMarker(){
+                if(marker){
+                    marker.setVisible(true);
+                }
+            }
+           function hideMarker(){
+                if(marker){
+                    marker.setVisible(false);
+               }
+           }
 
              // start process with call to Open Geography
-            function getBoundaries(areaNameOrCode) {
-                callOpenGeog(opengep1 + areaNameOrCode + opengep2);
+            function getBoundaries(areaNameOrCode, region) {
+
+                //clear area first
+                if(polygons.length>0){
+                    $.each(polygons, function(index, item){
+                        item.setPaths([]);
+                    })
+
+                    polygons = [];
+                }
+
+                if(region==="district"){
+                    callOpenGeog(district1 + areaNameOrCode + district2);
+                }
+                if(region==="region"){
+                    callOpenGeog(region1 + areaNameOrCode + region2);
+                }else{
+                    callOpenGeog(opengep1 + areaNameOrCode + opengep2);
+                }
             }
 
           /**
@@ -38,6 +70,7 @@
             * @return data - the JSON data returned by the ONS API call
             */
             function callOpenGeog(url) {
+                console.log( "callOpenGeog ");
                 // create a new script element 
                 var script = document.createElement('script');
                 // set the src attribute to that url 
@@ -62,28 +95,45 @@
              */
             function callback(response) 
             {
-                
-          // get boundaries
-         // console.log( response );
-         // console.log( "got " + response.results[0].attributes.CTYUA13NM);
-            //console.log( response.results[0].attributes.CTYUA13NM );
-           /// console.log( response.results[0].attributes.CTYUA13NM+": " + parseInt( response.results[0].attributes["Shape.STArea()"],10)/1000000  );
-            //capture area
-            if(response.results[0]){
-              areaMeasures[response.results[0].attributes.CTYUA13NM] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
-              areaObj[response.results[0].attributes.CTYUA13NM].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                var data
+                // get boundaries
+                console.log( response );
+                //console.log( "got " + response.results[0].attributes.CTYUA13NM);
+                // console.log( response.results[0] );
+                /// console.log( response.results[0].attributes.CTYUA13NM+": " + parseInt( response.results[0].attributes["Shape.STArea()"],10)/1000000  );
+                //capture area
+                if(response.results[0]){
 
-                var data = areaObj[response.results[0].attributes.CTYUA13NM];
+                    // TOP LEVEL REGIOND
+                    if(response.results[0].attributes.GOR10CD){
+                        areaMeasures[response.results[0].attributes.GOR10CD] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                        areaObj[response.results[0].attributes.GOR10CD].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                        data = areaObj[response.results[0].attributes.GOR10CD];
+                    }
+                    // DISTRICTS
+                    if(response.results[0].attributes.LAD11CD){
+                        areaMeasures[response.results[0].attributes.LAD11CD] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                        areaObj[response.results[0].attributes.LAD11CD].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                        data = areaObj[response.results[0].attributes.LAD11CD];
+                    }
 
-                  if( isNaN(data.area) ){
-                    data.area = "";
-                    $("#area").text( "Not available" );
-                    $("#density").text( "Not available" );
-                  }else{
-                    $("#area").text( Math.round(data.area) + "km2" );
-                    $("#density").text( Math.round( 100* data.changes.now/data.area )/100  );
-                  }
-            }
+                    // ALL THE OTHERS...
+                    if(response.results[0].attributes.CTYUA13CD){
+                        areaMeasures[response.results[0].attributes.CTYUA13CD] = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                        areaObj[response.results[0].attributes.CTYUA13CD].area = parseInt(response.results[0].attributes["Shape.STArea()"],10)/1000000;
+                        data = areaObj[response.results[0].attributes.CTYUA13CD];
+                    }
+
+
+                      if( isNaN(data.area) ){
+                        data.area = "";
+                        $("#area").text( "Not available" );
+                        $("#density").text( "Not available" );
+                      }else{
+                        $("#area").text( Math.round(data.area) + "km2" );
+                        $("#density").text( Math.round( 100* data.changes.now/data.area )/100  );
+                      }
+                }
 
 
           if (response.results.length > 0) 
@@ -91,7 +141,7 @@
               // document.getElementById("foundward").value = response.results[0].attributes.WD11NM;
 
               var ens = new Array();
-              //alert(response.results[0].geometry.rings.length);
+              //console.log(response.results[0].geometry.rings.length);
               for (var k = 0; k < response.results[0].geometry.rings.length; k++) {
                  ens[k] = response.results[0].geometry.rings[k];
               }
@@ -105,10 +155,12 @@
                     var maxlat = -360.0;
                     var minlon = 360.0;
                     var maxlon = -360.0;
+                    // clear array before adding new coordinates
+                    var latlons = [];
 
                     // create array of points converted to lat/lon (from easting/northing) and capture mins and maxes
                     for (var j = 0; j < ens.length; j++) {
-                       //alert('j = ' + j);
+                       //console.log('j = ' + j);
                        latlons[j] = new Array();
                        for (var i = 0; i < ens[j].length; i++) {
                            var testpoint = ens[j][i];
@@ -131,14 +183,14 @@
                     }
 
                     // calculate zoom level
-                    var zoomLevel = getZoom(minlon, maxlon, minlat, maxlat, 512, 512);
+                    var zoomLevel = getZoom(minlon, maxlon, minlat, maxlat, 512, 512) -1;
 
                     // calculate centroid
                     var centroid = getCentroid(minlon, maxlon, minlat, maxlat);
                     //initialize(centroid.lat, centroid.lon, zoomLevel, latlons);
 
                    // console.log("init map: draw area " + polygons.length);
-                    drawArea(latlons, response.results[0].value);
+                    drawArea(latlons, response.results[0].value, centroid, zoomLevel);
                 } else {
                    // console.log("No matching ward found");
                 }
@@ -401,7 +453,7 @@
                 var mapOptions = {
                     zoom: myZoom,
                     center: myLatLng,
-                    scrollwheel:true,
+                    scrollwheel:false,
                     streetViewControl:false,
                     mapTypeControlOptions: {
                       mapTypeIds:[]
@@ -415,6 +467,19 @@
                 var styledMap = new google.maps.StyledMapType(styles, { name:"Area Map" });
                 map.mapTypes.set('Area Map', styledMap);
                 map.setMapTypeId('Area Map');
+
+                //add click listener
+                google.maps.event.addListener(map, 'click', function (e) {
+
+                    // note reverse lat long; eg x is long, y is lat
+                    //mapit.mysociety.org/point/4326/-3.039093017578125,51.54333163339453
+                    var latLng = e.latLng;
+                    getPointData(latLng);
+
+                    showPoint( latLng.lat(),latLng.lng() );
+                    //console.log(latLng.lng() + "," + latLng.lat());
+                    
+                });
 
             }
 
@@ -441,20 +506,13 @@
             }
 
 
-            function drawArea(latlons, code) {
+            function drawArea(latlons, code, centroid, zoomLevel) {
 
-              //clear area first
-              if(polygons.length>0){
-                $.each(polygons, function(index, item){
-                  item.setPaths([]);
-                  //console.log("clear poly path");
-                })
+              console.log(centroid);
 
-                polygons = [];
-                //adminBoundaryArea.setPath([]);
-              }
-
-              //console.log(latlons);
+              var myLatlng = new google.maps.LatLng(centroid.lat,centroid.lon);
+              map.panTo(myLatlng);
+              map.setZoom(zoomLevel);
               //console.log("draw " + latlons.length);
                 if (latlons != null) {
 
@@ -467,8 +525,7 @@
                            adminCoordsArea[i] = new google.maps.LatLng(latlons[j][i].lat, latlons[j][i].lon);
                        }
 
-                       
-            
+                                   
                        // Construct the polygon
                        // setting up is attributes, eg, fill colour
                        adminBoundaryArea = new google.maps.Polygon({
@@ -484,10 +541,12 @@
                        //console.log("push poly ");
                        polygons.push(adminBoundaryArea);
 
-                       google.maps.event.addListener(adminBoundaryArea, 'click', function (event) {
+                       google.maps.event.addListener(adminBoundaryArea, 'click', function (e) {
+
+
                          // console.log(areaObj);
                          // console.log(this.id +":"+ areaMap[this.id]);
-                          showData( areaMap[this.id] );
+                          //showData( areaMap[this.id] );
 
 
                          // $.each(polygons, function (index,value){    

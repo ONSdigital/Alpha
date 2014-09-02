@@ -9,8 +9,15 @@ var regional = (function () {
     console.log("Regional ready!");
     areas.loadData(parseAreas);
 
-    initialise();
     addListeners();
+
+
+    $('#loader').modal('show');
+
+    // init chart options and load individual charts
+    initCharts();
+    //init map
+    initialize();
 
     $('.selectpicker').selectpicker('render');
 
@@ -23,30 +30,6 @@ var regional = (function () {
 
 
 
-
-
-
-
-
-  function initialise(){
-    $('#loader').modal('show');
-    // init charts
-
-          // init chart options and then load individual charts
-    setOptions();
-
-    populationPyramid();
-    stackedBar();
-    initTrend();
-
-    
-    regional_chart.initGenderChart();
-    regional_chart.initAgeChart();
-
-
-  }
-
-
   function parseAreas(data){
     model = data;
     console.log (model);
@@ -56,18 +39,41 @@ var regional = (function () {
 
   function addListeners(){
     $("#region").change(function(e) {
-      return areas.getRegion(); 
+      return areas.getRegion(1);
     });
     $("#county").change(function(e) {
-      return areas.getCounty(); 
+      return areas.getCounty(1);
     });
     $("#district").change(function(e) {
-      return areas.getDistrict(); 
+      return areas.getDistrict(1);
     });
+
 
     $("#search").click( function(evt){
       evt.preventDefault();
       testPostCode();
+    })
+
+    $("#viewBtn").click( function(evt){
+      evt.preventDefault();
+      console.log("VIEW updateDisplay "  + lastArea);
+
+      showSingle(lastArea);
+    })
+
+    $("#clearBtn").click( function(evt){
+      evt.preventDefault();
+      console.log("CLEAR");
+
+      comparisons =[];
+      updateDisplay();
+
+    })
+    $("#addBtn").click( function(evt){
+      evt.preventDefault();
+      console.log("add button "  + lastArea);
+
+      addArea(lastArea);
     })
   }
 
