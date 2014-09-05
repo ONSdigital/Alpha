@@ -166,6 +166,13 @@ var options = {
                       { name: 'Adult', data: [0] },
                       { name: 'Under 18', data: [0] }
                     ];
+    options.tooltip = {
+      formatter: function() {
+        console.log(this);
+          return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
+                    'Annual Change: '+ Highcharts.numberFormat( this.point.y ,0);
+      }
+    }
     chartAge = new Highcharts.Chart(options);
 
 
@@ -235,6 +242,13 @@ var options = {
                         return Math.abs(this.value);
                     }
                 };
+    options.tooltip = {
+      formatter: function() {
+          return '<b>'+ this.series.name +', age '+ this.point.category +'</b><br/>'+
+                    'Population: '+ Highcharts.numberFormat(Math.abs(this.point.y), 0);
+      }
+    }
+
 
     pyr[0] = new Highcharts.Chart(options);
     options.chart.renderTo = 'pyr2';
@@ -301,6 +315,12 @@ var options = {
                         { name: 'UK', data: [0] },
                         { name: 'Natural', data: [0] }
                       ];
+    options.tooltip = {
+      formatter: function() {
+          return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
+                    'Annual Change: '+ Highcharts.numberFormat( this.point.y ,0);
+      }
+    }
     changeThumb = new Highcharts.Chart(options);
 
 

@@ -367,7 +367,7 @@ console.log( $.inArray( id , comparisons ) );
       chartAge.series[2].setData( u18 );
       chartAge.series[1].setData( adult );
       chartAge.series[0].setData( o64 );
-      //chartAge.xAxis[0].setCategories(totalCats);
+      chartAge.xAxis[0].setCategories(totalCats);
 
 
 
