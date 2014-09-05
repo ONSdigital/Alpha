@@ -183,7 +183,7 @@
                     }
 
                     // calculate zoom level
-                    var zoomLevel = getZoom(minlon, maxlon, minlat, maxlat, 512, 512);
+                    var zoomLevel = getZoom(minlon, maxlon, minlat, maxlat, 512, 512) -1;
 
                     // calculate centroid
                     var centroid = getCentroid(minlon, maxlon, minlat, maxlat);
@@ -468,6 +468,19 @@
                 map.mapTypes.set('Area Map', styledMap);
                 map.setMapTypeId('Area Map');
 
+                //add click listener
+                google.maps.event.addListener(map, 'click', function (e) {
+
+                    // note reverse lat long; eg x is long, y is lat
+                    //mapit.mysociety.org/point/4326/-3.039093017578125,51.54333163339453
+                    var latLng = e.latLng;
+                    getPointData(latLng);
+
+                    showPoint( latLng.lat(),latLng.lng() );
+                    //console.log(latLng.lng() + "," + latLng.lat());
+                    
+                });
+
             }
 
 
@@ -528,10 +541,12 @@
                        //console.log("push poly ");
                        polygons.push(adminBoundaryArea);
 
-                       google.maps.event.addListener(adminBoundaryArea, 'click', function (event) {
+                       google.maps.event.addListener(adminBoundaryArea, 'click', function (e) {
+
+
                          // console.log(areaObj);
                          // console.log(this.id +":"+ areaMap[this.id]);
-                          showData( areaMap[this.id] );
+                          //showData( areaMap[this.id] );
 
 
                          // $.each(polygons, function (index,value){    
