@@ -130,7 +130,7 @@ function testPostCode () {
         setArea( ons_id );
     showSummary(ons_id);
    // getBoundaries(ons_id);
-    showPoint(lat,lon);
+   // showPoint(lat,lon);
   }
 
 /*
