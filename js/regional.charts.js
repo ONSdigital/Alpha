@@ -326,6 +326,106 @@ var options = {
     changeThumb = new Highcharts.Chart(options);
 
 
+
+
+    //LIFE EXPECTANCY
+    options.chart.renderTo = 'thumbLife';
+    options.chart.type = 'column';
+   // options.title.text = null;
+    options.title.text = "";
+    options.yAxis.title = {
+                              align: 'high',
+                              offset: 50,
+                              text: ''
+                             
+                          };
+    options.xAxis = {
+                     labels: {
+                         enabled: false
+                     }
+                  };
+/*    options.chart.events= {
+
+                load: function () {
+                  var chart = this,
+                  yAxis = chart.yAxis[0]
+                  titleWidth=0;
+
+                  if(yAxis.axisTitle){
+                    titleWidth = yAxis.axisTitle.getBBox().width;
+                    yAxis.update({
+                      title: {
+                        offset: -80,
+                        align:"low"
+                      }
+                    });
+                  }
+
+                }
+
+                
+              };
+*/
+    options.legend.enabled = false;
+    options.plotOptions.series = {};
+    options.colors =  [
+            'rgb(0, 132, 209)',           // blue
+            'rgb(0, 132, 209)',           // blue
+            'rgb(0, 132, 209)',           // blue
+            'rgb(255, 149, 14)',          // orange
+            'rgb(255, 149, 14)',          // orange
+            'rgb(255, 149, 14)'          // orange
+
+            ];
+/*    options.series= [
+                        { name: 'Migration', data: [0] },
+                        { name: 'UK', data: [0] },
+                        { name: 'Natural', data: [0] }
+                      ];
+*/
+  options.series = [
+                    {
+                        name: 'Males 1993-1994',
+                        data: [7]
+                    }
+                    ,{
+                        name: 'Males 2000-2002',
+                        data: [12]
+                    }
+                    ,{
+                        name: 'Males 2010-2012',
+                        data: [16]
+                    }
+                    ,{
+                        name: 'Females 1993-1994',
+                        data: [9]
+                    }
+                    ,{
+                        name: 'Females 2000-2002',
+                        data: [16]
+                    }
+                    ,{
+                        name: 'Females 2010-2012',
+                        data: [32]
+                    }
+
+
+
+                    ];
+
+
+
+
+
+    options.tooltip = {
+      formatter: function() {
+          return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
+                    'Annual Change: '+ Highcharts.numberFormat( this.point.y ,0);
+      }
+    }
+    lifeThumb = new Highcharts.Chart(options);
+
+
 /*
     // TREND
     options.chart.renderTo = 'thumbTrend';
@@ -405,7 +505,19 @@ var options = {
     options.chart.margin = 0;
     options.chart.spacing =[10, 10, 15, 10]
     options.title.text = '';
- 
+    options.colors = [
+            'rgb(0, 132, 209)',           // blue
+            'rgb(255, 149, 14)',          // orange
+            'rgb(255, 66, 14)',           // red
+            'rgb(168, 189, 58)',          // green
+            'rgb(144, 176, 201)',         // lt blue
+            'rgb(255, 211, 32)',          // yellow
+            'rgb(65, 64, 66)',            // dk grey
+            'rgb(0, 61, 89)',             // dk grey
+            'rgb(49, 64, 4)',             // dk grey
+            'rgb(204, 204, 204)',         // lt grey
+            'rgb(128, 128 , 128)'         // mid grey
+            ],
     options.plotOptions.series = { 
       pie: {
                 allowPointSelect: true,

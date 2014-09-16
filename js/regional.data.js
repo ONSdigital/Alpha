@@ -21,6 +21,7 @@ var trendThumb;
 var genderThumb;
 var changeThumb;
 var pyramidThumb;
+var lifeThumb;
 
 var areaMap = {};
 var areaMeasures = {};
@@ -322,6 +323,16 @@ console.log( $.inArray( id , comparisons ) );
      // pyramidThumb.setTitle({text: areaObj[id].name });
       pyramidThumb.series[1].setData( areaObj[id].series.female );
       pyramidThumb.series[0].setData( areaObj[id].series.male );
+
+
+      console.log(areaObj[id]);
+      console.log( areaObj[id].expectancy.male[0] );
+      lifeThumb.series[0].setData( [ areaObj[id].expectancy.male[0] ] );
+      lifeThumb.series[1].setData( [ areaObj[id].expectancy.male[1] ] );
+      lifeThumb.series[2].setData( [ areaObj[id].expectancy.male[2] ] );
+      lifeThumb.series[3].setData( [ areaObj[id].expectancy.female[0] ] );
+      lifeThumb.series[4].setData( [ areaObj[id].expectancy.female[1] ] );
+      lifeThumb.series[5].setData( [ areaObj[id].expectancy.female[2] ] );
   }
 
 
@@ -408,6 +419,7 @@ console.log( $.inArray( id , comparisons ) );
   });
 
 
+      
       chartAnnual.series[2].setData( natural );
       chartAnnual.series[2].name = "Natural Change";
       chartAnnual.series[1].setData( uk );
