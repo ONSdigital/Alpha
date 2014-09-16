@@ -122,7 +122,7 @@ var areas = (function () {
           str += $( this ).val();
         });
 
-
+console.log("get region " + str)
      // showData( str );
       //updateDisplay( str );
       setArea( str );
@@ -178,8 +178,8 @@ var areas = (function () {
 
     function getParent(str){
       var parent = regions[str].parent;
-      console.log(regions[str] );
-      console.log("get str " + str +":" + parent);
+      //console.log(regions[str] );
+     // console.log("get str " + str +":" + parent);
 
       if(parent===""){
         parent = "K02000001";

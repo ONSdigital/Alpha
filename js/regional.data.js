@@ -2,6 +2,7 @@
 var CHANGE_URL = "data/change.csv";
 var PYRAMID_URL = "data/pyramid.csv";
 var TREND_URL = "data/population.csv";
+var LIFE_URL = "data/lifeExpectancy.csv";
 
 var POSTCODE_URL = "//mapit.mysociety.org/postcode/";
 var POINT_URL = "//mapit.mysociety.org/point/4326/";
@@ -10,12 +11,14 @@ var YEAR = 2013;
 
 var ORANGE ='#FF950E';
 var pyramidData;
+var lifeData;
 
 var changes;
 var trend;
 var areaObj = {};
 var barChart;
 var trendThumb;
+var genderThumb;
 var changeThumb;
 var pyramidThumb;
 
@@ -52,15 +55,30 @@ var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EH8 9
   "E1 4NS", "WC2A 2AE", "WC2R 2LS" ];
 
 function testPostCode () {
-  var newPostCode = checkPostCode( $("#postcode").val() );
+
+  var pcode ;
+      //console.log("testPostCode pcode "  + $("#postcode").val() );
+     // if( $("#postcode").val()==="" ){
+        var ran = Math.floor(Math.random()*postcodes.length);
+        pcode = postcodes[ran];
+        $("#postcode").val( pcode );
+     // }else{
+      //  pcode = $("#postcode").val();
+     // }
+
+ //console.log("got pcode "  + pcode );
+
+  var newPostCode = checkPostCode( pcode );
   if (newPostCode) {
     postcode = newPostCode;
+    //call to NESS
+    neighbourhood.getStats(newPostCode);
     $("#postcode").val( newPostCode );
-    console.log ("Postcode has a valid format")
+   // console.log ("Postcode has a valid format")
     var url = POSTCODE_URL + newPostCode;
 
     loader.setUrl( url );
-    console.log("Data URL " + url);
+    //console.log("Data URL " + url);
     loader.loadData( parseData );
 
   }
@@ -131,6 +149,8 @@ function testPostCode () {
     showSummary(ons_id);
    // getBoundaries(ons_id);
    // showPoint(lat,lon);
+
+
   }
 
 /*
@@ -188,20 +208,24 @@ console.log( $.inArray( id , comparisons ) );
 
   function showSummary( id ) {
     console.log(areaObj[id]);
+    console.log(areaObj[id].trends[2] +" (" + (YEAR-10) + ")");
     // region / county / district
     $("#name").text(areaObj[id].name);
-    $("#pop").text( areaObj[id].trends[12]);
+    $("#pop").text( areaObj[id].trends[12] +" (" + YEAR + ")");
+    $("#pop2").text( areaObj[id].trends[2] +" (" + (YEAR-10) + ")");
+
+    $("#mainTitle").text( "Regional profile: " + areaObj[id].name + ", " + YEAR + "");
 
     var region = areas.getRegionType(id);
-    console.log("get region data " + id + " is " + region );
+    //console.log("get region data " + id + " is " + region );
 
     var parent = areas.getParent(id);
-    console.log("get parent data " + id + " is " + parent );
+    ///console.log("get parent data " + id + " is " + parent );
 
     if(parent!=="K02000001"){
       //parent = areas.getParent(parent);
       //region = areas.getRegionType(parent);
-      console.log("get grandparent data " + parent + " is " + region );
+      //console.log("get grandparent data " + parent + " is " + region );
 
     }
          
@@ -227,7 +251,7 @@ console.log( $.inArray( id , comparisons ) );
 
     if(region==="district"){
         var gparent = areas.getParent(parent);
-        console.log(gparent);
+       // console.log(gparent);
         $("#ancestor_name").text(areaObj["K02000001"].name);
         $("#ancestor_pop").text( areaObj["K02000001"].trends[12]);
 
@@ -240,21 +264,51 @@ console.log( $.inArray( id , comparisons ) );
     }
 
 
+      showChange( id );
       showSingle( id );
 
   }
 
 
 
+  function showChange( id ) {
+    $("#birth").text(areaObj[id].changes.births + " (2013)");
+    $("#death").text(areaObj[id].changes.deaths + " (2013)");
+    $("#natChange").text( "Net: " + areaObj[id].changes["natural change"]);
+    $("#birth2").text(areaObj[id].changes.births2 + " (2003)");
+    $("#death2").text(areaObj[id].changes.deaths2 + " (2003)");
+
+    var pc = Math.round ( 10000 * areaObj[id].changes["natural change"] / areaObj[id].changes.previous ) / 100;
+    $("#natPercent").text( pc );
+    
+
+    $("#internalIn").text( "In to area: " + areaObj[id].changes["Internal Inflow"]);
+    $("#internalOut").text( "Out of area: " + areaObj[id].changes["Internal Outflow"]);
+    $("#internalNet").text( "Net: " + areaObj[id].changes["Internal Net"]);
+
+    $("#externalIn").text( "In to area: " + areaObj[id].changes["International Inflow"]);
+    $("#externalOut").text( "Out of area: " + areaObj[id].changes["International Outflow"]);
+    $("#externalNet").text( "Net: " + areaObj[id].changes["International Net"]);
+
+    $("#other").text( areaObj[id].changes.Other);
+
+  }
+
+
+
   function showSingle( id ) {
-   // comparisons = [];
-    //comparisons.push(id);
+    //console.log(areaObj[id]);
+    var males = areaObj[id].maleTotal;
+    var females = areaObj[id].femaleTotal;
+    var female_pc = Math.round( 1000 * females / (males+females) ) /10;
+    var male_pc = Math.round( 1000 * males / (males+females) )/10;
+    var chartData = [];
+    chartData = [ ['Male ' + male_pc + '%', male_pc], ['Female ' + female_pc + '%', female_pc] ];
 
-   // updateDisplay();
-   console.log(areaObj[id]);
 
-    trendThumb.series[0].setData( areaObj[id].trends );
-    trendThumb.series[0].name = areaObj[id].name;
+
+    genderThumb.series[0].setData( chartData );
+
 
 
       changeThumb.series[2].setData( [areaObj[id].changes["natural change"]] );
@@ -628,6 +682,19 @@ console.log( $.inArray( id , comparisons ) );
           console.warn("error");
        }
       });
+    //population
+    $.ajax({
+      dataType: "text",
+      url: LIFE_URL,
+
+      success: function(data) {
+        lifeData = $.csv.toObjects(data);
+        checkAllData();
+      },
+      error: function (xhr, textStatus, errorThrown) {
+          console.warn("error");
+       }
+      });
 
   }
 
@@ -639,7 +706,7 @@ function checkAllData(  ) {
 
   $("#message").text( "Checking data... "  );
 
-  if(pyramidData && changes && trend){
+  if(pyramidData && changes && trend && lifeData){
     processData()
   }
 }
@@ -732,9 +799,26 @@ $("#areas").empty();
    }else{
       console.log("NO " + value.code + " in population trend");
     }
+    });
+
+  // loop through the lifeexpectancy data and store in areaObj
+  $.each(lifeData, function (index,value){
+    if(areaObj[value.code]){
+      
+      areaObj[value.code].expectancy = {female:[], male:[]};
+
+       areaObj[value.code].expectancy.female.push( parseFloat(value.f1993), parseFloat(value.f2000), parseFloat(value.f2010) );
+       areaObj[value.code].expectancy.male.push( parseFloat(value.m1993), parseFloat(value.m2000), parseFloat(value.m2010) );
+
+
+   }else{
+      console.log("NO " + value.code + " in population trend");
+    }
 
 
   });
+
+  console.log(areaObj);
 
  $('#loader').modal('hide');
 

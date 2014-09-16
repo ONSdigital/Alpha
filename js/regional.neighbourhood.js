@@ -52,7 +52,10 @@ var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EH8 9
 
 $(document).ready(function(){
 
+      clearPanel();
+      setSubject();
 
+/*
 
     $("#search").click( function(evt){
       evt.preventDefault();
@@ -61,7 +64,8 @@ $(document).ready(function(){
       
       testPostCode();
     })
-
+*/
+/*
     $("#go").click( function(evt){
       evt.preventDefault();
       clearPanel();
@@ -72,7 +76,7 @@ $(document).ready(function(){
       $("#postcode").val( pcode );
       testPostCode();
     })
-
+*/
 
 
 /*
@@ -106,7 +110,7 @@ console.log (random + " subjectId " + subjectId);
 }
 
 
-
+/*
 function testPostCode () {
   var newPostCode = checkPostCode( $("#postcode").val() );
   if (newPostCode) {
@@ -121,7 +125,7 @@ function testPostCode () {
     console.log ("Postcode has invalid format");
   }
 }
-
+*/
 
 function getStats(postcode){
   console.log ("getStats " + postcode);
@@ -133,10 +137,10 @@ function getStats(postcode){
     url: URL + postcode,
     dataType: "xml",
     success: function(xml){
-      console.log(xml);
+     // console.log(xml);
      // $("#content").append("<ul></ul>");
       $(xml).find('Area').each(function(){
-        console.log($(this) );
+       // console.log($(this) );
         var sLevel = $(this).find('LevelTypeId').text();
         var hierarch = $(this).find('HierarchyId').text();
         var areaID = $(this).find('AreaId').text();
@@ -183,12 +187,12 @@ function getSummary(areaID){
     dataType: "xml",
 
     success: function(xml){
-      console.log(xml);
+     /// console.log(xml);
       
       var subjects = $(this).find('SubjectsWithCount').children('SubjectWithCount').length;
-      console.log( "n o subs " + subjects);
+      //console.log( "n o subs " + subjects);
       $(xml).find('Count').each(function(){
-        console.log( $(this) );
+       /// console.log( $(this) );
         count.push( parseInt( $(this).text() ) );
         subjectCount++;
 
@@ -198,8 +202,8 @@ function getSummary(areaID){
             return a + b;
           });
 
-    console.log( count );
-    console.log( subjectCount +":"+ total);
+    //console.log( count );
+    //console.log( subjectCount +":"+ total);
 
     var summary = "This postcode is part of the " + mainTitle.toUpperCase() + " administrative area.";
     summary += " There are " + total + " datasets containing data on " + subjectCount + " different subjects for this neighbourhood.";
@@ -217,19 +221,19 @@ function getSummary(areaID){
 
 function clearPanel(){
 
-  console.log("clear");
+ // console.log("clear");
   $( "#panel" ).animate({
     top: 110
     }, 100, function() {
     // Animation complete.
-  console.log("clear complete");
+  //console.log("clear complete");
     $('#extract').html( "" );
   });
 
 }
 
 function getData(areaID){
-  console.log ("getData " + areaID);
+  //console.log ("getData " + areaID);
   var titles = [];
   var values = [];
   var subjectCount = 0;
@@ -249,21 +253,21 @@ function getData(areaID){
     dataType: "xml",
 
     success: function(xml){
-      console.log("DATA");
-      console.log(xml);
-      console.log($(xml).find('ns3\\:Date').text());
+      //console.log("DATA");
+      //console.log(xml);
+      //console.log($(xml).find('ns3\\:Date').text());
 
       date = $(xml).find('ns3\\:Period').find('ns3\\:Date').text();
       year = date.split("-")[0];
 
       $(xml).find('ns3\\:Topic').each(function(){
-        console.log( $(this).find('ns3\\:Title').text() );
+        //console.log( $(this).find('ns3\\:Title').text() );
         titles.push( $(this).find('ns3\\:Title').text() );
       });
 
       $(xml).find('ns3\\:DatasetItem').each(function(){
-        console.log( $(this) );
-        console.log( $(this).find('ns3\\:Value').text() );
+        //console.log( $(this) );
+        //console.log( $(this).find('ns3\\:Value').text() );
         values.push( $(this).find('ns3\\:Value').text() );
       });
 

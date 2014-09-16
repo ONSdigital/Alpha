@@ -175,7 +175,7 @@ var options = {
     }
     chartAge = new Highcharts.Chart(options);
 
-
+/*
 
     // TREND
     options.chart.renderTo = 'trend';
@@ -201,8 +201,10 @@ var options = {
 
     chartTrend = new Highcharts.Chart(options);
 
+*/
 
 
+/*
     //POPULATION PYRAMIDS
     options.chart.renderTo = 'pyr1';
     options.chart.type = 'bar';
@@ -258,7 +260,7 @@ var options = {
     options.chart.renderTo = 'pyr4';
     pyr[3] = new Highcharts.Chart(options);
 
-
+*/
 
 
 
@@ -324,7 +326,7 @@ var options = {
     changeThumb = new Highcharts.Chart(options);
 
 
-
+/*
     // TREND
     options.chart.renderTo = 'thumbTrend';
     options.chart.type = 'line';
@@ -381,17 +383,7 @@ var options = {
                           }
                   };
 
- /*   options.yAxis = {
-                     lineWidth: 0,
-                     minorGridLineWidth: 0,
-                     lineColor: 'transparent',
-                     
-                     labels: {
-                         enabled: false
-                     },
-                     minorTickLength: 0,
-                     tickLength: 0
-                  };*/
+
     options.title.text = null;
 
     options.plotOptions.series = {  };
@@ -405,6 +397,46 @@ var options = {
       }
     }
     trendThumb = new Highcharts.Chart(options);
+
+    */
+    // GENDER
+    options.chart.renderTo = 'thumbGender';
+    options.chart.plotBackgroundColor = "#fff";
+    options.chart.margin = 0;
+    options.chart.spacing =[10, 10, 15, 10]
+    options.title.text = '';
+ 
+    options.plotOptions.series = { 
+      pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    connectorWidth: 0,
+                    //format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    format: '<b>{point.name}</b>: {point.value} %'
+                }
+            }
+             };
+
+    options.series= [
+                      { 
+                        type: 'pie',
+                        data: [
+                                ["Male", 50], 
+                                ["Female", 50] 
+                              ]
+                      }
+                    ];
+    options.tooltip = {
+      formatter: function() {
+        console.log(this)
+          return this.key + ' <b>' + Math.abs(this.y) + '%</b>';
+      }
+    }
+    genderThumb = new Highcharts.Chart(options);
+
+    
 
 
 

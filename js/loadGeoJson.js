@@ -2,8 +2,9 @@
       function initialize() {
         // Create a simple map.
         map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 7,
-          center: {lat: 52, lng: -2}
+          zoom: 10,
+          center: {lat: 51.5, lng: -2.9},
+          scrollwheel:false,
         });
 
         // Load a GeoJSON from the same server as our demo.
