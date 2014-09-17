@@ -176,7 +176,6 @@ var options = {
                       ];
     options.tooltip = {
       formatter: function() {
-        console.log(this);
           return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
                     'Employment Rate: '+ Highcharts.numberFormat( this.point.y,1) + '%';
       }
@@ -200,7 +199,6 @@ var options = {
         };
     options.tooltip = {
       formatter: function() {
-        console.log(this);
           return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
                     'Unemployment Rate: '+ Highcharts.numberFormat( this.point.y,1) + '%';
       }
