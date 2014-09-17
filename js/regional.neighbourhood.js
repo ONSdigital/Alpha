@@ -48,7 +48,7 @@ var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EH8 9
   "OX1 2JD",  "BT7 1NN", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
   "E1 4NS", "WC2A 2AE", "WC2R 2LS" , "PO6 3NH"];
 
-  var subjectId = 7;
+  var subjectId = 8;
 
 $(document).ready(function(){
 
@@ -61,7 +61,7 @@ $(document).ready(function(){
       evt.preventDefault();
       clearPanel();
       setSubject();
-      
+
       testPostCode();
     })
 */
@@ -90,7 +90,7 @@ $(document).ready(function(){
 
 function setSubject(){
   var len = 3;//subjects.length;
-  var random = Math.round( Math.random()*len );
+  var random = Math.round( Math.random()*len ) -1;
 
   switch(random){
     case 0:
@@ -150,8 +150,8 @@ function getStats(postcode){
         if(sLevel==="13"){
           id =  areaID;
           mainTitle = $(this).find('Name').text();
-          
-        };  
+
+        };
 
         if(sLevel==="10"){
           countryId = areaID;
@@ -164,7 +164,7 @@ function getStats(postcode){
 
       $('#areaTitle').text( mainTitle +", " + postcode.toUpperCase() + ": " + subjects[subjectId].short);
 
- 
+
     },
     error: function() {
       alert("An error occurred while processing XML file.\nProbably outside England and Wales");
@@ -188,7 +188,7 @@ function getSummary(areaID){
 
     success: function(xml){
      /// console.log(xml);
-      
+
       var subjects = $(this).find('SubjectsWithCount').children('SubjectWithCount').length;
       //console.log( "n o subs " + subjects);
       $(xml).find('Count').each(function(){
@@ -233,17 +233,18 @@ function clearPanel(){
 }
 
 function getData(areaID){
-  //console.log ("getData " + areaID);
+  console.log ("getData " + areaID);
   var titles = [];
   var values = [];
   var subjectCount = 0;
 
   if (countryId){
-    countryId = "," + countryId; 
+    countryId = "," + countryId;
   }else{
     countryId = "";
   }
 
+  console.log ("getData " + DATA_URL + areaID  + countryId + "&Variables=" + subjects[subjectId].vars.toString());
 
   $.ajax({
     type: "GET",
@@ -254,13 +255,14 @@ function getData(areaID){
 
     success: function(xml){
       //console.log("DATA");
-      //console.log(xml);
+      console.log(xml);
       //console.log($(xml).find('ns3\\:Date').text());
 
       date = $(xml).find('ns3\\:Period').find('ns3\\:Date').text();
       year = date.split("-")[0];
 
       $(xml).find('ns3\\:Topic').each(function(){
+        //console.log( "item" );
         //console.log( $(this).find('ns3\\:Title').text() );
         titles.push( $(this).find('ns3\\:Title').text() );
       });
@@ -301,7 +303,7 @@ function getData(areaID){
 
 
 
-        
+
     return{
       getStats:getStats
     }

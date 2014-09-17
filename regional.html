@@ -427,11 +427,11 @@
     <div class="row">
         <br/>
         <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu lacinia elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut eleifend varius nisl, non condimentum urna dignissim venenatis. Vestibulum blandit sed ex ut sagittis. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu lacinia elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut eleifend varius nisl, non condimentum urna dignissim venenatis. Vestibulum blandit sed ex ut sagittis.
         </p><p>
-        Ut eleifend varius nisl, non condimentum urna dignissim venenatis. Vestibulum blandit sed ex ut sagittis. 
+        Ut eleifend varius nisl, non condimentum urna dignissim venenatis. Vestibulum blandit sed ex ut sagittis.
         </p>
-    </div> 
+    </div>
 
     <div class="row">
       <h1><span id="mainTitle">Regional Profile</span></h1>
@@ -491,10 +491,10 @@
             <span id="ancestor_pop"></span>
           </div>
           </div>
-       
+
           <br/>
 
-<!-- 
+<!--
           <div id="" class="">
             <h3>Trend</h3>
             <div id="thumbTrend" class="thumbChart"></div>
@@ -652,7 +652,7 @@
 
 
       <!--  END OF RIGHT COLUMN  -->
-    </div>   
+    </div>
 
 
 
@@ -666,7 +666,7 @@
     <div id="" class="">
       <h1><span class="fa fa-globe"></span> Neighbourhood Statistics<span id="mainHeading"></span></h1>
     </div>
-    
+
 
    <div id="" class="">
       <h3 id="areaTitle">&nbsp;</h3>
@@ -689,7 +689,7 @@
           You can download this data and find more (including more guidance on accessing the data) on the <a href="http://www.neighbourhood.statistics.gov.uk/dissemination/">Neighbourhood Statistics website </a>.
         </p>
       </div>
-    </div>  
+    </div>
 
     <div class="row shim">
     </div>
@@ -703,29 +703,45 @@
     <div class="row">
       <div id="" class="col-sm-6">
         <h3>Employment Rate</h3>
-        <div id='changeAge' class='chart'></div>
+        <div id='employment' class='chart'></div>
       </div>
 
       <div id="" class="col-sm-6">
         <h3>Unemployment Rate</h3>
-        <div id='changeAnnual' class='chart'></div>
+        <div id='unemployment' class='chart'></div>
       </div>
 
-    </div>  
+    </div>
 
 
     <div class="row">
       <div id="" class="col-sm-6">
-        <h3>Economic Inactivity</h3>
-        <div id='change' class='chart'></div>
+        <h3>Economic Inactivity <span id="inactivity"></span></h3>
+
+        <div id="" class="">
+          <div id="inactivityParent"></div>
+          <div id="inactivityUK"></div>
+        </div>
+
+        <div id="" class="">
+          April 2013 - March 2014
+        </div>
       </div>
 
       <div id="" class="col-sm-6">
-        <h3>Claimant Count</h3>
-        <div id='change' class='chart'></div>
+        <h3>Claimant Count <b><span id="claimant"></span></b></h3>
+
+        <div id="" class="">
+          <div id="claimantParent"></div>
+          <div id="claimantUK"></div>
+        </div>
+
+        <div id="" class="">
+          April 2013 - March 2014
+        </div>
       </div>
 
-    </div>  
+    </div>
 
 
   </div>
@@ -735,7 +751,7 @@
   <div id="" class="col-sm-3 well">
       The Neighbourhood Statistics Website is a free to access online data resource. It contains datasets that describe the characteristics of a neighbourhood, with a particular focus on deprivation. The website includes results from the 2001 and 2011 Census and other official government statistics.
 
-      There are two primary routes to the data: 
+      There are two primary routes to the data:
       > Neighbourhood Summary provides an overview of your local area
       > Detailed Route - contains in depth statistics for a specific geographic area
   </div>
@@ -860,14 +876,14 @@
 <script src="js/regional.neighbourhood.js"></script>
 <script>
 
-$('#opener').on('click', function() {       
+$('#opener').on('click', function() {
     var panel = $('#slide-panel');
     if (panel.hasClass("visible")) {
         panel.removeClass('visible').animate({'margin-right':'-300px'});
     } else {
         panel.addClass('visible').animate({'margin-right':'0px'});
-    }   
-    return false;   
+    }
+    return false;
 });
 
 

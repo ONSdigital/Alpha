@@ -3,15 +3,19 @@ var CHANGE_URL = "data/change.csv";
 var PYRAMID_URL = "data/pyramid.csv";
 var TREND_URL = "data/population.csv";
 var LIFE_URL = "data/lifeExpectancy.csv";
+var LABOUR_URL = "data/labour.csv";
 
 var POSTCODE_URL = "//mapit.mysociety.org/postcode/";
 var POINT_URL = "//mapit.mysociety.org/point/4326/";
 
 var YEAR = 2013;
 
+var uk = "K02000001";
+
 var ORANGE ='#FF950E';
 var pyramidData;
 var lifeData;
+var labourData;
 
 var changes;
 var trend;
@@ -22,6 +26,11 @@ var genderThumb;
 var changeThumb;
 var pyramidThumb;
 var lifeThumb;
+var chartEmploy;
+var chartUnemploy;
+var chartInactivity;
+var chartClaimant;
+
 
 var areaMap = {};
 var areaMeasures = {};
@@ -208,6 +217,8 @@ console.log( $.inArray( id , comparisons ) );
 
 
   function showSummary( id ) {
+
+
     console.log(areaObj[id]);
     console.log(areaObj[id].trends[2] +" (" + (YEAR-10) + ")");
     // region / county / district
@@ -223,13 +234,13 @@ console.log( $.inArray( id , comparisons ) );
     var parent = areas.getParent(id);
     ///console.log("get parent data " + id + " is " + parent );
 
-    if(parent!=="K02000001"){
+    if(parent!== uk){
       //parent = areas.getParent(parent);
       //region = areas.getRegionType(parent);
       //console.log("get grandparent data " + parent + " is " + region );
 
     }
-         
+
     if(region==="region"){
       $("#parent_name").text(areaObj[parent].name);
       $("#parent_pop").text( areaObj[parent].trends[12]);
@@ -243,8 +254,8 @@ console.log( $.inArray( id , comparisons ) );
         $("#parent_name").text(areaObj[parent].name);
         $("#parent_pop").text( areaObj[parent].trends[12]);
 
-        $("#gparent_name").text( areaObj["K02000001"].name );
-        $("#gparent_pop").text( areaObj["K02000001"].trends[12]);
+        $("#gparent_name").text( areaObj[uk].name );
+        $("#gparent_pop").text( areaObj[uk].trends[12]);
 
         $("#ancestor_name").html("&nbsp;");
         $("#ancestor_pop").text( "" );
@@ -253,8 +264,8 @@ console.log( $.inArray( id , comparisons ) );
     if(region==="district"){
         var gparent = areas.getParent(parent);
        // console.log(gparent);
-        $("#ancestor_name").text(areaObj["K02000001"].name);
-        $("#ancestor_pop").text( areaObj["K02000001"].trends[12]);
+        $("#ancestor_name").text(areaObj[uk].name);
+        $("#ancestor_pop").text( areaObj[uk].trends[12]);
 
         $("#gparent_name").text(areaObj[gparent].name);
         $("#gparent_pop").text( areaObj[gparent].trends[12]);
@@ -265,14 +276,10 @@ console.log( $.inArray( id , comparisons ) );
     }
 
 
-      showChange( id );
-      showSingle( id );
-
-  }
 
 
 
-  function showChange( id ) {
+
     $("#birth").text(areaObj[id].changes.births + " (2013)");
     $("#death").text(areaObj[id].changes.deaths + " (2013)");
     $("#natChange").text( "Net: " + areaObj[id].changes["natural change"]);
@@ -281,7 +288,7 @@ console.log( $.inArray( id , comparisons ) );
 
     var pc = Math.round ( 10000 * areaObj[id].changes["natural change"] / areaObj[id].changes.previous ) / 100;
     $("#natPercent").text( pc );
-    
+
 
     $("#internalIn").text( "In to area: " + areaObj[id].changes["Internal Inflow"]);
     $("#internalOut").text( "Out of area: " + areaObj[id].changes["Internal Outflow"]);
@@ -292,6 +299,17 @@ console.log( $.inArray( id , comparisons ) );
     $("#externalNet").text( "Net: " + areaObj[id].changes["International Net"]);
 
     $("#other").text( areaObj[id].changes.Other);
+
+
+    $("#inactivity").text( areaObj[id].name + ": " + areaObj[id].labour.inactivity +"%" );
+    $("#inactivityParent").text( areaObj[parent].name + ": " + areaObj[parent].labour.inactivity +"%" );
+    $("#inactivityUK").text( areaObj[uk].name + ": " + areaObj[uk].labour.inactivity +"%" );
+    $("#claimant").text( areaObj[id].name + ": " + areaObj[id].labour.claimant +"%" );
+    $("#claimantParent").text( areaObj[parent].name + ": " + areaObj[parent].labour.claimant +"%" );
+    $("#claimantUK").text( areaObj[uk].name + ": " + areaObj[uk].labour.claimant +"%" );
+
+
+     showSingle( id );
 
   }
 
@@ -324,15 +342,38 @@ console.log( $.inArray( id , comparisons ) );
       pyramidThumb.series[1].setData( areaObj[id].series.female );
       pyramidThumb.series[0].setData( areaObj[id].series.male );
 
-
-      console.log(areaObj[id]);
-      console.log( areaObj[id].expectancy.male[0] );
       lifeThumb.series[0].setData( [ areaObj[id].expectancy.male[0] ] );
       lifeThumb.series[1].setData( [ areaObj[id].expectancy.male[1] ] );
       lifeThumb.series[2].setData( [ areaObj[id].expectancy.male[2] ] );
       lifeThumb.series[3].setData( [ areaObj[id].expectancy.female[0] ] );
       lifeThumb.series[4].setData( [ areaObj[id].expectancy.female[1] ] );
       lifeThumb.series[5].setData( [ areaObj[id].expectancy.female[2] ] );
+
+      var parent = areas.getParent(id);
+      chartEmploy.series[2].setData( [ areaObj[id].labour.employment ] );
+      chartEmploy.series[2].name = areaObj[id].name;
+      chartEmploy.series[1].setData( [ areaObj[parent].labour.employment ] );
+      chartEmploy.series[1].name = areaObj[parent].name;
+      chartEmploy.series[0].setData( [ areaObj[uk].labour.employment  ] );
+      chartEmploy.series[0].name = areaObj[uk].name;
+      chartEmploy.redraw();
+
+      chartUnemploy.series[2].setData( [ areaObj[id].labour.unemployment ] );
+      chartUnemploy.series[2].name = areaObj[id].name;
+      chartUnemploy.series[1].setData( [ areaObj[parent].labour.unemployment ] );
+      chartUnemploy.series[1].name = areaObj[parent].name;
+      chartUnemploy.series[0].setData( [ areaObj[uk].labour.unemployment  ] );
+      chartUnemploy.series[0].name = areaObj[uk].name;
+      chartUnemploy.redraw();
+
+      console.log(areaObj[id]);
+      console.log(areaObj[parent]);
+      console.log(areaObj[uk]);
+
+
+
+
+
   }
 
 
@@ -419,7 +460,7 @@ console.log( $.inArray( id , comparisons ) );
   });
 
 
-      
+
       chartAnnual.series[2].setData( natural );
       chartAnnual.series[2].name = "Natural Change";
       chartAnnual.series[1].setData( uk );
@@ -451,7 +492,7 @@ console.log( $.inArray( id , comparisons ) );
         }
 
       }
-    
+
 
 
 
@@ -694,13 +735,30 @@ console.log( $.inArray( id , comparisons ) );
           console.warn("error");
        }
       });
-    //population
+
+
+    // life expectancy
     $.ajax({
       dataType: "text",
       url: LIFE_URL,
 
       success: function(data) {
         lifeData = $.csv.toObjects(data);
+        checkAllData();
+      },
+      error: function (xhr, textStatus, errorThrown) {
+          console.warn("error");
+       }
+      });
+
+
+    // labour market
+    $.ajax({
+      dataType: "text",
+      url: LABOUR_URL,
+
+      success: function(data) {
+        labourData = $.csv.toObjects(data);
         checkAllData();
       },
       error: function (xhr, textStatus, errorThrown) {
@@ -718,7 +776,7 @@ function checkAllData(  ) {
 
   $("#message").text( "Checking data... "  );
 
-  if(pyramidData && changes && trend && lifeData){
+  if(pyramidData && changes && trend && lifeData && labourData){
     processData()
   }
 }
@@ -809,28 +867,41 @@ $("#areas").empty();
         }
       });
    }else{
-      console.log("NO " + value.code + " in population trend");
+      console.log("NO " + value.code + " in population trend data");
     }
     });
 
   // loop through the lifeexpectancy data and store in areaObj
   $.each(lifeData, function (index,value){
     if(areaObj[value.code]){
-      
+
       areaObj[value.code].expectancy = {female:[], male:[]};
+      areaObj[value.code].expectancy.female.push( parseFloat(value.f1993), parseFloat(value.f2000), parseFloat(value.f2010) );
+      areaObj[value.code].expectancy.male.push( parseFloat(value.m1993), parseFloat(value.m2000), parseFloat(value.m2010) );
 
-       areaObj[value.code].expectancy.female.push( parseFloat(value.f1993), parseFloat(value.f2000), parseFloat(value.f2010) );
-       areaObj[value.code].expectancy.male.push( parseFloat(value.m1993), parseFloat(value.m2000), parseFloat(value.m2010) );
-
-
-   }else{
-      console.log("NO " + value.code + " in population trend");
+    }else{
+      console.log("NO " + value.code + " in life expectancy data");
     }
+    });
+
+  // loop through the lifeexpectancy data and store in areaObj
+  // code,name,pop,employ,employRate,unemploy,unemployRate,inactivty,inactivityRate,claimantRate,jobs,density
+  $.each(labourData, function (index,value){
+    if(areaObj[value.code]){
+      areaObj[value.code].labour = {};
+
+      areaObj[value.code].labour.employment = ( parseFloat(value.employRate) );
+      areaObj[value.code].labour.unemployment = ( parseFloat(value.unemployRate) );
+      areaObj[value.code].labour.inactivity = ( parseFloat(value.inactivityRate) );
+      areaObj[value.code].labour.claimant = ( parseFloat(value.claimantRate) );
 
 
+    }else{
+      console.log("NO " + value.code + " in Labour market data");
+    }
   });
 
-  console.log(areaObj);
+  //console.log(areaObj);
 
  $('#loader').modal('hide');
 
