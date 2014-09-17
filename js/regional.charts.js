@@ -288,10 +288,9 @@ var options = {
 
                           };
     options.xAxis = {
-                     labels: {
-                         enabled: false
-                     }
+                     categories: ['1991-1993', '2000-2002', '2010-2012']
                   };
+
 /*    options.chart.events= {
 
                 load: function () {
@@ -314,14 +313,10 @@ var options = {
 
               };
 */
-    options.legend.enabled = false;
+    options.legend.enabled = true;
     options.plotOptions.series = {};
     options.colors =  [
             'rgb(0, 132, 209)',           // blue
-            'rgb(0, 132, 209)',           // blue
-            'rgb(0, 132, 209)',           // blue
-            'rgb(255, 149, 14)',          // orange
-            'rgb(255, 149, 14)',          // orange
             'rgb(255, 149, 14)'          // orange
 
             ];
@@ -332,38 +327,20 @@ var options = {
                       ];
 */
   options.series = [
+
                     {
-                        name: 'Males 1993-1994',
-                        data: [7]
-                    }
-                    ,{
-                        name: 'Males 2000-2002',
-                        data: [12]
-                    }
-                    ,{
-                        name: 'Males 2010-2012',
-                        data: [16]
-                    }
-                    ,{
-                        name: 'Females 1993-1994',
-                        data: [9]
-                    }
-                    ,{
-                        name: 'Females 2000-2002',
-                        data: [16]
-                    }
-                    ,{
-                        name: 'Females 2010-2012',
-                        data: [32]
+                        name: 'Male',
+                        data: [7,12,16],
+                        stack: 'Male'
                     }
 
-
+                    ,{
+                        name: 'Female',
+                        data: [9,16,32],
+                        stack: 'Female'
+                    }
 
                     ];
-
-
-
-
 
     options.tooltip = {
       formatter: function() {
@@ -393,6 +370,7 @@ var options = {
             'rgb(204, 204, 204)',         // lt grey
             'rgb(128, 128 , 128)'         // mid grey
             ],
+            options.legend.enabled = false;
     options.plotOptions.series = {
       pie: {
                 allowPointSelect: true,

@@ -342,12 +342,10 @@ console.log( $.inArray( id , comparisons ) );
       pyramidThumb.series[1].setData( areaObj[id].series.female );
       pyramidThumb.series[0].setData( areaObj[id].series.male );
 
-      lifeThumb.series[0].setData( [ areaObj[id].expectancy.male[0] ] );
-      lifeThumb.series[1].setData( [ areaObj[id].expectancy.male[1] ] );
-      lifeThumb.series[2].setData( [ areaObj[id].expectancy.male[2] ] );
-      lifeThumb.series[3].setData( [ areaObj[id].expectancy.female[0] ] );
-      lifeThumb.series[4].setData( [ areaObj[id].expectancy.female[1] ] );
-      lifeThumb.series[5].setData( [ areaObj[id].expectancy.female[2] ] );
+      console.log(areaObj[id].expectancy);
+      lifeThumb.series[0].setData( areaObj[id].expectancy.male );
+      lifeThumb.series[1].setData( areaObj[id].expectancy.female );
+
 
       var parent = areas.getParent(id);
       chartEmploy.series[2].setData( [ areaObj[id].labour.employment ] );
@@ -874,10 +872,17 @@ $("#areas").empty();
   // loop through the lifeexpectancy data and store in areaObj
   $.each(lifeData, function (index,value){
     if(areaObj[value.code]){
-
+      var f1993 = parseFloat(value.f1993);
+      var m1993 = parseFloat(value.m1993);
+      if (isNaN(f1993)){
+        f1993 = null;
+      }
+      if (isNaN(m1993)){
+        m1993 = null;
+      }
       areaObj[value.code].expectancy = {female:[], male:[]};
-      areaObj[value.code].expectancy.female.push( parseFloat(value.f1993), parseFloat(value.f2000), parseFloat(value.f2010) );
-      areaObj[value.code].expectancy.male.push( parseFloat(value.m1993), parseFloat(value.m2000), parseFloat(value.m2010) );
+      areaObj[value.code].expectancy.female.push( f1993, parseFloat(value.f2000), parseFloat(value.f2010) );
+      areaObj[value.code].expectancy.male.push( m1993, parseFloat(value.m2000), parseFloat(value.m2010) );
 
     }else{
       console.log("NO " + value.code + " in life expectancy data");
