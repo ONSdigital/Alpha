@@ -145,10 +145,15 @@ var options = {
     // employment
     options.chart.renderTo = 'employment';
     options.chart.type = 'bar';
-    options.title.text = 'Employment';
-    options.yAxis.title.text = null;
+    options.title.text = '';
+
+    options.yAxis = {
+            max: 100,
+            title: { text:''}
+        };
+
     options.legend.enabled = false;
-     options.plotOptions = {
+    options.plotOptions = {
             series: {
                 dataLabels: {
                     enabled: true,
@@ -183,12 +188,16 @@ var options = {
     // unemployment
     options.chart.renderTo = 'unemployment';
     options.chart.type = 'bar';
-    options.title.text = 'Unemployment';
+    options.title.text = '';
     options.series= [
                       { name:"", data: [0] },
                       { name:"", data: [0] },
                       { name:"United Kingdom", data: [0] }
                     ];
+    options.yAxis = {
+            max: 20,
+            title: { text:''}
+        };
     options.tooltip = {
       formatter: function() {
         console.log(this);
@@ -208,6 +217,10 @@ var options = {
     options.chart.type = 'bar';
    // options.title.text = null;
     options.title.text = "";
+        options.yAxis = {
+            max: null,
+            title: { text:''}
+        };
     options.yAxis.title = {
                               align: 'high',
                               offset: 50,

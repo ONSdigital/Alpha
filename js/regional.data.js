@@ -301,10 +301,10 @@ console.log( $.inArray( id , comparisons ) );
     $("#other").text( areaObj[id].changes.Other);
 
 
-    $("#inactivity").text( areaObj[id].name + ": " + areaObj[id].labour.inactivity +"%" );
+    $("#inactivity").text( areaObj[id].labour.inactivity +"%" );
     $("#inactivityParent").text( areaObj[parent].name + ": " + areaObj[parent].labour.inactivity +"%" );
     $("#inactivityUK").text( areaObj[uk].name + ": " + areaObj[uk].labour.inactivity +"%" );
-    $("#claimant").text( areaObj[id].name + ": " + areaObj[id].labour.claimant +"%" );
+    $("#claimant").text( areaObj[id].labour.claimant +"%" );
     $("#claimantParent").text( areaObj[parent].name + ": " + areaObj[parent].labour.claimant +"%" );
     $("#claimantUK").text( areaObj[uk].name + ": " + areaObj[uk].labour.claimant +"%" );
 
