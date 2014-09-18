@@ -32,7 +32,7 @@ var regional = (function () {
 
   function parseAreas(data){
     model = data;
-    console.log (model);
+    //console.log (model);
     loadPopData();
   }
 

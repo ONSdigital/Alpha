@@ -67,7 +67,7 @@ var options = {
 
                 }
 
-                
+
               }
             },
 
@@ -142,122 +142,68 @@ var options = {
 
 
 
-    //ANNUAL CHANGE
-    options.chart.renderTo = 'changeAnnual';
+    // employment
+    options.chart.renderTo = 'employment';
     options.chart.type = 'bar';
-    options.title.text = 'Annual Change';
-    options.yAxis.title.text = null;
-    options.series= [
-                        { name: 'Migration', data: [0] },
-                        { name: 'UK', data: [0] },
-                        { name: 'Natural', data: [0] }
-                      ];
-    chartAnnual = new Highcharts.Chart(options);
+    options.title.text = '';
 
+    options.yAxis = {
+            max: 100,
+            title: { text:''}
+        };
 
-
-    // AGE GROUPS
-    options.chart.renderTo = 'changeAge';
-    options.chart.type = 'bar';
-    options.title.text = 'Age Groups';
-    options.plotOptions.series = { stacking: 'normal' };
-    options.series= [
-                      { name: 'over 64', data: [0] },
-                      { name: 'Adult', data: [0] },
-                      { name: 'Under 18', data: [0] }
-                    ];
-    options.tooltip = {
-      formatter: function() {
-        console.log(this);
-          return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
-                    'Annual Change: '+ Highcharts.numberFormat( this.point.y ,0);
-      }
-    }
-    chartAge = new Highcharts.Chart(options);
-
-
-
-    // TREND
-    options.chart.renderTo = 'trend';
-    options.chart.type = 'line';
-    options.title.text = 'Population Trend';
-    options.xAxis = [{
-                categories : ['2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013'],
-                reversed: false
-            }];
-    options.plotOptions.series = {  };
-    options.series= [
-                      { data: [0] },
-                      { data: [0] },
-                      { data: [0] },
-                      { data: [0] },
-                      { data: [0] },
-                      { data: [0] },
-                      { data: [0] },
-                      { data: [0] },
-                      { data: [0] },
-                      { data: [0] }
-                    ];
-
-    chartTrend = new Highcharts.Chart(options);
-
-
-
-    //POPULATION PYRAMIDS
-    options.chart.renderTo = 'pyr1';
-    options.chart.type = 'bar';
-
-    options.title.text = 'Population pyramid, midyear 2012';
-    options.plotOptions.series = {  };
-    options.xAxis = [{
-                categories : [ '0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39', '40-44','45-49', '50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80-84', '85-89', '90 +'],
-                reversed: false,
-                labels: {
-                    step: 1
-                }
-            }, { // mirror axis on right side
-              categories : [ '0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39', '40-44','45-49', '50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80-84', '85-89', '90 +'],
-                opposite: true,
-                reversed: false,
-                linkedTo: 0,
-                labels: {
-                    step: 1
-                }
-            }];
-    options.series= [
-                      { name: 'Male', data: [0] },
-                      { name: 'Female', data: [0] },
-                    ];
-    options.plotOptions.series = {
-                    stacking: 'normal'
-                }
-    options.colors = [
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)'         // green
-            ];
-
-    options.yAxis.labels = {
-                    formatter: function(){
-                       // return (Math.abs(this.value) / 1000000) + 'M';
-                        return Math.abs(this.value);
+    options.legend.enabled = false;
+    options.plotOptions = {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    align: 'right',
+                    color: '#FFFFFF',
+                    x: -10,
+                    formatter: function() {
+                      return this.series.name;
                     }
-                };
+                },
+                pointPadding: 0.1,
+                groupPadding: 0
+            }
+        };
+
+    options.series= [
+                        { name:"", data: [0] },
+                        { name:"", data: [0] },
+                        { name:"United Kingdom", data: [0] }
+                      ];
     options.tooltip = {
       formatter: function() {
-          return '<b>'+ this.series.name +', age '+ this.point.category +'</b><br/>'+
-                    'Population: '+ Highcharts.numberFormat(Math.abs(this.point.y), 0);
+          return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
+                    'Employment Rate: '+ Highcharts.numberFormat( this.point.y,1) + '%';
       }
     }
+    chartEmploy = new Highcharts.Chart(options);
 
 
-    pyr[0] = new Highcharts.Chart(options);
-    options.chart.renderTo = 'pyr2';
-    pyr[1]= new Highcharts.Chart(options);
-    options.chart.renderTo = 'pyr3';
-    pyr[2]= new Highcharts.Chart(options);
-    options.chart.renderTo = 'pyr4';
-    pyr[3] = new Highcharts.Chart(options);
 
+    // unemployment
+    options.chart.renderTo = 'unemployment';
+    options.chart.type = 'bar';
+    options.title.text = '';
+    options.series= [
+                      { name:"", data: [0] },
+                      { name:"", data: [0] },
+                      { name:"United Kingdom", data: [0] }
+                    ];
+    options.yAxis = {
+            max: 20,
+            title: { text:''}
+        };
+    options.tooltip = {
+      formatter: function() {
+          return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
+                    'Unemployment Rate: '+ Highcharts.numberFormat( this.point.y,1) + '%';
+      }
+    }
+    chartUnemploy = new Highcharts.Chart(options);
 
 
 
@@ -269,11 +215,15 @@ var options = {
     options.chart.type = 'bar';
    // options.title.text = null;
     options.title.text = "";
+        options.yAxis = {
+            max: null,
+            title: { text:''}
+        };
     options.yAxis.title = {
                               align: 'high',
                               offset: 50,
                               text: 'Change'
-                             
+
                           };
     options.xAxis = {
                      labels: {
@@ -299,7 +249,7 @@ var options = {
 
                 }
 
-                
+
               };
 
     options.legend.enabled = false;
@@ -325,15 +275,25 @@ var options = {
 
 
 
-    // TREND
-    options.chart.renderTo = 'thumbTrend';
-    options.chart.type = 'line';
-    options.title.text = '';
-    options.chart.events= {
+
+    //LIFE EXPECTANCY
+    options.chart.renderTo = 'thumbLife';
+    options.chart.type = 'column';
+   // options.title.text = null;
+    options.title.text = "";
+    options.yAxis.title = {
+                              align: 'high',
+                              offset: 50,
+                              text: ''
+
+                          };
+    options.xAxis = {
+                     categories: ['1991-1993', '2000-2002', '2010-2012']
+                  };
+
+/*    options.chart.events= {
 
                 load: function () {
-                  console.log("XXX load");
-
                   var chart = this,
                   yAxis = chart.yAxis[0]
                   titleWidth=0;
@@ -342,69 +302,106 @@ var options = {
                     titleWidth = yAxis.axisTitle.getBBox().width;
                     yAxis.update({
                       title: {
-                        offset: -titleWidth
-                             }
+                        offset: -80,
+                        align:"low"
+                      }
                     });
                   }
 
                 }
 
-                
+
               };
-    options.xAxis = {
-                      categories : ['2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013'],
-                     lineWidth: 0,
-                     minorGridLineWidth: 0,
-                     lineColor: 'transparent',
-                     
-                     labels: {
-                         enabled: false
-                     },
-                     minorTickLength: 0,
-                     tickLength: 0
-                  };
+*/
+    options.legend.enabled = true;
+    options.plotOptions.series = {};
+    options.colors =  [
+            'rgb(0, 132, 209)',           // blue
+            'rgb(255, 149, 14)'          // orange
 
-    options.yAxis = {
-                     lineWidth: 0,
-                     minorGridLineWidth: 0,
-                     lineColor: 'transparent',
-                     
-                     labels: {
-                         enabled: false
-                     },
-                     title: {
-                              align: 'high',
-                              offset: 0,
-                              text: 'Trend since 2001',
-                              rotation: 0,
-                              y: -10
-                          }
-                  };
+            ];
+/*    options.series= [
+                        { name: 'Migration', data: [0] },
+                        { name: 'UK', data: [0] },
+                        { name: 'Natural', data: [0] }
+                      ];
+*/
+  options.series = [
 
- /*   options.yAxis = {
-                     lineWidth: 0,
-                     minorGridLineWidth: 0,
-                     lineColor: 'transparent',
-                     
-                     labels: {
-                         enabled: false
-                     },
-                     minorTickLength: 0,
-                     tickLength: 0
-                  };*/
-    options.title.text = null;
+                    {
+                        name: 'Male',
+                        data: [7,12,16],
+                        stack: 'Male'
+                    }
 
-    options.plotOptions.series = {  };
-    options.plotOptions.line.marker.enabled = false;
+                    ,{
+                        name: 'Female',
+                        data: [9,16,32],
+                        stack: 'Female'
+                    }
+
+                    ];
+
+    options.tooltip = {
+      formatter: function() {
+          return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
+                    'Annual Change: '+ Highcharts.numberFormat( this.point.y ,0);
+      }
+    }
+    lifeThumb = new Highcharts.Chart(options);
+
+
+    // GENDER
+    options.chart.renderTo = 'thumbGender';
+    options.chart.plotBackgroundColor = "#fff";
+    options.chart.margin = 0;
+    options.chart.spacing =[10, 10, 15, 10]
+    options.title.text = '';
+    options.colors = [
+            'rgb(0, 132, 209)',           // blue
+            'rgb(255, 149, 14)',          // orange
+            'rgb(255, 66, 14)',           // red
+            'rgb(168, 189, 58)',          // green
+            'rgb(144, 176, 201)',         // lt blue
+            'rgb(255, 211, 32)',          // yellow
+            'rgb(65, 64, 66)',            // dk grey
+            'rgb(0, 61, 89)',             // dk grey
+            'rgb(49, 64, 4)',             // dk grey
+            'rgb(204, 204, 204)',         // lt grey
+            'rgb(128, 128 , 128)'         // mid grey
+            ],
+            options.legend.enabled = false;
+    options.plotOptions.series = {
+      pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    connectorWidth: 0,
+                    //format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    format: '<b>{point.name}</b>: {point.value} %'
+                }
+            }
+             };
+
     options.series= [
-                      { data: [0] }
+                      {
+                        type: 'pie',
+                        data: [
+                                ["Male", 50],
+                                ["Female", 50]
+                              ]
+                      }
                     ];
     options.tooltip = {
       formatter: function() {
-          return 'Population <b>' + Math.abs(this.y) + '</b>, ('+ this.x +')';
+        console.log(this)
+          return this.key + ' <b>' + Math.abs(this.y) + '%</b>';
       }
     }
-    trendThumb = new Highcharts.Chart(options);
+    genderThumb = new Highcharts.Chart(options);
+
+
 
 
 
@@ -422,7 +419,7 @@ var options = {
                 lineWidth: 0,
                      minorGridLineWidth: 0,
                      lineColor: 'transparent',
-                     
+
                      labels: {
                          enabled: false
                      },
@@ -436,7 +433,7 @@ var options = {
                 lineWidth: 0,
                      minorGridLineWidth: 0,
                      lineColor: 'transparent',
-                     
+
                      labels: {
                          enabled: false
                      },

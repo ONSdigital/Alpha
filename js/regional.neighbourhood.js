@@ -33,7 +33,8 @@ var subjects =  [
           , { id: 4, name: 'Economic Deprivation', short: 'Deprivation', vars:[] }
           , { id: 5, name: 'Education, Skills and Training', short: 'Education', vars:[9993,9994,9995,9996] }
           , { id: 6, name: 'Health and Care', short: 'Health', vars:[] }
-          , { id: 7, name: 'Housing', short: 'Housing', vars:[5214,5207,5226,5221,5209,5593,5204,5199,5205,5211,5213,5206,5215,5200,5222,5202,5224,5216,5592,5208,5203,5201,5595,5225,5210,5198,5212,5594] }
+          , { id: 7, name: 'Housing', short: 'Housing', vars:[5214,5207,5226,5221,5209,5593] }
+        //  , { id: 7, name: 'Housing', short: 'Housing', vars:[5214,5207,5226,5221,5209,5593,5204,5199,5205,5211,5213,5206,5215,5200,5222,5202,5224,5216,5592,5208,5203,5201,5595,5225,5210,5198,5212,5594] }
           , { id: 46, name: 'Indicators', short: 'Indicators', vars:[] }
           , { id: 10, name: 'Indices of Deprivation and Classification', short: 'Indices of Deprivation', vars:[] }
           , { id: 14, name: 'People and Society: Income and Lifestyles', short: 'Income and Lifestyles', vars:[4931,4932,4933,4934,4935,4936,4937,4938,4939,4940,4941,4942,1159,786,790,791,795,787,798,788,797,792,796,794,793] }
@@ -48,20 +49,24 @@ var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EH8 9
   "OX1 2JD",  "BT7 1NN", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
   "E1 4NS", "WC2A 2AE", "WC2R 2LS" , "PO6 3NH"];
 
-  var subjectId = 7;
+  var subjectId = 8;
 
 $(document).ready(function(){
 
+      clearPanel();
+      setSubject();
 
+/*
 
     $("#search").click( function(evt){
       evt.preventDefault();
       clearPanel();
       setSubject();
-      
+
       testPostCode();
     })
-
+*/
+/*
     $("#go").click( function(evt){
       evt.preventDefault();
       clearPanel();
@@ -72,7 +77,7 @@ $(document).ready(function(){
       $("#postcode").val( pcode );
       testPostCode();
     })
-
+*/
 
 
 /*
@@ -86,7 +91,7 @@ $(document).ready(function(){
 
 function setSubject(){
   var len = 3;//subjects.length;
-  var random = Math.round( Math.random()*len );
+  var random = Math.round( Math.random()*len ) -1;
 
   switch(random){
     case 0:
@@ -106,7 +111,7 @@ console.log (random + " subjectId " + subjectId);
 }
 
 
-
+/*
 function testPostCode () {
   var newPostCode = checkPostCode( $("#postcode").val() );
   if (newPostCode) {
@@ -121,9 +126,12 @@ function testPostCode () {
     console.log ("Postcode has invalid format");
   }
 }
-
+*/
 
 function getStats(postcode){
+  //randomise subject...
+  setSubject()
+
   console.log ("getStats " + postcode);
   var id;
   mainTitle = "";
@@ -133,10 +141,10 @@ function getStats(postcode){
     url: URL + postcode,
     dataType: "xml",
     success: function(xml){
-      console.log(xml);
+     // console.log(xml);
      // $("#content").append("<ul></ul>");
       $(xml).find('Area').each(function(){
-        console.log($(this) );
+       // console.log($(this) );
         var sLevel = $(this).find('LevelTypeId').text();
         var hierarch = $(this).find('HierarchyId').text();
         var areaID = $(this).find('AreaId').text();
@@ -146,8 +154,8 @@ function getStats(postcode){
         if(sLevel==="13"){
           id =  areaID;
           mainTitle = $(this).find('Name').text();
-          
-        };  
+
+        };
 
         if(sLevel==="10"){
           countryId = areaID;
@@ -160,10 +168,12 @@ function getStats(postcode){
 
       $('#areaTitle').text( mainTitle +", " + postcode.toUpperCase() + ": " + subjects[subjectId].short);
 
- 
+
     },
     error: function() {
-      alert("An error occurred while processing XML file.\nProbably outside England and Wales");
+      console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
+      var extract = "The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.";
+      $('#extract').html( extract );
     }
   });
 
@@ -173,7 +183,7 @@ function getStats(postcode){
 
 
 function getSummary(areaID){
-  console.log ("getStats " + areaID);
+  //console.log ("getStats " + areaID);
   var count = [];
   var subjectCount = 0;
 
@@ -183,12 +193,12 @@ function getSummary(areaID){
     dataType: "xml",
 
     success: function(xml){
-      console.log(xml);
-      
+     /// console.log(xml);
+
       var subjects = $(this).find('SubjectsWithCount').children('SubjectWithCount').length;
-      console.log( "n o subs " + subjects);
+      //console.log( "n o subs " + subjects);
       $(xml).find('Count').each(function(){
-        console.log( $(this) );
+       /// console.log( $(this) );
         count.push( parseInt( $(this).text() ) );
         subjectCount++;
 
@@ -198,8 +208,8 @@ function getSummary(areaID){
             return a + b;
           });
 
-    console.log( count );
-    console.log( subjectCount +":"+ total);
+    //console.log( count );
+    //console.log( subjectCount +":"+ total);
 
     var summary = "This postcode is part of the " + mainTitle.toUpperCase() + " administrative area.";
     summary += " There are " + total + " datasets containing data on " + subjectCount + " different subjects for this neighbourhood.";
@@ -209,7 +219,9 @@ function getSummary(areaID){
     },
 
     error: function() {
-      alert("An error occurred while processing XML file.\nProbably outside England and Wales");
+      console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
+      var extract = "The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.";
+      $('#extract').html( extract );
     }
   });
 
@@ -217,12 +229,12 @@ function getSummary(areaID){
 
 function clearPanel(){
 
-  console.log("clear");
+ // console.log("clear");
   $( "#panel" ).animate({
     top: 110
     }, 100, function() {
     // Animation complete.
-  console.log("clear complete");
+  //console.log("clear complete");
     $('#extract').html( "" );
   });
 
@@ -235,11 +247,12 @@ function getData(areaID){
   var subjectCount = 0;
 
   if (countryId){
-    countryId = "," + countryId; 
+    countryId = "," + countryId;
   }else{
     countryId = "";
   }
 
+  console.log ("getData " + DATA_URL + areaID  + countryId + "&Variables=" + subjects[subjectId].vars.toString());
 
   $.ajax({
     type: "GET",
@@ -249,29 +262,41 @@ function getData(areaID){
     dataType: "xml",
 
     success: function(xml){
-      console.log("DATA");
-      console.log(xml);
-      console.log($(xml).find('ns3\\:Date').text());
+      //console.log("DATA");
+      //console.log(xml);
+      //console.log($(xml).find('ns3\\:Period').text());
+      //console.log($(xml).find('Period').text());
 
-      date = $(xml).find('ns3\\:Period').find('ns3\\:Date').text();
+      // Need to work out how to handle namespaced prefixes on some
+      // elements.
+      var prefix = "ns3\\:"; // Most prefer this...
+      date= $(xml).find( prefix + "Period" ).find( prefix + 'Date').text();;
+      if( date.length === 0 )
+      {
+          prefix = ""; // ...but some don't!
+          date = $(xml).find( prefix + "Period" ).find( prefix + 'Date').text();;
+      }
+
+      //date = $(xml).find('[nodeName=ns3:Period]').find('ns3\\:Date').text();
       year = date.split("-")[0];
 
-      $(xml).find('ns3\\:Topic').each(function(){
-        console.log( $(this).find('ns3\\:Title').text() );
-        titles.push( $(this).find('ns3\\:Title').text() );
+      $(xml).find(prefix + 'Topic').each(function(){
+        //console.log( "item" );
+        //console.log( $(this).find('ns3\\:Title').text() );
+        titles.push( $(this).find(prefix + 'Title').text() );
       });
 
-      $(xml).find('ns3\\:DatasetItem').each(function(){
-        console.log( $(this) );
-        console.log( $(this).find('ns3\\:Value').text() );
-        values.push( $(this).find('ns3\\:Value').text() );
+      $(xml).find(prefix + 'DatasetItem').each(function(){
+        //console.log( $(this) );
+        //console.log( $(this).find('ns3\\:Value').text() );
+        values.push( $(this).find(prefix + 'Value').text() );
       });
 
 
     var rand = Math.floor(Math.random()*titles.length);
     var rand = Math.floor(rand/2)*2;
 
-    console.log( rand +" " + date +":::"+ titles +":"+ values);
+    //console.log( rand +" " + date +":::"+ titles +":"+ values);
     var description = titles[rand];
     var count = values[rand];
 
@@ -288,7 +313,9 @@ function getData(areaID){
     },
 
     error: function() {
-      alert("An error occurred while processing XML file.");
+      console.warn("An error occurred while processing XML file.");
+      var extract = "The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.";
+      $('#extract').html( extract );
     }
   });
 
@@ -297,7 +324,7 @@ function getData(areaID){
 
 
 
-        
+
     return{
       getStats:getStats
     }

@@ -2,8 +2,9 @@
       function initialize() {
         // Create a simple map.
         map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 7,
-          center: {lat: 52, lng: -2}
+          zoom: 10,
+          center: {lat: 51.5, lng: -2.9},
+          scrollwheel:false,
         });
 
         // Load a GeoJSON from the same server as our demo.
@@ -65,10 +66,26 @@
             showSummary(evt.feature.getProperty("CTYUA13CD"));
           }
 
-          
-          
+
+
         });
 
       }
+
+          function showPoint(lat,lon){
+            var myLatlng = new google.maps.LatLng(lat,lon);
+            map.panTo(myLatlng);
+
+            if(marker){
+              marker.setMap(null);
+            }
+
+            marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: ''
+            });
+
+          }
 
       google.maps.event.addDomListener(window, 'load', initialize);
