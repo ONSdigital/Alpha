@@ -1,4 +1,7 @@
     var map;
+    var marker;
+
+
       function initialize() {
         // Create a simple map.
         map = new google.maps.Map(document.getElementById('map'), {
@@ -72,20 +75,20 @@
 
       }
 
-          function showPoint(lat,lon){
-            var myLatlng = new google.maps.LatLng(lat,lon);
-            map.panTo(myLatlng);
+    function showPoint(lat,lon){
+      var myLatlng = new google.maps.LatLng(lat,lon);
+      map.panTo(myLatlng);
 
-            if(marker){
-              marker.setMap(null);
-            }
+      if(marker){
+        marker.setMap(null);
+      }
 
-            marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                title: ''
-            });
+      marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: ''
+      });
 
-          }
+    }
 
-      google.maps.event.addDomListener(window, 'load', initialize);
+    google.maps.event.addDomListener(window, 'load', initialize);
