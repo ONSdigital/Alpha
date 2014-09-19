@@ -82,7 +82,7 @@ function testPostCode () {
   if (newPostCode) {
     postcode = newPostCode;
     //call to NESS
-    neighbourhood.getStats(newPostCode);
+    neighbourhood.getStats(newPostCode, true);
     $("#postcode").val( newPostCode );
    // console.log ("Postcode has a valid format")
     var url = POSTCODE_URL + newPostCode;

@@ -85,6 +85,9 @@
             //showSummary(evt.feature.getProperty("CTYUA13CD"));
             setArea( evt.feature.getProperty("LAD11CD") );
             showSummary(evt.feature.getProperty("LAD11CD"));
+
+            //call to NESS
+            neighbourhood.getStats(evt.feature.getProperty("LAD11NM"), false);
           }
 
 

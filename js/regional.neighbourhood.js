@@ -19,6 +19,7 @@ http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01
 var POSTCODE = "NP198FP";
 
 var URL = "http://neighbourhood.statistics.gov.uk/NDE2/Disco/FindAreas?Postcode=";// + "&LevelType=13&HierarchyId=17";
+var NAME_URL = "http://neighbourhood.statistics.gov.uk/NDE2/Disco/FindAreas?AreaNamePart=";// + "&LevelType=13&HierarchyId=17";
 var SUBJECTS_URL = "http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetCompatibleSubjects?AreaId=";
 var DATA_URL = "http://neighbourhood.statistics.gov.uk/NDE2/Deli/getTables?Areas=";
 
@@ -111,26 +112,16 @@ console.log (random + " subjectId " + subjectId);
 }
 
 
-/*
-function testPostCode () {
-  var newPostCode = checkPostCode( $("#postcode").val() );
-  if (newPostCode) {
-    postcode = newPostCode;
-    $("#postcode").val( newPostCode );
-    console.log ("Postcode has a valid format")
-
-    getStats(newPostCode);
-
-  }
-  else {
-    console.log ("Postcode has invalid format");
-  }
-}
-*/
-
-function getStats(postcode){
+function getStats(postcode, isPostcode){
   //randomise subject...
-  setSubject()
+  setSubject();
+  var url;
+
+  if(isPostcode){
+    url = URL;
+  }else{
+    url = NAME_URL;
+  }
 
   console.log ("getStats " + postcode);
   var id;
@@ -138,7 +129,7 @@ function getStats(postcode){
 
   $.ajax({
     type: "GET",
-    url: URL + postcode,
+    url: url + postcode,
     dataType: "xml",
     success: function(xml){
      // console.log(xml);
