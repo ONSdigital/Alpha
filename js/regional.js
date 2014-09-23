@@ -10,7 +10,7 @@ var regional = (function () {
     areas.loadData(parseAreas);
 
     addListeners();
-
+    $('#slide-panel').removeClass('visible');
 
     $('#loader').modal('show');
 
@@ -19,8 +19,8 @@ var regional = (function () {
     //init map
     initialize();
 
-    $('.selectpicker').selectpicker('render');
-
+//    $('.selectpicker').selectpicker('render');
+    
 
   });
 
@@ -38,6 +38,9 @@ var regional = (function () {
 
 
   function addListeners(){
+    
+
+    console.log("add listneres "  );
     $("#region").change(function(e) {
       return areas.getRegion(1);
     });
@@ -49,16 +52,18 @@ var regional = (function () {
     });
 
 
+
+
     $("#search").click( function(evt){
       evt.preventDefault();
       testPostCode();
     })
 
-    $("#viewBtn").click( function(evt){
+    $("#showBtn").click( function(evt){
       evt.preventDefault();
-      console.log("VIEW updateDisplay "  + lastArea);
+      console.log("showBtn "  );
 
-      showSingle(lastArea);
+      showCharts();
     })
 
     $("#clearBtn").click( function(evt){
@@ -66,7 +71,9 @@ var regional = (function () {
       console.log("CLEAR");
 
       comparisons =[];
-      updateDisplay();
+      //updateDisplay();
+      checkComparisonList();
+      updateComparisonList();
 
     })
     $("#addBtn").click( function(evt){

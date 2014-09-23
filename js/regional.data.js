@@ -9,6 +9,7 @@ var POSTCODE_URL = "//mapit.mysociety.org/postcode/";
 var POINT_URL = "//mapit.mysociety.org/point/4326/";
 
 var YEAR = 2013;
+var MAX_COMPARISONS = 2;
 
 var uk = "K02000001";
 
@@ -183,7 +184,8 @@ function testPostCode () {
          comparisons.splice(i, 1);
       }
     }
-    updateDisplay();
+    checkComparisonList();
+    updateComparisonList();
   }
 
 
@@ -198,11 +200,29 @@ console.log( $.inArray( id , comparisons ) );
     }
 
     //console.log( areaObj[id] );
-    updateDisplay();
+    checkComparisonList();
+    updateComparisonList();
+  }
+
+  function checkComparisonList(){
+    if(comparisons.length>= MAX_COMPARISONS){
+      $("#addBtn").prop('disabled', true);
+
+    } else {
+      $("#addBtn").prop('disabled', false);
+    }
   }
 
 
+  function updateComparisonList(){
+    $.each(comparisons, function (index, value){
+       console.log(index , value);
+       var item = areaObj[value];
 
+       console.log(item.name +":" + item.code);
+    });
+    displayComparisonList();
+  }
 
   function showSummary( id ) {
 
@@ -407,9 +427,6 @@ console.log( $.inArray( id , comparisons ) );
 
     //comparisonLookUp[value.name] = index;
   });
-
-
-
 
 
 
@@ -676,6 +693,94 @@ console.log( $.inArray( id , comparisons ) );
 
 
 
+    function displayComparisonList(){
+      //rewrite comparisons into table
+      var html ="<tr></th><th width='300px'></th><th width='15px'></th></tr>";
+
+      var $selection = $("#selection");
+
+      $('a.infoBtn').off('click');
+      $selection.empty();
+
+
+      $.each(comparisons, function(index, value){
+        var item = areaObj[value];
+
+      
+        html+="<tr>";
+       // html+="<td>" + item.code + "</td>";
+        html+="<td>";
+        html+='<a href="#" >';
+        html+= item.name + " </a>";
+        html+="</td>";
+        html+="<td><a class='infoBtn ' href='' id=" + item.code + " >";
+        html+="<span class='glyphicon glyphicon-remove-circle'></span></a></td>";
+        html+="</tr>";
+      });
+
+      $selection.append(html);
+
+      $('a.infoBtn').on('click', function(evt){
+        evt.preventDefault();
+
+        var idx = comparisons.indexOf( this.id );
+        if (idx > -1) {
+          comparisons.splice(idx, 1);
+        }
+        checkComparisonList();
+        displayComparisonList();
+      });
+
+    }
+
+
+    function showCharts(){
+      console.log("show charts");
+
+      $.each(comparisons, function (index, value){
+        //console.log(index, value);
+        var item =areaObj[value];
+        var count = index+1;
+        var pc = Math.round ( 10000 * item.changes["natural change"] / item.changes.previous ) / 100;
+
+        console.log(item);
+
+        $("#title"+count).text( item.name );
+        $("#nowComp"+count).text( item.trends[12] );
+        $("#previousComp"+count).text( item.trends[2] );
+
+        $("#birthNowComp"+count).text( item.changes.births );
+        $("#birthThenComp"+count).text( item.changes.births_2003 );
+        $("#deathNowComp"+count).text( item.changes.deaths );
+        $("#deathThenComp"+count).text( item.changes.deaths_2003 );
+        $("#natChangeComp"+count).text( item.changes["natural change"] );
+        $("#natPercentComp"+count).text( pc );
+
+
+        $("#internalInComp"+count).text( "In: " + item.changes["Internal Inflow"] );
+        $("#internalOutComp"+count).text( "Out: " +  item.changes["Internal Outflow"] );
+        $("#internalNetComp"+count).text( "Net: " +  item.changes["Internal Net"] );
+        $("#externalInComp"+count).text( "In: " +  item.changes["International Inflow"] );
+        $("#externalOutComp"+count).text( "Out: " +  item.changes["International Outflow"] );
+        $("#externalNetComp"+count).text( "Net: " +  item.changes["International Net"] );
+        $("#otherComp"+count).text( "Net: " +  item.changes["Other"] );
+
+
+        $("#employmentComp"+count).text( item.labour.employment );
+        $("#unemploymentComp"+count).text( item.labour.unemployment );
+        $("#inactivityComp"+count).text( item.labour.inactivity );
+        $("#claimantComp"+count).text( item.labour.claimant );
+
+
+
+
+
+      });
+
+
+
+
+    }
 
 
 

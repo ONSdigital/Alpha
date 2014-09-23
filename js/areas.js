@@ -17,6 +17,11 @@ var areas = (function () {
 
 
     function loadData(callBack){
+      console.log("load data");
+
+
+
+
       $.ajax({
         dataType: "text",
         url: AREA_URL,
@@ -35,6 +40,9 @@ var areas = (function () {
 
 
     function splitAreas(  ) {
+      console.log("split areas");
+      $('.selectpicker').selectpicker('render');
+
       $("#message").text( "Processing Area Data" );
 
       //code,name,entity,county,region
@@ -65,7 +73,7 @@ var areas = (function () {
           }
       });
 
-
+      var optionHTML = "";
       $.each(areaArray, function (index,value){
 
         if(value.region !== ""){
@@ -110,7 +118,9 @@ var areas = (function () {
         }
       });
 
+      $('#region').append(optionHTML);
       $('.selectpicker').selectpicker('refresh');
+
 
     }
 
@@ -211,6 +221,7 @@ console.log("get region " + str)
             .text("Pick a county...."));
 
       $.each(counties, function (index,value){
+        console.log(value);
         $('#county')
             .append($('<option>', { name : value.name })
             .text(value.name).val(value.code));
