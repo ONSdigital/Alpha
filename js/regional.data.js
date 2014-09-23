@@ -163,19 +163,7 @@ function testPostCode () {
 
   }
 
-/*
-  function updateDisplay(str){
-    console.log("updateDisplay " + str);
-    var siblingList  = areas.getSiblings( str );
-    showData(str);
-    showComparison(siblingList, str);
 
-    //hide marker
-    hideMarker();
-  }
-
-
-*/
 
   function setArea( id ){
 
@@ -278,13 +266,15 @@ console.log( $.inArray( id , comparisons ) );
 
 
 
-
+    console.log(areaObj[id].changes.births_2003);
+    console.log(areaObj[id].changes);
+    console.log(areaObj[id]);
 
     $("#birth").text(areaObj[id].changes.births + " (2013)");
     $("#death").text(areaObj[id].changes.deaths + " (2013)");
     $("#natChange").text( "Net: " + areaObj[id].changes["natural change"]);
-    $("#birth2").text(areaObj[id].changes.births2 + " (2003)");
-    $("#death2").text(areaObj[id].changes.deaths2 + " (2003)");
+    $("#birth2").text(areaObj[id].changes.births_2003 + " (2003)");
+    $("#death2").text(areaObj[id].changes.deaths_2003 + " (2003)");
 
     var pc = Math.round ( 10000 * areaObj[id].changes["natural change"] / areaObj[id].changes.previous ) / 100;
     $("#natPercent").text( pc );
