@@ -21,15 +21,13 @@
         });
 
         map.data.addListener('mouseover', function(evt) {
-
-          //console.log(evt.feature);
-          //console.log( evt.feature.getProperty("CTYUA13NM") );
           //$("#region").text( evt.feature.getProperty("CTYUA13NM") );
-          $("#region").text( evt.feature.getProperty("LAD11NM") );
+          $("#regionName").text( evt.feature.getProperty("LAD11NM") );
           map.data.revertStyle();
           map.data.overrideStyle(evt.feature, {
-             // fillColor:'#aaa',
-              strokeOpacity: 0.1,
+              fillColor:'#aaa',
+              fillOpacity: 0.2,
+              strokeOpacity: 0.4,
               strokeColor: '#999',
               strokeWeight:2
             });
@@ -37,6 +35,7 @@
 
         map.data.addListener('mouseout', function(evt) {
           map.data.revertStyle();
+          $("#regionName").text( 'Click map to select an area' );
         });
 
 
@@ -45,8 +44,8 @@
           var color = '#f2f2f2';
           var op = 0.1
           if (feature.getProperty('isSelected')) {
-            color = 'red';
-            op=0.2
+            color = '#999';
+            op=0.3
           }
           return /** @type {google.maps.Data.StyleOptions} */({
             fillColor: color,
@@ -61,11 +60,6 @@
 
         // When the user clicks, set 'isColorful', changing the color of the letters.
         map.data.addListener('click', function(evt) {
-          console.log( evt.feature.getProperty("LAD11CD") );
-          console.log( evt );
-          console.log( evt.feature.getGeometry().getArray() );
-          //clea rlast 
-
 
           if( lastSelected ){
             lastSelected.setProperty('isSelected', false);
@@ -112,16 +106,14 @@
 
     }
 
-    
+
     function getCentroid(coords) {
 
           var minLat = 360.0;
     var maxLat = -360.0;
     var minLng = 360.0;
     var maxLng = -360.0;
-                       console.log(coords);
-                       console.log(coords.getType());
-                     
+
       var len = coords.getLength();
 
       var temp = coords.getArray();
@@ -130,16 +122,12 @@
         var ring = coords.getAt(j);
         var ringLen = ring.getLength();
 
-        console.log( coords.getAt(j) );
-        console.log( ring.getAt(1) );
-        
 
        for (var i = 0; i < ringLen; i++) {
                            var pt = ring.getAt(i);
-console.log(pt.lat(), pt.lng() );
                            var lat  = pt.lat();
                            var lng  = pt.lng();
-                           
+
                            if (lng < minLng) {
                                minLng = lng;
                            }
@@ -152,12 +140,11 @@ console.log(pt.lat(), pt.lng() );
                            if (lat > maxLat) {
                                maxLat = lat;
                            }
-                         
+
                        }
 
      }
 
-      console.log("min " + minLat, minLng)
       var avLng = (minLng + maxLng) / 2;
       var avLat = (minLat + maxLat) / 2;
       //return new LatLon(avLat, avLng);

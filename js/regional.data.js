@@ -60,10 +60,12 @@ var pyr = [];
 
 
 
-var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EH8 9YL", "EX4 4SB",
- "G12 8QQ", "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
-  "OX1 2JD",  "BT7 1NN", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
-  "E1 4NS", "WC2A 2AE", "WC2R 2LS" ];
+var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EX4 4SB",
+  "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
+  "OX1 2JD", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
+  "E1 4NS", "WC2A 2AE", "WC2R 2LS"
+//,"EH8 9YL","G12 8QQ",  "BT7 1NN"
+  ];
 
 function testPostCode () {
 
@@ -156,7 +158,7 @@ function testPostCode () {
     console.log("ONS " + ons_id );
 
     //updateDisplay( ons_id );
-        setArea( ons_id );
+    setArea( ons_id );
     showSummary(ons_id);
    // getBoundaries(ons_id);
     showPoint(lat,lon);
@@ -374,161 +376,138 @@ console.log( $.inArray( id , comparisons ) );
       chartUnemploy.series[0].name = areaObj[uk].name;
       chartUnemploy.redraw();
 
-      console.log(areaObj[id]);
-      console.log(areaObj[parent]);
-      console.log(areaObj[uk]);
-
-
-
-
-
   }
+
 
 
   function updateDisplay(  ) {
 
-  var totalCats = [];
-  var legend = [];
-  var totalData = [];
+    var totalCats = [];
+    var legend = [];
+    var totalData = [];
 
-  var trends = [];
-  var u18 = [];
-  var adult = [];
-  var o64 = [];
+    var trends = [];
+    var u18 = [];
+    var adult = [];
+    var o64 = [];
 
-  var natural = [];
-  var uk = [];
-  var migration = [];
-  var female = [];
-  var male = [];
-  var name = [];
-
-  //loop through the list of comparisons and extract the data
-  $.each(comparisons, function (index, value){
-   // console.log(index , value);
-    //trend
-    trends.push( areaObj[value].trends );
-
-    // age groups
-    legend.push( {name:areaObj[value].name} );
-    totalCats.push( areaObj[value].name );
-    u18.push( areaObj[value].ageGroups.u18 );
-    adult.push( areaObj[value].ageGroups.adult );
-    o64.push( areaObj[value].ageGroups.over64 );
-
-    // changes
-    natural.push( areaObj[value].changes["natural change"] );
-    uk.push( areaObj[value].changes["Internal Net"] );
-    migration.push( areaObj[value].changes["International Net"] );
-
-    female.push( areaObj[value].series.female );
-    male.push( areaObj[value].series.male );
-    name.push( areaObj[value].name );
-
-    //comparisonLookUp[value.name] = index;
-  });
+    var natural = [];
+    var uk = [];
+    var migration = [];
+    var female = [];
+    var male = [];
+    var name = [];
 
 
+    //loop through the list of comparisons and extract the data
+    $.each(comparisons, function (index, value){
+     // console.log(index , value);
+      //trend
+      trends.push( areaObj[value].trends );
 
-  for ( var i=0;i<10;i++){
+      // age groups
+      legend.push( {name:areaObj[value].name} );
+      totalCats.push( areaObj[value].name );
+      u18.push( areaObj[value].ageGroups.u18 );
+      adult.push( areaObj[value].ageGroups.adult );
+      o64.push( areaObj[value].ageGroups.over64 );
 
-    if(chartTrend.series[i].visible){
-     chartTrend.series[i].hide();
-     chartTrend.series[i].update({ showInLegend: false});
+      // changes
+      natural.push( areaObj[value].changes["natural change"] );
+      uk.push( areaObj[value].changes["Internal Net"] );
+      migration.push( areaObj[value].changes["International Net"] );
 
-    }
-  }
+      female.push( areaObj[value].series.female );
+      male.push( areaObj[value].series.male );
+      name.push( areaObj[value].name );
 
-  console.log(natural.length);
-  if(natural.length===0){
-  console.log("RESET");
-    natural = [0];
-    uk = [0];
-    migration = [0];
-    totalCats = [0];
-    u18 = [0];
-    adult = [0];
-    o64 = [0];
-  }
-
-  console.log(u18);
-  console.log(adult);
-  console.log(o64);
-
-  $.each(trends, function (index, value){
-    console.log(name[index]);
-    chartTrend.series[index].setData( value );
-    chartTrend.series[index].name = name[index];
-    chartTrend.series[index].show( );
-    chartTrend.series[index].update({ showInLegend: true});
-    chartTrend.legend.allItems[index].update( {name: name[index]}  );
-  });
+      //comparisonLookUp[value.name] = index;
+    });
 
 
+    for ( var i=0;i<10;i++){
 
-      chartAnnual.series[2].setData( natural );
-      chartAnnual.series[2].name = "Natural Change";
-      chartAnnual.series[1].setData( uk );
-      chartAnnual.series[1].name = "UK";
-      chartAnnual.series[0].setData( migration );
-      chartAnnual.series[0].name = "Migration";
-      chartAnnual.xAxis[0].setCategories(totalCats);
-      //chartAnnual.legend.allItems.update( legend );
+      if(chartTrend.series[i].visible){
+       chartTrend.series[i].hide();
+       chartTrend.series[i].update({ showInLegend: false});
 
-
-      chartAge.series[2].setData( u18 );
-      chartAge.series[1].setData( adult );
-      chartAge.series[0].setData( o64 );
-      chartAge.xAxis[0].setCategories(totalCats);
-
-
-
-      for ( var i=0;i<4;i++){
-        var pyramid = pyr[i];
-        if(name[i]){
-          pyramid.setTitle({text: name[i] });
-          pyramid.series[1].setData( female[i] );
-          pyramid.series[0].setData( male[i] );
-        }else{
-          console.log("i " + i);
-          pyramid.setTitle({text: "" });
-          pyramid.series[1].setData( [0] );
-          pyramid.series[0].setData( [0] );
         }
-
       }
 
+    console.log(natural.length);
+    if(natural.length===0){
+    console.log("RESET");
+      natural = [0];
+      uk = [0];
+      migration = [0];
+      totalCats = [0];
+      u18 = [0];
+      adult = [0];
+      o64 = [0];
+    }
+
+    console.log(u18);
+    console.log(adult);
+    console.log(o64);
+
+    $.each(trends, function (index, value){
+      console.log(name[index]);
+      chartTrend.series[index].setData( value );
+      chartTrend.series[index].name = name[index];
+      chartTrend.series[index].show( );
+      chartTrend.series[index].update({ showInLegend: true});
+      chartTrend.legend.allItems[index].update( {name: name[index]}  );
+    });
 
 
 
-}
+    chartAnnual.series[2].setData( natural );
+    chartAnnual.series[2].name = "Natural Change";
+    chartAnnual.series[1].setData( uk );
+    chartAnnual.series[1].name = "UK";
+    chartAnnual.series[0].setData( migration );
+    chartAnnual.series[0].name = "Migration";
+    chartAnnual.xAxis[0].setCategories(totalCats);
+    //chartAnnual.legend.allItems.update( legend );
+
+
+    chartAge.series[2].setData( u18 );
+    chartAge.series[1].setData( adult );
+    chartAge.series[0].setData( o64 );
+    chartAge.xAxis[0].setCategories(totalCats);
+
+
+
+    for ( var i=0;i<4;i++){
+      var pyramid = pyr[i];
+      if(name[i]){
+        pyramid.setTitle({text: name[i] });
+        pyramid.series[1].setData( female[i] );
+        pyramid.series[0].setData( male[i] );
+      }else{
+        console.log("i " + i);
+        pyramid.setTitle({text: "" });
+        pyramid.series[1].setData( [0] );
+        pyramid.series[0].setData( [0] );
+      }
+
+    }
+
+  }
 
 
 
 
   function showData(str){
-    console.log( "showData " + str );
+    //console.log( "showData " + str );
     var data = areaObj[str];
-    //console.log(data);
-
-    //call API for map boundary
-    //getBoundaries("Newport");
-
     var region = areas.getRegionType(str);
-    console.log("get region data " + str + " is " + region );
+    //console.log("get region data " + str + " is " + region );
 
     getBoundaries(data.code, region);
-    /*
-    console.log( "getBoundaries " + data.code );
-    console.log( areaObj );
-    console.log( areaObj[str] );
-    console.log( areaObj[str].code );
-    console.log( str );
-    */
-     var title = areaObj[str].name;
 
+    var title = areaObj[str].name;
     var pc_change = 100 * (data.changes.now - data.changes.previous)/data.changes.now;
-
     pc_change = Math.round(pc_change*100) / 100;
     var suffix ="";
     if(data.changes.now > data.changes.previous){
@@ -608,8 +587,6 @@ console.log( $.inArray( id , comparisons ) );
 
 
     //change chart
-
-
     pyramid = $('#pyr1').highcharts();
 
 
@@ -621,8 +598,6 @@ console.log( $.inArray( id , comparisons ) );
     var genderData = [ ["Male", data.maleTotal ],["Female", data.femaleTotal] ];
 
     ageChart.series[0].setData( ageData );
-    //genderChart.series[0].setData( genderData );
-
 
 
     barChart = $('#trend').highcharts();
@@ -706,7 +681,7 @@ console.log( $.inArray( id , comparisons ) );
       $.each(comparisons, function(index, value){
         var item = areaObj[value];
 
-      
+
         html+="<tr>";
        // html+="<td>" + item.code + "</td>";
         html+="<td>";
@@ -756,29 +731,21 @@ console.log( $.inArray( id , comparisons ) );
         $("#natChangeComp"+count).text( item.changes["natural change"] );
         $("#natPercentComp"+count).text( pc );
 
-
         $("#internalInComp"+count).text( "In: " + item.changes["Internal Inflow"] );
         $("#internalOutComp"+count).text( "Out: " +  item.changes["Internal Outflow"] );
         $("#internalNetComp"+count).text( "Net: " +  item.changes["Internal Net"] );
+
         $("#externalInComp"+count).text( "In: " +  item.changes["International Inflow"] );
         $("#externalOutComp"+count).text( "Out: " +  item.changes["International Outflow"] );
         $("#externalNetComp"+count).text( "Net: " +  item.changes["International Net"] );
-        $("#otherComp"+count).text( "Net: " +  item.changes["Other"] );
-
+        $("#otherComp"+count).text( item.changes["Other"] );
 
         $("#employmentComp"+count).text( item.labour.employment );
         $("#unemploymentComp"+count).text( item.labour.unemployment );
         $("#inactivityComp"+count).text( item.labour.inactivity );
         $("#claimantComp"+count).text( item.labour.claimant );
 
-
-
-
-
       });
-
-
-
 
     }
 

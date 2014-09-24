@@ -51,7 +51,6 @@ var options = {
               events: {
 
                 load: function () {
-                  console.log("on load");
                   var chart = this,
                   yAxis = chart.yAxis[0]
                   titleWidth=0;
@@ -137,10 +136,6 @@ var options = {
   function initCharts(){
 
     Highcharts.setOptions(options);
-
-
-
-
 
     // employment
     options.chart.renderTo = 'employment';
@@ -395,7 +390,6 @@ var options = {
                     ];
     options.tooltip = {
       formatter: function() {
-        console.log(this)
           return this.key + ' <b>' + Math.abs(this.y) + '%</b>';
       }
     }

@@ -104,6 +104,17 @@
   .halfChart{
     height:200px;
   }
+  .regionName{
+    width:100%;
+    background-color:#fff;
+  }
+  .mapPanel{
+    padding:5px 5px 5px 10px;
+    display:block;
+    width:250px;
+    background-color:#fff;
+    margin-bottom:3px;
+  }
 
   </style>
 
@@ -411,6 +422,9 @@
   <div id="map"></div>
   <form class="form-inline" role="search">
     <div class="form-group" id="postcodeSearch">
+      <div class="mapPanel">
+        <div id="regionName">Click map to select an area</div>
+      </div>
       <span class="" data-toggle="collapse" data-target="#search-panel">
       </span>
       <input id="postcode" type="text" class="form-control" placeholder="Search postcode">
@@ -686,7 +700,7 @@
 
       <div>
         <p>
-          You can download this data and find more (including more guidance on accessing the data) on the <a href="http://www.neighbourhood.statistics.gov.uk/dissemination/">Neighbourhood Statistics website </a>.
+          You can download this data and find more (including more guidance on accessing the data) on the <a href="http://www.neighbourhood.statistics.gov.uk/dissemination/">Neighbourhood Statistics website</a>.
         </p>
       </div>
     </div>
@@ -816,7 +830,7 @@
 
       <div class="row">
           <div id="" class="col-sm-6">
-            
+
 
             <div class="row">
             <div id="" class="col-sm-8">
@@ -1048,9 +1062,9 @@
             </div>
             <br/>
             There were also <span id="otherComp2"></span> <i>'Other'</i> changes compared with 2012.
-           
+
           </div>
-      </div>      
+      </div>
       <!--  END MIGRATION  -->
 
     <!--  ECONOMY  -->
@@ -1060,7 +1074,7 @@
 
       <div class="row">
           <div id="" class="col-sm-6">
-            
+
 
             <div class="row">
             <div id="" class="col-sm-8">
@@ -1101,7 +1115,7 @@
           </div>
 
           <div id="" class="col-sm-6">
-            
+
 
             <div class="row">
             <div id="" class="col-sm-8">
@@ -1162,11 +1176,11 @@
 
   <div id="" class="col-sm-3 ">
     <table id="selection"></table>
-    
+
           <button type="button" class="btn btn-primary btn-block" id="addBtn">
             <span class="fa fa-plus pull-left pad-left">&nbsp;</span>
             <span class="pull-left">Add to comparison</span>
-          </button>    
+          </button>
           <button type="button" class="btn btn-success btn-block" id="showBtn">
             <span class="fa fa-plus pull-left pad-left">&nbsp;</span>
             <span class="pull-left">Show Charts</span>

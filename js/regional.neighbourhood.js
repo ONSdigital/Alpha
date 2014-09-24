@@ -108,7 +108,7 @@ function setSubject(){
 
   }
 
-console.log (random + " subjectId " + subjectId);
+//console.log (random + " subjectId " + subjectId);
 }
 
 
@@ -123,7 +123,7 @@ function getStats(postcode, isPostcode){
     url = NAME_URL;
   }
 
-  console.log ("getStats " + postcode);
+  //console.log ("getStats " + postcode);
   var id;
   mainTitle = "";
 
@@ -132,10 +132,10 @@ function getStats(postcode, isPostcode){
     url: url + postcode,
     dataType: "xml",
     success: function(xml){
-     // console.log(xml);
+     // //console.log(xml);
      // $("#content").append("<ul></ul>");
       $(xml).find('Area').each(function(){
-       // console.log($(this) );
+       // //console.log($(this) );
         var sLevel = $(this).find('LevelTypeId').text();
         var hierarch = $(this).find('HierarchyId').text();
         var areaID = $(this).find('AreaId').text();
@@ -162,7 +162,7 @@ function getStats(postcode, isPostcode){
 
     },
     error: function() {
-      console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
+      //console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
       var extract = "The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.";
       $('#extract').html( extract );
     }
@@ -184,12 +184,12 @@ function getSummary(areaID){
     dataType: "xml",
 
     success: function(xml){
-     /// console.log(xml);
+     /// //console.log(xml);
 
       var subjects = $(this).find('SubjectsWithCount').children('SubjectWithCount').length;
       //console.log( "n o subs " + subjects);
       $(xml).find('Count').each(function(){
-       /// console.log( $(this) );
+       /// //console.log( $(this) );
         count.push( parseInt( $(this).text() ) );
         subjectCount++;
 
@@ -210,7 +210,7 @@ function getSummary(areaID){
     },
 
     error: function() {
-      console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
+      //console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
       var extract = "The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.";
       $('#extract').html( extract );
     }
@@ -220,7 +220,7 @@ function getSummary(areaID){
 
 function clearPanel(){
 
- // console.log("clear");
+ // //console.log("clear");
   $( "#panel" ).animate({
     top: 110
     }, 100, function() {
@@ -232,7 +232,7 @@ function clearPanel(){
 }
 
 function getData(areaID){
-  console.log ("getData " + areaID);
+  //console.log ("getData " + areaID);
   var titles = [];
   var values = [];
   var subjectCount = 0;
@@ -243,7 +243,7 @@ function getData(areaID){
     countryId = "";
   }
 
-  console.log ("getData " + DATA_URL + areaID  + countryId + "&Variables=" + subjects[subjectId].vars.toString());
+  //console.log ("getData " + DATA_URL + areaID  + countryId + "&Variables=" + subjects[subjectId].vars.toString());
 
   $.ajax({
     type: "GET",
@@ -304,7 +304,7 @@ function getData(areaID){
     },
 
     error: function() {
-      console.warn("An error occurred while processing XML file.");
+      //console.warn("An error occurred while processing XML file.");
       var extract = "The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.";
       $('#extract').html( extract );
     }

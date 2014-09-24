@@ -17,10 +17,6 @@ var areas = (function () {
 
 
     function loadData(callBack){
-      console.log("load data");
-
-
-
 
       $.ajax({
         dataType: "text",
@@ -40,9 +36,7 @@ var areas = (function () {
 
 
     function splitAreas(  ) {
-      console.log("split areas");
       $('.selectpicker').selectpicker('render');
-
       $("#message").text( "Processing Area Data" );
 
       //code,name,entity,county,region
@@ -121,7 +115,6 @@ var areas = (function () {
       $('#region').append(optionHTML);
       $('.selectpicker').selectpicker('refresh');
 
-
     }
 
 
@@ -132,7 +125,7 @@ var areas = (function () {
           str += $( this ).val();
         });
 
-console.log("get region " + str)
+
      // showData( str );
       //updateDisplay( str );
       setArea( str );

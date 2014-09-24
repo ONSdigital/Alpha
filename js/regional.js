@@ -6,10 +6,9 @@ var regional = (function () {
   var model = {};
 
   $(document).ready(function() {
-    console.log("Regional ready!");
     areas.loadData(parseAreas);
 
-    addListeners();
+
     $('#slide-panel').removeClass('visible');
 
     $('#loader').modal('show');
@@ -20,7 +19,7 @@ var regional = (function () {
     initialize();
 
 //    $('.selectpicker').selectpicker('render');
-    
+
 
   });
 
@@ -32,15 +31,13 @@ var regional = (function () {
 
   function parseAreas(data){
     model = data;
-    //console.log (model);
     loadPopData();
+
+    addListeners();
   }
 
 
   function addListeners(){
-    
-
-    console.log("add listneres "  );
     $("#region").change(function(e) {
       return areas.getRegion(1);
     });
