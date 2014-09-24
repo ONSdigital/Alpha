@@ -45,10 +45,12 @@ var subjects =  [
         ];
 
 
-var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EH8 9YL", "EX4 4SB",
- "G12 8QQ", "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
-  "OX1 2JD",  "BT7 1NN", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
-  "E1 4NS", "WC2A 2AE", "WC2R 2LS" , "PO6 3NH"];
+var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EX4 4SB",
+  "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
+  "OX1 2JD", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
+  "E1 4NS", "WC2A 2AE", "WC2R 2LS"
+//,"EH8 9YL","G12 8QQ",  "BT7 1NN"
+  ];
 
   var subjectId = 8;
 
@@ -56,35 +58,6 @@ $(document).ready(function(){
 
       clearPanel();
       setSubject();
-
-/*
-
-    $("#search").click( function(evt){
-      evt.preventDefault();
-      clearPanel();
-      setSubject();
-
-      testPostCode();
-    })
-*/
-/*
-    $("#go").click( function(evt){
-      evt.preventDefault();
-      clearPanel();
-      setSubject();
-
-      var ran = Math.floor(Math.random()*postcodes.length);
-      var pcode = postcodes[ran];
-      $("#postcode").val( pcode );
-      testPostCode();
-    })
-*/
-
-
-/*
-
-
-*/
 
 });
 

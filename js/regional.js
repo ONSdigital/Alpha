@@ -16,7 +16,7 @@ var regional = (function () {
     // init chart options and load individual charts
     initCharts();
     //init map
-    initialize();
+    initializeMap();
 
 //    $('.selectpicker').selectpicker('render');
 

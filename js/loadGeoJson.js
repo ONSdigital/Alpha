@@ -4,7 +4,9 @@
 
 
 
-      function initialize() {
+      function initializeMap() {
+
+        console.log("init map");
         // Create a simple map.
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 10,
@@ -107,6 +109,21 @@
     }
 
 
+    function displayArea(id){
+      console.log("displayArea");
+
+      map.data.forEach( function (feature){
+        if(feature.getProperty("LAD11CD")===id){
+          feature.setProperty('isSelected', true);
+        }else{
+          feature.setProperty('isSelected', false);
+        }
+
+      })
+
+    }
+
+
     function getCentroid(coords) {
 
           var minLat = 360.0;
@@ -151,4 +168,4 @@
      return new google.maps.LatLng(avLat, avLng);
     }
 
-    google.maps.event.addDomListener(window, 'load', initialize);
+    //google.maps.event.addDomListener(window, 'load', initialize);

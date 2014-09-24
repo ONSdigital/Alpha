@@ -158,10 +158,15 @@ function testPostCode () {
     console.log("ONS " + ons_id );
 
     //updateDisplay( ons_id );
+
+    //stroe id for reference later when toggling area
     setArea( ons_id );
     showSummary(ons_id);
    // getBoundaries(ons_id);
     showPoint(lat,lon);
+
+    // display the distric boundry on the map
+    displayArea( ons_id );
 
 
   }
@@ -830,7 +835,6 @@ console.log( $.inArray( id , comparisons ) );
 
 
 
-
 function checkAllData(  ) {
   var now = Date.now();
 
@@ -844,7 +848,6 @@ function checkAllData(  ) {
 
 
 function processData(  ) {
-
 
 $("#areas").empty();
   var selection = "<option>Pick an area...</option>";
