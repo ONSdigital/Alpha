@@ -182,8 +182,8 @@ function testPostCode () {
 
 
   function removeArea( id ){
-    console.log("REMOVE " + id);
-    console.log( areaObj[id] );
+    //console.log("REMOVE " + id);
+    //console.log( areaObj[id] );
     var len = comparisons.length - 1;
 
     for( var i=len; i>=0; i--) {
@@ -199,10 +199,10 @@ function testPostCode () {
 
 
   function addArea( id ){
-console.log( $.inArray( id , comparisons ) );
+    //console.log( $.inArray( id , comparisons ) );
     if( $.inArray( id , comparisons ) === -1){
      comparisons.push(id);
-      console.log("ADD " + id);
+      //console.log("ADD " + id);
 
     }
 
@@ -223,10 +223,10 @@ console.log( $.inArray( id , comparisons ) );
 
   function updateComparisonList(){
     $.each(comparisons, function (index, value){
-       console.log(index , value);
+       //console.log(index , value);
        var item = areaObj[value];
 
-       console.log(item.name +":" + item.code);
+       //console.log(item.name +":" + item.code);
     });
     displayComparisonList();
   }
@@ -234,8 +234,8 @@ console.log( $.inArray( id , comparisons ) );
   function showSummary( id ) {
 
 
-    console.log(areaObj[id]);
-    console.log(areaObj[id].trends[2] +" (" + (YEAR-10) + ")");
+    //console.log(areaObj[id]);
+    //console.log(areaObj[id].trends[2] +" (" + (YEAR-10) + ")");
     // region / county / district
     $("#name").text(areaObj[id].name);
     $("#pop").text( areaObj[id].trends[12] +" (" + YEAR + ")");
@@ -293,9 +293,9 @@ console.log( $.inArray( id , comparisons ) );
 
 
 
-    console.log(areaObj[id].changes.births_2003);
-    console.log(areaObj[id].changes);
-    console.log(areaObj[id]);
+    //console.log(areaObj[id].changes.births_2003);
+    //console.log(areaObj[id].changes);
+    //console.log(areaObj[id]);
 
     $("#birth").text(areaObj[id].changes.births + " (2013)");
     $("#death").text(areaObj[id].changes.deaths + " (2013)");
@@ -359,7 +359,7 @@ console.log( $.inArray( id , comparisons ) );
       pyramidThumb.series[1].setData( areaObj[id].series.female );
       pyramidThumb.series[0].setData( areaObj[id].series.male );
 
-      console.log(areaObj[id].expectancy);
+      //console.log(areaObj[id].expectancy);
       lifeThumb.series[0].setData( areaObj[id].expectancy.male );
       lifeThumb.series[1].setData( areaObj[id].expectancy.female );
 
@@ -439,9 +439,9 @@ console.log( $.inArray( id , comparisons ) );
         }
       }
 
-    console.log(natural.length);
+    c//onsole.log(natural.length);
     if(natural.length===0){
-    console.log("RESET");
+      //console.log("RESET");
       natural = [0];
       uk = [0];
       migration = [0];
@@ -451,12 +451,12 @@ console.log( $.inArray( id , comparisons ) );
       o64 = [0];
     }
 
-    console.log(u18);
-    console.log(adult);
-    console.log(o64);
+    //console.log(u18);
+    //console.log(adult);
+    //console.log(o64);
 
     $.each(trends, function (index, value){
-      console.log(name[index]);
+      //console.log(name[index]);
       chartTrend.series[index].setData( value );
       chartTrend.series[index].name = name[index];
       chartTrend.series[index].show( );
@@ -644,7 +644,6 @@ console.log( $.inArray( id , comparisons ) );
       });
 
 
-
       //TODO Set proper title based on ...
       displayText = "Population Comparison: Regions";
       displayText = "Population Comparison: Counties & Unitary Authorities";
@@ -653,12 +652,7 @@ console.log( $.inArray( id , comparisons ) );
 
       $("#popComparison").text( displayText );
 
-
-        barChart = $('#stackedBar').highcharts();
-
-
-
-
+      barChart = $('#stackedBar').highcharts();
       barChart.series[0].setData( totalData );
       barChart.xAxis[0].setCategories(totalCats);
 
@@ -715,7 +709,7 @@ console.log( $.inArray( id , comparisons ) );
 
 
     function showCharts(){
-      console.log("show charts");
+      //console.log("show charts");
 
       $.each(comparisons, function (index, value){
         //console.log(index, value);
@@ -723,7 +717,7 @@ console.log( $.inArray( id , comparisons ) );
         var count = index+1;
         var pc = Math.round ( 10000 * item.changes["natural change"] / item.changes.previous ) / 100;
 
-        console.log(item);
+        //console.log(item);
 
         $("#title"+count).text( item.name );
         $("#nowComp"+count).text( item.trends[12] );
