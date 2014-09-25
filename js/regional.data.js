@@ -24,13 +24,15 @@ var areaObj = {};
 var barChart;
 var trendThumb;
 var genderThumb;
-var changeThumb;
 var pyramidThumb;
 var lifeThumb;
 var chartEmploy;
 var chartUnemploy;
 var chartInactivity;
 var chartClaimant;
+
+var pyramid1;
+var pyramid2;
 
 
 var areaMap = {};
@@ -345,41 +347,29 @@ function testPostCode () {
 
     genderThumb.series[0].setData( chartData );
 
+    pyramidThumb.series[1].setData( areaObj[id].series.female );
+    pyramidThumb.series[0].setData( areaObj[id].series.male );
+
+    lifeThumb.series[0].setData( areaObj[id].expectancy.male );
+    lifeThumb.series[1].setData( areaObj[id].expectancy.female );
 
 
-      changeThumb.series[2].setData( [areaObj[id].changes["natural change"]] );
-      changeThumb.series[2].name = "Natural Change";
-      changeThumb.series[1].setData( [areaObj[id].changes["Internal Net"]] );
-      changeThumb.series[1].name = "UK Movement";
-      changeThumb.series[0].setData( [areaObj[id].changes["International Net"]] );
-      changeThumb.series[0].name = "Migration";
-      changeThumb.xAxis[0].setCategories( [areaObj[id].name] );
+    var parent = areas.getParent(id);
+    chartEmploy.series[2].setData( [ areaObj[id].labour.employment ] );
+    chartEmploy.series[2].name = areaObj[id].name;
+    chartEmploy.series[1].setData( [ areaObj[parent].labour.employment ] );
+    chartEmploy.series[1].name = areaObj[parent].name;
+    chartEmploy.series[0].setData( [ areaObj[uk].labour.employment  ] );
+    chartEmploy.series[0].name = areaObj[uk].name;
+    chartEmploy.redraw();
 
-     // pyramidThumb.setTitle({text: areaObj[id].name });
-      pyramidThumb.series[1].setData( areaObj[id].series.female );
-      pyramidThumb.series[0].setData( areaObj[id].series.male );
-
-      //console.log(areaObj[id].expectancy);
-      lifeThumb.series[0].setData( areaObj[id].expectancy.male );
-      lifeThumb.series[1].setData( areaObj[id].expectancy.female );
-
-
-      var parent = areas.getParent(id);
-      chartEmploy.series[2].setData( [ areaObj[id].labour.employment ] );
-      chartEmploy.series[2].name = areaObj[id].name;
-      chartEmploy.series[1].setData( [ areaObj[parent].labour.employment ] );
-      chartEmploy.series[1].name = areaObj[parent].name;
-      chartEmploy.series[0].setData( [ areaObj[uk].labour.employment  ] );
-      chartEmploy.series[0].name = areaObj[uk].name;
-      chartEmploy.redraw();
-
-      chartUnemploy.series[2].setData( [ areaObj[id].labour.unemployment ] );
-      chartUnemploy.series[2].name = areaObj[id].name;
-      chartUnemploy.series[1].setData( [ areaObj[parent].labour.unemployment ] );
-      chartUnemploy.series[1].name = areaObj[parent].name;
-      chartUnemploy.series[0].setData( [ areaObj[uk].labour.unemployment  ] );
-      chartUnemploy.series[0].name = areaObj[uk].name;
-      chartUnemploy.redraw();
+    chartUnemploy.series[2].setData( [ areaObj[id].labour.unemployment ] );
+    chartUnemploy.series[2].name = areaObj[id].name;
+    chartUnemploy.series[1].setData( [ areaObj[parent].labour.unemployment ] );
+    chartUnemploy.series[1].name = areaObj[parent].name;
+    chartUnemploy.series[0].setData( [ areaObj[uk].labour.unemployment  ] );
+    chartUnemploy.series[0].name = areaObj[uk].name;
+    chartUnemploy.redraw();
 
   }
 
@@ -743,6 +733,9 @@ function testPostCode () {
         $("#unemploymentComp"+count).text( item.labour.unemployment );
         $("#inactivityComp"+count).text( item.labour.inactivity );
         $("#claimantComp"+count).text( item.labour.claimant );
+
+        window["pyramid"+count].series[1].setData( item.series.female );
+        window["pyramid"+count].series[0].setData( item.series.male );
 
       });
 

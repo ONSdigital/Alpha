@@ -99,10 +99,10 @@
   }
 
   .quarterChart{
-    height:100px;
+    height:120px;
   }
   .halfChart{
-    height:200px;
+    height:240px;
   }
   .regionName{
     width:100%;
@@ -458,96 +458,58 @@
     <div class="row">
       <!--  START OF LEFT COLUMN  -->
       <div id="" class="col-sm-6">
-        <!-- <div id="" class="panel"> -->
+        <div id="" class="panel">
           <h3>Population</h3>
 
           <div class="row">
-          <div id="" class="col-sm-8">
-            <span id="name">&nbsp;</span>
-          </div>
-          <div id="" class="col-sm-4 text-right">
-            <b><span id="pop"></span></b>
-          </div>
+            <div id="" class="col-sm-8">
+              <span id="name">&nbsp;</span>
+            </div>
+            <div id="" class="col-sm-4 text-right">
+              <b><span id="pop"></span></b>
+            </div>
           </div>
           <div class="row">
-          <div id="" class="col-sm-8">
-            <span id="name">&nbsp;</span>
-          </div>
-          <div id="" class="col-sm-4 text-right">
-            <span id="pop2"></span>
-          </div>
+            <div id="" class="col-sm-8">
+              <span id="name">&nbsp;</span>
+            </div>
+            <div id="" class="col-sm-4 text-right">
+              <span id="pop2"></span>
+            </div>
           </div>
 
           <br/>
           <div class="row">
-          <div id="" class="col-sm-8">
-            <span id="parent_name">&nbsp;</span>
-          </div>
-          <div id="" class="col-sm-4 text-right">
-            <span id="parent_pop"></span>
-          </div>
-          </div>
-          <br/>
-          <div class="row">
-          <div id="" class="col-sm-8">
-            <span id="gparent_name">&nbsp;</span>
-          </div>
-          <div id="" class="col-sm-4 text-right">
-           <span id="gparent_pop"></span>
-          </div>
+            <div id="" class="col-sm-8">
+              <span id="parent_name">&nbsp;</span>
+            </div>
+            <div id="" class="col-sm-4 text-right">
+              <span id="parent_pop"></span>
+            </div>
           </div>
           <br/>
           <div class="row">
-          <div id="" class="col-sm-8">
-            <span id="ancestor_name">&nbsp;</span>
+            <div id="" class="col-sm-8">
+              <span id="gparent_name">&nbsp;</span>
+            </div>
+            <div id="" class="col-sm-4 text-right">
+             <span id="gparent_pop"></span>
+            </div>
           </div>
-          <div id="" class="col-sm-4 text-right">
-            <span id="ancestor_pop"></span>
-          </div>
-          </div>
-
           <br/>
-
-<!--
-          <div id="" class="">
-            <h3>Trend</h3>
-            <div id="thumbTrend" class="thumbChart"></div>
+          <div class="row">
+            <div id="" class="col-sm-8">
+              <span id="ancestor_name">&nbsp;</span>
+            </div>
+            <div id="" class="col-sm-4 text-right">
+              <span id="ancestor_pop"></span>
+            </div>
           </div>
- -->
-
-          <div id="" class="">
-            <h3>Gender</h3>
-            <div id="thumbGender" class="quarterChart"></div>
-          </div>
-
-
-          <div id="" class="">
-            <h3>Population Pyramid</h3>
-            <div id="thumbPyramid" class="halfChart"></div>
-          </div>
-
-
-          <div id="" class="">
-            <h3>Healthy Life Expectancy</h3>
-            <div id="thumbLife" class="halfChart"></div>
-          </div>
+        </div>
 
 
 
-        <!-- </div> -->
-
-      </div>
-      <!--  END OF LEFT COLUMN  -->
-
-      <!--  START OF RIGHT COLUMN  -->
-      <div id="" class="col-sm-6">
-        <h3>Annual Change</h3>
-        <div id="thumbChange" class="quarterChart"></div>
-      </div>
-
-
-      <div id="" class="col-sm-6">
-          <div id="" class="panel">
+        <div id="" class="panel">
           <h3>Natural Change</h3>
 
           <div class="row">
@@ -594,72 +556,103 @@
           <div id="" class="col-sm-4 text-right">
             <b><span id="natChange">Net -1000</span></b>
           </div>
-          This is a <span id="natPercent"></span>% change compared with 2012.
           </div>
+          <br/>
+          This is a <span id="natPercent"></span>% change compared with 2012.
+        </div>
+
+        <div id="" class="panel">
+          <h3>Migration</h3>
+
+          <div class="row">
+          <div id="" class="col-sm-6">
+            <span id="name">Internal Migration (within UK)</span>
+          </div>
+          <div id="" class="col-sm-6 text-right">
+            <span id="internalIn">1321 (in 2013)</span>
+          </div>
+          </div>
+
+          <div class="row">
+          <div id="" class="col-sm-6">
+            <span id="parent_name">&nbsp;</span>
+          </div>
+          <div id="" class="col-sm-6 text-right">
+            <span id="internalOut">1423 (in 2003)</span>
+          </div>
+          </div>
+
+          <br/>
+          <div class="row">
+          <div id="" class="col-sm-6">
+            <span id="ancestor_name">&nbsp;</span>
+          </div>
+          <div id="" class="col-sm-6 text-right">
+            <b><span id="internalNet">Net -1000</span></b>
+          </div>
+          </div>
+
+          <br/>
+          <div class="row">
+          <div id="" class="col-sm-6">
+            <span id="gparent_name">International Migration</span>
+          </div>
+          <div id="" class="col-sm-6 text-right">
+           <span id="externalIn">2132 (in 2013)</span>
+          </div>
+          </div>
+
+          <div class="row">
+          <div id="" class="col-sm-6">
+            <span id="ancestor_name">&nbsp;</span>
+          </div>
+          <div id="" class="col-sm-6 text-right">
+            <span id="externalOut">1546 (in 2003)</span>
+          </div>
+          </div>
+
+          <br/>
+          <div class="row">
+          <div id="" class="col-sm-6">
+            <span id="ancestor_name">&nbsp;</span>
+          </div>
+          <div id="" class="col-sm-6 text-right">
+            <b><span id="externalNet">Net -1000</span></b>
+          </div>
+          </div>
+          <br/>
+          There were also <span id="other"></span> <i>'Other'</i> changes compared with 2012.
+        </div>
+
+
+
+
+
+        <!-- </div> -->
+
       </div>
+      <!--  END OF LEFT COLUMN  -->
 
-      <div id="" class="panel">
-        <h3>Migration</h3>
+      <!--  START OF RIGHT COLUMN  -->
+      <div id="" class="col-sm-6">
 
-        <div class="row">
-        <div id="" class="col-sm-6">
-          <span id="name">Internal Migration (within UK)</span>
-        </div>
-        <div id="" class="col-sm-6 text-right">
-          <span id="internalIn">1321 (in 2013)</span>
-        </div>
+        <div id="" class="">
+          <h3>Population Pyramid</h3>
+          <div id="thumbPyramid" class="halfChart"></div>
         </div>
 
-        <div class="row">
-        <div id="" class="col-sm-6">
-          <span id="parent_name">&nbsp;</span>
-        </div>
-        <div id="" class="col-sm-6 text-right">
-          <span id="internalOut">1423 (in 2003)</span>
-        </div>
+        <div id="" class="">
+          <h3>Gender</h3>
+          <div id="thumbGender" class="quarterChart"></div>
         </div>
 
-        <br/>
-        <div class="row">
-        <div id="" class="col-sm-6">
-          <span id="ancestor_name">&nbsp;</span>
-        </div>
-        <div id="" class="col-sm-6 text-right">
-          <b><span id="internalNet">Net -1000</span></b>
-        </div>
+        <div id="" class="">
+          <h3>Healthy Life Expectancy</h3>
+          <div id="thumbLife" class="halfChart"></div>
         </div>
 
-        <br/>
-        <div class="row">
-        <div id="" class="col-sm-6">
-          <span id="gparent_name">International Migration</span>
-        </div>
-        <div id="" class="col-sm-6 text-right">
-         <span id="externalIn">2132 (in 2013)</span>
-        </div>
-        </div>
 
-        <div class="row">
-        <div id="" class="col-sm-6">
-          <span id="ancestor_name">&nbsp;</span>
-        </div>
-        <div id="" class="col-sm-6 text-right">
-          <span id="externalOut">1546 (in 2003)</span>
-        </div>
-        </div>
 
-        <br/>
-        <div class="row">
-        <div id="" class="col-sm-6">
-          <span id="ancestor_name">&nbsp;</span>
-        </div>
-        <div id="" class="col-sm-6 text-right">
-          <b><span id="externalNet">Net -1000</span></b>
-        </div>
-        </div>
-        <br/>
-        There were also <span id="other"></span> <i>'Other'</i> changes compared with 2012.
-      </div>
       </div>
 
 
@@ -760,7 +753,7 @@
 
 
     <!--  comparison charts  -->
-    <div id="comparison">
+    <div id="comparison"><a id="comparisonTop"></a>
 
       <!--  HEADINGS  -->
       <div class="row">
@@ -820,7 +813,33 @@
             </div>
           </div>
         </div>
+    </div>
 
+
+    <div class="row shim">
+    </div>
+
+
+
+    <div class="row">
+
+        <!--  LEFT HAND SIDE  -->
+        <div id="" class="col-sm-6">
+          <div class="row">
+            <div id="pyramid1" class="halfChart"></div>
+          </div>
+        </div>
+
+        <!--  RIGHT HAND SIDE  -->
+        <div id="" class="col-sm-6">
+          <div class="row">
+            <div id="pyramid2" class="halfChart"></div>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="row shim">
     </div>
 
     <!--  NATURAL CHANGE  -->

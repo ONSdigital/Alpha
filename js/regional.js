@@ -61,6 +61,8 @@ var regional = (function () {
       console.log("showBtn "  );
 
       showCharts();
+      location.hash = "#comparisonTop";
+
     })
 
     $("#clearBtn").click( function(evt){

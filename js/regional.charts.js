@@ -266,7 +266,7 @@ var options = {
                     'Annual Change: '+ Highcharts.numberFormat( this.point.y ,0);
       }
     }
-    changeThumb = new Highcharts.Chart(options);
+    //changeThumb = new Highcharts.Chart(options);
 
 
 
@@ -463,4 +463,8 @@ var options = {
 
    pyramidThumb = new Highcharts.Chart(options);
 
+   options.chart.renderTo = 'pyramid1';
+   pyramid1 = new Highcharts.Chart(options);
+   options.chart.renderTo = 'pyramid2';
+   pyramid2 = new Highcharts.Chart(options);
   }
