@@ -6,20 +6,19 @@ var regional = (function () {
   var model = {};
 
   $(document).ready(function() {
-    console.log("Regional ready!");
     areas.loadData(parseAreas);
 
-    addListeners();
 
+    $('#slide-panel').removeClass('visible');
 
     $('#loader').modal('show');
 
     // init chart options and load individual charts
     initCharts();
     //init map
-    initialize();
+    initializeMap();
 
-    $('.selectpicker').selectpicker('render');
+//    $('.selectpicker').selectpicker('render');
 
 
   });
@@ -32,8 +31,9 @@ var regional = (function () {
 
   function parseAreas(data){
     model = data;
-    //console.log (model);
     loadPopData();
+
+    addListeners();
   }
 
 
@@ -49,16 +49,20 @@ var regional = (function () {
     });
 
 
+
+
     $("#search").click( function(evt){
       evt.preventDefault();
       testPostCode();
     })
 
-    $("#viewBtn").click( function(evt){
+    $("#showBtn").click( function(evt){
       evt.preventDefault();
-      console.log("VIEW updateDisplay "  + lastArea);
+      console.log("showBtn "  );
 
-      showSingle(lastArea);
+      showCharts();
+      location.hash = "#comparisonTop";
+
     })
 
     $("#clearBtn").click( function(evt){
@@ -66,7 +70,9 @@ var regional = (function () {
       console.log("CLEAR");
 
       comparisons =[];
-      updateDisplay();
+      //updateDisplay();
+      checkComparisonList();
+      updateComparisonList();
 
     })
     $("#addBtn").click( function(evt){

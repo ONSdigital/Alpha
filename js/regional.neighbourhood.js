@@ -19,6 +19,7 @@ http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01
 var POSTCODE = "NP198FP";
 
 var URL = "http://neighbourhood.statistics.gov.uk/NDE2/Disco/FindAreas?Postcode=";// + "&LevelType=13&HierarchyId=17";
+var NAME_URL = "http://neighbourhood.statistics.gov.uk/NDE2/Disco/FindAreas?AreaNamePart=";// + "&LevelType=13&HierarchyId=17";
 var SUBJECTS_URL = "http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetCompatibleSubjects?AreaId=";
 var DATA_URL = "http://neighbourhood.statistics.gov.uk/NDE2/Deli/getTables?Areas=";
 
@@ -44,10 +45,12 @@ var subjects =  [
         ];
 
 
-var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EH8 9YL", "EX4 4SB",
- "G12 8QQ", "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
-  "OX1 2JD",  "BT7 1NN", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
-  "E1 4NS", "WC2A 2AE", "WC2R 2LS" , "PO6 3NH"];
+var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EX4 4SB",
+  "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
+  "OX1 2JD", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
+  "E1 4NS", "WC2A 2AE", "WC2R 2LS"
+//,"EH8 9YL","G12 8QQ",  "BT7 1NN"
+  ];
 
   var subjectId = 8;
 
@@ -55,35 +58,6 @@ $(document).ready(function(){
 
       clearPanel();
       setSubject();
-
-/*
-
-    $("#search").click( function(evt){
-      evt.preventDefault();
-      clearPanel();
-      setSubject();
-
-      testPostCode();
-    })
-*/
-/*
-    $("#go").click( function(evt){
-      evt.preventDefault();
-      clearPanel();
-      setSubject();
-
-      var ran = Math.floor(Math.random()*postcodes.length);
-      var pcode = postcodes[ran];
-      $("#postcode").val( pcode );
-      testPostCode();
-    })
-*/
-
-
-/*
-
-
-*/
 
 });
 
@@ -107,44 +81,34 @@ function setSubject(){
 
   }
 
-console.log (random + " subjectId " + subjectId);
+//console.log (random + " subjectId " + subjectId);
 }
 
 
-/*
-function testPostCode () {
-  var newPostCode = checkPostCode( $("#postcode").val() );
-  if (newPostCode) {
-    postcode = newPostCode;
-    $("#postcode").val( newPostCode );
-    console.log ("Postcode has a valid format")
-
-    getStats(newPostCode);
-
-  }
-  else {
-    console.log ("Postcode has invalid format");
-  }
-}
-*/
-
-function getStats(postcode){
+function getStats(postcode, isPostcode){
   //randomise subject...
-  setSubject()
+  setSubject();
+  var url;
 
-  console.log ("getStats " + postcode);
+  if(isPostcode){
+    url = URL;
+  }else{
+    url = NAME_URL;
+  }
+
+  //console.log ("getStats " + postcode);
   var id;
   mainTitle = "";
 
   $.ajax({
     type: "GET",
-    url: URL + postcode,
+    url: url + postcode,
     dataType: "xml",
     success: function(xml){
-     // console.log(xml);
+     // //console.log(xml);
      // $("#content").append("<ul></ul>");
       $(xml).find('Area').each(function(){
-       // console.log($(this) );
+       // //console.log($(this) );
         var sLevel = $(this).find('LevelTypeId').text();
         var hierarch = $(this).find('HierarchyId').text();
         var areaID = $(this).find('AreaId').text();
@@ -171,7 +135,7 @@ function getStats(postcode){
 
     },
     error: function() {
-      console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
+      //console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
       var extract = "The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.";
       $('#extract').html( extract );
     }
@@ -193,12 +157,12 @@ function getSummary(areaID){
     dataType: "xml",
 
     success: function(xml){
-     /// console.log(xml);
+     /// //console.log(xml);
 
       var subjects = $(this).find('SubjectsWithCount').children('SubjectWithCount').length;
       //console.log( "n o subs " + subjects);
       $(xml).find('Count').each(function(){
-       /// console.log( $(this) );
+       /// //console.log( $(this) );
         count.push( parseInt( $(this).text() ) );
         subjectCount++;
 
@@ -219,7 +183,7 @@ function getSummary(areaID){
     },
 
     error: function() {
-      console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
+      //console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
       var extract = "The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.";
       $('#extract').html( extract );
     }
@@ -229,7 +193,7 @@ function getSummary(areaID){
 
 function clearPanel(){
 
- // console.log("clear");
+ // //console.log("clear");
   $( "#panel" ).animate({
     top: 110
     }, 100, function() {
@@ -241,7 +205,7 @@ function clearPanel(){
 }
 
 function getData(areaID){
-  console.log ("getData " + areaID);
+  //console.log ("getData " + areaID);
   var titles = [];
   var values = [];
   var subjectCount = 0;
@@ -252,7 +216,7 @@ function getData(areaID){
     countryId = "";
   }
 
-  console.log ("getData " + DATA_URL + areaID  + countryId + "&Variables=" + subjects[subjectId].vars.toString());
+  //console.log ("getData " + DATA_URL + areaID  + countryId + "&Variables=" + subjects[subjectId].vars.toString());
 
   $.ajax({
     type: "GET",
@@ -313,7 +277,7 @@ function getData(areaID){
     },
 
     error: function() {
-      console.warn("An error occurred while processing XML file.");
+      //console.warn("An error occurred while processing XML file.");
       var extract = "The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.";
       $('#extract').html( extract );
     }
