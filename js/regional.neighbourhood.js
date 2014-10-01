@@ -12,7 +12,20 @@ http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetSubjects?
 //use subject id to get datasets
 http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetDatasets?SubjectId=14&AreaId=276980
 // pick a dataset and get varId's
-http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01-01:2010-12-31&DSFamilyId=215
+http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01-01:2010-12-31&DSFamilyId=2567
+
+*/
+
+
+/*
+// for this NeSS page:
+http://www.neighbourhood.statistics.gov.uk/dissemination/LeadTableView.do?a=7&b=6275035&c=bristol&d=13&e=7&g=6388788&i=1001x1003x1004&m=0&r=1&s=1412168129760&enc=1&dsFamilyId=2567&nsjs=true&nsck=false&nssvg=false&nswid=1359
+//use subjectID=7
+http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetDatasetFamilies?SubjectId=7&AreaId=6094211
+Method of Travel to Work, 2011 (QS701EW), DSFamilyId=2567
+http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01-01:2014-09-01&DSFamilyId=2567
+// get var family id
+9754, 9755, 9756, 9757, 9758, 9759, 9760, 9761, 9762, 9763, 9764, 9765, 9766
 
 */
 
@@ -34,7 +47,8 @@ var subjects =  [
           , { id: 4, name: 'Economic Deprivation', short: 'Deprivation', vars:[] }
           , { id: 5, name: 'Education, Skills and Training', short: 'Education', vars:[9993,9994,9995,9996] }
           , { id: 6, name: 'Health and Care', short: 'Health', vars:[] }
-          , { id: 7, name: 'Housing', short: 'Housing', vars:[5214,5207,5226,5221,5209,5593] }
+          , { id: 7, name: 'Housing', desc:'people who method of travel was', short: 'Housing', vars:[9754, 9755, 9756, 9757, 9758, 9759, 9760, 9761, 9762, 9763, 9764, 9765] }
+         // , { id: 7, name: 'Housing', desc:'people who method of travel was', short: 'Housing', vars:[6583] }
         //  , { id: 7, name: 'Housing', short: 'Housing', vars:[5214,5207,5226,5221,5209,5593,5204,5199,5205,5211,5213,5206,5215,5200,5222,5202,5224,5216,5592,5208,5203,5201,5595,5225,5210,5198,5212,5594] }
           , { id: 46, name: 'Indicators', short: 'Indicators', vars:[] }
           , { id: 10, name: 'Indices of Deprivation and Classification', short: 'Indices of Deprivation', vars:[] }
@@ -44,6 +58,37 @@ var subjects =  [
           , { id: 9, name: 'Work Deprivation', short: 'Work Deprivation', vars:[] }
         ];
 
+
+///3924 - id for band A dwelling
+/*
+
+
+
+       Total Number of Dwellings (Dwellings, Mar11)
+        http://www.neighbourhood.statistics.gov.uk/dissemination/LeadKeyFigures.do?a=7&b=6275035&c=bristol&d=13&e=7&g=6388788&i=1001x1003x1004&m=0&r=1&s=1411986497050&enc=1
+
+        Bicycle (Persons)
+        http://www.neighbourhood.statistics.gov.uk/dissemination/LeadTableView.do?a=7&b=6275035&c=bristol&d=13&e=7&g=6388788&i=1001x1003x1004&m=0&r=1&s=1411986497050&enc=1&dsFamilyId=2567
+        http://www.neighbourhood.statistics.gov.uk/dissemination/LeadTableView.do?
+        a=7
+        &b=6275035
+        &c=bristol
+        &d=13
+        &e=7&
+        g=6388788
+        i=1001x1003x1004
+        &m=0
+        &r=1
+        &s=1411986497050
+        &enc=1
+        &dsFamilyId=2567
+
+        Dwelling Stock by Council Tax Band; Band A (Dwellings) - %
+        http://www.neighbourhood.statistics.gov.uk/dissemination/LeadTableView.do?a=7&b=6275035&c=bristol&d=13&e=7&g=6388788&i=1001x1003x1004&m=0&r=1&s=1411986497050&enc=1&dsFamilyId=938
+
+        Local Reference Rent; One Room (Rent)http://www.neighbourhood.statistics.gov.uk/dis
+        semination/LeadTableView.do?a=7&b=6275035&c=bristol&d=13&e=7&g=6388788&i=1001x1003x1004&m=0&r=1&s=1411986497065&enc=1&dsFamilyId=1768
+*/
 
 var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EX4 4SB",
   "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
@@ -80,7 +125,7 @@ function setSubject(){
 
 
   }
-
+subjectId = 5;
 //console.log (random + " subjectId " + subjectId);
 }
 
@@ -266,7 +311,7 @@ function getData(areaID){
 
     var countryCount = values[rand+1];
 
-    var extract = "In " + year +", " + mainTitle + " had " + count + " <i>" + description + "</i> (compared with " + countryCount + " for " + country +")."
+    var extract = "In " + year +", " + mainTitle + " had " + count + " " + subjects[subjectId].desc + " <i>" + description + "</i> (compared with " + countryCount + " for " + country +")."
     $('#extract').html( extract );
 
       $( "#panel" ).animate({
