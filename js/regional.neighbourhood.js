@@ -79,8 +79,8 @@ $(document).ready(function(){
 
 
 function setSubject(){
-  var len = 3;//subjects.length;
-  var random = Math.round( Math.random()*len ) -1;
+  var len = 2;//subjects.length;
+  var random = Math.floor( Math.random()*len );
 
   switch(random){
     case 0:
@@ -95,8 +95,8 @@ function setSubject(){
 
 
   }
-subjectId = 0;
-//console.log (random + " subjectId " + subjectId);
+  subjectId = 3;
+  //console.log (random + " subjectId " + subjectId);
 }
 
 
@@ -146,6 +146,7 @@ function getStats(postcode, isPostcode){
 
 
       $('#areaTitle').text( mainTitle +", " + postcode.toUpperCase() + ": " + subjects[subjectId].short);
+      $('#extract').html( "Requesting Neighbourhood Statistics for " +  mainTitle + "&hellip;");
 
 
     },
@@ -272,44 +273,28 @@ function getData(areaID){
       });
 
 
-//TODO.....
-    var rand = Math.floor(Math.random()*titles.length);
-    //this bit!!!!
-    rand  = (rand*2)-1;
-
-    console.log(rand);
-    var countryRef = rand + 1
-    //var rand = Math.floor(rand/2)*2;
-
     //each values is grouped with its country value
     // eg ["1.43", "24.84", "11.75", ".57"] - district, countyr, district, country
     //["6354", "1019257", "1315", "317566", "25134", "2167476", "32803", "3504299"]
 
-//todo get corret figures for arrray
-
-//or split arrya into locl and country...
-    console.log( rand +" " + rand + 1 +":::" +":"+ values);
-    var description = titles[rand];
+    // get random number
+    var base = Math.floor(Math.random()*titles.length);
+    // use it to skip every other value (the country value)
+    var rand  = base*2;
+    // and get the next value as the country value
+    var countryRef = rand + 1;
+    var description = titles[base];
     var count = values[rand];
+    var countryCount = values[countryRef];
 
-    console.log(values);
-    console.log(count);
-
-    var countryCount = values[rand + 1];
-
-    if(subjects[subjectId].desc.indexOf("%")>0){
+    if(subjects[subjectId].desc.indexOf("%")>=0){
       countryCount = countryCount+"%";
     }
 
    // var extract = "In " + year +", " + mainTitle + " had " + count + " " + subjects[subjectId].vars[rand] + " <i>" + description + "</i> (compared with " + countryCount + " for " + country +")."
     var extract = "In " + year +", " + mainTitle + " had " + count  + subjects[subjectId].desc + " <i>" + description + "</i> (compared with " + countryCount + " for " + country +")."
     $('#extract').html( extract );
-/*
-      $( "#panel" ).animate({
-        top: 0
-        }, 50, function() {
-      });
-*/
+
     },
 
     error: function() {
