@@ -6,6 +6,10 @@ var regional = (function () {
   var model = {};
 
   $(document).ready(function() {
+
+    $("#comparison").hide();
+
+
     areas.loadData(parseAreas);
 
 
@@ -60,6 +64,8 @@ var regional = (function () {
       evt.preventDefault();
       console.log("showBtn "  );
 
+      $("#comparison").show();
+
       showCharts();
       location.hash = "#comparisonTop";
 
@@ -68,6 +74,8 @@ var regional = (function () {
     $("#clearBtn").click( function(evt){
       evt.preventDefault();
       console.log("CLEAR");
+
+      $("#comparison").hide();
 
       comparisons =[];
       //updateDisplay();

@@ -12,7 +12,20 @@ http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetSubjects?
 //use subject id to get datasets
 http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetDatasets?SubjectId=14&AreaId=276980
 // pick a dataset and get varId's
-http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01-01:2010-12-31&DSFamilyId=215
+http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01-01:2010-12-31&DSFamilyId=2567
+
+*/
+
+
+/*
+// for this NeSS page:
+http://www.neighbourhood.statistics.gov.uk/dissemination/LeadTableView.do?a=7&b=6275035&c=bristol&d=13&e=7&g=6388788&i=1001x1003x1004&m=0&r=1&s=1412168129760&enc=1&dsFamilyId=2567&nsjs=true&nsck=false&nssvg=false&nswid=1359
+//use subjectID=7
+http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetDatasetFamilies?SubjectId=7&AreaId=6094211
+Method of Travel to Work, 2011 (QS701EW), DSFamilyId=2567
+http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01-01:2014-09-01&DSFamilyId=2567
+// get var family id
+9754, 9755, 9756, 9757, 9758, 9759, 9760, 9761, 9762, 9763, 9764, 9765, 9766
 
 */
 
@@ -29,60 +42,35 @@ var country;
 
 
 var subjects =  [
-            { id: 58, name: 'Census', short: 'Census', vars:[] }
-          , { id: 3, name: 'Crime and Safety', short: 'Crime', vars:[] }
-          , { id: 4, name: 'Economic Deprivation', short: 'Deprivation', vars:[] }
-          , { id: 5, name: 'Education, Skills and Training', short: 'Education', vars:[9993,9994,9995,9996] }
-          , { id: 6, name: 'Health and Care', short: 'Health', vars:[] }
-          , { id: 7, name: 'Housing', short: 'Housing', vars:[5214,5207,5226,5221,5209,5593] }
-        //  , { id: 7, name: 'Housing', short: 'Housing', vars:[5214,5207,5226,5221,5209,5593,5204,5199,5205,5211,5213,5206,5215,5200,5222,5202,5224,5216,5592,5208,5203,5201,5595,5225,5210,5198,5212,5594] }
-          , { id: 46, name: 'Indicators', short: 'Indicators', vars:[] }
-          , { id: 10, name: 'Indices of Deprivation and Classification', short: 'Indices of Deprivation', vars:[] }
-          , { id: 14, name: 'People and Society: Income and Lifestyles', short: 'Income and Lifestyles', vars:[4931,4932,4933,4934,4935,4936,4937,4938,4939,4940,4941,4942,1159,786,790,791,795,787,798,788,797,792,796,794,793] }
-          , { id: 13, name: 'People and Society: Population and Migration', short: 'Population', vars:[] }
-          , { id: 8, name: 'Physical Environment', short: 'Environment', vars:[] }
-          , { id: 9, name: 'Work Deprivation', short: 'Work Deprivation', vars:[] }
+            { id: 5, name: 'Education, Skills and Training', desc:" people who were", short: 'Education', vars:[9993,9994,9995,9996] }
+          , { id: 7, name: 'Housing', desc:" people who\'s method of travel was", short: 'Housing', vars:[9754, 9755, 9756, 9757, 9758, 9759, 9760, 9761, 9762, 9763, 9764, 9765] }
+          , { id: 7, name: 'Housing', desc:' One room rental rate....', short: 'Housing', vars:[6583] }
+          , { id: 7, name: 'Housing', desc:'% ', short: 'Housing', vars:[3924, 3938] }
+          , { id: 7, name: 'Housing', desc:' houses classifed as', short: 'Housing', vars:[9568, 9569, 9570] }
+          , { id: 7, name: 'Housing', desc:'', short: 'Housing', vars:[6583, 6585, 6592, 6588, 6590] }
+          , { id: 14, name: 'People and Society: Income and Lifestyles', desc:"", short: 'Income and Lifestyles', vars:[786,790,795,787,798,788,797,796,794,793] }
         ];
 
 
-var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EX4 4SB",
-  "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
-  "OX1 2JD", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
-  "E1 4NS", "WC2A 2AE", "WC2R 2LS"
-//,"EH8 9YL","G12 8QQ",  "BT7 1NN"
-  ];
+  var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EX4 4SB",
+    "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
+    "OX1 2JD", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
+    "E1 4NS", "WC2A 2AE", "WC2R 2LS"
+    ];
 
   var subjectId = 8;
 
-$(document).ready(function(){
+  $(document).ready(function(){
+        setSubject();
 
-      clearPanel();
-      setSubject();
-
-});
+  });
 
 
 
-function setSubject(){
-  var len = 3;//subjects.length;
-  var random = Math.round( Math.random()*len ) -1;
-
-  switch(random){
-    case 0:
-    subjectId = 3;
-    break;
-    case 1:
-    subjectId = 5;
-    break;
-    case 2:
-    subjectId = 8;
-    break;
-
-
+  function setSubject(){
+    var len = subjects.length;
+    subjectId = Math.floor( Math.random()*len );
   }
-
-//console.log (random + " subjectId " + subjectId);
-}
 
 
 function getStats(postcode, isPostcode){
@@ -105,8 +93,7 @@ function getStats(postcode, isPostcode){
     url: url + postcode,
     dataType: "xml",
     success: function(xml){
-     // //console.log(xml);
-     // $("#content").append("<ul></ul>");
+     
       $(xml).find('Area').each(function(){
        // //console.log($(this) );
         var sLevel = $(this).find('LevelTypeId').text();
@@ -131,6 +118,7 @@ function getStats(postcode, isPostcode){
 
 
       $('#areaTitle').text( mainTitle +", " + postcode.toUpperCase() + ": " + subjects[subjectId].short);
+      $('#extract').html( "Requesting Neighbourhood Statistics for " +  mainTitle + "&hellip;");
 
 
     },
@@ -157,28 +145,20 @@ function getSummary(areaID){
     dataType: "xml",
 
     success: function(xml){
-     /// //console.log(xml);
-
       var subjects = $(this).find('SubjectsWithCount').children('SubjectWithCount').length;
-      //console.log( "n o subs " + subjects);
+      
       $(xml).find('Count').each(function(){
-       /// //console.log( $(this) );
         count.push( parseInt( $(this).text() ) );
         subjectCount++;
-
 
       });
       var total = count.reduce(function(a, b) {
             return a + b;
           });
 
-    //console.log( count );
-    //console.log( subjectCount +":"+ total);
-
     var summary = "This postcode is part of the " + mainTitle.toUpperCase() + " administrative area.";
     summary += " There are " + total + " datasets containing data on " + subjectCount + " different subjects for this neighbourhood.";
     $('#summary').text( summary );
-
 
     },
 
@@ -191,21 +171,10 @@ function getSummary(areaID){
 
 }
 
-function clearPanel(){
 
- // //console.log("clear");
-  $( "#panel" ).animate({
-    top: 110
-    }, 100, function() {
-    // Animation complete.
-  //console.log("clear complete");
-    $('#extract').html( "" );
-  });
-
-}
 
 function getData(areaID){
-  //console.log ("getData " + areaID);
+  
   var titles = [];
   var values = [];
   var subjectCount = 0;
@@ -216,68 +185,69 @@ function getData(areaID){
     countryId = "";
   }
 
-  //console.log ("getData " + DATA_URL + areaID  + countryId + "&Variables=" + subjects[subjectId].vars.toString());
-
   $.ajax({
     type: "GET",
-   // url: DATA_URL + areaID  + countryId + "&Variables=9993,9994,9995,9996&GroupByDataset=Yes",
-   // url: DATA_URL + areaID  + countryId + "&Variables=5214,5207,5226,5221,5209,5593,5204,5199,5205,5211,5213,5206,5215,5200,5222,5202,5224,5216,5592,5208,5203,5201,5595,5225,5210,5198,5212,5594&GroupByDataset=Yes",
     url: DATA_URL + areaID  + countryId + "&Variables=" + subjects[subjectId].vars.toString() + "&GroupByDataset=Yes",
     dataType: "xml",
 
     success: function(xml){
-      //console.log("DATA");
-      //console.log(xml);
-      //console.log($(xml).find('ns3\\:Period').text());
-      //console.log($(xml).find('Period').text());
 
-      // Need to work out how to handle namespaced prefixes on some
-      // elements.
+      //check for namespace prefix
       var prefix = "ns3\\:"; // Most prefer this...
-      date= $(xml).find( prefix + "Period" ).find( prefix + 'Date').text();;
-      if( date.length === 0 )
-      {
-          prefix = ""; // ...but some don't!
-          date = $(xml).find( prefix + "Period" ).find( prefix + 'Date').text();;
+      var periodID= $(xml).find( prefix + "Period" ).text();
+
+      if( periodID.length === 0 ){
+        prefix = ""; // ...but some don't!
       }
 
-      //date = $(xml).find('[nodeName=ns3:Period]').find('ns3\\:Date').text();
+      date = $(xml).find( prefix + "Period" ).find( prefix + 'Date').text();
+      if( subjectId === 5 ){
+        date = $(xml).find( prefix + "Period" ).find( prefix + 'End').text();
+      }
+      
       year = date.split("-")[0];
 
       $(xml).find(prefix + 'Topic').each(function(){
-        //console.log( "item" );
-        //console.log( $(this).find('ns3\\:Title').text() );
         titles.push( $(this).find(prefix + 'Title').text() );
       });
 
       $(xml).find(prefix + 'DatasetItem').each(function(){
-        //console.log( $(this) );
-        //console.log( $(this).find('ns3\\:Value').text() );
         values.push( $(this).find(prefix + 'Value').text() );
       });
 
 
-    var rand = Math.floor(Math.random()*titles.length);
-    var rand = Math.floor(rand/2)*2;
+    //each values is followed by its country value
+    // eg ["1.43", "24.84", "11.75", ".57"] - district, countyr, district, country
+    //["6354", "1019257", "1315", "317566", "25134", "2167476", "32803", "3504299"]
 
-    //console.log( rand +" " + date +":::"+ titles +":"+ values);
-    var description = titles[rand];
+    // get random number
+    var base = Math.floor(Math.random()*titles.length);
+    // use it to skip every other value (the country value)
+    var rand  = base*2;
+    // and get the next value as the country value
+    var countryRef = rand + 1;
+    var description = titles[base];
     var count = values[rand];
+    var countryCount = values[countryRef];
 
-    var countryCount = values[rand+1];
+    if(subjects[subjectId].desc.indexOf("%")>=0){
+      countryCount = countryCount+"%";
+    }
 
-    var extract = "In " + year +", " + mainTitle + " had " + count + " <i>" + description + "</i> (compared with " + countryCount + " for " + country +")."
+    var extract = "In " + year +", " + mainTitle + " had " + count  + subjects[subjectId].desc + " <i>" + description + "</i> (compared with " + countryCount + " for " + country +")."
+    if( subjectId === 5 ){
+      if( count ){
+          extract = "In " + year +", " + mainTitle + " had a rental price of £" + count  + " for " + subjects[subjectId].desc + " <i>" + description + "</i> (compared with £" + countryCount + " for " + country +")."
+      }else{
+          extract = "No data is avaiable for " + mainTitle + ".Please try another area."
+      }
+    }
+
     $('#extract').html( extract );
-
-      $( "#panel" ).animate({
-        top: 0
-        }, 50, function() {
-      });
 
     },
 
     error: function() {
-      //console.warn("An error occurred while processing XML file.");
       var extract = "The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.";
       $('#extract').html( extract );
     }
