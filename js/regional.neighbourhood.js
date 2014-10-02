@@ -42,49 +42,19 @@ var country;
 
 
 var subjects =  [
-            { id: 58, name: 'Census', short: 'Census', vars:[] }
-          , { id: 3, name: 'Crime and Safety', short: 'Crime', vars:[] }
-          , { id: 4, name: 'Economic Deprivation', short: 'Deprivation', vars:[] }
-          , { id: 5, name: 'Education, Skills and Training', short: 'Education', vars:[9993,9994,9995,9996] }
-          , { id: 6, name: 'Health and Care', short: 'Health', vars:[] }
-          , { id: 7, name: 'Housing', desc:'people who method of travel was', short: 'Housing', vars:[9754, 9755, 9756, 9757, 9758, 9759, 9760, 9761, 9762, 9763, 9764, 9765] }
-         // , { id: 7, name: 'Housing', desc:'people who method of travel was', short: 'Housing', vars:[6583] }
-        //  , { id: 7, name: 'Housing', short: 'Housing', vars:[5214,5207,5226,5221,5209,5593,5204,5199,5205,5211,5213,5206,5215,5200,5222,5202,5224,5216,5592,5208,5203,5201,5595,5225,5210,5198,5212,5594] }
-          , { id: 46, name: 'Indicators', short: 'Indicators', vars:[] }
-          , { id: 10, name: 'Indices of Deprivation and Classification', short: 'Indices of Deprivation', vars:[] }
-          , { id: 14, name: 'People and Society: Income and Lifestyles', short: 'Income and Lifestyles', vars:[4931,4932,4933,4934,4935,4936,4937,4938,4939,4940,4941,4942,1159,786,790,791,795,787,798,788,797,792,796,794,793] }
-          , { id: 13, name: 'People and Society: Population and Migration', short: 'Population', vars:[] }
-          , { id: 8, name: 'Physical Environment', short: 'Environment', vars:[] }
-          , { id: 9, name: 'Work Deprivation', short: 'Work Deprivation', vars:[] }
+            { id: 5, name: 'Education, Skills and Training', desc:" people who were", short: 'Education', vars:[9993,9994,9995,9996] }
+          , { id: 7, name: 'Housing', desc:" people who\'s method of travel was", short: 'Housing', vars:[9754, 9755, 9756, 9757, 9758, 9759, 9760, 9761, 9762, 9763, 9764, 9765] }
+          , { id: 7, name: 'Housing', desc:' One room rental rate....', short: 'Housing', vars:[6583] }
+          , { id: 7, name: 'Housing', desc:'% ', short: 'Housing', vars:[3924, 3938] }
+          , { id: 14, name: 'People and Society: Income and Lifestyles', desc:"", short: 'Income and Lifestyles', vars:[786,790,795,787,798,788,797,796,794,793] }
         ];
 
 
 ///3924 - id for band A dwelling
 /*
 
-
-
        Total Number of Dwellings (Dwellings, Mar11)
         http://www.neighbourhood.statistics.gov.uk/dissemination/LeadKeyFigures.do?a=7&b=6275035&c=bristol&d=13&e=7&g=6388788&i=1001x1003x1004&m=0&r=1&s=1411986497050&enc=1
-
-        Bicycle (Persons)
-        http://www.neighbourhood.statistics.gov.uk/dissemination/LeadTableView.do?a=7&b=6275035&c=bristol&d=13&e=7&g=6388788&i=1001x1003x1004&m=0&r=1&s=1411986497050&enc=1&dsFamilyId=2567
-        http://www.neighbourhood.statistics.gov.uk/dissemination/LeadTableView.do?
-        a=7
-        &b=6275035
-        &c=bristol
-        &d=13
-        &e=7&
-        g=6388788
-        i=1001x1003x1004
-        &m=0
-        &r=1
-        &s=1411986497050
-        &enc=1
-        &dsFamilyId=2567
-
-        Dwelling Stock by Council Tax Band; Band A (Dwellings) - %
-        http://www.neighbourhood.statistics.gov.uk/dissemination/LeadTableView.do?a=7&b=6275035&c=bristol&d=13&e=7&g=6388788&i=1001x1003x1004&m=0&r=1&s=1411986497050&enc=1&dsFamilyId=938
 
         Local Reference Rent; One Room (Rent)http://www.neighbourhood.statistics.gov.uk/dis
         semination/LeadTableView.do?a=7&b=6275035&c=bristol&d=13&e=7&g=6388788&i=1001x1003x1004&m=0&r=1&s=1411986497065&enc=1&dsFamilyId=1768
@@ -125,7 +95,7 @@ function setSubject(){
 
 
   }
-subjectId = 5;
+subjectId = 0;
 //console.log (random + " subjectId " + subjectId);
 }
 
@@ -302,23 +272,44 @@ function getData(areaID){
       });
 
 
+//TODO.....
     var rand = Math.floor(Math.random()*titles.length);
-    var rand = Math.floor(rand/2)*2;
+    //this bit!!!!
+    rand  = (rand*2)-1;
 
-    //console.log( rand +" " + date +":::"+ titles +":"+ values);
+    console.log(rand);
+    var countryRef = rand + 1
+    //var rand = Math.floor(rand/2)*2;
+
+    //each values is grouped with its country value
+    // eg ["1.43", "24.84", "11.75", ".57"] - district, countyr, district, country
+    //["6354", "1019257", "1315", "317566", "25134", "2167476", "32803", "3504299"]
+
+//todo get corret figures for arrray
+
+//or split arrya into locl and country...
+    console.log( rand +" " + rand + 1 +":::" +":"+ values);
     var description = titles[rand];
     var count = values[rand];
 
-    var countryCount = values[rand+1];
+    console.log(values);
+    console.log(count);
 
-    var extract = "In " + year +", " + mainTitle + " had " + count + " " + subjects[subjectId].desc + " <i>" + description + "</i> (compared with " + countryCount + " for " + country +")."
+    var countryCount = values[rand + 1];
+
+    if(subjects[subjectId].desc.indexOf("%")>0){
+      countryCount = countryCount+"%";
+    }
+
+   // var extract = "In " + year +", " + mainTitle + " had " + count + " " + subjects[subjectId].vars[rand] + " <i>" + description + "</i> (compared with " + countryCount + " for " + country +")."
+    var extract = "In " + year +", " + mainTitle + " had " + count  + subjects[subjectId].desc + " <i>" + description + "</i> (compared with " + countryCount + " for " + country +")."
     $('#extract').html( extract );
-
+/*
       $( "#panel" ).animate({
         top: 0
         }, 50, function() {
       });
-
+*/
     },
 
     error: function() {
