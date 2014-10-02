@@ -44,7 +44,6 @@ var country;
 var subjects =  [
             { id: 5, name: 'Education, Skills and Training', desc:" people who were", short: 'Education', vars:[9993,9994,9995,9996] }
           , { id: 7, name: 'Housing', desc:" people who\'s method of travel was", short: 'Housing', vars:[9754, 9755, 9756, 9757, 9758, 9759, 9760, 9761, 9762, 9763, 9764, 9765] }
-          , { id: 7, name: 'Housing', desc:' One room rental rate....', short: 'Housing', vars:[6583] }
           , { id: 7, name: 'Housing', desc:'% ', short: 'Housing', vars:[3924, 3938] }
           , { id: 7, name: 'Housing', desc:' houses classifed as', short: 'Housing', vars:[9568, 9569, 9570] }
           , { id: 7, name: 'Housing', desc:'', short: 'Housing', vars:[6583, 6585, 6592, 6588, 6590] }
