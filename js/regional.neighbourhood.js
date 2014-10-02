@@ -42,12 +42,12 @@ var country;
 
 
 var subjects =  [
-            { id: 5, name: 'Education, Skills and Training', desc:" people who were", short: 'Education', vars:[9993,9994,9995,9996] }
-          , { id: 7, name: 'Housing', desc:" people who\'s method of travel was", short: 'Housing', vars:[9754, 9755, 9756, 9757, 9758, 9759, 9760, 9761, 9762, 9763, 9764, 9765] }
-          , { id: 7, name: 'Housing', desc:'% ', short: 'Housing', vars:[3924, 3938] }
-          , { id: 7, name: 'Housing', desc:' houses classifed as', short: 'Housing', vars:[9568, 9569, 9570] }
-          , { id: 7, name: 'Housing', desc:'', short: 'Housing', vars:[6583, 6585, 6592, 6588, 6590] }
-          , { id: 14, name: 'People and Society: Income and Lifestyles', desc:"", short: 'Income and Lifestyles', vars:[786,790,795,787,798,788,797,796,794,793] }
+            { id: 5, name: 'Education, Skills and Training', ref:"", desc:" people who were", short: 'Education', vars:[9993,9994,9995,9996] }
+          , { id: 7, name: 'Housing', ref:"", desc:" people who\'s method of travel was", short: 'Housing', vars:[9754, 9755, 9756, 9757, 9758, 9759, 9760, 9761, 9762, 9763, 9764, 9765] }
+          , { id: 7, name: 'Housing', ref:"", desc:'% ', short: 'Housing', vars:[3924, 3938] }
+          , { id: 7, name: 'Housing', ref:"", desc:' houses classifed as', short: 'Housing', vars:[9568, 9569, 9570] }
+          , { id: 7, name: 'Housing', ref:"RENTAL", desc:'', short: 'Housing', vars:[6583, 6585, 6592, 6588, 6590] }
+          , { id: 14, name: 'People and Society: Income and Lifestyles', ref:"", desc:"", short: 'Income and Lifestyles', vars:[786,790,795,787,798,788,797,796,794,793] }
         ];
 
 
@@ -200,7 +200,7 @@ function getData(areaID){
       }
 
       date = $(xml).find( prefix + "Period" ).find( prefix + 'Date').text();
-      if( subjectId === 5 ){
+      if( subjects[subjectId].ref === "RENTAL" ){
         date = $(xml).find( prefix + "Period" ).find( prefix + 'End').text();
       }
       
@@ -234,7 +234,7 @@ function getData(areaID){
     }
 
     var extract = "In " + year +", " + mainTitle + " had " + count  + subjects[subjectId].desc + " <i>" + description + "</i> (compared with " + countryCount + " for " + country +")."
-    if( subjectId === 5 ){
+    if( subjects[subjectId].ref === "RENTAL" ){
       if( count ){
           extract = "In " + year +", " + mainTitle + " had a rental price of £" + count  + " for " + subjects[subjectId].desc + " <i>" + description + "</i> (compared with £" + countryCount + " for " + country +")."
       }else{
