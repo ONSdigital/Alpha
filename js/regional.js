@@ -1,13 +1,13 @@
 var regional = (function () {
 
   // create a central model for the data
-  // store each area based onthe ONS ID
+  // store each area based on the ONS ID
   // eg { "" }
   var model = {};
 
   $(document).ready(function() {
 
-    $("#comparison").hide();
+    
 
 
     areas.loadData(parseAreas);
