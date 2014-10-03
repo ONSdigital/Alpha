@@ -286,7 +286,7 @@ var options = {
                      categories: ['1991-1993', '2000-2002', '2010-2012']
                   };
 
-/*    options.chart.events= {
+    options.chart.events= {
 
                 load: function () {
                   var chart = this,
@@ -307,7 +307,7 @@ var options = {
 
 
               };
-*/
+
     options.legend.enabled = true;
     options.plotOptions.series = {};
     options.colors =  [
@@ -315,12 +315,7 @@ var options = {
             'rgb(255, 149, 14)'          // orange
 
             ];
-/*    options.series= [
-                        { name: 'Migration', data: [0] },
-                        { name: 'UK', data: [0] },
-                        { name: 'Natural', data: [0] }
-                      ];
-*/
+
   options.series = [
 
                     {
@@ -392,7 +387,7 @@ var options = {
       formatter: function() {
           return this.key + ' <b>' + Math.abs(this.y) + '%</b>';
       }
-    }
+    };
     genderThumb = new Highcharts.Chart(options);
 
 
@@ -400,13 +395,13 @@ var options = {
 
 
     //POPULATION PYRAMID
-    options.chart.renderTo = 'thumbPyramid';
+    
     options.chart.type = 'bar';
-
     options.title.text = null;
-    options.plotOptions.series = {  };
-    //options.xAxis.enabled = false;
-
+    options.chart.plotBackgroundColor = "#F9F9F9";
+    options.chart.margin = 10;
+    options.chart.marginBottom = 20;
+    options.chart.spacing =[10, 10, 10, 10];
     options.xAxis = [{
                 categories : [ '0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39', '40-44','45-49', '50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80-84', '85-89', '90 +'],
                 reversed: false,
@@ -434,9 +429,32 @@ var options = {
                      minorTickLength: 0,
                      tickLength: 0
             }];
-    options.yAxis.title = {
-                              text: ''
-                          };
+
+     options.yAxis = {
+        min: 0,
+        title: {
+            text: ''
+        },
+        stackLabels: {
+            enabled: true,
+            style: {
+                fontWeight: 'bold',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+            }
+        }
+    },
+
+
+    options.yAxis = {
+                      title:  {text: ''}
+                      ,
+                      labels: {
+                              formatter: function () {
+                                  return (Math.abs(this.value) / 1000000) + 'M';
+                              }
+                      }
+                  };
+
     options.series= [
                       { name: 'Male', data: [0] },
                       { name: 'Female', data: [0] },
@@ -448,11 +466,7 @@ var options = {
             ];
 
 
-    options.yAxis.labels = {
-                    formatter: function(){
-                        return Math.abs(this.value);
-                    }
-                };
+
     options.tooltip = {
       formatter: function() {
           return '<b>'+ this.series.name +', age '+ this.point.category +'</b><br/>'+
@@ -460,11 +474,13 @@ var options = {
       }
     }
 
+    options.chart.renderTo = 'thumbPyramid';
+    pyramidThumb = new Highcharts.Chart(options);
 
-   pyramidThumb = new Highcharts.Chart(options);
+    options.chart.renderTo = 'pyramid1';
+    pyramid1 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'pyramid2';
+    pyramid2 = new Highcharts.Chart(options);
 
-   options.chart.renderTo = 'pyramid1';
-   pyramid1 = new Highcharts.Chart(options);
-   options.chart.renderTo = 'pyramid2';
-   pyramid2 = new Highcharts.Chart(options);
+    $("#comparison").hide();
   }
