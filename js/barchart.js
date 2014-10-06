@@ -46,10 +46,13 @@ function barChart(){
         min: -.4,
         max: .2
     },
+    tooltip: {
+            crosshairs: true
+        },
 
     plotOptions: {
         series: {
-            stacking: 'normal'
+                minPointLength: 2
         }
     },
 
