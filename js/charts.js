@@ -6,6 +6,7 @@ $(document).ready(
 		setOptions();
 
     multiseries();
+    multiseriesTooltip();
     barChart();
     populationPyramid();
     stackedBar();

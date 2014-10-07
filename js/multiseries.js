@@ -1,7 +1,7 @@
 
 function multiseries(){
 
-  $('#chart_prices').highcharts({
+  $('#original_chart_prices').highcharts({
     chart: {
       type: 'line'
     },
@@ -28,6 +28,7 @@ function multiseries(){
         padding: 10,
         color: '#eee'
       }
+
       ,
       formatter: function(){
         var up = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i> </span>';
