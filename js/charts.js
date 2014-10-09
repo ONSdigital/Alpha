@@ -31,19 +31,15 @@ var stackedBar;
       options.plotOptions.series = {stacking: 'normal'};
       //barChart =  $('#bar').highcharts(options);
       stackedBar =  $('#stackedBar').highcharts(options);
-/*
-      seriesChart.tooltip.positioner = function () {
-        console.log("func");
-                return { x: 80, y: 50 };
-            }
-            */
+
+
+            
     }else{
       options.chart.type="column";
       options.plotOptions.series = {};
       options.plotOptions.column = {stacking: 'normal'};
      // barChart =  $('#bar').highcharts(options);
       stackedBar =  $('#stackedBar').highcharts(options);
-     // seriesChart.tooltip.positioner = function () {return { x: 80, y: 150 };};
     }
   };
 

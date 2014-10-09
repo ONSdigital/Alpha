@@ -48,12 +48,13 @@ function multiseriesTooltip(){
     tooltip: {
       shared: true,
       crosshairs: true,
-      positioner: function () {
+      positioner: function (labelWidth, labelHeight, point) {
+        console.log(point);
         var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        var points = { x: 80, y: 50 };
+        var points = { x: 30, y: 50 };
 
         if(w>768){
-          points = { x: 80, y: 50 };
+          points = { x: point.plotX, y: point.plotY };
         }
 
                 return points;
