@@ -72,6 +72,8 @@ function initBarChart(){
               formatter: function() {
                   if (this.y===null) {
                       return '<i>N/A</i>';
+                  } else if (this.y=== 0) {
+                      return '<i>0.0%</i>';
                   } else {
                       return '';
                   }
