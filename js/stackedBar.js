@@ -1,5 +1,5 @@
 
-function stackedBar(){
+function initStackedBar(){
 $('#stackedBar').highcharts({
             chart: {
                 type: 'column'
@@ -8,7 +8,7 @@ $('#stackedBar').highcharts({
                 text: 'Energy Consumption by Source, 1990 to 2010'
             },
             xAxis: {
-                categories: [1990, '', '', '', '', 1995, '', '', '', '', 2000,  2001,  2002,  2003,  2004,  2005,  2006,  2007,  2008,  2009,  2010]
+                categories: [1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,  2001,  2002,  2003,  2004,  2005,  2006,  2007,  2008,  2009,  2010]
             },
             yAxis: {
                 min: 0,
@@ -17,18 +17,17 @@ $('#stackedBar').highcharts({
                 },
                 stackLabels: {
                     enabled: true,
-                    style: {
-                        fontWeight: 'bold',
-                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-                    }
+                      formatter: function() {
+                        console.log(this.total);
+                          if (this.total===null || this.total === undefined ) {
+                              return '<i>N/A</i>';
+                          } else {
+                              return '';
+                          }
+                      }
                 }
             },
             legend: {
-                align: 'right',
-                x: -70,
-                verticalAlign: 'top',
-                y: 20,
-                floating: true,
                 backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
                 borderColor: '#CCC',
                 borderWidth: 1,
@@ -45,12 +44,11 @@ $('#stackedBar').highcharts({
                 column: {
                     stacking: 'normal',
                     dataLabels: {
-                        enabled: true,
-                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-                        style: {
-                            textShadow: '0 0 3px black, 0 0 3px black'
-                        }
+                        
                     }
+                },
+                bar: {
+
                 }
             },
             series: [
@@ -71,7 +69,7 @@ $('#stackedBar').highcharts({
             , 
             {
                 name: 'Fossil Fuels',
-                data: [201.1, '', '', '', '', 199.7, '', '', '', '', 214.0, 219.1, 213.9, 218.1, 221.9, 221.6, 218.0, 215.6, 213.7, 195.2, 202.6]
+                data: [201.1, null, null, null, null, 199.7, null, null, null, null, 214.0, 219.1, 213.9, 218.1, 221.9, 221.6, 218.0, 215.6, 213.7, 195.2, 202.6]
             }
 
             ]

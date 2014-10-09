@@ -1,20 +1,53 @@
-$(document).ready(
-
+$(document).ready(function(){
+var barChart;
+var seriesChart;
+var stackedBar;
   // init options and then load individual charts
 
-	function(){
+	//
 		setOptions();
 
     multiseries();
     multiseriesTooltip();
-    barChart();
+    initBarChart();
     populationPyramid();
-    stackedBar();
+    initStackedBar();
     pieChart();
     lineseries();
-  }
 
-);
+  window.onresize = function(event) {
+
+   // barChart =  $('#bar').highcharts();
+    seriesChart =   $('#chart_prices').highcharts();
+    stackedBar =   $('#stackedBar').highcharts();
+
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    var options = stackedBar.options;
+
+    if(w<768){
+      console.log("small");
+      options.chart.type="bar";
+      options.plotOptions.column = {};
+      options.plotOptions.series = {stacking: 'normal'};
+      //barChart =  $('#bar').highcharts(options);
+      stackedBar =  $('#stackedBar').highcharts(options);
+/*
+      seriesChart.tooltip.positioner = function () {
+        console.log("func");
+                return { x: 80, y: 50 };
+            }
+            */
+    }else{
+      options.chart.type="column";
+      options.plotOptions.series = {};
+      options.plotOptions.column = {stacking: 'normal'};
+     // barChart =  $('#bar').highcharts(options);
+      stackedBar =  $('#stackedBar').highcharts(options);
+     // seriesChart.tooltip.positioner = function () {return { x: 80, y: 150 };};
+    }
+  };
+
+ });
 
 
 
