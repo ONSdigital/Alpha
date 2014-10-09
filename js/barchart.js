@@ -1,24 +1,24 @@
 
-function barChart(){
+function initBarChart(){
 
  var chart,
- categories = [ 
+ categories = [
  "Food"
  , "Alcohol"
  , "Clothing"
  , "Housing"
- , "Furniture" 
+ , "Furniture"
  , "Health"
  , "Transport"
  , "Communication"
  , "Recreation"
  , "Education"
  , "Restaurant"
- , "Miscellaneous" 
+ , "Miscellaneous"
  ];
 
 
- $('#bar').highcharts({
+ barChart = $('#bar').highcharts({
     chart: {
         type: 'bar'
 
@@ -30,31 +30,56 @@ function barChart(){
         text: 'Source: Index Numbers of Producer Prices (PPI): Provision of Price Information'
     },
     xAxis: [{
+      alternateGridColor: '#f1f1f1',
         categories: categories,
         reversed: true,
         labels: {
-            step: 1
-        }
+            /*
+            formatter: function() {
+              console.log(this);
+                  if (this.value === null) {
+                    return '<span style="fill: #ddd;">' + this.value + '</span>';
+                  } else {
+                     return this.value;
+                  }
+              }
+              */
+        }      
+
     }],
     yAxis: {
         title: {
             text: null
         },
         labels: {
+          format : '{value} %'
         }
         ,
         min: -.4,
         max: .2
     },
     tooltip: {
-            crosshairs: true
+            /*crosshairs: true*/
         },
 
     plotOptions: {
         series: {
-                minPointLength: 2
-        }
+               
+        },
+        bar: {
+          dataLabels: {
+              enabled: true,
+              formatter: function() {
+                  if (this.y===null) {
+                      return '<i>N/A</i>';
+                  } else {
+                      return '';
+                  }
+              }
+          }
+      }
     },
+
 
     legend:{
        enabled:false
@@ -62,15 +87,15 @@ function barChart(){
 
    series: [{
     name: 'Contribution',
-    data: [ 
+    data: [
     0.08
     , -0.02
     , -0.05
     , -0.05
-    , 0
+    , null
     , 0.01
     , -0.29
-    , 0
+    , null
     , -0.05
     , 0
     , -0.06
