@@ -4,13 +4,15 @@
 
 function multiseriesTooltip(){
 
-  $('#chart_prices').highcharts({
+
+  var chart = $('#chart_prices').highcharts({
     chart: {
       type: 'line'
     }
 
     ,
    /* colors: ['#0084d1', '#16a9ff', '#5ac2ff', '#9edbff'],*/
+    colors: ['#8FBED8', '#5296C3', '#1673AC', '#1377B2'],
 
     title: {
       text: 'Prices Indices'
@@ -47,17 +49,36 @@ function multiseriesTooltip(){
     },
     tooltip: {
       shared: true,
-      crosshairs: true,
-      positioner: function (labelWidth, labelHeight, point) {
-        console.log(point);
-        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        var points = { x: 30, y: 50 };
+      crosshairs: {
+                width: 2,
+                color: 'gray',
+                dashStyle: 'Dash'
+            },
+             positioner: function (labelWidth, labelHeight, point) {
 
-        if(w>768){
-          points = { x: point.plotX, y: point.plotY };
-        }
+              var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
-                return points;
+                var tooltipX, tooltipY;
+                if (point.plotX + labelWidth > chart.plotWidth) {
+                    tooltipX = point.plotX + chart.plotLeft - labelWidth - 20;
+                } else {
+                    tooltipX = point.plotX + chart.plotLeft + 20;
+                }
+                tooltipY = 50;//point.plotY + chart.plotTop - 20;
+
+                console.log(point.plotX);
+                console.log(chart);
+                console.log(labelWidth);
+                console.log(tooltipX, tooltipY);
+                /*
+                if(w>768){
+                  points = { x: point.plotX, y: point.plotY };
+                }
+                */
+                return {
+                    x: tooltipX,
+                    y: tooltipY
+                };
             }
       ,
 
@@ -183,7 +204,7 @@ function multiseriesTooltip(){
 
 
     ]
-  });
+  }).highcharts();
 
 
 }

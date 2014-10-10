@@ -18,7 +18,7 @@
   <link href="css/alpha.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
 
-  <link href="css/rickshaw.css" rel="stylesheet">  
+
 
 
   <style>
@@ -35,6 +35,25 @@
     background-color: #f00;
   }
 
+#custom {
+  background-color: #333;
+  height: 100px;
+  position: relative;
+  width: 190px;
+}
+
+#custom:after {
+  content: ' ';
+  height: 0;
+  position: absolute;
+  width: 0;
+
+  border: 10px solid transparent;
+  border-left-color: #333;
+
+  left: 200px;
+  top: 10px;
+}
 
   </style>
 
