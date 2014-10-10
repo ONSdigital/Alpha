@@ -43,7 +43,9 @@ function populationPyramid(){
                     }
                 },
                 min: -2500000,
-                max: 2500000
+                max: 2500000,
+                gridZIndex:4,
+                gridLineColor:'#F9F9F9'
             },
 
             plotOptions: {

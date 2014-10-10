@@ -29,7 +29,7 @@ function initBarChart(){
     subtitle: {
         text: 'Source: Index Numbers of Producer Prices (PPI): Provision of Price Information'
     },
-    xAxis: [{
+    xAxis: {
       alternateGridColor: '#f1f1f1',
         categories: categories,
         reversed: true,
@@ -44,9 +44,9 @@ function initBarChart(){
                   }
               }
               */
-        }      
+        } 
 
-    }],
+    },
     yAxis: {
         title: {
             text: null
@@ -56,7 +56,15 @@ function initBarChart(){
         }
         ,
         min: -.4,
-        max: .2
+        max: .2 ,
+        gridZIndex:4,
+        gridLineColor:'#F9F9F9'  ,
+        plotLines: [{
+                color: '#ccc',
+                width: 1,
+                value: 0,
+                zIndex:4
+            }], 
     },
     tooltip: {
             /*crosshairs: true*/
@@ -67,6 +75,8 @@ function initBarChart(){
                
         },
         bar: {
+          /*borderColor: '#0084D1',
+          borderWidth: 1,*/
           dataLabels: {
               enabled: true,
               formatter: function() {
