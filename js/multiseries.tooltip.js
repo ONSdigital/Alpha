@@ -12,7 +12,7 @@ function multiseriesTooltip(){
 
     ,
    /* colors: ['#0084d1', '#16a9ff', '#5ac2ff', '#9edbff'],*/
-    colors: ['#8FBED8', '#5296C3', '#1673AC', '#1377B2'],
+    colors: ['#8FBED8', '#5296C3', '#1377B2', '#1673AC'],
 
     title: {
       text: 'Prices Indices'
@@ -40,20 +40,46 @@ function multiseriesTooltip(){
           }
             return response
         },
-      }
+      },
+      tickmarkPlacement: 'on'
     },
     yAxis: {
       title: {
         text: 'Percentage change'
       }
     },
+
+    plotOptions:{
+      series:{
+        shadow:false,
+        states:{
+          hover:{
+            enabled:true,
+            lineWidth: 3,
+            lineWidthPlus: 0,
+            marker:{
+              height:0,
+              width:0,
+              halo:false,
+              enabled: true,
+              fillColor: null,
+              radiusPlus: null,
+              lineWidth: 3,
+              lineWidthPlus: 0
+            }
+          }
+        }
+      }
+    }
+    ,
+
+    
     tooltip: {
       shared: true,
       width:'150px',
       crosshairs: {
                 width: 2,
-                color: 'gray',
-                dashStyle: 'Dash'
+                color: '#f37121'
             },
      positioner: function (labelWidth, labelHeight, point) {
 
@@ -80,16 +106,25 @@ function multiseriesTooltip(){
     formatter: function(){
       //console.log(this);
       var id = "<div id='custom'>"
-      var block = id + "<div class='sidebar' ></div>";
+      var block = id + "<div class='sidebar' >";
       var title = '<b class="title">'+ this.x +': </b><br/>';
-      var content = block + title ;
-      var symbol = ['●','■','♦','▲','▼'];
+      var symbol = ['<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>'];
 
+      var content = block + "<div class='title'>&nbsp;</div>" ;
+
+      //symbols
       $.each(this.points, function(i, val){
-        //console.log(val);
-        content += symbol[i] + '<b>' + val.point.series.chart.series[i].name + "= </b>" + Highcharts.numberFormat(val.y, 2) +'%<br/>' ;
-        //s += '<br/>' + '<span style="color:' + this.series.color + '"> ●♦▲▼■ </span>' + ' ' + this.series.name + ': ' + this.y + 'm';
+        content +=  symbol[i];
+      })
 
+      content+= "</div>";
+      content+= "<div class='mainText'>";
+      content+= title;
+      
+
+      ////sereis names and values
+      $.each(this.points, function(i, val){
+        content += '<div class="tiptext"><b>' + val.point.series.chart.series[i].name + "= </b>" + Highcharts.numberFormat(val.y, 2) +'%</div>' ;
       })
       content+= "</div>";
       return content;
@@ -134,31 +169,62 @@ function multiseriesTooltip(){
       name: 'CPI % change',
       data: [1.7,1.9,2,2.1,2.2,2.7,2.7,2.8,2.9,2.7,2.4,2.8,2.8],
       marker:{
-        symbol:"circle"
+        symbol:"circle"/*,
+        states: {
+                hover: {
+                  fillColor: '#8FBED8',
+                  radiusPlus: 0,
+                  lineWidthPlus: 0
+                }
+            }*/
       },
-      dashStyle: 'shortdot'
+      dashStyle: 'Solid'
+
     }, {
       name: ' CPIH % change',
       data: [1.6,1.8,1.9,1.9,2,2.5,2.5,2.5,2.7,2.5,2.2,2.6,2.6],
       marker:{
-        symbol:"square"
+        symbol:"square"/*,
+        states: {
+                hover: {
+                  fillColor: '#5296C3',
+                  radiusPlus: 0,
+                  lineWidthPlus: 0
+                }
+            }*/
       },
       dashStyle: 'longdash'
     },{
       name:'RPIJ % change',
       data:[2,2.1,2,2,1.9,2.5,2.6,2.6,2.7,2.5,2.3,2.7,2.6],
       marker:{
-        symbol:"diamond"
+        symbol:"diamond"/*,
+        states: {
+                hover: {
+                  fillColor: '#1377B2',
+                  radiusPlus: 0,
+                  lineWidthPlus: 0
+                }
+            }*/
       },
-      dashStyle: 'Solid'
+      dashStyle: 'shortdot'
     },{
       name:'RPI % change',
       data:[2.7,2.8,2.7,2.6,2.6,3.2,3.3,3.1,3.3,3.1,2.9,3.3,3.2],
       marker:{
-        symbol:"triangle"
+        symbol:"triangle"/*,
+        states: {
+                hover: {
+                  fillColor: '#1673AC',
+                  radiusPlus: 0,
+                  lineWidthPlus: 0
+                }
+            }*/
       },
       dashStyle: 'Dot'
     }
+
+/*
     ,
     {
       name: 'CPI',
@@ -196,6 +262,7 @@ function multiseriesTooltip(){
       }
     }
 
+*/
 
     ]
   }).highcharts();
