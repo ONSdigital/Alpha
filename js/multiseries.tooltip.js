@@ -169,14 +169,14 @@ function multiseriesTooltip(){
       name: 'CPI % change',
       data: [1.7,1.9,2,2.1,2.2,2.7,2.7,2.8,2.9,2.7,2.4,2.8,2.8],
       marker:{
-        symbol:"circle"/*,
+        symbol:"circle",
         states: {
                 hover: {
                   fillColor: '#8FBED8',
                   radiusPlus: 0,
                   lineWidthPlus: 0
                 }
-            }*/
+            }
       },
       dashStyle: 'Solid'
 
@@ -184,42 +184,42 @@ function multiseriesTooltip(){
       name: ' CPIH % change',
       data: [1.6,1.8,1.9,1.9,2,2.5,2.5,2.5,2.7,2.5,2.2,2.6,2.6],
       marker:{
-        symbol:"square"/*,
+        symbol:"square",
         states: {
                 hover: {
                   fillColor: '#5296C3',
                   radiusPlus: 0,
                   lineWidthPlus: 0
                 }
-            }*/
+            }
       },
       dashStyle: 'longdash'
     },{
       name:'RPIJ % change',
       data:[2,2.1,2,2,1.9,2.5,2.6,2.6,2.7,2.5,2.3,2.7,2.6],
       marker:{
-        symbol:"diamond"/*,
+        symbol:"diamond",
         states: {
                 hover: {
                   fillColor: '#1377B2',
                   radiusPlus: 0,
                   lineWidthPlus: 0
                 }
-            }*/
+            }
       },
       dashStyle: 'shortdot'
     },{
       name:'RPI % change',
       data:[2.7,2.8,2.7,2.6,2.6,3.2,3.3,3.1,3.3,3.1,2.9,3.3,3.2],
       marker:{
-        symbol:"triangle"/*,
+        symbol:"triangle",
         states: {
                 hover: {
                   fillColor: '#1673AC',
                   radiusPlus: 0,
                   lineWidthPlus: 0
                 }
-            }*/
+            }
       },
       dashStyle: 'Dot'
     }
