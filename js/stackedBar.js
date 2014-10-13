@@ -18,7 +18,6 @@ $('#stackedBar').highcharts({
                 stackLabels: {
                     enabled: true,
                       formatter: function() {
-                        console.log(this.total);
                           if (this.total===null || this.total === undefined ) {
                               return '<i>N/A</i>';
                           } else {

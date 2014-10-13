@@ -4,13 +4,15 @@
 
 function multiseriesTooltip(){
 
-  $('#chart_prices').highcharts({
+
+  var chart = $('#chart_prices').highcharts({
     chart: {
       type: 'line'
     }
 
     ,
    /* colors: ['#0084d1', '#16a9ff', '#5ac2ff', '#9edbff'],*/
+    colors: ['#8FBED8', '#5296C3', '#1673AC', '#1377B2'],
 
     title: {
       text: 'Prices Indices'
@@ -47,52 +49,66 @@ function multiseriesTooltip(){
     },
     tooltip: {
       shared: true,
-      crosshairs: true,
-      positioner: function () {
-        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        var points = { x: 80, y: 50 };
+      width:'150px',
+      crosshairs: {
+                width: 2,
+                color: 'gray',
+                dashStyle: 'Dash'
+            },
+     positioner: function (labelWidth, labelHeight, point) {
 
-        if(w>768){
-          points = { x: 80, y: 50 };
+      var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      var points = { x: 30, y: 50 };
+
+      if(w>768){
+          var tooltipX, tooltipY;
+
+          if (point.plotX + labelWidth > chart.plotWidth) {
+              tooltipX = point.plotX + chart.plotLeft - labelWidth - 20;
+          } else {
+              tooltipX = point.plotX + chart.plotLeft + 20;
+          }
+          tooltipY = 50;
+                
+          points = { x: tooltipX, y: tooltipY };
         }
-
-                return points;
-            }
+        
+        return points;
+    }
       ,
+
+    formatter: function(){
+      //console.log(this);
+      var id = "<div id='custom'>"
+      var block = id + "<div class='sidebar' ></div>";
+      var title = '<b class="title">'+ this.x +': </b><br/>';
+      var content = block + title ;
+      var symbol = ['●','■','♦','▲','▼'];
+
+      $.each(this.points, function(i, val){
+        //console.log(val);
+        content += symbol[i] + '<b>' + val.point.series.chart.series[i].name + "= </b>" + Highcharts.numberFormat(val.y, 2) +'%<br/>' ;
+        //s += '<br/>' + '<span style="color:' + this.series.color + '"> ●♦▲▼■ </span>' + ' ' + this.series.name + ': ' + this.y + 'm';
+
+      })
+      content+= "</div>";
+      return content;
+    }
+    ,
 
      // backgroundColor: '#333',
-      borderWidth: 0,
+      borderWidth: 1,
+      borderColor: '#ddd',
       shadow: false,
-      useHTML: true,
-      style: {
-        padding: 10,
-       // color: '#eee'
-        color: '#333'
-      }
-/*
+      useHTML: true
+      /*
       ,
-      formatter: function(){
-
-        var monthIcon = "";
-        var x = this.point.x;
-        var lastY;
-        var change ="";
-        console.log(this.point.series.data[x-1].y);
-
-
-        var block = "<div class='sidebar ' style='background-color: " + this.series.color + "'></div>";
-        var title = '<b>'+ this.series.name +': </b>' + monthIcon + '<br/>';
-        var content = block + title ;
-        content += '<br/>This month: ' + Highcharts.numberFormat(this.point.y, 2) +'%<br/>' ;
-        if(monthIcon!==""){
-          content += 'Last month: '+ Highcharts.numberFormat(lastY, 2) +'%' ;
-        }else{
-          content += "&nbsp;";
-        }
-        content += '<hr><i class="fa fa-warning fa-inverse"></i> Important information available';
-        return content;
+      style: {
+        color: '#333333',
+        fontSize: '12px',
+        padding: '8px',
       }
-*/
+      */
     }
     ,
 
@@ -182,7 +198,7 @@ function multiseriesTooltip(){
 
 
     ]
-  });
+  }).highcharts();
 
 
 }

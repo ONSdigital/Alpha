@@ -25,21 +25,14 @@ function populationPyramid(){
             subtitle: {
                 text: 'Source: www.ons.gov.uk'
             },
-            xAxis: [{
+            xAxis: {
+                alternateGridColor: '#f1f1f1',
                 categories: categories,
                 reversed: false,
                 labels: {
                     step: 1
                 }
-            }, { // mirror axis on right side
-                opposite: true,
-                reversed: false,
-                categories: categories,
-                linkedTo: 0,
-                labels: {
-                    step: 1
-                }
-            }],
+            },
             yAxis: {
                 title: {
                     text: null
@@ -50,7 +43,9 @@ function populationPyramid(){
                     }
                 },
                 min: -2500000,
-                max: 2500000
+                max: 2500000,
+                gridZIndex:4,
+                gridLineColor:'#F9F9F9'
             },
 
             plotOptions: {

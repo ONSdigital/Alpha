@@ -54,8 +54,8 @@ function multiseries(){
             monthIcon = up;
           }
         }
-
-        var block = "<div class='sidebar ' style='background-color: " + this.series.color + "'></div>";
+        var id = "<div id='custom'>"
+        var block = id + "<div class='sidebar ' style='background-color: " + this.series.color + "'></div>";
         var title = '<b>'+ this.series.name +': </b>' + monthIcon + '<br/>';
         var content = block + title ;
         content += '<br/>This month: ' + Highcharts.numberFormat(this.point.y, 2) +'%<br/>' ;
@@ -65,6 +65,7 @@ function multiseries(){
           content += "&nbsp;";
         }
         content += '<hr><i class="fa fa-warning fa-inverse"></i> Important information available';
+        content+= "</div>";
         return content;
       }
 

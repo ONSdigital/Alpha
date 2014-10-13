@@ -16,7 +16,7 @@ function pieChart(){
                 }
             },
             legend: {
-                reversed: true
+                symbolWidth:0
             },
             plotOptions: {
                 series: {
@@ -24,7 +24,7 @@ function pieChart(){
                 }
             },
                 series: [{
-                name: 'Land Use',
+                name: '% Land Use',
                 data: [52, 20, 14, 12, 1, 1]
             }
             ]
