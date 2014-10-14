@@ -84,7 +84,7 @@ function multiseriesTooltip(){
       },
       positioner: function (labelWidth, labelHeight, point) {
         var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        var points = { x: 30, y: 50 };
+        var points = { x: 30, y: 42 };
         var tooltipX, tooltipY;
 
         if(w>768){
@@ -99,6 +99,9 @@ function multiseriesTooltip(){
 
           tooltipY = 50;
           points = { x: tooltipX, y: tooltipY };
+        }else{
+          $("#custom-tooltip").removeClass('tooltip-left');
+          $("#custom-tooltip").removeClass('tooltip-right');
         }
 
         return points;
