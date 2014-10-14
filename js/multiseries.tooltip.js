@@ -55,6 +55,7 @@ function multiseriesTooltip(){
         states:{
           hover:{
             enabled:true,
+            shadow:false,
             lineWidth: 3,
             lineWidthPlus: 0,
             marker:{
@@ -80,32 +81,34 @@ function multiseriesTooltip(){
       crosshairs: {
                 width: 2,
                 color: '#f37121'
-            },
-     positioner: function (labelWidth, labelHeight, point) {
+      },
+      positioner: function (labelWidth, labelHeight, point) {
+        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        var points = { x: 30, y: 50 };
+        var tooltipX, tooltipY;
 
-      var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-      var points = { x: 30, y: 50 };
-
-      if(w>768){
-          var tooltipX, tooltipY;
+        if(w>768){
 
           if (point.plotX + labelWidth > chart.plotWidth) {
-              tooltipX = point.plotX + chart.plotLeft - labelWidth - 20;
+            tooltipX = point.plotX + chart.plotLeft - labelWidth - 20;
+            $("#custom-tooltip").removeClass('tooltip-left');
           } else {
-              tooltipX = point.plotX + chart.plotLeft + 20;
+            tooltipX = point.plotX + chart.plotLeft + 20;
+            $("#custom-tooltip").removeClass('tooltip-right');
           }
+
           tooltipY = 50;
-                
           points = { x: tooltipX, y: tooltipY };
         }
-        
+
         return points;
-    }
+      }
       ,
 
     formatter: function(){
       //console.log(this);
-      var id = "<div id='custom'>"
+      var id = '<div id="custom-tooltip" class="tooltip-left tooltip-right">';
+      //var id = "<div id='custom'>"
       var block = id + "<div class='sidebar' >";
       var title = '<b class="title">'+ this.x +': </b><br/>';
       var symbol = ['<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>'];
@@ -131,9 +134,9 @@ function multiseriesTooltip(){
     }
     ,
 
-     // backgroundColor: '#333',
-      borderWidth: 1,
-      borderColor: '#ddd',
+      backgroundColor: 'rgba(255, 255, 255, 0)',
+      borderWidth: 0,
+      borderColor: 'rgba(255, 255, 255, 0)',
       shadow: false,
       useHTML: true
       /*
@@ -178,7 +181,8 @@ function multiseriesTooltip(){
                 }
             }
       },
-      dashStyle: 'Solid'
+      dashStyle: 'Solid',
+
 
     }, {
       name: ' CPIH % change',
