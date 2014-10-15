@@ -110,16 +110,14 @@ function multiseriesTooltip(){
       ,
 
     formatter: function(){
-      //console.log(this);
       var id = '<div id="custom-tooltip" class="tooltip-left tooltip-right">';
-      //var id = "<div id='custom'>"
       var block = id + "<div class='sidebar' >";
       var title = '<b class="title">'+ this.x +': </b><br/>';
       var symbol = ['<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>'];
 
       var content = block + "<div class='title'>&nbsp;</div>" ;
 
-      //symbols
+      // symbols
       $.each(this.points, function(i, val){
         content +=  symbol[i];
       })
@@ -129,7 +127,7 @@ function multiseriesTooltip(){
       content+= title;
 
 
-      ////sereis names and values
+      // series names and values
       $.each(this.points, function(i, val){
         content += '<div class="tiptext"><b>' + val.point.series.chart.series[i].name + "= </b>" + Highcharts.numberFormat(val.y, 2) +'%</div>' ;
       })
@@ -143,14 +141,7 @@ function multiseriesTooltip(){
       borderColor: 'rgba(255, 255, 255, 0)',
       shadow: false,
       useHTML: true
-      /*
-      ,
-      style: {
-        color: '#333333',
-        fontSize: '12px',
-        padding: '8px',
-      }
-      */
+
     }
     ,
 
