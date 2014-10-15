@@ -12,7 +12,8 @@ function multiseriesTooltip(){
 
     ,
    /* colors: ['#0084d1', '#16a9ff', '#5ac2ff', '#9edbff'],*/
-    colors: ['#8FBED8', '#5296C3', '#1377B2', '#1673AC'],
+   // colors: ['#8FBED8', '#5296C3', '#1377B2', '#1673AC'],
+    colors: ['#007dc3', '#409ed2', '#7fbee1', '#007dc3', '#409ed2', '#7fbee1'],
 
     title: {
       text: 'Prices Indices'
@@ -74,7 +75,7 @@ function multiseriesTooltip(){
     }
     ,
 
-    
+
     tooltip: {
       shared: true,
       width:'150px',
@@ -126,7 +127,7 @@ function multiseriesTooltip(){
       content+= "</div>";
       content+= "<div class='mainText'>";
       content+= title;
-      
+
 
       ////sereis names and values
       $.each(this.points, function(i, val){
@@ -178,7 +179,7 @@ function multiseriesTooltip(){
         symbol:"circle",
         states: {
                 hover: {
-                  fillColor: '#8FBED8',
+                  fillColor: '#007dc3',
                   radiusPlus: 0,
                   lineWidthPlus: 0
                 }
@@ -194,7 +195,7 @@ function multiseriesTooltip(){
         symbol:"square",
         states: {
                 hover: {
-                  fillColor: '#5296C3',
+                  fillColor: '#409ed2',
                   radiusPlus: 0,
                   lineWidthPlus: 0
                 }
@@ -208,7 +209,7 @@ function multiseriesTooltip(){
         symbol:"diamond",
         states: {
                 hover: {
-                  fillColor: '#1377B2',
+                  fillColor: '#7fbee1',
                   radiusPlus: 0,
                   lineWidthPlus: 0
                 }
@@ -222,7 +223,7 @@ function multiseriesTooltip(){
         symbol:"triangle",
         states: {
                 hover: {
-                  fillColor: '#1673AC',
+                  fillColor: '#007dc3',
                   radiusPlus: 0,
                   lineWidthPlus: 0
                 }

@@ -36,14 +36,33 @@ function resize(){
 
     if(w<768){
       options.chart.type="bar";
+      options.yAxis[0].title.align = 'low';
+      options.yAxis[0].title.offset = -300;
+
       options.plotOptions.column = {};
       options.plotOptions.series = {stacking: 'normal'};
       stackedBar =  $('#stackedBar').highcharts(options);
+
     }else{
       options.chart.type="column";
+
+      yAxis = stackedBar.yAxis[0]
+      titleWidth=0;
+
+      if(yAxis.axisTitle){
+        titleWidth = yAxis.axisTitle.getBBox().width;
+        yAxis.update({
+          title: {
+            offset: -titleWidth,
+            align: 'high'
+          }
+        });
+      }
+
       options.plotOptions.series = {};
       options.plotOptions.column = {stacking: 'normal'};
       stackedBar =  $('#stackedBar').highcharts(options);
+
     }
 }
 
@@ -75,22 +94,24 @@ function setOptions(){
               spacingLeft:30,
               backgroundColor:'#F9F9F9',
               events: {
-
+/*
                 load: function () {
                   var chart = this,
                   yAxis = chart.yAxis[0]
                   titleWidth=0;
+                  console.log(yAxis);
 
                   if(yAxis.axisTitle){
+                    console.log(yAxis.axisTitle);
                     titleWidth = yAxis.axisTitle.getBBox().width;
                     yAxis.update({
                       title: {
                         offset: -titleWidth
                       }
                     });
-                  } 
-
+                  }
                 }
+*/
               }
             },
 
@@ -126,6 +147,7 @@ function setOptions(){
             }
 
           },
+
 
           legend: {
             borderColor:null,
