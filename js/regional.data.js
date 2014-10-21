@@ -61,39 +61,24 @@ var pyramid;
 var pyr = [];
 
 
-
-var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EX4 4SB",
-  "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
-  "OX1 2JD", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
-  "E1 4NS", "WC2A 2AE", "WC2R 2LS"
-//,"EH8 9YL","G12 8QQ",  "BT7 1NN"
-  ];
-
 function testPostCode () {
 
   var pcode ;
-      //console.log("testPostCode pcode "  + $("#postcode").val() );
-     // if( $("#postcode").val()==="" ){
-        var ran = Math.floor(Math.random()*postcodes.length);
-        pcode = postcodes[ran];
-        $("#postcode").val( pcode );
-     // }else{
-      //  pcode = $("#postcode").val();
-     // }
+  pcode = $("#postcode").val();
+
 
  //console.log("got pcode "  + pcode );
 
   var newPostCode = checkPostCode( pcode );
   if (newPostCode) {
     postcode = newPostCode;
+
     //call to NESS
     neighbourhood.getStats(newPostCode, true);
     $("#postcode").val( newPostCode );
-   // console.log ("Postcode has a valid format")
     var url = POSTCODE_URL + newPostCode;
 
     loader.setUrl( url );
-    //console.log("Data URL " + url);
     loader.loadData( parseData );
 
   }
