@@ -922,7 +922,7 @@ $("#areas").empty();
       areaObj[value.code].expectancy.male.push( m1993, parseFloat(value.m2000), parseFloat(value.m2010) );
 
     }else{
-      console.log("NO " + value.code + " in life expectancy data");
+      //console.log("NO " + value.code + " in life expectancy data");
     }
     });
 
@@ -939,13 +939,13 @@ $("#areas").empty();
 
 
     }else{
-      console.log("NO " + value.code + " in Labour market data");
+      //console.log("NO " + value.code + " in Labour market data");
     }
   });
 
   //console.log(areaObj);
 
- $('#loader').modal('hide');
+ //$('#loader').modal('hide');
 
   //init with content
   //updateDisplay("W06000022");

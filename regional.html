@@ -1,33 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prototype: Regional Data</title>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 ie7"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9 ie8"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9"><![endif]-->
+<!--[if gt IE 8]><!--><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Prototype: Regional Statistics</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0" name="viewport" />
+    <meta content="on" http-equiv="cleartype" />
+    <meta name="format-detection" content="telephone=no">
+    <!--[if IE]><![endif]-->
+    <!--[if lte IE 8]>
+<link rel="stylesheet" href="/dist/css/oldie.css"/>
+<![endif]-->
+    <!--[if gt IE 8]><!-->
+<link rel="stylesheet" href="css/main.css"/>
+<![endif]-->
+    <script src="js/header.js"></script>
+    <style>
+    </style>
 
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-
-
-  <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/menu.css" rel="stylesheet">
-  <link href="css/bootstrap-select.min.css" rel="stylesheet">
-
-  <!-- Alpha -->
-  <link href="css/alpha.css" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-
-
-
-  <style>
+      <style>
 
   #map{
     width:100%;
-    height:440px;
-    position: relative;
-    margin-top:20px;
+    height:500px;
+    background-color: #d2ccbb;
   }
+
   #postcodeSearch{
     position:relative;
     float:right;
@@ -35,676 +39,538 @@
     left: -20px;
     z-index:990;
   }
-
-  #slide-panel {
-    position: relative;
-    width:300px;
-    height:380px;
-   /* top:100px;*/
-    float:right;
-    padding:10px;
-    background:#eee;
-    margin-right:-300px;
-    z-index:999;
-  }
-
-#opener {
-    float:left;
-    margin:-10px 0px 0px -50px;
-    border-radius:0;
-}
-  #nessPanel {
-    position: relative;
-    display:block;
-    /*background: #fff;*/
-    height: 80px;
-    padding:10px;
-    border-left: solid 4px #f37121;
-    background-color: #F9F9F9;
-  }
-
-  #nessContainer{
-    overflow:hidden;
-    height: 80px;
-    margin-bottom:20px;
-    background-color: #F9F9F9;
-  }
-
-
-
-  .chart{
-    height:440px;
-  }
-  .piechart{
-    height:200px;
-  }
-
-  /* CHART: tooltip side bar */
-  .sidebar {
-    width:30px;
-    height:100px;
-    margin-right: 5px;
-    float:left;
-    background-color: #f00;
-  }
-
-  .fa{
-    padding-top: 2px;
-  }
-  .fa-square{
-    color:#0084D1;
-  }
-  .headline{
-    font-size:32px;
-  }
-
-  .quarterChart{
+   .quarterChart{
     height:120px;
   }
   .halfChart{
     height:240px;
   }
-  .regionName{
-    width:100%;
-    background-color:#fff;
-  }
-  .mapPanel{
-    padding:5px 5px 5px 10px;
-    display:block;
-    width:250px;
-    background-color:#fff;
-    margin-bottom:3px;
-  }
 
   </style>
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-    </head>
-    <body>
-
-
-      <div class="container  bg_warning alpha-header">
-        <p class="alpha-header-title">Office for National Statistics
-          <span>Prototype</span>
-        </p>
-        <p class="alpha-header-copy">This is a mock-up of our new website. You should still use the <a href="http://www.ons.gov.uk">current site</a>
-        </p>
-      </div>
-
-      <div class="container">
-        <nav class="navbar navbar-default" role="navigation">
-          <div class="container-fluid" id="topbar">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="index.html"><img id="logo" src="images/70x140ONScolourlogo.png" class="pull-left"/></a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-
-          <!--  SEARCH  -->
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <span class="" data-toggle="collapse" data-target="#search-panel">
-                    Advanced
-                    <i class="fa fa-chevron-down  " ></i>
+  </head>
+  <body class="">
+    <a class="skiplink visuallyhidden focusable" href="#main" tabindex="0">
+      <span>Skip to main content</span>
+    </a>
+    <main id="main" role="main">
+      <!-- temp removal to allow for component list selective wrapping -->
+      <!-- <div class="wrapper"> -->
+      <div class="wrapper panel--pad-small">
+        <header class="global-header">
+          <div class="media">
+            <a href="...html">
+              <img src="images/ons-logo.svg" alt="Office for National Statistics"
+              width="300" class="media__img" />
+            </a>
+            <div class="media__body">
+              <ul class="nav nav--inline-block nav--dark globaltop-nav">
+                <li><a href="#">Release calendar</a>
+                </li>
+                <li><a href="#">About</a>
+                </li>
+              </ul>
+              <form action="#" class="global-header__search">
+                <label for="homepageSearch" class="visuallyhidden">Search term:</label>
+                <input id="homepageSearch" type="text" class="input-mini" name="homepageSearch"
+                value="" placeholder="Search">
+                <button type="submit" class="btn btn--primary btn--narrow btn--form">
+                  <span class="icon icon-search">
+                    <span class="visuallyhidden">Search</span>
                   </span>
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default"><span class="fa fa-search fa-lg form-control-feedback"></span></button>
+                </button>
               </form>
+            </div>
+          </div>
+        </header>
+      </div>
+      <nav class="ons-nav">
+        <div class="wrapper">
+          <ul class="nav nav--multi nav--block nav--primary flush--bottom" id="nav-primary">
+            <li>
+              <a href="#" class="nav__expandable js-expandable">Business, Industry, and Trade</a>
+              <ul class="nav--primary__sub js-expandable__content js-nav-hidden">
+                <li><a href="#">Business</a>
+                </li>
+                <li><a href="#">Changes to business</a>
+                </li>
+                <li><a href="#">Construction and industry</a>
+                </li>
+                <li><a href="#">IT and internet industry</a>
+                </li>
+                <li><a href="#">International trade</a>
+                </li>
+                <li><a href="#">Manufacturing and production</a>
+                </li>
+                <li><a href="#">Retail industry</a>
+                </li>
+                <li><a href="#">Tourism industry</a>
+                </li>
+              </ul>
             </li>
-
+            <li>
+              <a href="#" class="nav__expandable js-expandable">Economy</a>
+              <ul class="nav--primary__sub js-expandable__content js-nav-hidden">
+                <li><a href="#">Economic output and productivity</a>
+                </li>
+                <li><a href="#">Environmental account</a>
+                </li>
+                <li><a href="#">Government, public sector, and taxes</a>
+                </li>
+                <li><a href="#">Gross Domestic Product (GDP)</a>
+                </li>
+                <li><a href="#">Gross Values Added (GVA)</a>
+                </li>
+                <li><a href="#">Inflation and price indices</a>
+                </li>
+                <li><a href="#">Investment and pension trust</a>
+                </li>
+                <li><a href="#">National accounts</a>
+                </li>
+                <li><a href="#">Regional accounts</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="nav__expandable js-expandable">Employment and Labour Market</a>
+              <ul class="nav--primary__sub js-expandable__content js-nav-hidden">
+                <li><a href="#">People in work</a>
+                </li>
+                <li><a href="#">People not in work</a>
+                </li>
+                <li><a href="#">Public sector personnel</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="nav__expandable js-expandable">People, Population, and Community</a>
+              <ul class="nav--primary__sub js-expandable__content js-nav-hidden">
+                <li><a href="#">Births, deaths, and marriages</a>
+                </li>
+                <li><a href="#">Community</a>
+                </li>
+                <li><a href="#">Education and childcare</a>
+                </li>
+                <li><a href="#">Crime and justice</a>
+                </li>
+                <li><a href="#">Household characteristics</a>
+                </li>
+                <li><a href="#">Well-being</a>
+                </li>
+                <li><a href="#">Health and social care</a>
+                </li>
+                <li><a href="#">Elections</a>
+                </li>
+                <li><a href="#">Personal and household finances</a>
+                </li>
+                <li><a href="#">Population and migration</a>
+                </li>
+                <li><a href="#">Cultural identity</a>
+                </li>
+                <li><a href="#">Housing</a>
+                </li>
+                <li><a href="#">Leisure and tourism</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav--primary__highlight">
+              <a href="#">
+                <span class="icon-users icon--inline"></span>Respondents</a>
+            </li>
+            <li class="nav--primary__secondary-content">
+              <a href="#">Release calendar</a>
+            </li>
+            <li class="nav--primary__secondary-content">
+              <a href="#">About</a>
+            </li>
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-  </div>
-
-  <div class="container">
-    <div class="">
-
-      <div class="well collapse col-sm-12" id="search-panel">
-
-        <div class="col-sm-6">
-          <div class="">
-           <h4><span class="glyphicon glyphicon-stats"></span> Time Series Data</h4>
-
-           <form role="form">
-             <div class="form-group">
-              <label for="exampleInputPassword1">Select a topic</label>
-              <select class="form-control">
-                <option>Business and Trade</option>
-                <option>National Accounts</option>
-                <option>Labour Market</option>
-                <option>Price Indices</option>
-                <option>Travel and Tourism</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputFile">Select a Dataset</label>
-              <select class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Find time series</button>
-          </form>
         </div>
+      </nav>
+      <div class="page-header page-header--article page-header--time-series slate--green">
+        <div class="wrapper wrapper--article">
+          <h1 class="page-header__title page-header--time-series-desc">Regional:</h1>
+          <h2 class="alpha flush--third--bottom">Regional Statistics</h2>
+          <div class="page-header--article__body">
+            <div class="page-header--article__split">
+
+            </div>
+          </div>
+          <!-- /page-header-article__body -->
+          <div class="page-header__icons">
+            <a href="#" class="link-complex">
+              <span class="icon icon-twitter icon--grey">
+                <span class="visuallyhidden">Share on Twitter</span>
+              </span>
+            </a>
+            <a href="#" class="link-complex">
+              <span class="icon icon-facebook icon--grey">
+                <span class="visuallyhidden">Share on Facebook</span>
+              </span>
+            </a>
+            <a href="#" class="link-complex">
+              <span class="icon icon-gplus icon--grey">
+                <span class="visuallyhidden">Share on Google Plus</span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <!-- /wrapper -->
       </div>
-
-      <div class="col-sm-6">
-        <div class="">
-          <h4><span class="glyphicon glyphicon-map-marker"></span> Local and Regional Data</h4>
-
-          <form role="form">
-            <div class="form-group">
-              <label for="exampleInputPassword1">Select a region</label>
-              <select class="form-control">
-                <option>The North</option>
-                <option>North West</option>
-                <option>North East</option>
-                <option>West Midlands</option>
-                <option>Wales</option>
-              </select>
-            </div>
-          </form>
-        </div>
-
-      </div>
-
-
-
-    </div><!--  end of search panel -->
-  </div><!--  end of row -->
-</div><!--  end of continaer -->
-
-
-<!--  MENU BAR  -->
-
-<div class="container">
-  <nav class="navbar navbar-default" role="navigation" id="topmenu">
-    <ul class="nav navbar-nav">
-      <li class="dropdown">
-        <a href="#" data-toggle="collapse" data-target="#one">Business, Industry and Trade</a>
-      </li>
-      <li class="dropdown">
-        <a href="#" data-toggle="collapse" data-target="#two">Economy</a>
-      </li>
-      <li class="dropdown">
-        <a href="#" data-toggle="collapse" data-target="#three">Employment and Labour Market</a>
-      </li>
-      <li class="dropdown">
-        <a href="#" data-toggle="collapse" data-target="#four">People, Population and Community</a>
-      </li>
-
-
-
-      <li><a href="#">Release Calendar</a></li>
-
-      <li class="dropdown menu">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b> </a>
-        <ul class="dropdown-menu megamenu row">
-          <li class="col-sm-12">
-            <ul>
-              <li class="dropdown-header">Themes</li>
-              <li><a class="" href="index.html">Home</a></li>
-              <li><a class="" href="economy.html">Economy</a></li>
-              <li><a class="" href="inflation.html">Inflation</a></li>
-            </ul>
-          </li>
-
-          <li class="col-sm-12">
-            <ul>
-              <li class="dropdown-header">Bulletin</li>
-              <li><a href="release.html">Release</a></li>
-              <li><a href="slice.html">Slice</a></li>
-              <!--  <li><a href="summary.html">Summary</a></li> -->
-              <li><a href="bulletin.html">Bulletin</a></li>
-              <!--  <li><a href="supplementary.html">Supplementary</a></li> -->
-              <li><a href="observation.html">Observation</a></li>
-            </ul>
-          </li>
-          <li class="col-sm-12">
-            <ul>
-              <li class="dropdown-header">Other</li>
-              <li><a href="article.html">Article</a></li>
-              <li><a href="series.html">Search ID</a></li>
-            </ul>
-          </li>
-
-        </ul>
-      </li>
-
-    </ul>
-  </nav>
-
-  <nav class="navbar navbar-default" role="navigation" id="submenu">
-
-    <ul class="nav navbar-nav collapse" id="one">
-      <li><a href="#" id="">Business</a></li>
-      <li><a href="#" id="">Changes to Business</a></li>
-      <li><a href="#" id="">International Trade</a></li>
-      <li><a href="#" id="">Construction</a></li>
-      <li><a href="#" id="">IT and Internet</a></li>
-      <li><a href="#" id="">Manufacturing and Production</a></li>
-      <li><a href="#" id="">Retail</a></li>
-      <li><a href="#" id="">Tourism</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav collapse" id="two">
-      <li><a href="economy.html" id="">Economic Output</a></li>
-      <li><a href="economy.html" id="">Environmental Accounts</a></li>
-      <li><a href="economy.html" id="">Government</a></li>
-      <li><a href="economy.html" id="">GDP</a></li>
-      <li><a href="economy.html" id="">GVA</a></li>
-      <li><a href="inflation.html" id="">Inflation</a></li>
-      <li><a href="inflation.html" id="">Investments</a></li>
-      <li><a href="inflation.html" id="">National Accounts</a></li>
-      <li><a href="inflation.html" id="">Regional Accounts</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav collapse" id="three">
-      <li><a href="economy.html">People in Work</a></li>
-      <li><a href="economy.html">People not in Work</a></li>
-      <li><a href="inflation.html">Public Sector Personnel</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav collapse" id="four">
-      <li><a href="#" id="">Births, Deaths and Marriages</a></li>
-      <li><a href="#" id="">Crime</a></li>
-      <li><a href="#" id="">Community</a></li>
-      <li><a href="#" id="">Education</a></li>
-      <li><a href="#" id="">Health and Social Care</a></li>
-      <li><a href="#" id="">Housing</a></li>
-      <li><a href="#" id="">Population</a></li>
-
-      <li class="dropdown menu">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More&hellip;&nbsp;<b class="caret"></b> </a>
-        <ul class="dropdown-menu megamenu row">
-          <li class="col-sm-12">
-            <ul>
-              <li><a href="#" id="">Cultural Identity</a></li>
-              <li><a href="#" id="">Elections</a></li>
-              <li><a href="#" id="">Household Characteristics</a></li>
-              <li><a href="#" id="">Leisure and Tourism</a></li>
-              <li><a href="#" id="">Personal and Household Finances</a></li>
-              <li><a href="#" id="">Well-being</a></li>
-
-            </ul>
-          </li>
-
-        </ul>
-      </li>
-
-
-
-    </ul>
-
-  </nav>
-</div>
-
-<!--  END MENU BAR  -->
-
-
-
-<div id="loader" class="modal ">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-body">
-         <h4 id="message" class="modal-title">Loading Area Data&hellip;</h4>
-      </div>
-
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-
-
-
-<!--  PAGE BODY  -->
-
-<div class="container ">
-  <div class="row">
-    <h1 ><span class="glyphicon glyphicon-map-marker"></span> Regional Statistics<span id="mainHeading"></span></h1>
-  </div>
-</div>
-
-
-<div>
-
-  <div id="slide-panel">
-    <a href="#" class="btn btn-danger" id="opener"><span class="fa fa-search fa-lg "></span></a>
-          <form role="form">
-
-            <div class="form-group">
-              <label for="region">Select a region</label>
-              <select class="form-control selectpicker" id="region">
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="county">Select a county</label>
-              <select class="form-control selectpicker" id="county">
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="district">Select a district</label>
-              <select class="form-control selectpicker" id="district">
-              </select>
-            </div>
-
-          </form>
-  </div>
-
-
-  <div id="map"><a href="#" id="map"></a></div>
-  <form class="form-inline" role="search">
-    <div class="form-group" id="postcodeSearch">
-      <div class="mapPanel">
-        <div id="regionName">Click map to select an area</div>
-      </div>
-      <span class="" data-toggle="collapse" data-target="#search-panel">
-      </span>
-      <input id="postcode" type="text" class="form-control" placeholder="Search postcode">
-    <button type="submit" class="btn btn-default" id="search">
-      <span class="fa fa-search fa-lg form-control-feedback"></span>
-    </button>
-    </div>
-  </form>
-</div>
-
-<div class="container ">
-
-  <div id="" class="col-sm-9 ">
-
-
-    <div class="row">
-      <h1><a href="#" id="profile"></a><span id="mainTitle">Regional Profile</span></h1>
-    </div>
-
-
-    <div class="row">
-      <h2><a href="#" id="demographics"></a>Demographics</h2>
-    </div>
-
-    <div class="row">
-      <!--  START OF LEFT COLUMN  -->
-      <div id="" class="col-sm-6">
-        <div id="" class="panel">
-          <h3>Population</h3>
-
-          <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <b><span id="pop"></span></b>
-            </div>
-          </div>
-          <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="pop2"></span>
-            </div>
-          </div>
-
-          <br/>
-          <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="parent_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="parent_pop"></span>
-            </div>
-          </div>
-          <br/>
-          <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="gparent_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-             <span id="gparent_pop"></span>
-            </div>
-          </div>
-          <br/>
-          <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="ancestor_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="ancestor_pop"></span>
-            </div>
-          </div>
-        </div>
-
-
-
-        <div id="" class="panel">
-          <h3>Natural Change</h3>
-
-          <div class="row">
-          <div id="" class="col-sm-8">
-            <span id="name">Births</span>
-          </div>
-          <div id="" class="col-sm-4 text-right">
-            <span id="birth">1321 (in 2013)</span>
-          </div>
-          </div>
-          <div class="row">
-          <div id="" class="col-sm-8">
-            <span id="parent_name">&nbsp;</span>
-          </div>
-          <div id="" class="col-sm-4 text-right">
-            <span id="birth2">1423 (in 2003)</span>
-          </div>
-          </div>
-
-          <br/>
-          <div class="row">
-          <div id="" class="col-sm-8">
-            <span id="gparent_name">Deaths</span>
-          </div>
-          <div id="" class="col-sm-4 text-right">
-           <span id="death">2132 (in 2013)</span>
-          </div>
-          </div>
-
-          <div class="row">
-          <div id="" class="col-sm-8">
-            <span id="ancestor_name">&nbsp;</span>
-          </div>
-          <div id="" class="col-sm-4 text-right">
-            <span id="death2">1546 (in 2003)</span>
-          </div>
-          </div>
-
-          <br/>
-          <div class="row">
-          <div id="" class="col-sm-8">
-            <span id="ancestor_name">&nbsp;</span>
-          </div>
-          <div id="" class="col-sm-4 text-right">
-            <b><span id="natChange">Net -1000</span></b>
-          </div>
-          </div>
-          <br/>
-          This is a <span id="natPercent"></span>% change compared with 2012.
-        </div>
-
-        <div id="" class="panel">
-          <h3>Migration</h3>
-
-          <div class="row">
-          <div id="" class="col-sm-6">
-            <span id="name">Internal Migration (within UK)</span>
-          </div>
-          <div id="" class="col-sm-6 text-right">
-            <span id="internalIn">1321 (in 2013)</span>
-          </div>
-          </div>
-
-          <div class="row">
-          <div id="" class="col-sm-6">
-            <span id="parent_name">&nbsp;</span>
-          </div>
-          <div id="" class="col-sm-6 text-right">
-            <span id="internalOut">1423 (in 2003)</span>
-          </div>
-          </div>
-
-          <br/>
-          <div class="row">
-          <div id="" class="col-sm-6">
-            <span id="ancestor_name">&nbsp;</span>
-          </div>
-          <div id="" class="col-sm-6 text-right">
-            <b><span id="internalNet">Net -1000</span></b>
-          </div>
-          </div>
-
-          <br/>
-          <div class="row">
-          <div id="" class="col-sm-6">
-            <span id="gparent_name">International Migration</span>
-          </div>
-          <div id="" class="col-sm-6 text-right">
-           <span id="externalIn">2132 (in 2013)</span>
-          </div>
-          </div>
-
-          <div class="row">
-          <div id="" class="col-sm-6">
-            <span id="ancestor_name">&nbsp;</span>
-          </div>
-          <div id="" class="col-sm-6 text-right">
-            <span id="externalOut">1546 (in 2003)</span>
-          </div>
-          </div>
-
-          <br/>
-          <div class="row">
-          <div id="" class="col-sm-6">
-            <span id="ancestor_name">&nbsp;</span>
-          </div>
-          <div id="" class="col-sm-6 text-right">
-            <b><span id="externalNet">Net -1000</span></b>
-          </div>
-          </div>
-          <br/>
-          There were also <span id="other"></span> <i>'Other'</i> changes compared with 2012.
-        </div>
-
-
-
-
-
-        <!-- </div> -->
-
-      </div>
-      <!--  END OF LEFT COLUMN  -->
-
-      <!--  START OF RIGHT COLUMN  -->
-      <div id="" class="col-sm-6">
-
-        <div id="" class="">
-          <h3>Population Pyramid</h3>
-          <div id="thumbPyramid" class="halfChart"></div>
-        </div>
-
-        <div id="" class="">
-          <h3>Gender</h3>
-          <div id="thumbGender" class="quarterChart"></div>
-        </div>
-
-        <div id="" class="">
-          <h3>Healthy Life Expectancy</h3>
-          <div id="thumbLife" class="halfChart"></div>
-        </div>
-
-
-
-      </div>
-
-
-
-
-      <!--  END OF RIGHT COLUMN  -->
-    </div>
-
-
-
-
-
-
-    <div class="row shim">
-    </div>
-
-
-
-
-    <!--  NeSS start  -->
-    <div id="" class="">
-      <h1><a href="#" id="neighbourhood"></a><span class="fa fa-globe"></span> Neighbourhood Statistics<span id="mainHeading"></span></h1>
-    </div>
-
-
-   <div id="" class="">
-      <h3 id="areaTitle">&nbsp;</h3>
-        <div id="nessContainer">
-        <div id="nessPanel">
-          <h4 id="extract">
-            The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.
-          </h4>
-        </div>
-        </div>
-
-      <div>
-          <p id="summary">
-            Neighbourhood data can be browsed directly and also accessed electronically using the API. Searching on this page will bring back a sample directly from the NeSS website.
+      <!-- /page-header -->
+      <div class="wrapper panel--mar">
+        <div class="content-reveal lede">
+          <p>In 2011 ONS replaced all compendium titles, including Regional Trends, by a policy of publishing information on the website, as soon as it is ready. The Regional Trends tables were published as supporting data for Region and Country Profiles. These profiles are organised into four broad topics: Population and Migration, Economy, Social Indicators, and Environment, plus Key Statistics.
+            <a href="#" class="lede content-reveal__action hidden" data-content-reveal> See more</a>
           </p>
+          <div class="content-reveal__hidden">
+            <p>
+These combine the contents of Regional Snapshot on the old ONS website with the Region and Country Profiles from Regional Trends.
+</p><p>
+Following a review in 2013 of non-statutory statistical products to identify reductions to statistical outputs in order to make cost savings, a decision was made in August 2014 to discontinue the production of the Regional and Country Profiles. No updates to these charts and tables are therefore planned, and the last updates were made in December 2013:
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+
+          <h3 class="flush--half--bottom">Regional Profile</h3>
+            <div id="map"><a href="#" id="map"></a></div>
+            <form class="form-inline" role="search">
+              <div class="form-group" id="postcodeSearch">
+                <div class="mapPanel">
+                  <div id="regionName">Click map to select an area</div>
+                </div>
+                <span class="" data-toggle="collapse" data-target="#search-panel">
+                </span>
+                <input id="postcode" type="text" class="form-control" placeholder="Search postcode">
+              <button type="submit" class="btn btn--secondary btn--narrow btn--form" id="search">
+                 <span class="icon icon-search"></span>
+              </button>
+              </div>
+            </form>
+          </div>
+       
       </div>
 
-      <div>
-        <p>
-          You can download this data and find more (including more guidance on accessing the data) on the <a href="http://www.neighbourhood.statistics.gov.uk/dissemination/">Neighbourhood Statistics website</a>.
-        </p>
+
+
+
+
+
+
+      <div class="wrapper panel--mar">
+        <div class="grid-wrap">
+          <div class="grid-col tablet-grid-two-thirds">
+            <h2><a href="#" id="demographics"></a>Demographics</h2>
+
+            <div class="grid-col desktop-grid-one-half tablet-grid-one-half">
+
+
+              <h3>Population</h3>
+
+              <div class="row">
+                <div id="" class="col-sm-8">
+                  <span id="name">Newport&nbsp;</span>
+                </div>
+                <div id="" class="col-sm-4 text-right">
+                  <b><span id="pop">146558 </span></b>
+                </div>
+              </div>
+              <div class="row">
+                <div id="" class="col-sm-8">
+                  <span id="name">&nbsp;</span>
+                </div>
+                <div id="" class="col-sm-4 text-right">
+                  <span id="pop2">139121 </span>
+                </div>
+              </div>
+
+              <br/>
+              <div class="row">
+                <div id="" class="col-sm-8">
+                  <span id="parent_name">WALES&nbsp;</span>
+                </div>
+                <div id="" class="col-sm-4 text-right">
+                  <span id="parent_pop">3082412</span>
+                </div>
+              </div>
+              <br/>
+              <div class="row">
+                <div id="" class="col-sm-8">
+                  <span id="gparent_name">UNITED KINGDOM&nbsp;</span>
+                </div>
+                <div id="" class="col-sm-4 text-right">
+                 <span id="gparent_pop">64105654</span>
+                </div>
+              </div>
+              <br/>
+              <div class="row">
+                <div id="" class="col-sm-8">
+                  <span id="ancestor_name">&nbsp;</span>
+                </div>
+                <div id="" class="col-sm-4 text-right">
+                  <span id="ancestor_pop"></span>
+                </div>
+              </div>
+
+              <div id="" class="panel">
+                <h3>Natural Change</h3>
+
+                <div class="row">
+                <div id="" class="col-sm-8">
+                  <span id="name">Births</span>
+                </div>
+                <div id="" class="col-sm-4 text-right">
+                  <span id="birth">1321 (in 2013)</span>
+                </div>
+                </div>
+                <div class="row">
+                <div id="" class="col-sm-8">
+                  <span id="parent_name">&nbsp;</span>
+                </div>
+                <div id="" class="col-sm-4 text-right">
+                  <span id="birth2">1423 (in 2003)</span>
+                </div>
+                </div>
+
+                <br/>
+                <div class="row">
+                <div id="" class="col-sm-8">
+                  <span id="gparent_name">Deaths</span>
+                </div>
+                <div id="" class="col-sm-4 text-right">
+                 <span id="death">2132 (in 2013)</span>
+                </div>
+                </div>
+
+                <div class="row">
+                <div id="" class="col-sm-8">
+                  <span id="ancestor_name">&nbsp;</span>
+                </div>
+                <div id="" class="col-sm-4 text-right">
+                  <span id="death2">1546 (in 2003)</span>
+                </div>
+                </div>
+
+                <br/>
+                <div class="row">
+                <div id="" class="col-sm-8">
+                  <span id="ancestor_name">&nbsp;</span>
+                </div>
+                <div id="" class="col-sm-4 text-right">
+                  <b><span id="natChange">Net -1000</span></b>
+                </div>
+                </div>
+                <br/>
+                This is a <span id="natPercent"></span>% change compared with 2012.
+              </div>
+
+              <div id="" class="panel">
+                <h3>Migration</h3>
+
+                <div class="row">
+                <div id="" class="col-sm-6">
+                  <span id="name">Internal Migration (within UK)</span>
+                </div>
+                <div id="" class="col-sm-6 text-right">
+                  <span id="internalIn">1321 (in 2013)</span>
+                </div>
+                </div>
+
+                <div class="row">
+                <div id="" class="col-sm-6">
+                  <span id="parent_name">&nbsp;</span>
+                </div>
+                <div id="" class="col-sm-6 text-right">
+                  <span id="internalOut">1423 (in 2003)</span>
+                </div>
+                </div>
+
+                <br/>
+                <div class="row">
+                <div id="" class="col-sm-6">
+                  <span id="ancestor_name">&nbsp;</span>
+                </div>
+                <div id="" class="col-sm-6 text-right">
+                  <b><span id="internalNet">Net -1000</span></b>
+                </div>
+                </div>
+
+                <br/>
+                <div class="row">
+                <div id="" class="col-sm-6">
+                  <span id="gparent_name">International Migration</span>
+                </div>
+                <div id="" class="col-sm-6 text-right">
+                 <span id="externalIn">2132 (in 2013)</span>
+                </div>
+                </div>
+
+                <div class="row">
+                <div id="" class="col-sm-6">
+                  <span id="ancestor_name">&nbsp;</span>
+                </div>
+                <div id="" class="col-sm-6 text-right">
+                  <span id="externalOut">1546 (in 2003)</span>
+                </div>
+                </div>
+
+                <br/>
+                <div class="row">
+                <div id="" class="col-sm-6">
+                  <span id="ancestor_name">&nbsp;</span>
+                </div>
+                <div id="" class="col-sm-6 text-right">
+                  <b><span id="externalNet">Net -1000</span></b>
+                </div>
+                </div>
+                <br/>
+                There were also <span id="other"></span> <i>'Other'</i> changes compared with 2012.
+              </div>
+
+
+            </div>
+
+            <div class="grid-col desktop-grid-one-half tablet-grid-one-half">
+              <div id="" class="">
+                <h3>Population Pyramid</h3>
+                <div id="thumbPyramid" class="halfChart"></div>
+              </div>
+
+              <div id="" class="">
+                <h3>Gender</h3>
+                <div id="thumbGender" class="quarterChart"></div>
+              </div>
+
+              <div id="" class="">
+                <h3>Healthy Life Expectancy</h3>
+                <div id="thumbLife" class="halfChart"></div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+          <div class="grid-col tablet-grid-one-third">
+            <div class="box box--padded lifted sectioned">
+              <h4 class="delta flush--half--bottom">Neighbourhood Statistics</h4>
+              <p>The Neighbourhood Statistics Website is a free to access online data resource predominantly for England and Wales</p>
+              <a href="http://www.neighbourhood.statistics.gov.uk">Neighbourhood Statistics</a><br/>
+              <hr/>
+              <a href="http://www.ninis2.nisra.gov.uk">Northern Ireland Neighbourhood Information Service</a><br/>
+              <a href="http://www.sns.gov.uk">Scottish Neighbourhood Statistics</a><br/>
+            </div>
+            <div class="box box--padded lifted sectioned">
+              <h4 class="delta flush--half--bottom">Compare regions</h4>
+                <table id="selection"></table>
+
+                <button type="button" class="btn btn--primary btn--block" id="addBtn">
+                  <span class="fa fa-plus pull-left pad-left">&nbsp;</span>
+                  <span class="pull-left">Add to comparison</span>
+                </button>
+                <button type="button" class="btn btn--primary btn--block" id="showBtn">
+                  <span class="fa fa-plus pull-left pad-left">&nbsp;</span>
+                  <span class="pull-left">Show Charts</span>
+                </button>
+                <button type="button" class="btn btn--primary btn--block" id="clearBtn">
+                  <span class="fa fa-ban pull-left pad-left">&nbsp;</span>
+                  <span class="pull-left">Clear charts</span>
+                </button>
+              <div class="box__footer">
+              <p>Compare two regions</p>
+              </div>
+            </div>
+          </div>
+          <!-- /grid-col -->
+
+           <div class="grid-col tablet-grid-two-thirds">
+
+            <h3 class="flush--half--bottom">Neighbourhood Statistics</h3>
+            <p>The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.</p>
+              <article class="box box--orange box--orange--separated-left">
+                <div class="box__inner border box--padded has-icon">
+                  <header class="box__header">
+                    <h2 class="gamma" id="areaTitle">Neighbourhood data</h2>
+                  </header>
+                  
+                  <div class="box__content">
+                    <p id="extract">
+                        Neighbourhood data can be browsed directly and also accessed electronically using the API.
+                        Searching on this page will bring back a sample directly from the NeSS website.
+                      </p>
+                    <p class="description mini"></p>
+                  </div>
+                </div>
+              </article>
+
+              <p id="summary">You can download this data and find more (including more guidance on accessing the data) on the <a href="http://www.neighbourhood.statistics.gov.uk/dissemination/">Neighbourhood Statistics website</a>.</p>
+          </div>
+
+        </div>
+        <!-- /grid-wrap -->
       </div>
-    </div>
-   <!--  NeSS end  -->
-
-
-
-    <div class="row shim">
-    </div>
-
-
-    <div class="row">
-      <h2><a href="#" id="labourmarket"></a>Labour Market</h2>
-    </div>
+      <!-- /wrapper -->
+      <div class="wrapper panel--mar">
+        <div class="grid-wrap">
+          <div class="grid-col tablet-grid-two-thirds">
+            <div class="panel--separated--top">
+              <div class="accordion is-expanded">
+                <h3 aria-selected="false" tabindex="0" role="tab" class="accordion__title">Labour Market</h3>
+                <div aria-expanded="false" role="tabpanel" class="accordion__content">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea
+                    animi, soluta vitae ratione ab optio hic numquam fugiat harum
+                    culpa cum dolore voluptatibus et voluptas autem est laborum
+                    minima, libero!</p>
+                  <p>Vitae officiis accusamus quas? Natus reiciendis dolor dolore
+                    delectus, magnam maiores necessitatibus facere, iste dolores
+                    cum laboriosam animi facilis id consectetur laudantium at perspiciatis,
+                    eos. Non possimus distinctio, quaerat beatae.</p>
+                </div>
 
 
     <div class="row">
@@ -719,106 +585,6 @@
       </div>
 
     </div>
-
-
-    <div class="row">
-      <div id="" class="col-sm-6">
-        <h3>Economic Inactivity <b><span id="inactivity"></span></b></h3>
-
-        <div id="" class="">
-          <div id="inactivityParent"></div>
-          <div id="inactivityUK"></div>
-        </div>
-
-        <div id="" class="">
-          April 2013 - March 2014
-        </div>
-      </div>
-
-      <div id="" class="col-sm-6">
-        <h3>Claimant Count <b><span id="claimant"></span></b></h3>
-
-        <div id="" class="">
-          <div id="claimantParent"></div>
-          <div id="claimantUK"></div>
-        </div>
-
-        <div id="" class="">
-          April 2013 - March 2014
-        </div>
-      </div>
-
-    </div>
-
-
-
-    <!--  comparison charts  -->
-    <div id="comparison"><a id="comparisonTop"></a>
-
-      <!--  HEADINGS  -->
-      <div class="row">
-        <div id="" class="col-sm-6">
-          <h2 id="title1"></h3>
-        </div>
-
-        <div id="" class="col-sm-6">
-          <h2 id="title2"></h3>
-        </div>
-      </div>
-
-
-      <div class="row">
-          <h3>Population</h3>
-      </div>
-
-
-      <div class="row">
-
-        <!--  LEFT HAND SIDE  -->
-        <div id="" class="col-sm-6">
-          <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="nameComp1">2013</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <b><span id="nowComp1"></span></b>
-            </div>
-            </div>
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="">2003</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="previousComp1"></span>
-            </div>
-          </div>
-        </div>
-
-        <!--  RIGHT HAND SIDE  -->
-        <div id="" class="col-sm-6">
-          <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="nameComp2">2013</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <b><span id="nowComp2"></span></b>
-            </div>
-            </div>
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="">2003</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="previousComp2"></span>
-            </div>
-          </div>
-        </div>
-    </div>
-
-
-    <div class="row shim">
-    </div>
-
 
 
     <div class="row">
@@ -839,503 +605,54 @@
 
     </div>
 
-    <div class="row shim">
-    </div>
-
-    <!--  NATURAL CHANGE  -->
-    <div class="row">
-        <h4>Natural Change</h4>
-    </div>
-
-      <div class="row">
-          <div id="" class="col-sm-6">
 
 
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="name">Births</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="birthNowComp1">-</span>
-            </div>
-            </div>
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="parent_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="birthThenComp1">-</span>
-            </div>
-            </div>
-
-            <br/>
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="gparent_name">Deaths</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-             <span id="deathNowComp1">-</span>
-            </div>
-            </div>
-
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="ancestor_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="deathThenComp1">-</span>
-            </div>
-            </div>
-
-            <br/>
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="ancestor_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <b><span id="natChangeComp1">-</span></b>
-            </div>
-            This is a <span id="natPercentComp1"></span>% change compared with 2012.
+              </div>
             </div>
           </div>
-
-          <div id="" class="col-sm-6">
-
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="name">Births</span>
+          <!-- /grid-col -->
+          <div class="grid-col tablet-grid-one-third">
+            <div class="box box--padded lifted sectioned" id="contact-box">
+              <span class="icon icon--mega icon--grey icon--flush icon-info-circled"></span>
+              <h3 class="body-type--heavy gamma">Contact Details for this data</h3>
+              <div class="vcard">
+                <div class="name">xxxxx xxxxxx</div>
+                <div class="organisation">xxxxxxxx xxxxxxx</div>
+                <div class="email"><a href="mailto:xxxxs@ons.gsi.gov.uk">xxxxxxxxxxx@ons.gsi.gov.uk</a>
+                </div>
+                <div class="tel">Telephone: +44 (0)1633 XXXXXX</div>
+              </div>
+              <footer class="box__footer box__footer--right">
+                <a class="link-complex mini" href="#">
+                  <span class="link-complex__target box__action__text">View all contacts</span>
+                  <span class="icon-book" role="presentational"></span>
+                </a>
+              </footer>
             </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="birthNowComp2">-</span>
-            </div>
-            </div>
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="parent_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="birthThenComp2">-</span>
-            </div>
-            </div>
-
-            <br/>
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="gparent_name">Deaths</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-             <span id="deathNowComp2">-</span>
-            </div>
-            </div>
-
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="ancestor_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="deathThenComp2">-</span>
-            </div>
-            </div>
-
-            <br/>
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="ancestor_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <b><span id="natChangeComp2">-</span></b>
-            </div>
-            This is a <span id="natPercentComp2"></span>% change compared with 2012.
-            </div>
+            <!-- /box -->
           </div>
+          <!-- /grid-col -->
+        </div>
+        <!-- /grid-wrap -->
       </div>
-      <!--  END NATURAL CHANGE  -->
-
-
-      <!--  MIGRATION  -->
-
-    <div class="row">
-        <h4>Migration</h4>
-    </div>
-
-      <div class="row">
-          <div id="" class="col-sm-6">
-
-            <div class="row">
-            <div id="" class="col-sm-6">
-              <span id="name">Internal Migration</span>
-            </div>
-            <div id="" class="col-sm-6 text-right">
-              <span id="internalInComp1">-</span>
-            </div>
-            </div>
-
-            <div class="row">
-            <div id="" class="col-sm-6">
-              <span id="parent_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-6 text-right">
-              <span id="internalOutComp1">-</span>
-            </div>
-            </div>
-
-            <br/>
-            <div class="row">
-            <div id="" class="col-sm-6">
-              <span id="ancestor_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-6 text-right">
-              <b><span id="internalNetComp1">-</span></b>
-            </div>
-            </div>
-
-            <br/>
-            <div class="row">
-            <div id="" class="col-sm-6">
-              <span id="gparent_name">International Migration</span>
-            </div>
-            <div id="" class="col-sm-6 text-right">
-             <span id="externalInComp1">-</span>
-            </div>
-            </div>
-
-            <div class="row">
-            <div id="" class="col-sm-6">
-              <span id="ancestor_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-6 text-right">
-              <span id="externalOutComp1">-</span>
-            </div>
-            </div>
-
-            <br/>
-            <div class="row">
-            <div id="" class="col-sm-6">
-              <span id="ancestor_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-6 text-right">
-              <b><span id="externalNetComp1">-</span></b>
-            </div>
-            </div>
-            <br/>
-            There were also <span id="otherComp1"></span> <i>'Other'</i> changes compared with 2012.
-
-          </div>
-
-          <div id="" class="col-sm-6">
-            <div class="row">
-            <div id="" class="col-sm-6">
-              <span id="name">Internal Migration</span>
-            </div>
-            <div id="" class="col-sm-6 text-right">
-              <span id="internalInComp2">-</span>
-            </div>
-            </div>
-
-            <div class="row">
-            <div id="" class="col-sm-6">
-              <span id="parent_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-6 text-right">
-              <span id="internalOutComp2">-</span>
-            </div>
-            </div>
-
-            <br/>
-            <div class="row">
-            <div id="" class="col-sm-6">
-              <span id="ancestor_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-6 text-right">
-              <b><span id="internalNetComp2">-</span></b>
-            </div>
-            </div>
-
-            <br/>
-            <div class="row">
-            <div id="" class="col-sm-6">
-              <span id="gparent_name">International Migration</span>
-            </div>
-            <div id="" class="col-sm-6 text-right">
-             <span id="externalInComp2">-</span>
-            </div>
-            </div>
-
-            <div class="row">
-            <div id="" class="col-sm-6">
-              <span id="ancestor_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-6 text-right">
-              <span id="externalOutComp2">-</span>
-            </div>
-            </div>
-
-            <br/>
-            <div class="row">
-            <div id="" class="col-sm-6">
-              <span id="ancestor_name">&nbsp;</span>
-            </div>
-            <div id="" class="col-sm-6 text-right">
-              <b><span id="externalNetComp2">-</span></b>
-            </div>
-            </div>
-            <br/>
-            There were also <span id="otherComp2"></span> <i>'Other'</i> changes compared with 2012.
-
-          </div>
-      </div>
-      <!--  END MIGRATION  -->
-
-    <!--  ECONOMY  -->
-    <div class="row">
-        <h4>Labour Market</h4>
-    </div>
-
-      <div class="row">
-          <div id="" class="col-sm-6">
-
-
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="">Employment Rate</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="employmentComp1">-</span>
-            </div>
-            </div>
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="">Unemployment Rate</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="unemploymentComp1">-</span>
-            </div>
-            </div>
-
-            <br/>
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="">Economic Inactivity</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-             <span id="inactivityComp1">-</span>
-            </div>
-            </div>
-
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="">Claimant Count</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="claimantComp1">-</span>
-            </div>
-            </div>
-
-          </div>
-
-          <div id="" class="col-sm-6">
-
-
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="">Employment Rate</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="employmentComp2">-</span>
-            </div>
-            </div>
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="">Unemployment Rate</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="unemploymentComp2">-</span>
-            </div>
-            </div>
-
-            <br/>
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="">Economic Inactivity</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-             <span id="inactivityComp2">-</span>
-            </div>
-            </div>
-
-            <div class="row">
-            <div id="" class="col-sm-8">
-              <span id="">Claimant Count</span>
-            </div>
-            <div id="" class="col-sm-4 text-right">
-              <span id="claimantComp2">-</span>
-            </div>
-            </div>
-
-          </div>
-      </div>
-      <!--  END ECONOMY  -->
-
-
-
-    </div>
-
-
-  </div>
-
-
-  <br/>
-  <div id="" class="col-sm-3 well">
-      The Neighbourhood Statistics Website is a free to access online data resource predominantly for England and Wales
-      <hr/>
-      <a href="http://www.neighbourhood.statistics.gov.uk">Neighbourhood Statistics</a><br/>
-      <a href="http://www.ninis2.nisra.gov.uk">Northern Ireland Neighbourhood Information Service</a><br/>
-      <a href="http://www.sns.gov.uk">Scottish Neighbourhood Statistics</a><br/>
-
-
-  </div>
-
-  <div id="" class="col-sm-3 ">
-    <table id="selection"></table>
-
-          <button type="button" class="btn btn-primary btn-block" id="addBtn">
-            <span class="fa fa-plus pull-left pad-left">&nbsp;</span>
-            <span class="pull-left">Add to comparison</span>
-          </button>
-          <button type="button" class="btn btn-success btn-block" id="showBtn">
-            <span class="fa fa-plus pull-left pad-left">&nbsp;</span>
-            <span class="pull-left">Show Charts</span>
-          </button>
-          <button type="button" class="btn btn-danger btn-block" id="clearBtn">
-            <span class="fa fa-ban pull-left pad-left">&nbsp;</span>
-            <span class="pull-left">Clear charts</span>
-          </button>
-
-
-  </div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="row">
-  </div>
-
-  <div class="row shim">
-  </div>
-
-
-
-
-<!--  END PAGE BODY  -->
-
-
-
-
-
-
-
-
-
-<!--  FOOTER -->
-<div class="container footer darkGrey">
-
- <div class="row">
-  <div class="col-md-4">
-    <h3>Legal</h3>
-    <ul>
-      <li><a href="#">Business Transparency</a></li>
-      <li><a href="#">Terms and Conditions</a></li>
-      <li><a href="#">Copyright</a></li>
-      <li><a href="#">Cookies and Privacy</a></li>
-    </ul>
-  </div>
-  <div class="col-md-4">
-    <h3>About ONS</h3>
-    <ul>
-      <li><a href="#">Who we are</a></li>
-      <li><a href="#">Careers</a></li>
-      <li><a href="#">Products and Services</a></li>
-      <li><a href="#">Contact us</a></li>
-      <li><a href="#">Our Offices</a></li>
-    </ul>
-  </div>
-  <div class="col-md-4">
-    <h3>Connect with us</h3>
-    <ul>
-      <li><a href="#">Facebook</a></li>
-      <li><a href="#">Twitter</a></li>
-      <li><a href="#">Youtube</a></li>
-      <li><a href="#">Email subscriptions</a></li>
-    </ul>
-  </div>
-</div>
-
-<div class="col-md-12">
-  <p class="text-muted">All content is available under the Open Government Licence v2.0 except where otherwise stated</p>
-</div>
-</div>
+      <!-- /wrapper -->
+      <!-- </div> -->
+    </main>
+    <script src="js/footer.js"></script>
 
 
 <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&amp;region=GB"></script>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/jquery.csv.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-select.min.js"></script>
-<!-- chart library -->
 <script src="js/libs/highcharts.js"></script>
-
-<!-- app -->
-<script src="js/alpha.js"></script>
-
-
-
-<!-- charting -->
 <script src="js/regional.charts.js"></script>
-
-
-
 <script src="js/areas.js"></script>
 <script src="js/loadGeoJson.js"></script>
-<!-- <script src="js/mapping.js"></script> -->
 <script src="js/jspostcode.js"></script>
 <script src="js/loader.js"></script>
-
-
 <script src="js/regional.data.js"></script>
 <script src="js/regional.js"></script>
 <script src="js/regional.neighbourhood.js"></script>
-<script>
-
-$('#opener').on('click', function() {
-    var panel = $('#slide-panel');
-    if (panel.hasClass("visible")) {
-        panel.removeClass('visible').animate({'margin-right':'-300px'});
-    } else {
-        panel.addClass('visible').animate({'margin-right':'0px'});
-    }
-    return false;
-});
-
-
-</script>
-
-
-
-</body>
+ 
+  </body>
 </html>
-
