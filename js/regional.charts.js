@@ -24,7 +24,7 @@ var options = {
             }
         }
     },
-
+/*
     colors: [
             'rgb(0, 132, 209)',           // blue
             'rgb(255, 149, 14)',          // orange
@@ -37,9 +37,10 @@ var options = {
             'rgb(49, 64, 4)',             // dk grey
             'rgb(204, 204, 204)',         // lt grey
             'rgb(128, 128 , 128)'         // mid grey
-            ],
+            ],*/
 
-
+  colors: ['#007dc3', '#409ed2', '#7fbee1', '#007dc3', '#409ed2', '#7fbee1'],
+  
             chart: {
               style: {
                 fontFamily: 'Open Sans',

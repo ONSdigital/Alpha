@@ -70,19 +70,7 @@ function setOptions(){
 
   Highcharts.setOptions({
 
-    colors: [
-            'rgb(0, 132, 209)',           // blue
-            'rgb(255, 149, 14)',          // orange
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)',          // green
-            'rgb(144, 176, 201)',         // lt blue
-            'rgb(255, 211, 32)',          // yellow
-            'rgb(65, 64, 66)',            // dk grey
-            'rgb(0, 61, 89)',             // dk grey
-            'rgb(49, 64, 4)',             // dk grey
-            'rgb(204, 204, 204)',         // lt grey
-            'rgb(128, 128 , 128)'         // mid grey
-            ],
+    colors: ['#007dc3', '#409ed2', '#7fbee1', '#d2ccbb', '#0054aa', '#757575' ],
 
 
             chart: {
@@ -94,7 +82,7 @@ function setOptions(){
               spacingLeft:30,
               backgroundColor:'#F9F9F9',
               events: {
-/*
+
                 load: function () {
                   var chart = this,
                   yAxis = chart.yAxis[0]
@@ -111,7 +99,7 @@ function setOptions(){
                     });
                   }
                 }
-*/
+
               }
             },
 
