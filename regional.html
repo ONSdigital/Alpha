@@ -34,9 +34,9 @@
 
   #postcodeSearch{
     position:relative;
-    float:right;
+    float:left;
     top: -80px;
-    left: -20px;
+    left: 10px;
     z-index:990;
   }
    .quarterChart{
@@ -45,6 +45,20 @@
   .halfChart{
     height:240px;
   }
+
+
+.slate--pink{
+  background-color: #fcf0f2;
+}
+
+.page-header--regional:after {
+  background-color: #a8233e; }
+.page-header--regional-desc {
+  color: #a8233e; }
+h3, .delta, .page-header--regional-desc, .nav-panel__title {
+  font-size: 19px;
+  font-size: 1.9rem;
+  line-height: 1.10526; }
 
   </style>
   </head>
@@ -185,9 +199,9 @@
           </ul>
         </div>
       </nav>
-      <div class="page-header page-header--article page-header--time-series slate--green">
+      <div class="page-header page-header--article page-header--regional slate--pink">
         <div class="wrapper wrapper--article">
-          <h1 class="page-header__title page-header--time-series-desc">Regional:</h1>
+          <h1 class="page-header__title page-header--regional-desc">Regional:</h1>
           <h2 class="alpha flush--third--bottom">Regional Statistics</h2>
           <div class="page-header--article__body">
             <div class="page-header--article__split">
@@ -259,7 +273,81 @@ Following a review in 2013 of non-statutory statistical products to identify red
 
       <div class="wrapper panel--mar">
         <div class="grid-wrap">
-          <div class="grid-col tablet-grid-two-thirds">
+          <div class="grid-col tablet-grid">
+
+            <!--  DEMOGRAPHICS  -->
+
+            <div class="tab-pane ">
+              <ul class="list--neutral nav--block--spaced">
+                <li>
+                  <a href="#demographics" class="tab-pane__tab">Demographics</a>
+                </li>
+                <li>
+                  <a href="#labour" class="tab-pane__tab">Labour Market</a>
+                </li>
+                <li>
+                  <a href="#comparisons" class="tab-pane__tab">Comparisons</a>
+                </li>
+              </ul>
+
+
+              <!--  LABOUR MARKET -->
+
+              <section class="tab-pane__content" id="demographics">
+                
+              </section>
+
+
+
+
+              <section class="tab-pane__content" id="labour">
+                <h3 aria-selected="false" tabindex="0" role="tab" class="accordion__title">Labour Market</h3>
+                <div aria-expanded="false" role="tabpanel" class="">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea
+                    animi, soluta vitae ratione ab optio hic numquam fugiat harum
+                    culpa cum dolore voluptatibus et voluptas autem est laborum
+                    minima, libero!</p>
+                  <p>Vitae officiis accusamus quas? Natus reiciendis dolor dolore
+                    delectus, magnam maiores necessitatibus facere, iste dolores
+                    cum laboriosam animi facilis id consectetur laudantium at perspiciatis,
+                    eos. Non possimus distinctio, quaerat beatae.</p>
+
+
+
+                    <h3>Employment Rate</h3>
+                    <div id='employment' class='halfChart'></div>
+
+                    <h3>Unemployment Rate</h3>
+                    <div id='unemployment' class='halfChart'></div>
+
+
+                </div>
+              </section>
+
+
+              <!--  COMPARISONS  -->
+
+              <section class="tab-pane__content" id="comparisons">
+                <h3 aria-selected="false" tabindex="0" role="tab" class="accordion__title">Comparisons</h3>
+                <div aria-expanded="false" role="tabpanel" class="accordion__content">
+                  <p>Vitae officiis accusamus quas? Natus reiciendis dolor dolore
+                    delectus, magnam maiores necessitatibus facere, iste dolores
+                    cum laboriosam animi facilis id consectetur laudantium at perspiciatis,
+                    eos. Non possimus distinctio, quaerat beatae.</p>
+
+
+                    <div id="pyramid1" class="halfChart"></div>
+
+                    <div id="pyramid2" class="halfChart"></div>
+
+
+                </div>
+              </section>
+            </div>
+
+
+
+
             <h2><a href="#" id="demographics"></a>Demographics</h2>
 
             <div class="grid-col desktop-grid-one-half tablet-grid-one-half">
@@ -449,62 +537,12 @@ Following a review in 2013 of non-statutory statistical products to identify red
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           </div>
 
+
+          <!-- 
           <div class="grid-col tablet-grid-one-third">
-            <div class="box box--padded lifted sectioned">
-              <h4 class="delta flush--half--bottom">Neighbourhood Statistics</h4>
-              <p>The Neighbourhood Statistics Website is a free to access online data resource predominantly for England and Wales</p>
-              <a href="http://www.neighbourhood.statistics.gov.uk">Neighbourhood Statistics</a><br/>
-              <hr/>
-              <a href="http://www.ninis2.nisra.gov.uk">Northern Ireland Neighbourhood Information Service</a><br/>
-              <a href="http://www.sns.gov.uk">Scottish Neighbourhood Statistics</a><br/>
-            </div>
+
             <div class="box box--padded lifted sectioned">
               <h4 class="delta flush--half--bottom">Compare regions</h4>
                 <table id="selection"></table>
@@ -526,118 +564,155 @@ Following a review in 2013 of non-statutory statistical products to identify red
               </div>
             </div>
           </div>
+           -->
           <!-- /grid-col -->
 
-           <div class="grid-col tablet-grid-two-thirds">
 
-            <h3 class="flush--half--bottom">Neighbourhood Statistics</h3>
-            <p>The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.</p>
-              <article class="box box--orange box--orange--separated-left">
-                <div class="box__inner border box--padded has-icon">
-                  <header class="box__header">
-                    <h2 class="gamma" id="areaTitle">Neighbourhood data</h2>
-                  </header>
-                  
-                  <div class="box__content">
-                    <p id="extract">
-                        Neighbourhood data can be browsed directly and also accessed electronically using the API.
-                        Searching on this page will bring back a sample directly from the NeSS website.
-                      </p>
-                    <p class="description mini"></p>
-                  </div>
-                </div>
-              </article>
-
-              <p id="summary">You can download this data and find more (including more guidance on accessing the data) on the <a href="http://www.neighbourhood.statistics.gov.uk/dissemination/">Neighbourhood Statistics website</a>.</p>
-          </div>
 
         </div>
         <!-- /grid-wrap -->
       </div>
       <!-- /wrapper -->
-      <div class="wrapper panel--mar">
-        <div class="grid-wrap">
-          <div class="grid-col tablet-grid-two-thirds">
-            <div class="panel--separated--top">
-              <div class="accordion is-expanded">
-                <h3 aria-selected="false" tabindex="0" role="tab" class="accordion__title">Labour Market</h3>
-                <div aria-expanded="false" role="tabpanel" class="accordion__content">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea
-                    animi, soluta vitae ratione ab optio hic numquam fugiat harum
-                    culpa cum dolore voluptatibus et voluptas autem est laborum
-                    minima, libero!</p>
-                  <p>Vitae officiis accusamus quas? Natus reiciendis dolor dolore
-                    delectus, magnam maiores necessitatibus facere, iste dolores
-                    cum laboriosam animi facilis id consectetur laudantium at perspiciatis,
-                    eos. Non possimus distinctio, quaerat beatae.</p>
-                </div>
 
 
-    <div class="row">
-      <div id="" class="col-sm-6">
-        <h3>Employment Rate</h3>
-        <div id='employment' class='halfChart'></div>
-      </div>
 
-      <div id="" class="col-sm-6">
-        <h3>Unemployment Rate</h3>
-        <div id='unemployment' class='halfChart'></div>
-      </div>
+<div class="slate panel--pad panel--top-mar">
+          <div class="wrapper">
+            <div class="grid-wrap">
+              <div class="grid-col tablet-wide-grid-two-thirds">
+                <h2 class="delta">Neighbourhood Statistics</h2>
+                
+                <p>The Neighbourhood Statistics Website is a free to access online data resource predominantly for England and Wales</p>
+                
+                <p>The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.</p>
+                
+                <p id="extract">
+                  Neighbourhood data can be browsed directly and also accessed electronically using the API.
+                  Searching on this page will bring back a sample directly from the NeSS website.
+                </p>
+                
+                <p id="summary">You can download this data and find more (including more guidance on accessing the data) on the <a href="http://www.neighbourhood.statistics.gov.uk/dissemination/">Neighbourhood Statistics website</a>.</p>
 
-    </div>
-
-
-    <div class="row">
-
-        <!--  LEFT HAND SIDE  -->
-        <div id="" class="col-sm-6">
-          <div class="">
-            <div id="pyramid1" class="halfChart"></div>
-          </div>
-        </div>
-
-        <!--  RIGHT HAND SIDE  -->
-        <div id="" class="col-sm-6">
-          <div class="">
-            <div id="pyramid2" class="halfChart"></div>
-          </div>
-        </div>
-
-    </div>
 
 
 
               </div>
-            </div>
-          </div>
-          <!-- /grid-col -->
-          <div class="grid-col tablet-grid-one-third">
-            <div class="box box--padded lifted sectioned" id="contact-box">
-              <span class="icon icon--mega icon--grey icon--flush icon-info-circled"></span>
-              <h3 class="body-type--heavy gamma">Contact Details for this data</h3>
-              <div class="vcard">
-                <div class="name">xxxxx xxxxxx</div>
-                <div class="organisation">xxxxxxxx xxxxxxx</div>
-                <div class="email"><a href="mailto:xxxxs@ons.gsi.gov.uk">xxxxxxxxxxx@ons.gsi.gov.uk</a>
-                </div>
-                <div class="tel">Telephone: +44 (0)1633 XXXXXX</div>
+              <!-- /grid-col -->
+              <div class="grid-col tablet-grid-one-third">
+                <article class="box box--blue box--blue--separated-left">
+                  <div class="box__inner border box--padded">
+
+                    <div class="box__section">
+                      <h3 class="box__section__header">Northern Ireland</a>
+                      </h3>
+                      <a href="http://www.ninis2.nisra.gov.uk">Northern Ireland Neighbourhood Information Service</a>
+                    </div>
+
+                    <div class="box__section">
+                      <h3 class="box__section__header">Scotland</h3>
+                      <a href="http://www.sns.gov.uk">Scottish Neighbourhood Statistics</a>
+                    </div>
+                  </div>
+                  <!-- /box__inner -->
+                </article>
+                <!-- /box -->
               </div>
-              <footer class="box__footer box__footer--right">
-                <a class="link-complex mini" href="#">
-                  <span class="link-complex__target box__action__text">View all contacts</span>
-                  <span class="icon-book" role="presentational"></span>
-                </a>
-              </footer>
+              <!-- /grid-col -->
             </div>
-            <!-- /box -->
+            <!-- /grid-wrap -->
           </div>
-          <!-- /grid-col -->
+          <!-- /wrapper -->
         </div>
-        <!-- /grid-wrap -->
-      </div>
+        </div>
+
+
+
       <!-- /wrapper -->
       <!-- </div> -->
     </main>
+
+
+
+<footer class="global-footer">
+  <div class="slate--light panel--pad-large panel--separated">
+    <div class="wrapper">
+      <nav class="grid-wrap">
+        <div class="grid-col tablet-grid-one-third">
+          <h2 class="delta headline-separated">Legal</h2>
+          <ul class="list--neutral list--grid list--spaced">
+            <li>
+              <a href="#">Business Transparency</a>
+            </li>
+            <li>
+              <a href="#">Terms and Conditions</a>
+            </li>
+            <li>
+              <a href="#">Copyright</a>
+            </li>
+            <li>
+              <a href="#">Cookies and Privacy</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-col tablet-grid-one-third">
+          <h2 class="delta headline-separated">About ONS</h2>
+          <ul class="list--neutral list--grid list--spaced">
+            <li>
+              <a href="#">Who we are</a>
+            </li>
+            <li>
+              <a href="#">Careers</a>
+            </li>
+            <li>
+              <a href="#">Products and Services</a>
+            </li>
+            <li>
+              <a href="#">Contact us</a>
+            </li>
+            <li>
+              <a href="#">Our offices</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-col tablet-grid-one-third">
+          <h2 class="delta headline-separated">Connect with us</h2>
+          <ul class="list--neutral list--grid list--spaced">
+            <li>
+              <a href="#">Facebook</a>
+            </li>
+            <li>
+              <a href="#">Twitter</a>
+            </li>
+            <li>
+              <a href="#">YouTube</a>
+            </li>
+            <li>
+              <a href="#">Email subscriptions</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- /wrapper -->
+  </div>
+  <!-- /slate -->
+  <div class="slate--mid-grey">
+    <div class="wrapper">
+      <div class="footer__license">
+        <img class="footer__license__img" alt="OGL" width="60" src="/ui/img/ogl.png">
+        <p class="footer__license__body">
+          All content is available under the Open Government Licence v2.0, except where otherwise stated
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
     <script src="js/footer.js"></script>
 
 
