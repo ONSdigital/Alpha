@@ -442,6 +442,7 @@ var options = {
     pyramid1 = new Highcharts.Chart(options);
     options.chart.renderTo = 'pyramid2';
     pyramid2 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'pyramid3';
+    pyramid3 = new Highcharts.Chart(options);
 
-    $("#comparison").hide();
   }

@@ -67,7 +67,6 @@ var regional = (function () {
       $("#comparison").show();
 
       showCharts();
-      location.hash = "#comparisonTop";
 
     })
 

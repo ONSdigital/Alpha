@@ -33,6 +33,7 @@ var chartClaimant;
 
 var pyramid1;
 var pyramid2;
+var pyramid3;
 
 
 var areaMap = {};
@@ -220,7 +221,11 @@ function testPostCode () {
 
   function showSummary( id ) {
 
-
+    console.log("show summary " + $("#comparisons").attr("aria-hidden"));
+      // determine tabbed section and alter display
+    if($("#comparisons").attr("aria-hidden")==="true"){
+      console.log("HIDE comparisons");
+ 
     //console.log(areaObj[id]);
     //console.log(areaObj[id].trends[2] +" (" + (YEAR-10) + ")");
     // region / county / district
@@ -314,6 +319,14 @@ function testPostCode () {
 
 
      showSingle( id );
+
+    }else{
+      console.log("show comparisons "  + lastArea);
+
+       addArea(lastArea);
+       showCharts();
+    }
+
 
   }
 
