@@ -294,12 +294,12 @@ function testPostCode () {
     $("#natPercent").text( pc );
 
 
-    $("#internalIn").text( "In to area: " + areaObj[id].changes["Internal Inflow"]);
-    $("#internalOut").text( "Out of area: " + areaObj[id].changes["Internal Outflow"]);
+    $("#internalIn").text( areaObj[id].changes["Internal Inflow"]);
+    $("#internalOut").text( areaObj[id].changes["Internal Outflow"]);
     $("#internalNet").text( "Net: " + areaObj[id].changes["Internal Net"]);
 
-    $("#externalIn").text( "In to area: " + areaObj[id].changes["International Inflow"]);
-    $("#externalOut").text( "Out of area: " + areaObj[id].changes["International Outflow"]);
+    $("#externalIn").text( areaObj[id].changes["International Inflow"]);
+    $("#externalOut").text( areaObj[id].changes["International Outflow"]);
     $("#externalNet").text( "Net: " + areaObj[id].changes["International Net"]);
 
     $("#other").text( areaObj[id].changes.Other);
@@ -326,7 +326,7 @@ function testPostCode () {
     var female_pc = Math.round( 1000 * females / (males+females) ) /10;
     var male_pc = Math.round( 1000 * males / (males+females) )/10;
     var chartData = [];
-    chartData = [ ['Male ' + male_pc + '%', male_pc], ['Female ' + female_pc + '%', female_pc] ];
+    chartData = [  ['Female ' + female_pc + '%', female_pc], ['Male ' + male_pc + '%', male_pc] ];
 
 
 

@@ -24,20 +24,6 @@ var options = {
             }
         }
     },
-/*
-    colors: [
-            'rgb(0, 132, 209)',           // blue
-            'rgb(255, 149, 14)',          // orange
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)',          // green
-            'rgb(144, 176, 201)',         // lt blue
-            'rgb(255, 211, 32)',          // yellow
-            'rgb(65, 64, 66)',            // dk grey
-            'rgb(0, 61, 89)',             // dk grey
-            'rgb(49, 64, 4)',             // dk grey
-            'rgb(204, 204, 204)',         // lt grey
-            'rgb(128, 128 , 128)'         // mid grey
-            ],*/
 
   colors: ['#007dc3', '#409ed2', '#7fbee1', '#007dc3', '#409ed2', '#7fbee1'],
   
@@ -250,12 +236,6 @@ var options = {
 
     options.legend.enabled = false;
     options.plotOptions.series = {};
-    options.colors =  [
-            'rgb(0, 132, 209)',           // blue
-            'rgb(255, 149, 14)',          // orange
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)'         // green
-            ];
     options.series= [
                         { name: 'Migration', data: [0] },
                         { name: 'UK', data: [0] },
@@ -311,11 +291,6 @@ var options = {
 
     options.legend.enabled = true;
     options.plotOptions.series = {};
-    options.colors =  [
-            'rgb(0, 132, 209)',           // blue
-            'rgb(255, 149, 14)'          // orange
-
-            ];
 
   options.series = [
 
@@ -347,21 +322,9 @@ var options = {
     options.chart.plotBackgroundColor = "#fff";
     options.chart.margin = 0;
     options.chart.spacing =[10, 10, 15, 10]
+    options.colors = ['#409ed2', '#007dc3'];
     options.title.text = '';
-    options.colors = [
-            'rgb(0, 132, 209)',           // blue
-            'rgb(255, 149, 14)',          // orange
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)',          // green
-            'rgb(144, 176, 201)',         // lt blue
-            'rgb(255, 211, 32)',          // yellow
-            'rgb(65, 64, 66)',            // dk grey
-            'rgb(0, 61, 89)',             // dk grey
-            'rgb(49, 64, 4)',             // dk grey
-            'rgb(204, 204, 204)',         // lt grey
-            'rgb(128, 128 , 128)'         // mid grey
-            ],
-            options.legend.enabled = false;
+    options.legend.enabled = false;
     options.plotOptions.series = {
       pie: {
                 allowPointSelect: true,
@@ -379,8 +342,8 @@ var options = {
                       {
                         type: 'pie',
                         data: [
-                                ["Male", 50],
-                                ["Female", 50]
+                                ["Female", 50],
+                                ["Male", 50]
                               ]
                       }
                     ];
@@ -403,6 +366,7 @@ var options = {
     options.chart.margin = 10;
     options.chart.marginBottom = 20;
     options.chart.spacing =[10, 10, 10, 10];
+    options.colors = ['#007dc3', '#409ed2', '#7fbee1', '#007dc3', '#409ed2', '#7fbee1'];
     options.xAxis = [{
                 categories : [ '0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39', '40-44','45-49', '50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80-84', '85-89', '90 +'],
                 reversed: false,
@@ -461,10 +425,6 @@ var options = {
                       { name: 'Female', data: [0] },
                     ];
     options.plotOptions.series = {stacking: 'normal'};
-    options.colors = [
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)'         // green
-            ];
 
 
 
