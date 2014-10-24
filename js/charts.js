@@ -36,14 +36,33 @@ function resize(){
 
     if(w<768){
       options.chart.type="bar";
+      options.yAxis[0].title.align = 'low';
+      options.yAxis[0].title.offset = -300;
+
       options.plotOptions.column = {};
       options.plotOptions.series = {stacking: 'normal'};
       stackedBar =  $('#stackedBar').highcharts(options);
+
     }else{
       options.chart.type="column";
+
+      yAxis = stackedBar.yAxis[0]
+      titleWidth=0;
+
+      if(yAxis.axisTitle){
+        titleWidth = yAxis.axisTitle.getBBox().width;
+        yAxis.update({
+          title: {
+            offset: -titleWidth,
+            align: 'high'
+          }
+        });
+      }
+
       options.plotOptions.series = {};
       options.plotOptions.column = {stacking: 'normal'};
       stackedBar =  $('#stackedBar').highcharts(options);
+
     }
 }
 
@@ -51,19 +70,7 @@ function setOptions(){
 
   Highcharts.setOptions({
 
-    colors: [
-            'rgb(0, 132, 209)',           // blue
-            'rgb(255, 149, 14)',          // orange
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)',          // green
-            'rgb(144, 176, 201)',         // lt blue
-            'rgb(255, 211, 32)',          // yellow
-            'rgb(65, 64, 66)',            // dk grey
-            'rgb(0, 61, 89)',             // dk grey
-            'rgb(49, 64, 4)',             // dk grey
-            'rgb(204, 204, 204)',         // lt grey
-            'rgb(128, 128 , 128)'         // mid grey
-            ],
+    colors: ['#007dc3', '#409ed2', '#7fbee1', '#d2ccbb', '#0054aa', '#757575' ],
 
 
             chart: {
@@ -80,17 +87,19 @@ function setOptions(){
                   var chart = this,
                   yAxis = chart.yAxis[0]
                   titleWidth=0;
+                  console.log(yAxis);
 
                   if(yAxis.axisTitle){
+                    console.log(yAxis.axisTitle);
                     titleWidth = yAxis.axisTitle.getBBox().width;
                     yAxis.update({
                       title: {
                         offset: -titleWidth
                       }
                     });
-                  } 
-
+                  }
                 }
+
               }
             },
 
@@ -126,6 +135,7 @@ function setOptions(){
             }
 
           },
+
 
           legend: {
             borderColor:null,

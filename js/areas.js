@@ -36,7 +36,7 @@ var areas = (function () {
 
 
     function splitAreas(  ) {
-      $('.selectpicker').selectpicker('render');
+     // $('.selectpicker').selectpicker('render');
       $("#message").text( "Processing Area Data" );
 
       //code,name,entity,county,region
@@ -113,7 +113,7 @@ var areas = (function () {
       });
 
       $('#region').append(optionHTML);
-      $('.selectpicker').selectpicker('refresh');
+     // $('.selectpicker').selectpicker('refresh');
 
     }
 

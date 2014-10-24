@@ -15,7 +15,7 @@ var regional = (function () {
 
     $('#slide-panel').removeClass('visible');
 
-    $('#loader').modal('show');
+   // $('#loader').modal('show');
 
     // init chart options and load individual charts
     initCharts();
@@ -67,7 +67,6 @@ var regional = (function () {
       $("#comparison").show();
 
       showCharts();
-      location.hash = "#comparisonTop";
 
     })
 

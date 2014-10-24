@@ -12,7 +12,8 @@ function multiseriesTooltip(){
 
     ,
    /* colors: ['#0084d1', '#16a9ff', '#5ac2ff', '#9edbff'],*/
-    colors: ['#8FBED8', '#5296C3', '#1377B2', '#1673AC'],
+   // colors: ['#8FBED8', '#5296C3', '#1377B2', '#1673AC'],
+    colors: ['#007dc3', '#409ed2', '#7fbee1', '#007dc3', '#409ed2', '#7fbee1'],
 
     title: {
       text: 'Prices Indices'
@@ -74,7 +75,7 @@ function multiseriesTooltip(){
     }
     ,
 
-    
+
     tooltip: {
       shared: true,
       width:'150px',
@@ -109,16 +110,14 @@ function multiseriesTooltip(){
       ,
 
     formatter: function(){
-      //console.log(this);
       var id = '<div id="custom-tooltip" class="tooltip-left tooltip-right">';
-      //var id = "<div id='custom'>"
       var block = id + "<div class='sidebar' >";
       var title = '<b class="title">'+ this.x +': </b><br/>';
       var symbol = ['<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>'];
 
       var content = block + "<div class='title'>&nbsp;</div>" ;
 
-      //symbols
+      // symbols
       $.each(this.points, function(i, val){
         content +=  symbol[i];
       })
@@ -126,9 +125,9 @@ function multiseriesTooltip(){
       content+= "</div>";
       content+= "<div class='mainText'>";
       content+= title;
-      
 
-      ////sereis names and values
+
+      // series names and values
       $.each(this.points, function(i, val){
         content += '<div class="tiptext"><b>' + val.point.series.chart.series[i].name + "= </b>" + Highcharts.numberFormat(val.y, 2) +'%</div>' ;
       })
@@ -142,14 +141,7 @@ function multiseriesTooltip(){
       borderColor: 'rgba(255, 255, 255, 0)',
       shadow: false,
       useHTML: true
-      /*
-      ,
-      style: {
-        color: '#333333',
-        fontSize: '12px',
-        padding: '8px',
-      }
-      */
+
     }
     ,
 
@@ -178,7 +170,7 @@ function multiseriesTooltip(){
         symbol:"circle",
         states: {
                 hover: {
-                  fillColor: '#8FBED8',
+                  fillColor: '#007dc3',
                   radiusPlus: 0,
                   lineWidthPlus: 0
                 }
@@ -194,7 +186,7 @@ function multiseriesTooltip(){
         symbol:"square",
         states: {
                 hover: {
-                  fillColor: '#5296C3',
+                  fillColor: '#409ed2',
                   radiusPlus: 0,
                   lineWidthPlus: 0
                 }
@@ -208,7 +200,7 @@ function multiseriesTooltip(){
         symbol:"diamond",
         states: {
                 hover: {
-                  fillColor: '#1377B2',
+                  fillColor: '#7fbee1',
                   radiusPlus: 0,
                   lineWidthPlus: 0
                 }
@@ -222,7 +214,7 @@ function multiseriesTooltip(){
         symbol:"triangle",
         states: {
                 hover: {
-                  fillColor: '#1673AC',
+                  fillColor: '#007dc3',
                   radiusPlus: 0,
                   lineWidthPlus: 0
                 }

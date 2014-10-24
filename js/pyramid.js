@@ -11,10 +11,7 @@ function populationPyramid(){
 
     $(document).ready(function() {
         $('#pyramid').highcharts({
-           colors: [
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)'         // green
-            ],
+           colors: ['#7fbee1', '#007dc3'],
 
             chart: {
                 type: 'bar'

@@ -31,8 +31,15 @@ var chartUnemploy;
 var chartInactivity;
 var chartClaimant;
 
+var life1;
+var life2;
+var life3;
+var gender1;
+var gender2;
+var gender3;
 var pyramid1;
 var pyramid2;
+var pyramid3;
 
 
 var areaMap = {};
@@ -61,39 +68,24 @@ var pyramid;
 var pyr = [];
 
 
-
-var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EX4 4SB",
-  "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
-  "OX1 2JD", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
-  "E1 4NS", "WC2A 2AE", "WC2R 2LS"
-//,"EH8 9YL","G12 8QQ",  "BT7 1NN"
-  ];
-
 function testPostCode () {
 
   var pcode ;
-      //console.log("testPostCode pcode "  + $("#postcode").val() );
-     // if( $("#postcode").val()==="" ){
-        var ran = Math.floor(Math.random()*postcodes.length);
-        pcode = postcodes[ran];
-        $("#postcode").val( pcode );
-     // }else{
-      //  pcode = $("#postcode").val();
-     // }
+  pcode = $("#postcode").val();
+
 
  //console.log("got pcode "  + pcode );
 
   var newPostCode = checkPostCode( pcode );
   if (newPostCode) {
     postcode = newPostCode;
+
     //call to NESS
     neighbourhood.getStats(newPostCode, true);
     $("#postcode").val( newPostCode );
-   // console.log ("Postcode has a valid format")
     var url = POSTCODE_URL + newPostCode;
 
     loader.setUrl( url );
-    //console.log("Data URL " + url);
     loader.loadData( parseData );
 
   }
@@ -235,13 +227,17 @@ function testPostCode () {
 
   function showSummary( id ) {
 
-
+    console.log("show summary " + $("#comparisons").attr("aria-hidden"));
+      // determine tabbed section and alter display
+    if($("#comparisons").attr("aria-hidden")==="true"){
+      console.log("HIDE comparisons");
+ 
     //console.log(areaObj[id]);
     //console.log(areaObj[id].trends[2] +" (" + (YEAR-10) + ")");
     // region / county / district
     $("#name").text(areaObj[id].name);
-    $("#pop").text( areaObj[id].trends[12] +" (" + YEAR + ")");
-    $("#pop2").text( areaObj[id].trends[2] +" (" + (YEAR-10) + ")");
+    $("#pop").text( areaObj[id].trends[12] );
+    $("#pop2").text( areaObj[id].trends[2] );
 
     $("#mainTitle").text( "Regional profile: " + areaObj[id].name + ", " + YEAR + "");
 
@@ -299,22 +295,22 @@ function testPostCode () {
     //console.log(areaObj[id].changes);
     //console.log(areaObj[id]);
 
-    $("#birth").text(areaObj[id].changes.births + " (2013)");
-    $("#death").text(areaObj[id].changes.deaths + " (2013)");
+    $("#birth").text(areaObj[id].changes.births );
+    $("#death").text(areaObj[id].changes.deaths );
     $("#natChange").text( "Net: " + areaObj[id].changes["natural change"]);
-    $("#birth2").text(areaObj[id].changes.births_2003 + " (2003)");
-    $("#death2").text(areaObj[id].changes.deaths_2003 + " (2003)");
+    $("#birth2").text(areaObj[id].changes.births_2003 );
+    $("#death2").text(areaObj[id].changes.deaths_2003 );
 
     var pc = Math.round ( 10000 * areaObj[id].changes["natural change"] / areaObj[id].changes.previous ) / 100;
     $("#natPercent").text( pc );
 
 
-    $("#internalIn").text( "In to area: " + areaObj[id].changes["Internal Inflow"]);
-    $("#internalOut").text( "Out of area: " + areaObj[id].changes["Internal Outflow"]);
+    $("#internalIn").text( areaObj[id].changes["Internal Inflow"]);
+    $("#internalOut").text( areaObj[id].changes["Internal Outflow"]);
     $("#internalNet").text( "Net: " + areaObj[id].changes["Internal Net"]);
 
-    $("#externalIn").text( "In to area: " + areaObj[id].changes["International Inflow"]);
-    $("#externalOut").text( "Out of area: " + areaObj[id].changes["International Outflow"]);
+    $("#externalIn").text( areaObj[id].changes["International Inflow"]);
+    $("#externalOut").text( areaObj[id].changes["International Outflow"]);
     $("#externalNet").text( "Net: " + areaObj[id].changes["International Net"]);
 
     $("#other").text( areaObj[id].changes.Other);
@@ -330,6 +326,14 @@ function testPostCode () {
 
      showSingle( id );
 
+    }else{
+      console.log("show comparisons "  + lastArea);
+
+       addArea(lastArea);
+       showCharts();
+    }
+
+
   }
 
 
@@ -341,7 +345,7 @@ function testPostCode () {
     var female_pc = Math.round( 1000 * females / (males+females) ) /10;
     var male_pc = Math.round( 1000 * males / (males+females) )/10;
     var chartData = [];
-    chartData = [ ['Male ' + male_pc + '%', male_pc], ['Female ' + female_pc + '%', female_pc] ];
+    chartData = [  ['Female ' + female_pc + '%', female_pc], ['Male ' + male_pc + '%', male_pc] ];
 
 
 
@@ -707,11 +711,11 @@ function testPostCode () {
         var count = index+1;
         var pc = Math.round ( 10000 * item.changes["natural change"] / item.changes.previous ) / 100;
 
-        //console.log(item);
+        console.log(item);
 
         $("#title"+count).text( item.name );
-        $("#nowComp"+count).text( item.trends[12] );
-        $("#previousComp"+count).text( item.trends[2] );
+        $("#pop_com"+count).text( item.trends[12] );
+        $("#pop_com"+count + "_pt2").text( item.trends[2] );
 
         $("#birthNowComp"+count).text( item.changes.births );
         $("#birthThenComp"+count).text( item.changes.births_2003 );
@@ -736,6 +740,21 @@ function testPostCode () {
 
         window["pyramid"+count].series[1].setData( item.series.female );
         window["pyramid"+count].series[0].setData( item.series.male );
+
+        var males = item.maleTotal;
+        var females = item.femaleTotal;
+        var female_pc = Math.round( 1000 * females / (males+females) ) /10;
+        var male_pc = Math.round( 1000 * males / (males+females) )/10;
+        var chartData = [];
+        chartData = [  ['Female ' + female_pc + '%', female_pc], ['Male ' + male_pc + '%', male_pc] ];
+
+
+       window["gender"+count].series[0].setData( chartData );
+
+       window["life"+count].series[0].setData( item.expectancy.male );
+       window["life"+count].series[1].setData( item.expectancy.female );
+
+
 
       });
 
@@ -937,7 +956,7 @@ $("#areas").empty();
       areaObj[value.code].expectancy.male.push( m1993, parseFloat(value.m2000), parseFloat(value.m2010) );
 
     }else{
-      console.log("NO " + value.code + " in life expectancy data");
+      //console.log("NO " + value.code + " in life expectancy data");
     }
     });
 
@@ -954,13 +973,13 @@ $("#areas").empty();
 
 
     }else{
-      console.log("NO " + value.code + " in Labour market data");
+      //console.log("NO " + value.code + " in Labour market data");
     }
   });
 
   //console.log(areaObj);
 
- $('#loader').modal('hide');
+ //$('#loader').modal('hide');
 
   //init with content
   //updateDisplay("W06000022");

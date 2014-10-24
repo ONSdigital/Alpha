@@ -25,21 +25,8 @@ var options = {
         }
     },
 
-    colors: [
-            'rgb(0, 132, 209)',           // blue
-            'rgb(255, 149, 14)',          // orange
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)',          // green
-            'rgb(144, 176, 201)',         // lt blue
-            'rgb(255, 211, 32)',          // yellow
-            'rgb(65, 64, 66)',            // dk grey
-            'rgb(0, 61, 89)',             // dk grey
-            'rgb(49, 64, 4)',             // dk grey
-            'rgb(204, 204, 204)',         // lt grey
-            'rgb(128, 128 , 128)'         // mid grey
-            ],
-
-
+  colors: ['#007dc3', '#409ed2', '#7fbee1', '#007dc3', '#409ed2', '#7fbee1'],
+  
             chart: {
               style: {
                 fontFamily: 'Open Sans',
@@ -144,7 +131,9 @@ var options = {
 
     options.yAxis = {
             max: 100,
-            title: { text:''}
+            title: { text:''},
+            gridZIndex:4,
+            gridLineColor:'#F9F9F9'
         };
 
     options.legend.enabled = false;
@@ -152,9 +141,9 @@ var options = {
             series: {
                 dataLabels: {
                     enabled: true,
-                    align: 'right',
-                    color: '#FFFFFF',
-                    x: -10,
+                    align: 'left',
+                    color: '#000',
+                    x: 10,
                     formatter: function() {
                       return this.series.name;
                     }
@@ -190,7 +179,9 @@ var options = {
                     ];
     options.yAxis = {
             max: 20,
-            title: { text:''}
+            title: { text:''},
+            gridZIndex:4,
+            gridLineColor:'#F9F9F9'
         };
     options.tooltip = {
       formatter: function() {
@@ -249,12 +240,6 @@ var options = {
 
     options.legend.enabled = false;
     options.plotOptions.series = {};
-    options.colors =  [
-            'rgb(0, 132, 209)',           // blue
-            'rgb(255, 149, 14)',          // orange
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)'         // green
-            ];
     options.series= [
                         { name: 'Migration', data: [0] },
                         { name: 'UK', data: [0] },
@@ -282,6 +267,7 @@ var options = {
                               text: ''
 
                           };
+
     options.xAxis = {
                      categories: ['1991-1993', '2000-2002', '2010-2012']
                   };
@@ -310,11 +296,6 @@ var options = {
 
     options.legend.enabled = true;
     options.plotOptions.series = {};
-    options.colors =  [
-            'rgb(0, 132, 209)',           // blue
-            'rgb(255, 149, 14)'          // orange
-
-            ];
 
   options.series = [
 
@@ -340,27 +321,21 @@ var options = {
     }
     lifeThumb = new Highcharts.Chart(options);
 
+    options.chart.renderTo = 'life1';
+    life1 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'life2';
+    life2 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'life3';
+    life3 = new Highcharts.Chart(options);
 
     // GENDER
     options.chart.renderTo = 'thumbGender';
     options.chart.plotBackgroundColor = "#fff";
     options.chart.margin = 0;
     options.chart.spacing =[10, 10, 15, 10]
+    options.colors = ['#409ed2', '#007dc3'];
     options.title.text = '';
-    options.colors = [
-            'rgb(0, 132, 209)',           // blue
-            'rgb(255, 149, 14)',          // orange
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)',          // green
-            'rgb(144, 176, 201)',         // lt blue
-            'rgb(255, 211, 32)',          // yellow
-            'rgb(65, 64, 66)',            // dk grey
-            'rgb(0, 61, 89)',             // dk grey
-            'rgb(49, 64, 4)',             // dk grey
-            'rgb(204, 204, 204)',         // lt grey
-            'rgb(128, 128 , 128)'         // mid grey
-            ],
-            options.legend.enabled = false;
+    options.legend.enabled = false;
     options.plotOptions.series = {
       pie: {
                 allowPointSelect: true,
@@ -378,8 +353,8 @@ var options = {
                       {
                         type: 'pie',
                         data: [
-                                ["Male", 50],
-                                ["Female", 50]
+                                ["Female", 50],
+                                ["Male", 50]
                               ]
                       }
                     ];
@@ -389,6 +364,13 @@ var options = {
       }
     };
     genderThumb = new Highcharts.Chart(options);
+
+    options.chart.renderTo = 'gender1';
+    gender1 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'gender2';
+    gender2 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'gender3';
+    gender3 = new Highcharts.Chart(options);
 
 
 
@@ -402,9 +384,11 @@ var options = {
     options.chart.margin = 10;
     options.chart.marginBottom = 20;
     options.chart.spacing =[10, 10, 10, 10];
+    options.colors = ['#007dc3', '#409ed2', '#7fbee1', '#007dc3', '#409ed2', '#7fbee1'];
     options.xAxis = [{
                 categories : [ '0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39', '40-44','45-49', '50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80-84', '85-89', '90 +'],
                 reversed: false,
+                alternateGridColor: '#f1f1f1',
                 lineWidth: 0,
                      minorGridLineWidth: 0,
                      lineColor: 'transparent',
@@ -430,24 +414,10 @@ var options = {
                      tickLength: 0
             }];
 
-     options.yAxis = {
-        min: 0,
-        title: {
-            text: ''
-        },
-        stackLabels: {
-            enabled: true,
-            style: {
-                fontWeight: 'bold',
-                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-            }
-        }
-    },
-
-
     options.yAxis = {
-                      title:  {text: ''}
-                      ,
+                      title:  {text: ''},
+                      gridZIndex:4,
+                      gridLineColor:'#F9F9F9',
                       labels: {
                               formatter: function () {
                                   return (Math.abs(this.value) / 1000000) + 'M';
@@ -460,10 +430,6 @@ var options = {
                       { name: 'Female', data: [0] },
                     ];
     options.plotOptions.series = {stacking: 'normal'};
-    options.colors = [
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)'         // green
-            ];
 
 
 
@@ -481,6 +447,7 @@ var options = {
     pyramid1 = new Highcharts.Chart(options);
     options.chart.renderTo = 'pyramid2';
     pyramid2 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'pyramid3';
+    pyramid3 = new Highcharts.Chart(options);
 
-    $("#comparison").hide();
   }
