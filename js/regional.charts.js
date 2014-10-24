@@ -131,7 +131,9 @@ var options = {
 
     options.yAxis = {
             max: 100,
-            title: { text:''}
+            title: { text:''},
+            gridZIndex:4,
+            gridLineColor:'#F9F9F9'
         };
 
     options.legend.enabled = false;
@@ -139,9 +141,9 @@ var options = {
             series: {
                 dataLabels: {
                     enabled: true,
-                    align: 'right',
-                    color: '#FFFFFF',
-                    x: -10,
+                    align: 'left',
+                    color: '#000',
+                    x: 10,
                     formatter: function() {
                       return this.series.name;
                     }
@@ -177,7 +179,9 @@ var options = {
                     ];
     options.yAxis = {
             max: 20,
-            title: { text:''}
+            title: { text:''},
+            gridZIndex:4,
+            gridLineColor:'#F9F9F9'
         };
     options.tooltip = {
       formatter: function() {
@@ -263,6 +267,7 @@ var options = {
                               text: ''
 
                           };
+
     options.xAxis = {
                      categories: ['1991-1993', '2000-2002', '2010-2012']
                   };
@@ -370,6 +375,7 @@ var options = {
     options.xAxis = [{
                 categories : [ '0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39', '40-44','45-49', '50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80-84', '85-89', '90 +'],
                 reversed: false,
+                alternateGridColor: '#f1f1f1',
                 lineWidth: 0,
                      minorGridLineWidth: 0,
                      lineColor: 'transparent',
@@ -395,24 +401,10 @@ var options = {
                      tickLength: 0
             }];
 
-     options.yAxis = {
-        min: 0,
-        title: {
-            text: ''
-        },
-        stackLabels: {
-            enabled: true,
-            style: {
-                fontWeight: 'bold',
-                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-            }
-        }
-    },
-
-
     options.yAxis = {
-                      title:  {text: ''}
-                      ,
+                      title:  {text: ''},
+                      gridZIndex:4,
+                      gridLineColor:'#F9F9F9',
                       labels: {
                               formatter: function () {
                                   return (Math.abs(this.value) / 1000000) + 'M';
