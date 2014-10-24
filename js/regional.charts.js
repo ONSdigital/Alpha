@@ -321,6 +321,12 @@ var options = {
     }
     lifeThumb = new Highcharts.Chart(options);
 
+    options.chart.renderTo = 'life1';
+    life1 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'life2';
+    life2 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'life3';
+    life3 = new Highcharts.Chart(options);
 
     // GENDER
     options.chart.renderTo = 'thumbGender';
@@ -358,6 +364,13 @@ var options = {
       }
     };
     genderThumb = new Highcharts.Chart(options);
+
+    options.chart.renderTo = 'gender1';
+    gender1 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'gender2';
+    gender2 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'gender3';
+    gender3 = new Highcharts.Chart(options);
 
 
 

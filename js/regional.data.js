@@ -31,6 +31,12 @@ var chartUnemploy;
 var chartInactivity;
 var chartClaimant;
 
+var life1;
+var life2;
+var life3;
+var gender1;
+var gender2;
+var gender3;
 var pyramid1;
 var pyramid2;
 var pyramid3;
@@ -705,11 +711,11 @@ function testPostCode () {
         var count = index+1;
         var pc = Math.round ( 10000 * item.changes["natural change"] / item.changes.previous ) / 100;
 
-        //console.log(item);
+        console.log(item);
 
         $("#title"+count).text( item.name );
-        $("#nowComp"+count).text( item.trends[12] );
-        $("#previousComp"+count).text( item.trends[2] );
+        $("#pop_com"+count).text( item.trends[12] );
+        $("#pop_com"+count + "_pt2").text( item.trends[2] );
 
         $("#birthNowComp"+count).text( item.changes.births );
         $("#birthThenComp"+count).text( item.changes.births_2003 );
@@ -734,6 +740,21 @@ function testPostCode () {
 
         window["pyramid"+count].series[1].setData( item.series.female );
         window["pyramid"+count].series[0].setData( item.series.male );
+
+        var males = item.maleTotal;
+        var females = item.femaleTotal;
+        var female_pc = Math.round( 1000 * females / (males+females) ) /10;
+        var male_pc = Math.round( 1000 * males / (males+females) )/10;
+        var chartData = [];
+        chartData = [  ['Female ' + female_pc + '%', female_pc], ['Male ' + male_pc + '%', male_pc] ];
+
+
+       window["gender"+count].series[0].setData( chartData );
+
+       window["life"+count].series[0].setData( item.expectancy.male );
+       window["life"+count].series[1].setData( item.expectancy.female );
+
+
 
       });
 
