@@ -326,11 +326,6 @@ function testPostCode () {
 
 
 
-
-    //console.log(areaObj[id].changes.births_2003);
-    //console.log(areaObj[id].changes);
-    //console.log(areaObj[id]);
-
     $("#birth").text(areaObj[id].changes.births );
     $("#death").text(areaObj[id].changes.deaths );
     $("#natChange").text( "Net: " + areaObj[id].changes["natural change"]);
@@ -352,12 +347,17 @@ function testPostCode () {
     $("#other").text( areaObj[id].changes.Other);
 
 
+    $("#inactivityName").text( areaObj[id].name );
     $("#inactivity").text( areaObj[id].labour.inactivity +"%" );
-    $("#inactivityParent").text( areaObj[parent].name + ": " + areaObj[parent].labour.inactivity +"%" );
-    $("#inactivityUK").text( areaObj[uk].name + ": " + areaObj[uk].labour.inactivity +"%" );
+    $("#inactivityParentName").text( areaObj[parent].name  );
+    $("#inactivityParent").text(  areaObj[parent].labour.inactivity +"%" );
+    $("#inactivityUK").text( areaObj[uk].labour.inactivity +"%" );
+
+    $("#claimantName").text( areaObj[id].name );
     $("#claimant").text( areaObj[id].labour.claimant +"%" );
-    $("#claimantParent").text( areaObj[parent].name + ": " + areaObj[parent].labour.claimant +"%" );
-    $("#claimantUK").text( areaObj[uk].name + ": " + areaObj[uk].labour.claimant +"%" );
+    $("#claimantParentName").text( areaObj[parent].name );
+    $("#claimantParent").text(  areaObj[parent].labour.claimant +"%" );
+    $("#claimantUK").text( areaObj[uk].labour.claimant +"%" );
 
 
      showSingle( id );

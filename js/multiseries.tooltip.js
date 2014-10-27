@@ -87,7 +87,10 @@ function multiseriesTooltip(){
         var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         var points = { x: 30, y: 42 };
         var tooltipX, tooltipY;
-
+        //console.log(chart);
+        //console.log( Highcharts);
+       // console.log( Highcharts.charts[1])
+       // console.log( $('chart_prices').highcharts );
         if(w>768){
 
           if (point.plotX + labelWidth > chart.plotWidth) {

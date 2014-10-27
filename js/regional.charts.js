@@ -154,8 +154,8 @@ var options = {
         };
 
     options.series= [
-                        { name:"", data: [0] },
-                        { name:"", data: [0] },
+                        { name:"United Kingdom", data: [0] },
+                        { name:"United Kingdom", data: [0] },
                         { name:"United Kingdom", data: [0] }
                       ];
     options.tooltip = {
@@ -173,8 +173,8 @@ var options = {
     options.chart.type = 'bar';
     options.title.text = '';
     options.series= [
-                      { name:"", data: [0] },
-                      { name:"", data: [0] },
+                      { name:"United Kingdom", data: [0] },
+                      { name:"United Kingdom", data: [0] },
                       { name:"United Kingdom", data: [0] }
                     ];
     options.yAxis = {
