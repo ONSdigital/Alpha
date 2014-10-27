@@ -238,7 +238,7 @@ function getData(areaID){
       if( count ){
           extract = "In " + year +", " + mainTitle + " had a rental price of £" + count  + " for " + subjects[subjectId].desc + " <i>" + description + "</i> (compared with £" + countryCount + " for " + country +")."
       }else{
-          extract = "No data is avaiable for " + mainTitle + ".Please try another area."
+          extract = "No data is avaiable for " + mainTitle + ". Please try another area."
       }
     }
 

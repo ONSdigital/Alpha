@@ -11,6 +11,37 @@ var POINT_URL = "//mapit.mysociety.org/point/4326/";
 var YEAR = 2013;
 var MAX_COMPARISONS = 2;
 
+var BLANK_ITEM = {
+      name : " ",
+      code : "",
+      male : [],
+      female : [],
+      maleTotal:50,
+      femaleTotal:50,
+      changes : {
+        now:0,
+        previous: 0,
+        "Internal Inflow": 0,
+        "Internal Net": 0,
+        "Internal Outflow": 0,
+        "International Inflow": 0,
+        "International Net": 0,
+        "International Outflow": 0,
+        "Other": 0,
+        "births": 0,
+        "births_2003": 0,
+        "deaths": 0,
+        "deaths_2003": 0,
+        "natural change": 0,
+      },
+      series : { male : [], female : []},
+      ageGroups : { u18:0 , adult:0 , over64:0 },
+      trends : [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      labour:{employment:[], unemployment:[]},
+      series:{ male:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], female:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] },
+      expectancy:{ male:[0,0,0], female:[0,0,0] }
+  };
+
 var uk = "K02000001";
 
 var ORANGE ='#FF950E';
@@ -185,26 +216,31 @@ function testPostCode () {
          comparisons.splice(i, 1);
       }
     }
-    checkComparisonList();
-    updateComparisonList();
+    //checkComparisonList();
+    //updateComparisonList();
   }
 
 
 
 
   function addArea( id ){
-    //console.log( $.inArray( id , comparisons ) );
+    console.log( "start " + comparisons.length );
+
+    if( comparisons.length >= MAX_COMPARISONS){
+      comparisons.splice( (MAX_COMPARISONS-1), 1);
+    }
+    console.log( "end " + comparisons.length );
     if( $.inArray( id , comparisons ) === -1){
-     comparisons.push(id);
-      //console.log("ADD " + id);
+      comparisons.unshift(id);
+      console.log("ADD " + id);
 
     }
 
     //console.log( areaObj[id] );
-    checkComparisonList();
-    updateComparisonList();
+    //checkComparisonList();
+    //updateComparisonList();
   }
-
+/*
   function checkComparisonList(){
     if(comparisons.length>= MAX_COMPARISONS){
       $("#addBtn").prop('disabled', true);
@@ -213,8 +249,8 @@ function testPostCode () {
       $("#addBtn").prop('disabled', false);
     }
   }
-
-
+*/
+/*
   function updateComparisonList(){
     $.each(comparisons, function (index, value){
        //console.log(index , value);
@@ -222,9 +258,9 @@ function testPostCode () {
 
        //console.log(item.name +":" + item.code);
     });
-    displayComparisonList();
+    //displayComparisonList();
   }
-
+*/
   function showSummary( id ) {
 
     console.log("show summary " + $("#comparisons").attr("aria-hidden"));
@@ -328,6 +364,7 @@ function testPostCode () {
 
     }else{
       console.log("show comparisons "  + lastArea);
+
 
        addArea(lastArea);
        showCharts();
@@ -695,7 +732,7 @@ function testPostCode () {
         if (idx > -1) {
           comparisons.splice(idx, 1);
         }
-        checkComparisonList();
+        //checkComparisonList();
         displayComparisonList();
       });
 
@@ -704,39 +741,57 @@ function testPostCode () {
 
     function showCharts(){
       //console.log("show charts");
+      if (comparisons.length === 0){
+        console.log("add 2 blank items");
+        comparisons = [ 0,0];
+      }
+      if (comparisons.length === 1){
+        console.log("add 1 blank item");
+        comparisons.push(0);
+      }
 
       $.each(comparisons, function (index, value){
-        //console.log(index, value);
+        console.log(index, value);
         var item =areaObj[value];
         var count = index+1;
-        var pc = Math.round ( 10000 * item.changes["natural change"] / item.changes.previous ) / 100;
+        var pc =0;
+        if(!item){
+          item = BLANK_ITEM;
+        }
+        if(item.changes.previous>0){
+          pc = Math.round ( 10000 * item.changes["natural change"] / item.changes.previous ) / 100;
+        }
 
         console.log(item);
+        console.log(count);
+
+        $("#title"+count).text( item.name );
+        $("#btn"+count).attr( "name", item.code );
 
         $("#title"+count).text( item.name );
         $("#pop_com"+count).text( item.trends[12] );
         $("#pop_com"+count + "_pt2").text( item.trends[2] );
 
-        $("#birthNowComp"+count).text( item.changes.births );
-        $("#birthThenComp"+count).text( item.changes.births_2003 );
-        $("#deathNowComp"+count).text( item.changes.deaths );
-        $("#deathThenComp"+count).text( item.changes.deaths_2003 );
-        $("#natChangeComp"+count).text( item.changes["natural change"] );
-        $("#natPercentComp"+count).text( pc );
+        $("#birth_com"+count).text( item.changes.births );
+        $("#birth2_com"+count).text( item.changes.births_2003 );
+        $("#death_com"+count).text( item.changes.deaths );
+        $("#death2_com"+count).text( item.changes.deaths_2003 );
+        $("#natChange_com"+count).text( item.changes["natural change"] );
+        $("#natPercent_com"+count).text( pc );
 
-        $("#internalInComp"+count).text( "In: " + item.changes["Internal Inflow"] );
-        $("#internalOutComp"+count).text( "Out: " +  item.changes["Internal Outflow"] );
-        $("#internalNetComp"+count).text( "Net: " +  item.changes["Internal Net"] );
+        $("#internalIn_com"+count).text( "In: " + item.changes["Internal Inflow"] );
+        $("#internalOut_com"+count).text( "Out: " +  item.changes["Internal Outflow"] );
+        $("#internalNet_com"+count).text( "Net: " +  item.changes["Internal Net"] );
 
-        $("#externalInComp"+count).text( "In: " +  item.changes["International Inflow"] );
-        $("#externalOutComp"+count).text( "Out: " +  item.changes["International Outflow"] );
-        $("#externalNetComp"+count).text( "Net: " +  item.changes["International Net"] );
-        $("#otherComp"+count).text( item.changes["Other"] );
+        $("#externalIn_com"+count).text( "In: " +  item.changes["International Inflow"] );
+        $("#externalOut_com"+count).text( "Out: " +  item.changes["International Outflow"] );
+        $("#externalNet_com"+count).text( "Net: " +  item.changes["International Net"] );
+        $("#other_com"+count).text( item.changes["Other"] );
 
-        $("#employmentComp"+count).text( item.labour.employment );
-        $("#unemploymentComp"+count).text( item.labour.unemployment );
-        $("#inactivityComp"+count).text( item.labour.inactivity );
-        $("#claimantComp"+count).text( item.labour.claimant );
+        $("#employment_com"+count).text( item.labour.employment );
+        $("#unemployment_com"+count).text( item.labour.unemployment );
+        $("#inactivity_com"+count).text( item.labour.inactivity );
+        $("#claimant_com"+count).text( item.labour.claimant );
 
         window["pyramid"+count].series[1].setData( item.series.female );
         window["pyramid"+count].series[0].setData( item.series.male );

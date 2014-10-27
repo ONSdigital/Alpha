@@ -78,8 +78,9 @@ var regional = (function () {
 
       comparisons =[];
       //updateDisplay();
-      checkComparisonList();
-      updateComparisonList();
+      //checkComparisonList();
+      //updateComparisonList();
+      showCharts();
 
     })
     $("#addBtn").click( function(evt){
@@ -88,6 +89,24 @@ var regional = (function () {
 
       addArea(lastArea);
     })
+
+
+    $('a.closeBtn').on('click', function(evt){
+        evt.preventDefault();
+
+      console.log(this.id);
+      console.log( this.name );
+
+        var idx = comparisons.indexOf( this.name );
+        if (idx > -1) {
+          comparisons.splice(idx, 1);
+        }
+        //checkComparisonList();
+        //displayComparisonList();
+
+        showCharts();
+    });
+
   }
 
 
