@@ -81,9 +81,10 @@ function getStats(postcode, isPostcode){
     url = URL;
   }else{
     url = NAME_URL;
+    postcode = postcode.split(",")[0];
   }
 
-  //console.log ("getStats " + postcode);
+  console.log ("getStats " + postcode);
   var id;
   mainTitle = "";
 
@@ -92,9 +93,9 @@ function getStats(postcode, isPostcode){
     url: url + postcode,
     dataType: "xml",
     success: function(xml){
-     
+             console.log( xml );
       $(xml).find('Area').each(function(){
-       // //console.log($(this) );
+
         var sLevel = $(this).find('LevelTypeId').text();
         var hierarch = $(this).find('HierarchyId').text();
         var areaID = $(this).find('AreaId').text();
@@ -214,35 +215,28 @@ function getData(areaID){
         values.push( $(this).find(prefix + 'Value').text() );
       });
 
-
+      console.log(values);
     //each values is followed by its country value
-    // eg ["1.43", "24.84", "11.75", ".57"] - district, countyr, district, country
+    // eg ["1.43", "24.84", "11.75", ".57"] - district, country, district, country
     //["6354", "1019257", "1315", "317566", "25134", "2167476", "32803", "3504299"]
 
     // get random number
-    var base = Math.floor(Math.random()*titles.length);
-    // use it to skip every other value (the country value)
-    var rand  = base*2;
-    // and get the next value as the country value
-    var countryRef = rand + 1;
-    var description = titles[base];
-    var count = values[rand];
-    var countryCount = values[countryRef];
+    var random = Math.floor(Math.random()*titles.length);
+    var description = titles[random];
+    var count = values[random];
 
-    if(subjects[subjectId].desc.indexOf("%")>=0){
-      countryCount = countryCount+"%";
-    }
 
-    var extract = "In " + year +", " + mainTitle + " had " + count  + subjects[subjectId].desc + " <i>" + description + "</i> (compared with " + countryCount + " for " + country +")."
+
+    var extract = "In " + year +", " + mainTitle + " had " + count  + subjects[subjectId].desc + " <i>" + description + "</i>";
     if( subjects[subjectId].ref === "RENTAL" ){
       if( count ){
-          extract = "In " + year +", " + mainTitle + " had a rental price of £" + count  + " for " + subjects[subjectId].desc + " <i>" + description + "</i> (compared with £" + countryCount + " for " + country +")."
+          extract = "In " + year +", " + mainTitle + " had a rental price of £" + count  + " for " + subjects[subjectId].desc + " <i>" + description + "</i>."
       }else{
           extract = "No data is avaiable for " + mainTitle + ". Please try another area."
       }
     }
 
-    $('#extract').html( extract );
+    $('#extract').html( "<b>" + extract + "</b>");
 
     },
 

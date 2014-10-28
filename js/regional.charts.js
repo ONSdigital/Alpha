@@ -330,51 +330,6 @@ var options = {
     life2 = new Highcharts.Chart(options);
 
 
-    // GENDER
-    options.chart.renderTo = 'thumbGender';
-    options.chart.plotBackgroundColor = "#fff";
-    options.chart.margin = 0;
-    options.chart.spacing =[10, 10, 15, 10]
-    options.title.text = '';
-    options.legend.enabled = false;
-    options.plotOptions.series = {
-      pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    connectorWidth: 0,
-                    //format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                    format: '<b>{point.name}</b>: {point.value} %'
-                }
-            }
-             };
-
-    options.series= [
-                      {
-                        type: 'pie',
-                        data: [
-                                ["Female", 50],
-                                ["Male", 50]
-                              ]
-                      }
-                    ];
-    options.tooltip = {
-      formatter: function() {
-          return this.key + ' <b>' + Math.abs(this.y) + '%</b>';
-      }
-    };
-    genderThumb = new Highcharts.Chart(options);
-
-    options.chart.renderTo = 'gender1';
-    gender1 = new Highcharts.Chart(options);
-    options.chart.renderTo = 'gender2';
-    gender2 = new Highcharts.Chart(options);
-
-
-
-
-
 
     //POPULATION PYRAMID
     
@@ -384,6 +339,7 @@ var options = {
     options.chart.margin = 10;
     options.chart.marginBottom = 20;
     options.chart.spacing =[10, 10, 10, 10];
+    options.legend.enabled = false;
     options.xAxis = [{
                 categories : [ '0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39', '40-44','45-49', '50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80-84', '85-89', '90 +'],
                 reversed: false,
@@ -448,6 +404,50 @@ var options = {
     pyramid1 = new Highcharts.Chart(options);
     options.chart.renderTo = 'pyramid2';
     pyramid2 = new Highcharts.Chart(options);
+
+
+
+    // GENDER
+    options.chart.renderTo = 'thumbGender';
+    options.colors = [  '#dc5571', '#A8233E'],
+    options.chart.plotBackgroundColor = "#fff";
+    options.chart.margin = 0;
+    options.chart.spacing =[10, 10, 15, 10]
+    options.title.text = '';
+    options.legend.enabled = false;
+    options.plotOptions.series = {
+      pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    connectorWidth: 0,
+                    //format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    format: '<b>{point.name}</b>: {point.value} %'
+                }
+            }
+             };
+
+    options.series= [
+                      {
+                        type: 'pie',
+                        data: [
+                                ["Female", 50],
+                                ["Male", 50]
+                              ]
+                      }
+                    ];
+    options.tooltip = {
+      formatter: function() {
+          return this.key + ' <b>' + Math.abs(this.y) + '%</b>';
+      }
+    };
+    genderThumb = new Highcharts.Chart(options);
+
+    options.chart.renderTo = 'gender1';
+    gender1 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'gender2';
+    gender2 = new Highcharts.Chart(options);
 
 
   }
