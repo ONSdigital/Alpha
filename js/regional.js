@@ -90,6 +90,19 @@ var regional = (function () {
       addArea(lastArea);
     })
 
+    $(".tab-pane__tab").click( function(evt){
+      evt.preventDefault();
+      console.log("tab button " + this.text);
+
+      if(this.text==="Comparisons"){
+        console.log("tabs");
+        $(window).resize();
+
+      }
+
+
+    })
+
 
     $('a.closeBtn').on('click', function(evt){
         evt.preventDefault();

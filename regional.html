@@ -36,10 +36,24 @@
     height:500px;
     background-color: #d2ccbb;
   }
-
+/* prevents google maps nav being broken */
   #map img {
     max-width: none;
 }
+
+#btn1, #btn2{
+  text-decoration: none;
+}
+
+
+
+
+/* '' */
+.icon-cancel-circled:before {
+  content: '\e801'; }
+
+.icon-info-circled:before {
+  content: '\e800'; }
 
   #postcodeSearch{
     position:relative;
@@ -284,7 +298,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
             <div class="tab-pane tab-pane--dual">
               <ul class="list--neutral nav--block--spaced">
                 <li>
-                  <a href="#demographics" class="tab-pane__tab">Demographics</a>
+                  <a href="#demographics" class="tab-pane__tab" >Demographics</a>
                 </li>
                 <li>
                   <a href="#labour" class="tab-pane__tab">Labour Market</a>
@@ -728,9 +742,11 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
 
                   <!--  LEFT HAND SIDE  -->
                   <div class="grid-col desktop-grid-one-half">
-                    <div class="grid-col desktop-grid-one-full">
-                      <h3 id="title1">Demographics</h3>
-                      <a class='closeBtn' href='' id="btn1" ><span class='glyphicon glyphicon-remove-circle'>x</span></a>
+                    <div class="grid-col desktop-grid-five-sixths">
+                      <h3 id="title1">Demographic</h3>
+                    </div>
+                    <div class="grid-col desktop-grid-one-sixth">
+                    <a class='closeBtn' href='' id="btn1" ><span tabindex="0" title="" class="icon icon--warm icon--large icon--inline icon--right">&#10006;</span></a>
                     </div>
                     <div >
 
@@ -872,9 +888,11 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
 
                   <!--  RIGHT HAND SIDE  -->
                   <div class="grid-col desktop-grid-one-half">
-                    <div class="grid-col desktop-grid-one-full">
-                      <h3 id="title2">Demographics</h3>
-                      <a class='closeBtn' href='' id="btn2" ><span class='glyphicon glyphicon-remove-circle'>x</span></a>
+                    <div class="grid-col desktop-grid-five-sixths">
+                      <h3 id="title2">Demographic</h3>
+                    </div>
+                    <div class="grid-col desktop-grid-one-sixth">
+                    <a class='closeBtn' href='' id="btn2" ><span tabindex="0" title="" class="icon icon--warm icon--large icon--inline icon--right">&#10006;</span></a>
                     </div>
                     <div >
 

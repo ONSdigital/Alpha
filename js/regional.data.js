@@ -362,13 +362,16 @@ function testPostCode () {
 
      showSingle( id );
 
-    }else{
+
+
+    }
+    
       console.log("show comparisons "  + lastArea);
 
 
        addArea(lastArea);
        showCharts();
-    }
+    
 
 
   }
