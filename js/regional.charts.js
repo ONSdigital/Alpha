@@ -319,7 +319,7 @@ var options = {
     options.tooltip = {
       formatter: function() {
           return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
-                    'Annual Change: '+ Highcharts.numberFormat( this.point.y ,0);
+                    'Life Expectancy: '+ Highcharts.numberFormat( this.point.y ,0) +" years";
       }
     }
     lifeThumb = new Highcharts.Chart(options);
@@ -439,7 +439,7 @@ var options = {
                     ];
     options.tooltip = {
       formatter: function() {
-          return this.key + ' <b>' + Math.abs(this.y) + '%</b>';
+          return this.key;
       }
     };
     genderThumb = new Highcharts.Chart(options);
