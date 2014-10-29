@@ -27,6 +27,15 @@
 <![endif]-->
     <script src="js/header.js"></script>
     <style>
+
+.wrapper {
+    position: relative;
+    overflow: hidden;
+
+}
+
+
+
     </style>
 
       <style>
@@ -36,10 +45,37 @@
     height:500px;
     background-color: #d2ccbb;
   }
+
+  #slide-panel {
+    position: relative;
+    width:300px;
+    height:380px;
+   /* top:100px;*/
+    float:right;
+    padding:10px;
+    background:#eee;
+    margin-right:-300px;
+    z-index:999;
+  }
+
+#opener {
+    float:left;
+    margin:-10px 0px 0px -50px;
+    border-radius:0;
+}
+
+.btn-danger {
+    color: #FFF;
+    background-color: #D9534F;
+    border-color: #D43F3A;
+}
+
+
 /* prevents google maps nav being broken */
   #map img {
     max-width: none;
 }
+
 
 #btn1, #btn2{
   text-decoration: none;
@@ -66,12 +102,10 @@
   background-color: #fff; }
 
 
-/* '' */
+
 .icon-cancel-circled:before {
   content: '\e801'; }
 
-.icon-info-circled:before {
-  content: '\e800'; }
 
   #postcodeSearch{
     position:relative;
@@ -280,10 +314,39 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
 
         </div>
       </div>
-      <div class="wrapper">
 
-          <h3 class="flush--half--bottom">Regional Profile</h3>
-            <div id="map"><a href="#" id="map"></a></div>
+      <div class="wrapper">
+          <h3 class="">Regional Profile</h3>
+
+        <div id="slide-panel">
+          <a href="#" class="btn btn-danger" id="opener"><span class="icon"></span></a>
+            <form role="form">
+
+              <div class="form-group">
+                <label for="region">Select a region</label>
+                <select class="form-control selectpicker" id="region">
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="county">Select a county</label>
+                <select class="form-control selectpicker" id="county">
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="district">Select a district</label>
+                <select class="form-control selectpicker" id="district">
+                </select>
+              </div>
+            </form>
+        </div>
+
+            <div id="map">
+
+            <a href="#" id="map"></a>
+
+            </div>
             <form class="form-inline" role="search">
               <div class="form-group" id="postcodeSearch">
                 <div class="mapPanel">

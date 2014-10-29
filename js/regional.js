@@ -79,6 +79,21 @@ var regional = (function () {
         showCharts();
     });
 
+
+
+    
+      $('#opener').click(function() {
+        var $lefty = $("#slide-panel");
+        $lefty.animate({
+          left: parseInt($lefty.css('left'),10) == 0 ?
+            -$lefty.outerWidth() :
+            0
+        });
+      });
+   
+
+
+
   }
 
 

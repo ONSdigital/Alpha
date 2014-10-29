@@ -36,7 +36,6 @@ var areas = (function () {
 
 
     function splitAreas(  ) {
-     // $('.selectpicker').selectpicker('render');
       $("#message").text( "Processing Area Data" );
 
       //code,name,entity,county,region
@@ -112,7 +111,6 @@ var areas = (function () {
       });
 
       $('#region').append(optionHTML);
-     // $('.selectpicker').selectpicker('refresh');
 
     }
 
@@ -204,7 +202,7 @@ var areas = (function () {
               showDistrict(value.code);
             }
       });
-      $('.selectpicker').selectpicker('refresh');
+
     }
 
 
@@ -228,7 +226,7 @@ var areas = (function () {
               .append($('<option>', { name : "UA" })
               .text( " - UA: No Districts - " ));
         }
-        $('.selectpicker').selectpicker('refresh');
+
 
     }
 
