@@ -5,6 +5,9 @@ var options = {
     chart: {
       type: 'bar'
     },
+    
+    colors: [ '#A8233E', '#dc5571', '#edaab7'],
+
     title: {
         text: ''
     },
@@ -25,7 +28,7 @@ var options = {
         }
     },
 
-  colors: ['#007dc3', '#409ed2', '#7fbee1', '#007dc3', '#409ed2', '#7fbee1'],
+
   
             chart: {
               style: {
@@ -154,8 +157,8 @@ var options = {
         };
 
     options.series= [
-                        { name:"", data: [0] },
-                        { name:"", data: [0] },
+                        { name:"United Kingdom", data: [0] },
+                        { name:"United Kingdom", data: [0] },
                         { name:"United Kingdom", data: [0] }
                       ];
     options.tooltip = {
@@ -173,8 +176,8 @@ var options = {
     options.chart.type = 'bar';
     options.title.text = '';
     options.series= [
-                      { name:"", data: [0] },
-                      { name:"", data: [0] },
+                      { name:"United Kingdom", data: [0] },
+                      { name:"United Kingdom", data: [0] },
                       { name:"United Kingdom", data: [0] }
                     ];
     options.yAxis = {
@@ -316,7 +319,7 @@ var options = {
     options.tooltip = {
       formatter: function() {
           return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
-                    'Annual Change: '+ Highcharts.numberFormat( this.point.y ,0);
+                    'Life Expectancy: '+ Highcharts.numberFormat( this.point.y ,0) +" years";
       }
     }
     lifeThumb = new Highcharts.Chart(options);
@@ -325,54 +328,6 @@ var options = {
     life1 = new Highcharts.Chart(options);
     options.chart.renderTo = 'life2';
     life2 = new Highcharts.Chart(options);
-    options.chart.renderTo = 'life3';
-    life3 = new Highcharts.Chart(options);
-
-    // GENDER
-    options.chart.renderTo = 'thumbGender';
-    options.chart.plotBackgroundColor = "#fff";
-    options.chart.margin = 0;
-    options.chart.spacing =[10, 10, 15, 10]
-    options.colors = ['#409ed2', '#007dc3'];
-    options.title.text = '';
-    options.legend.enabled = false;
-    options.plotOptions.series = {
-      pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    connectorWidth: 0,
-                    //format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                    format: '<b>{point.name}</b>: {point.value} %'
-                }
-            }
-             };
-
-    options.series= [
-                      {
-                        type: 'pie',
-                        data: [
-                                ["Female", 50],
-                                ["Male", 50]
-                              ]
-                      }
-                    ];
-    options.tooltip = {
-      formatter: function() {
-          return this.key + ' <b>' + Math.abs(this.y) + '%</b>';
-      }
-    };
-    genderThumb = new Highcharts.Chart(options);
-
-    options.chart.renderTo = 'gender1';
-    gender1 = new Highcharts.Chart(options);
-    options.chart.renderTo = 'gender2';
-    gender2 = new Highcharts.Chart(options);
-    options.chart.renderTo = 'gender3';
-    gender3 = new Highcharts.Chart(options);
-
-
 
 
 
@@ -384,7 +339,7 @@ var options = {
     options.chart.margin = 10;
     options.chart.marginBottom = 20;
     options.chart.spacing =[10, 10, 10, 10];
-    options.colors = ['#007dc3', '#409ed2', '#7fbee1', '#007dc3', '#409ed2', '#7fbee1'];
+    options.legend.enabled = false;
     options.xAxis = [{
                 categories : [ '0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39', '40-44','45-49', '50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80-84', '85-89', '90 +'],
                 reversed: false,
@@ -419,9 +374,11 @@ var options = {
                       gridZIndex:4,
                       gridLineColor:'#F9F9F9',
                       labels: {
+
                               formatter: function () {
-                                  return (Math.abs(this.value) / 1000000) + 'M';
+                                  return (Math.abs(this.value) / 1000) + "k";
                               }
+
                       }
                   };
 
@@ -447,7 +404,50 @@ var options = {
     pyramid1 = new Highcharts.Chart(options);
     options.chart.renderTo = 'pyramid2';
     pyramid2 = new Highcharts.Chart(options);
-    options.chart.renderTo = 'pyramid3';
-    pyramid3 = new Highcharts.Chart(options);
+
+
+
+    // GENDER
+    options.chart.renderTo = 'thumbGender';
+    options.colors = [  '#dc5571', '#A8233E'],
+    options.chart.plotBackgroundColor = "#fff";
+    options.chart.margin = 0;
+    options.chart.spacing =[10, 10, 15, 10]
+    options.title.text = '';
+    options.legend.enabled = false;
+    options.plotOptions.series = {
+      pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    connectorWidth: 0,
+                    //format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    format: '<b>{point.name}</b>: {point.value} %'
+                }
+            }
+             };
+
+    options.series= [
+                      {
+                        type: 'pie',
+                        data: [
+                                ["Female", 50],
+                                ["Male", 50]
+                              ]
+                      }
+                    ];
+    options.tooltip = {
+      formatter: function() {
+          return this.key;
+      }
+    };
+    genderThumb = new Highcharts.Chart(options);
+
+    options.chart.renderTo = 'gender1';
+    gender1 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'gender2';
+    gender2 = new Highcharts.Chart(options);
+
 
   }

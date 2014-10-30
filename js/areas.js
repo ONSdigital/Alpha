@@ -36,7 +36,6 @@ var areas = (function () {
 
 
     function splitAreas(  ) {
-     // $('.selectpicker').selectpicker('render');
       $("#message").text( "Processing Area Data" );
 
       //code,name,entity,county,region
@@ -82,7 +81,6 @@ var areas = (function () {
 
 
           if( value.entity === "county" || value.entity === "unitary" || value.entity === "London borough"  || value.entity === "Metropolitan district"  || value.entity === "met county"  || value.entity === "NI district" || value.entity === "Sc district"  || value.entity === "W district"){
-            //console.log("got entity " + value.code + ":: "+ value.name + ":: "+ value.region + ":: "+ idDictionary[value.region]);
             var parent = idDictionary[value.region];
 
             regions[value.code].name = value.name;
@@ -113,7 +111,6 @@ var areas = (function () {
       });
 
       $('#region').append(optionHTML);
-     // $('.selectpicker').selectpicker('refresh');
 
     }
 
@@ -121,13 +118,10 @@ var areas = (function () {
     function getRegion(){
       var str = "";
 
-        $( "#region option:selected" ).each(function() {
-          str += $( this ).val();
-        });
+      $( "#region option:selected" ).each(function() {
+        str += $( this ).val();
+      });
 
-
-     // showData( str );
-      //updateDisplay( str );
       setArea( str );
       showSummary(str);
       showCounty(str);
@@ -137,13 +131,10 @@ var areas = (function () {
     function getCounty(){
       var str = "";
 
-        $( "#county option:selected" ).each(function() {
-          str += $( this ).val();
-        });
+      $( "#county option:selected" ).each(function() {
+        str += $( this ).val();
+      });
 
-
-     // showData(str);
-      ///updateDisplay( str );
       setArea( str );
       showSummary(str);
       showDistrict(str);
@@ -157,15 +148,12 @@ var areas = (function () {
         str += $( this ).val();
       });
 
-      //updateDisplay( str );
       setArea( str );
       showSummary(str);
     }
 
 
     function getSiblings(str){
-      console.log("get str " + str );
-
       var parent = regions[str].parent;
       var siblings;
 
@@ -181,18 +169,10 @@ var areas = (function () {
 
     function getParent(str){
       var parent = regions[str].parent;
-      //console.log(regions[str] );
-     // console.log("get str " + str +":" + parent);
 
       if(parent===""){
         parent = "K02000001";
       }
-/*
-      if(regions[str].level===0){
-        siblings = regions["TopLevel"].children;
-      }else{
-        siblings = regions[parent].children;
-      }*/
 
       return parent;
     }
@@ -214,7 +194,6 @@ var areas = (function () {
             .text("Pick a county...."));
 
       $.each(counties, function (index,value){
-        console.log(value);
         $('#county')
             .append($('<option>', { name : value.name })
             .text(value.name).val(value.code));
@@ -223,7 +202,7 @@ var areas = (function () {
               showDistrict(value.code);
             }
       });
-      $('.selectpicker').selectpicker('refresh');
+
     }
 
 
@@ -247,7 +226,7 @@ var areas = (function () {
               .append($('<option>', { name : "UA" })
               .text( " - UA: No Districts - " ));
         }
-        $('.selectpicker').selectpicker('refresh');
+
 
     }
 
