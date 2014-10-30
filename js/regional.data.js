@@ -272,9 +272,10 @@ function testPostCode () {
        showSingle( id );
 
     }
-
-    // in all cases add to comparison list and populate
-    addArea(lastArea);
+    else{
+      // add to comparison list and populate
+      addArea(lastArea);
+    }
     showCharts();
     
   }

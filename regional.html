@@ -35,6 +35,12 @@
 }
 
 
+.selectpicker {
+    width: 100%;
+
+}
+
+
 
     </style>
 
@@ -52,15 +58,18 @@
     height:380px;
    /* top:100px;*/
     float:right;
-    padding:10px;
+    padding:20px;
     background:#eee;
-    margin-right:-300px;
+    margin-right:-310px;
     z-index:999;
   }
 
 #opener {
     float:left;
-    margin:-10px 0px 0px -50px;
+    height:60px;
+    width:60px;
+    margin-left:-80px;
+/*    margin:-10px 10px 10px -50px;*/
     border-radius:0;
 }
 
@@ -320,26 +329,30 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
 
         <div id="slide-panel">
           <a href="#" class="btn btn-danger" id="opener"><span class="icon"></span></a>
+        <h4 class="">Regional Selection</h4>
+        <p>Filter the available regions using the controls below: </p>
+          <div class="">
             <form role="form">
 
-              <div class="form-group">
+              <div class="form-group panel--mar">
                 <label for="region">Select a region</label>
                 <select class="form-control selectpicker" id="region">
                 </select>
               </div>
 
-              <div class="form-group">
+              <div class="form-group panel--mar">
                 <label for="county">Select a county</label>
                 <select class="form-control selectpicker" id="county">
                 </select>
               </div>
 
-              <div class="form-group">
+              <div class="form-group panel--mar">
                 <label for="district">Select a district</label>
                 <select class="form-control selectpicker" id="district">
                 </select>
               </div>
             </form>
+        </div>
         </div>
 
             <div id="map">
@@ -373,9 +386,16 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
       <div class="wrapper panel--mar">
         <div class="grid-wrap">
           <div class="grid-col tablet-grid">
+            <div class="grid-col desktop-grid-two-thirds">
+                <h2><a href="#" id="profile"></a><span id="mainTitle">Regional Profile</span></h2>
+                </div>
+            <div class="grid-col desktop-grid-one-third right">
+             <button type="submit" class="btn btn--primary right btn--small" id="compareBtn">
+               <span class="icon icon-search"> Add to comparison</span>
+            </button>
+            </div>
 
-            <h2><a href="#" id="profile"></a><span id="mainTitle">Regional Profile</span></h2>
-
+            <div class="grid-col desktop-grid-one-full">
             <div class="tab-pane tab-pane--dual">
               <ul class="list--neutral nav--block--spaced">
                 <li>
@@ -394,7 +414,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
               <!--  DEMOGRAPHICS  -->
               <section class="tab-pane__content" id="demographics">
 
-              <div class="grid-wrap">
+              <div class="grid-wrap panel--mar">
 
 
 
@@ -676,6 +696,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
               <!--  LABOUR MARKET -->
 
               <section class="tab-pane__content" id="labour">
+              <div class=" panel--mar">
 
                 <h3 >Labour Market</h3>
                 <div >
@@ -805,7 +826,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
 
 
                 </div>
-
+              </div>
                 
 
               </section>
@@ -1114,6 +1135,9 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
 
                 </div>
               </section>
+            </div>
+
+
             </div>
 
 

@@ -54,9 +54,10 @@ var regional = (function () {
     })
 
 
-    $("#addBtn").click( function(evt){
+    $("#compareBtn").click( function(evt){
       evt.preventDefault();
       addArea(lastArea);
+      showCharts();
     })
 
 
