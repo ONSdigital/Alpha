@@ -51,14 +51,14 @@
     width:520px;
     height:250px;
 }
-.mapContainerl{
+.mapContainer{
     position: relative;
   }
 
   #postcodeSearch{
     position:absolute;
     padding:6px;
-    top: 360px;
+    top: 280px;
     left: 4px;
     z-index:990;
     background-color: rgba(255, 255, 255, 0.8);
@@ -67,15 +67,15 @@
 
   #map{
     width:100%;
-    height:400px;
+    height:320px;
     background-color: #d2ccbb;
   }
 
   #slide-panel {
     position: relative;
     width:300px;
-    height:380px;
-   /* top:100px;*/
+    height:300px;
+    /*top:-20px;*/
     float:right;
     padding:20px;
     background:#eee;
@@ -94,68 +94,61 @@
 
 .btn-danger {
     color: #FFF;
-    background-color: #D9534F;
+    background-color: #A8233E;
     border-color: #D43F3A;
 }
 
 
 /* prevents google maps nav being broken */
-  #map img {
-    max-width: none;
+#map img {
+  max-width: none;
 }
-
-
 #btn1, #btn2{
   text-decoration: none;
 }
-
 .box--red--separated-left {
   position: relative;
-  border-left: 0; }
-  .box--red--separated-left:before {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    border-left-style: solid;
-    border-left-width: 6px;
-    content: " "; }
-
-
+  border-left: 0; 
+}
 .box--red--separated-left:before {
-    border-left-color: #A8233E;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  border-left-style: solid;
+  border-left-width: 6px;
+  content: " "; 
+}
+.box--red--separated-left:before {
+  border-left-color: #A8233E;
 }
 .box--red {
-  background-color: #fff; }
-
-
-
+  background-color: #fff; 
+}
 .icon-cancel-circled:before {
-  content: '\e801'; }
-
-
-
-   .quarterChart{
-    height:120px;
-  }
-  .halfChart{
-    height:240px;
-  }
-
-
+  content: '\e801'; 
+}
+.quarterChart{
+  height:120px;
+}
+.halfChart{
+  height:240px;
+}
 .slate--pink{
   background-color: #fcf0f2;
 }
-
 .page-header--regional:after {
-  background-color: #a8233e; }
+  background-color: #a8233e; 
+}
 .page-header--regional-desc {
-  color: #a8233e; }
+  color: #a8233e; 
+}
 h3, .delta, .page-header--regional-desc, .nav-panel__title {
   font-size: 19px;
   font-size: 1.9rem;
-  line-height: 1.10526; }
+  line-height: 1.10526; 
+}
 
   </style>
   </head>
@@ -337,8 +330,8 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
         </div>
       </div>
 
-      <div id="mapContainer" class="wrapper mapContainer">
-          <h2 class="">Regional Profile</h2>
+      <div id="regional" class="wrapper mapContainer">
+          <h2 class="" id="mainTitle">Regional Profile</h2>
 
         <div id="slide-panel">
           <a href="#" class="btn btn-danger" id="opener"><span class="icon"></span></a>
@@ -347,19 +340,19 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
           <div class="">
             <form role="form">
 
-              <div class="form-group panel--mar">
+              <div class="form-group ">
                 <label for="region">Select a region</label>
                 <select class="form-control selectpicker" id="region">
                 </select>
               </div>
 
-              <div class="form-group panel--mar">
+              <div class="form-group ">
                 <label for="county">Select a county</label>
                 <select class="form-control selectpicker" id="county">
                 </select>
               </div>
 
-              <div class="form-group panel--mar">
+              <div class="form-group ">
                 <label for="district">Select a district</label>
                 <select class="form-control selectpicker" id="district">
                 </select>
@@ -433,19 +426,6 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
 
       <div class="wrapper panel--mar clearAll">
         <div class="grid-wrap">
-          <div class="grid-col tablet-grid">
-            <div class="grid-col desktop-grid-one-half">
-                <h2><a href="#" id="profile"></a><span id="mainTitle">Regional Profile</span></h2>
-            </div>
-            <div class="grid-col desktop-grid-one-half">
-             <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="compareBtn">
-               <span class="icon icon-plus"> Add to list</span>
-            </button>
-             <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="viewBtn">
-               <span class="icon icon-"> View List</span>
-            </button>
-            </div>
-            </div>
 
             <div class="grid-col tablet-grid">
             <div class="grid-col desktop-grid-one-full">
@@ -838,7 +818,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
                   </div>
 
                   <div class="grid-col desktop-grid-one-half">
-                    <span id="claimantParentName">Internal Migration (within UK)</span>
+                    <span id="claimantParentName"></span>
                   </div>
                    <div class="grid-col desktop-grid-one-half">
                     <div class="stat stat--small">
@@ -865,15 +845,18 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
                       </div>
                   </div>
 
+<!-- *************************************** -->
+                  <div class="grid-col desktop-grid-one-full">
+                    <h3>Employment Rate</h3>
+                  <span id='employment' class='halfChart'></span>
+                  </div>
 
-
-
-                  <h3>Employment Rate</h3>
-                  <div id='employment' class='halfChart'></div>
-
-                  <h3>Unemployment Rate</h3>
-                  <div id='unemployment' class='halfChart'></div>
-
+                  <div class="grid-col desktop-grid-one-full">
+                    <h3>Unemployment Rate</h3>
+                  <span id='unemployment' class='halfChart'></span>
+                  </div>
+                  
+<!-- *************************************** -->
 
 
 
@@ -891,12 +874,33 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
 
                 <div class="grid-wrap">
                   <div class="grid-col desktop-grid-one-full">
+                  <p>
+                  Browse or search for areas using the map and controls above, then add them to the list for comparison. 
+                  </p>
+
                   </div>
 
+ 
+                  <div class="grid-col desktop-grid-one-full">
+                    <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="compareBtn">
+                      <span class="icon icon-plus">Add to list</span>
+                    </button>
+                    <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="viewBtn">
+                      <span class="icon icon-chart">View List</span>
+                    </button>
+                    <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="viewBtn">
+                      <span class="icon icon-cross">Clear List</span>
+                    </button>
+                  </div>
 
+                  <div class="grid-col desktop-grid-one-full">
+                  <p>
+                  Scroll down the page to view the <a href="#labourComparison">Labour Market data</a>.
+                  </p>
+                  </div>
 
                   <!--  LEFT HAND SIDE  -->
-                  <div class="grid-col desktop-grid-one-half">
+                  <div class="grid-col desktop-grid-one-third">
                     <div class="grid-col desktop-grid-five-sixths">
                       <h3 id="title1">Demographic</h3>
                     </div>
@@ -1014,35 +1018,40 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
                   </div>
 
 
+                  <div id="" class="">
+                    <h3>Population Pyramid</h3>
+                    <div id="pyramid1" class="halfChart"></div>
+                  </div>
 
+                  <div id="" class="">
+                    <h3>Gender</h3>
+                    <div id="gender1" class="quarterChart"></div>
+                  </div>
 
-
-
-
-
-
-                      <div id="" class="">
-                        <h3>Population Pyramid</h3>
-                        <div id="pyramid1" class="halfChart"></div>
-                      </div>
-
-                      <div id="" class="">
-                        <h3>Gender</h3>
-                        <div id="gender1" class="quarterChart"></div>
-                      </div>
-
-                      <div id="" class="">
-                        <h3>Healthy Life Expectancy</h3>
-                        <div id="life1" class="halfChart"></div>
-                      </div>
-
-                    </div>
+                  <div id="" class="">
+                    <h3>Healthy Life Expectancy</h3>
+                    <div id="life1" class="halfChart"></div>
                   </div>
 
 
+                <div class="grid-col desktop-grid-one-half">
+                  <h3 id="labourComparison">Labour Market</h3>
+                </div>
 
-                  <!--  RIGHT HAND SIDE  -->
-                  <div class="grid-col desktop-grid-one-half">
+
+                </div>
+              </div>
+
+
+
+
+
+
+                  <!--  MIDDLE  -->
+
+
+
+                  <div class="grid-col desktop-grid-one-third">
                     <div class="grid-col desktop-grid-five-sixths">
                       <h3 id="title2">Demographic</h3>
                     </div>
@@ -1172,6 +1181,143 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
                       <div id="" class="">
                         <h3>Healthy Life Expectancy</h3>
                         <div id="life2" class="halfChart"></div>
+                      </div>
+
+                    </div>
+                  </div>
+
+
+                  <!--  RIGHT HAND SIDE  -->
+                  <div class="grid-col desktop-grid-one-third">
+                    <div class="grid-col desktop-grid-five-sixths">
+                      <h3 id="title3">Demographic</h3>
+                    </div>
+                    <div class="grid-col desktop-grid-one-sixth">
+                    <a class='closeBtn' href='' id="btn3" ><span tabindex="0" title="" class="icon icon--warm icon--large icon--inline icon--right">&#10006;</span></a>
+                    </div>
+                    <div >
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="">Population</span>
+                    </div>
+                    <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="pop_com3">
+                            146558
+                          </div>
+                          <div class="stat__description">
+                            2013
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="">&nbsp;</span>
+                    </div>
+                     <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="pop_com3_pt2">
+                            139121
+                          </div>
+                          <div class="stat__description">
+                            2003
+                          </div>
+                        </div>
+                    </div>
+
+
+
+                  <div class="grid-col desktop-grid-one-full">
+                    <h3>Natural Change</h3>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Births</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="birth_com3">
+                        1321
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">&nbsp;</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="birth2_com3">
+                        1423
+                        </div>
+                        <div class="stat__description">
+                          2003
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Deaths</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="death_com3">
+                        2132
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">&nbsp;</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="death2_com3">
+                          1546
+                        </div>
+                        <div class="stat__description">
+                          2003
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">&nbsp;</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="natChange_com3">
+                          Net: 1000
+                        </div>
+                        <div class="stat__description">
+                          Natural Change, 2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-full">
+                    <p>This is a <span id="natPercent_com3"></span>% change compared with 2012.</p>
+                  </div>
+
+                      <div id="" class="">
+                        <h3>Population Pyramid</h3>
+                        <div id="pyramid3" class="halfChart"></div>
+                      </div>
+
+                      <div id="" class="">
+                        <h3>Gender</h3>
+                        <div id="gender3" class="quarterChart"></div>
+                      </div>
+
+                      <div id="" class="">
+                        <h3>Healthy Life Expectancy</h3>
+                        <div id="life3" class="halfChart"></div>
                       </div>
 
                     </div>

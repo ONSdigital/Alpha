@@ -9,7 +9,7 @@ var POSTCODE_URL = "//mapit.mysociety.org/postcode/";
 var POINT_URL = "//mapit.mysociety.org/point/4326/";
 
 var YEAR = 2013;
-var MAX_COMPARISONS = 2;
+var MAX_COMPARISONS = 3;
 
 var BLANK_ITEM = {
       name : " ",
@@ -199,7 +199,7 @@ function testPostCode () {
       $("#pop").text( areaObj[id].trends[12] );
       $("#pop2").text( areaObj[id].trends[2] );
 
-      $("#mainTitle").text( areaObj[id].name + ", " + YEAR + "");
+      $("#mainTitle").text( "Regional Profile: " + areaObj[id].name + ", " + YEAR + "");
 
       var region = areas.getRegionType(id);
       var parent = areas.getParent(id);
@@ -321,14 +321,18 @@ function testPostCode () {
 
     function showCharts(){
       if (comparisons.length === 0){
-        comparisons = [ 0,0];
+        comparisons = [ 0, 0, 0 ];
       }
+
       if (comparisons.length === 1){
+        comparisons.push(0);
+      }
+      if (comparisons.length === 2){
         comparisons.push(0);
       }
 
       $.each(comparisons, function (index, value){
-        var item =areaObj[value];
+        var item = areaObj[value];
         var count = index+1;
         var pc =0;
         if(!item){

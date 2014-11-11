@@ -22,8 +22,15 @@ var regional = (function () {
 
 
   function addListeners(){
-    $("#modal").click(function(e) {
+    $("#modal").click(function(evt) {
       $("#modal").toggle();
+    });
+    $("#opener").click(function(evt) {
+      evt.preventDefault();
+      location.hash = "#regional" ;
+      if( $("#modal").is(':visible') ){
+          $("#modal").toggle();
+       }
     });
 
     $("#region").change(function(e) {
@@ -40,6 +47,7 @@ var regional = (function () {
 
     $("#search").click( function(evt){
       evt.preventDefault();
+      location.hash = "#regional" ;
       testPostCode();
     })
 
@@ -80,6 +88,7 @@ var regional = (function () {
         if (idx > -1) {
           comparisons.splice(idx, 1);
         }
+        console.log(comparisons);
         showCharts();
     });
 
@@ -99,6 +108,11 @@ var regional = (function () {
 
 
   }
+
+  function scrollToElement(ele) {
+    console.log("scroll");
+    $(window).scrollTop(ele.offset().top).scrollLeft(ele.offset().left);
+}
 
 
 })();

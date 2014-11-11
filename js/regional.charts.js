@@ -328,6 +328,8 @@ var options = {
     life1 = new Highcharts.Chart(options);
     options.chart.renderTo = 'life2';
     life2 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'life3';
+    life3 = new Highcharts.Chart(options);
 
 
 
@@ -404,6 +406,8 @@ var options = {
     pyramid1 = new Highcharts.Chart(options);
     options.chart.renderTo = 'pyramid2';
     pyramid2 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'pyramid3';
+    pyramid3 = new Highcharts.Chart(options);
 
 
 
@@ -448,6 +452,8 @@ var options = {
     gender1 = new Highcharts.Chart(options);
     options.chart.renderTo = 'gender2';
     gender2 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'gender3';
+    gender3 = new Highcharts.Chart(options);
 
 
   }

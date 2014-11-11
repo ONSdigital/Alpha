@@ -26,10 +26,10 @@ function initializeMap() {
         $("#regionName").text( evt.feature.getProperty("LAD11NM") );
         map.data.revertStyle();
         map.data.overrideStyle(evt.feature, {
-            fillColor:'#aaa',
-            fillOpacity: 0.2,
-            strokeOpacity: 0.4,
-            strokeColor: '#999',
+            fillColor:'#FCF0F2',
+            fillOpacity: 0.4,
+            strokeOpacity: 0.6,
+            strokeColor: '#A8233E',
             strokeWeight:2
         });
     });
@@ -47,7 +47,7 @@ function initializeMap() {
         var op = 0.1;
 
         if (feature.getProperty('isSelected')) {
-            color = '#999';
+            color = '#A8233E';
             op=0.3
         }
         return ({
