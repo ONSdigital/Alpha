@@ -109,10 +109,7 @@ var regional = (function () {
 
   }
 
-  function scrollToElement(ele) {
-    console.log("scroll");
-    $(window).scrollTop(ele.offset().top).scrollLeft(ele.offset().left);
-}
+
 
 
 })();

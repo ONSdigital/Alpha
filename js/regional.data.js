@@ -326,6 +326,7 @@ function testPostCode () {
 
       if (comparisons.length === 1){
         comparisons.push(0);
+        comparisons.push(0);
       }
       if (comparisons.length === 2){
         comparisons.push(0);
