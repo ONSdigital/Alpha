@@ -41,15 +41,33 @@
 
 }
 
+.overlay {
+    position:absolute;
+    top:90px;
+    left:160px;
+    right:0;
+    bottom:0;
+    z-index:9999;
+    width:520px;
+    height:250px;
+}
+.mapContainerl{
+    position: relative;
+  }
 
+  #postcodeSearch{
+    position:absolute;
+    padding:6px;
+    top: 360px;
+    left: 4px;
+    z-index:990;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
 
-    </style>
-
-      <style>
 
   #map{
     width:100%;
-    height:500px;
+    height:400px;
     background-color: #d2ccbb;
   }
 
@@ -117,13 +135,7 @@
   content: '\e801'; }
 
 
-  #postcodeSearch{
-    position:relative;
-    float:left;
-    top: -80px;
-    left: 10px;
-    z-index:990;
-  }
+
    .quarterChart{
     height:120px;
   }
@@ -325,7 +337,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
         </div>
       </div>
 
-      <div class="wrapper">
+      <div id="mapContainer" class="wrapper mapContainer">
           <h2 class="">Regional Profile</h2>
 
         <div id="slide-panel">
@@ -361,6 +373,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
             <a href="#" id="map"></a>
 
             </div>
+
             <form class="form-inline" role="search">
               <div class="form-group" id="postcodeSearch">
                 <div class="mapPanel">
@@ -374,6 +387,40 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
               </button>
               </div>
             </form>
+
+
+<div class="desktop-grid-one-half">
+<article id="modal" class="box box--orange lifted box--orange--separated-left overlay">
+  <div class="box__inner border box--padded has-icon">
+    <header class="box__header">
+      <h2 class="gamma">
+        <a href="#">
+          Regional Profile
+          <span class="icon-popup detached"></span>
+        </a>
+      </h2>
+    </header>
+    <!-- /box__header -->
+
+    <div class="box__content">
+      <p>Use the map to select an area, or search via postcode, or use the area filters to the right.
+      </p>
+      <p>
+        Use the comparison option below to select two (three?) areas for comparison.
+      </p>
+      <dl class="definition">
+        <dt>Category:</dt>
+        <dd>Inflation and Price Indices</dd>
+        <dt>Type:</dt>
+        <dd>Statistical Bulletin</dd>
+      </dl>
+      <!-- /definition -->
+    </div>
+    <!-- /box__content -->
+  </div>
+</article>
+</div>
+
           </div>
        
       </div>
@@ -384,18 +431,23 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
 
 
 
-      <div class="wrapper panel--mar">
+      <div class="wrapper panel--mar clearAll">
         <div class="grid-wrap">
           <div class="grid-col tablet-grid">
-            <div class="grid-col desktop-grid-two-thirds">
+            <div class="grid-col desktop-grid-one-half">
                 <h2><a href="#" id="profile"></a><span id="mainTitle">Regional Profile</span></h2>
-                </div>
-            <div class="grid-col desktop-grid-one-third right">
-             <button type="submit" class="btn btn--primary right btn--small" id="compareBtn">
-               <span class="icon icon-search"> Add to comparison</span>
+            </div>
+            <div class="grid-col desktop-grid-one-half">
+             <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="compareBtn">
+               <span class="icon icon-plus"> Add to list</span>
+            </button>
+             <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="viewBtn">
+               <span class="icon icon-"> View List</span>
             </button>
             </div>
+            </div>
 
+            <div class="grid-col tablet-grid">
             <div class="grid-col desktop-grid-one-full">
             <div class="tab-pane tab-pane--dual">
               <ul class="list--neutral nav--block--spaced">

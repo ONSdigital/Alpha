@@ -11,6 +11,10 @@ function initializeMap() {
       zoom: 10,
       center: {lat: 51.5, lng: -2.9},
       scrollwheel:false,
+      panControl: false,
+      mapTypeControl: false,
+      streetViewControl: false
+
   });
 
 
@@ -58,6 +62,10 @@ function initializeMap() {
 
     // Set 'isSelected', changing the highlighted polygon on the map.
     map.data.addListener('click', function(evt) {
+
+        if( $("#modal").is(':visible') ){
+            $("#modal").toggle();
+        }
         if( lastSelected ){
             lastSelected.setProperty('isSelected', false);
         }

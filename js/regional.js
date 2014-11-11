@@ -22,29 +22,32 @@ var regional = (function () {
 
 
   function addListeners(){
+    $("#modal").click(function(e) {
+      $("#modal").toggle();
+    });
+
     $("#region").change(function(e) {
       return areas.getRegion(1);
     });
+
     $("#county").change(function(e) {
       return areas.getCounty(1);
     });
+
     $("#district").change(function(e) {
       return areas.getDistrict(1);
     });
-
 
     $("#search").click( function(evt){
       evt.preventDefault();
       testPostCode();
     })
 
-
     $("#showBtn").click( function(evt){
       evt.preventDefault();
       $("#comparison").show();
       showCharts();
     })
-
 
     $("#clearBtn").click( function(evt){
       evt.preventDefault();

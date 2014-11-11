@@ -199,7 +199,7 @@ function testPostCode () {
       $("#pop").text( areaObj[id].trends[12] );
       $("#pop2").text( areaObj[id].trends[2] );
 
-      $("#mainTitle").text( "Regional profile: " + areaObj[id].name + ", " + YEAR + "");
+      $("#mainTitle").text( areaObj[id].name + ", " + YEAR + "");
 
       var region = areas.getRegionType(id);
       var parent = areas.getParent(id);
