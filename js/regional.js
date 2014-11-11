@@ -75,9 +75,9 @@ var regional = (function () {
     $(".tab-pane__tab").click( function(evt){
       evt.preventDefault();
 
-      if(this.text==="Comparisons"){
+      //if(this.text==="Comparisons"){
         $(window).resize();
-      }
+      //}
 
     })
 

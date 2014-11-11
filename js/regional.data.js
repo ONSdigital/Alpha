@@ -192,6 +192,7 @@ function testPostCode () {
   }
 
   function showSummary( id ) {
+    console.log( areaObj[id] );
     // determine tabbed section and alter display
     if($("#comparisons").attr("aria-hidden")==="true"){
       // region / county / district
@@ -258,16 +259,23 @@ function testPostCode () {
       $("#other").text( areaObj[id].changes.Other);
 
       $("#inactivityName").text( areaObj[id].name );
-      $("#inactivity").text( areaObj[id].labour.inactivity +"%" );
       $("#inactivityParentName").text( areaObj[parent].name  );
+
+      $("#inactivity").text( areaObj[id].labour.inactivity +"%" );
       $("#inactivityParent").text(  areaObj[parent].labour.inactivity +"%" );
       $("#inactivityUK").text( areaObj[uk].labour.inactivity +"%" );
 
-      $("#claimantName").text( areaObj[id].name );
       $("#claimant").text( areaObj[id].labour.claimant +"%" );
-      $("#claimantParentName").text( areaObj[parent].name );
       $("#claimantParent").text(  areaObj[parent].labour.claimant +"%" );
       $("#claimantUK").text( areaObj[uk].labour.claimant +"%" );
+
+      $("#employment").text( areaObj[id].labour.employment +"%" );
+      $("#employmentParent").text(  areaObj[parent].labour.employment +"%" );
+      $("#employmentUK").text( areaObj[uk].labour.employment +"%" );
+
+      $("#unemployment").text( areaObj[id].labour.unemployment +"%" );
+      $("#unemploymentParent").text(  areaObj[parent].labour.unemployment +"%" );
+      $("#unemploymentUK").text( areaObj[uk].labour.unemployment +"%" );
 
        showSingle( id );
 
@@ -297,7 +305,7 @@ function testPostCode () {
 
     lifeThumb.series[0].setData( areaObj[id].expectancy.male );
     lifeThumb.series[1].setData( areaObj[id].expectancy.female );
-
+/*
     var parent = areas.getParent(id);
     chartEmploy.series[2].setData( [ areaObj[id].labour.employment ] );
     chartEmploy.series[2].name = areaObj[id].name;
@@ -314,7 +322,7 @@ function testPostCode () {
     chartUnemploy.series[0].setData( [ areaObj[uk].labour.unemployment  ] );
     chartUnemploy.series[0].name = areaObj[uk].name;
     chartUnemploy.redraw();
-
+*/
   }
 
 

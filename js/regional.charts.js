@@ -167,7 +167,7 @@ var options = {
                     'Employment Rate: '+ Highcharts.numberFormat( this.point.y,1) + '%';
       }
     }
-    chartEmploy = new Highcharts.Chart(options);
+    //chartEmploy = new Highcharts.Chart(options);
 
 
 
@@ -192,7 +192,7 @@ var options = {
                     'Unemployment Rate: '+ Highcharts.numberFormat( this.point.y,1) + '%';
       }
     }
-    chartUnemploy = new Highcharts.Chart(options);
+    //chartUnemploy = new Highcharts.Chart(options);
 
 
 
