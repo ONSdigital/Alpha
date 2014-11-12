@@ -107,7 +107,8 @@
 #map img {
   max-width: none;
 }
-#btn1, #btn2{
+#btn1, #btn2, #btn3{
+  top: 10px;
   text-decoration: none;
 }
 .box--red--separated-left {
@@ -163,7 +164,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
   margin-top:40px;
 }
 
- #labour h3{
+ #labour h3, #comparisons h3{
   margin-top:20px;
 }
 
@@ -416,7 +417,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
     <!-- /box__header -->
 
     <div class="box__content">
-      <p>Use the map to select an area, or search via postcode, or use the area filters to the right.
+      <p>Click the map to select an area, or search via postcode, or use the area filters to the right.
       </p>
       <p>
         Use the comparison option below to select three areas for comparison.
@@ -799,7 +800,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
                       <h4 id="">Claimant Count</h4>
                     </div>                    
                     <div class="grid-col desktop-grid-one-sixth">
-                      <h4 id="">Unemployment Rate</h4>
+                      <h4 id="">Employment Rate</h4>
                     </div>                    
                     <div class="grid-col desktop-grid-one-sixth">
                       <h4 id="">Unemployment Rate</h4>
@@ -946,29 +947,31 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
 
                 <div class="grid-wrap">
                   <div class="grid-col desktop-grid-one-full">
-                  <p>
-                  Browse or search for areas using the map and controls above, then add them to the list for comparison. 
-                  </p>
+                    <div class="grid-col desktop-grid-one-full">
+                    <p>
+                    Browse or search for areas using the map and controls above. Each area is automatically added to the list below for comparison. 
+                    </p>
 
-                  </div>
+                    </div>
 
- 
-                  <div class="grid-col desktop-grid-one-full">
-                    <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="compareBtn">
-                      <span class="icon icon-plus">Add to list</span>
-                    </button>
-                    <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="viewBtn">
-                      <span class="icon icon-chart">View List</span>
-                    </button>
-                    <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="viewBtn">
-                      <span class="icon icon-cross">Clear List</span>
-                    </button>
-                  </div>
-
-                  <div class="grid-col desktop-grid-one-full">
-                  <p>
-                  Scroll down the page to view the <a href="#labourComparison">Labour Market data</a>.
-                  </p>
+  <!--  
+                    <div class="grid-col desktop-grid-one-full">
+                      <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="compareBtn">
+                        <span class="icon icon-plus">Add to list</span>
+                      </button>
+                      <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="viewBtn">
+                        <span class="icon icon-chart">View List</span>
+                      </button>
+                      <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="viewBtn">
+                        <span class="icon icon-cross">Clear List</span>
+                      </button>
+                    </div>
+   -->
+                    <div class="grid-col desktop-grid-one-full">
+                    <p>
+                    Scroll down the page to view the <a href="#labourComparison">Labour Market data</a>.
+                    </p>
+                    </div>
                   </div>
 
                   <!--  ROW ONE  -->
@@ -978,7 +981,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
                         <h3 id="title1">Demographic</h3>
                       </div>
                       <div class="grid-col desktop-grid-one-sixth">
-                      <a class='closeBtn' href='' id="btn1" ><span tabindex="0" title="" class="icon icon--warm icon--large icon--inline icon--right">&#10006;</span></a>
+                      <a class='closeBtn' href='' id="btn1" ><span tabindex="0" title="" class="icon icon--warm icon--inline icon--right">&#10006;</span></a>
                       </div>
                     </div>
                     <div class="grid-col desktop-grid-one-third">
@@ -986,7 +989,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
                         <h3 id="title2">Demographic</h3>
                       </div>
                       <div class="grid-col desktop-grid-one-sixth">
-                      <a class='closeBtn' href='' id="btn2" ><span tabindex="0" title="" class="icon icon--warm icon--large icon--inline icon--right">&#10006;</span></a>
+                      <a class='closeBtn' href='' id="btn2" ><span tabindex="0" title="" class="icon icon--warm icon--inline icon--right">&#10006;</span></a>
                       </div>
                     </div>
                     <div class="grid-col desktop-grid-one-third">
@@ -994,7 +997,7 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
                         <h3 id="title3">Demographic</h3>
                       </div>
                       <div class="grid-col desktop-grid-one-sixth">
-                      <a class='closeBtn' href='' id="btn3" ><span tabindex="0" title="" class="icon icon--warm icon--large icon--inline icon--right">&#10006;</span></a>
+                      <a class='closeBtn' href='' id="btn3" ><span tabindex="0" title="" class="icon icon--warm icon--inline icon--right">&#10006;</span></a>
                       </div>
                     </div>
                   </div>
@@ -1401,26 +1404,216 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
 
 
                 <!--  ROW SIX  -->
-                <div class="grid-col desktop-grid-one-full gold">
+                <div class="grid-col desktop-grid-one-full">
+
+                  <div class="grid-col desktop-grid-one-full">
+                    <h3 id="labourComparison">Labour Market</h3>
+                  </div>
+                  <!--  ROW ONE  -->
+                  <div class="grid-col desktop-grid-one-full">
+
+                    <div class="grid-col desktop-grid-one-third">
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Economic Inactivity</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="inactivity_com1">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">Claimant Count</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small striped">
+                          <div class="stat__figure" id="claims_com1">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Employment Rate</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="employ_com1">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">Unemployment Rate</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small striped">
+                          <div class="stat__figure" id="unemploy_com1">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-third">
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Economic Inactivity</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="inactivity_com2">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">Claimant Count</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="claims_com2">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Employment Rate</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="employ_com2">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">Unemployment Rate</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="unemploy_com2">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-third">
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Economic Inactivity</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="inactivity_com3">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">Claimant Count</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="claims_com3">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Employment Rate</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="employ_com3">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">Unemployment Rate</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="unemploy_com3">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+
+
+                <!--  ROW SEVEN  -->
 
                 <div class="grid-col desktop-grid-one-full">
-                  <h3 id="labourComparison">Labour Market</h3>
+                <div class="grid-col desktop-grid-one-full">
+                <h3>&nbsp;</h3>
+                  <div>
+                    <p>
+                      Quis custodiet ipsos custodes? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea
+                      animi, soluta vitae ratione ab optio hic numquam fugiat harum
+                      culpa cum dolore voluptatibus et voluptas autem est laborum
+                      minima, libero!
+                    </p>
+                    <p>
+                      Vitae officiis accusamus quas? Natus reiciendis dolor dolore
+                      delectus, magnam maiores necessitatibus facere, iste dolores
+                      cum laboriosam animi facilis id consectetur laudantium at perspiciatis,
+                      eos. Non possimus distinctio, quaerat beatae.
+                    </p>
+                  </div>
                 </div>
-                <div class="grid-col desktop-grid-one-third">
-                  <h3 id="labourComparison"></h3>
-                </div>
-                <div class="grid-col desktop-grid-one-third">
-                  <h3 id=""></h3>
-                </div>
-                <div class="grid-col desktop-grid-one-third">
-                  <h3 id=""></h3>
                 </div>
 
-                </div>
 
 
-                </div>
+
               </div>
+
+
+            </div>
+          </div>
 
            
 

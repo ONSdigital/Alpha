@@ -360,9 +360,17 @@ function testPostCode () {
         $("#pop_com"+count + "_pt2").text( item.trends[2] );
 
         $("#birth_com"+count).text( item.changes.births );
-        $("#birth2_com"+count).text( item.changes.births_2003 );
+        var birth2003 = item.changes.births_2003;
+        if(isNaN(birth2003)){
+          birth2003 = "-";
+        }
+        $("#birth2_com"+count).text( birth2003 );
         $("#death_com"+count).text( item.changes.deaths );
-        $("#death2_com"+count).text( item.changes.deaths_2003 );
+        var death2003 = item.changes.deaths_2003;
+        if(isNaN(death2003)){
+          death2003 = "-";
+        }
+        $("#death2_com"+count).text( death2003 );
         $("#natChange_com"+count).text( item.changes["natural change"] );
         $("#natPercent_com"+count).text( pc );
 
@@ -375,10 +383,16 @@ function testPostCode () {
         $("#externalNet_com"+count).text( "Net: " +  item.changes["International Net"] );
         $("#other_com"+count).text( item.changes["Other"] );
 
-        $("#employment_com"+count).text( item.labour.employment );
-        $("#unemployment_com"+count).text( item.labour.unemployment );
-        $("#inactivity_com"+count).text( item.labour.inactivity );
-        $("#claimant_com"+count).text( item.labour.claimant );
+        $("#employ_com"+count).text( item.labour.employment + '%');
+        $("#unemploy_com"+count).text( item.labour.unemployment + '%');
+        $("#inactivity_com"+count).text( item.labour.inactivity + '%');
+        $("#claims_com"+count).text( item.labour.claimant + '%');
+
+
+
+
+
+
 
         var males = item.maleTotal;
         var females = item.femaleTotal;
