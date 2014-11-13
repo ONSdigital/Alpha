@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototype: FIGURE A</title>
+
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+
+
+  <style>
+
+    .chart{
+      height:440px;
+    }
+    /* CHART: tooltip side bar */
+    .sidebar {
+      width:30px;
+      height:100px;
+      margin-right: 5px;
+      float:left;
+      background-color: #ddd;
+    }
+    .title {
+      font-size:14px;
+      text-transform: uppercase;
+    }
+
+    #custom-tooltip {
+      display:block;
+      height: 100px;
+      width: 190px;
+      border: 1px solid #ddd;
+      background-color: rgba(255, 255, 255, 1);
+    }
+    .maintext {
+      display:block;
+      width:190px;
+      height:100px;
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    .circle{
+      margin:0px;
+      margin-left: 9px;
+      padding:0px;
+      height:14px;
+      font-size: 22px;
+      color:#8FBED8;
+      line-height: 13px;
+      clear:both;
+    }
+
+    .square{
+      margin:0px;
+      margin-left: 9px;
+      padding:0px;
+      height:21px;
+      font-size: 20px;
+      color:#5296C3;
+      line-height: 21px;
+      clear:both;
+    }
+
+    .diamond{
+      margin:0px;
+      margin-left: 10px;
+      padding:0px;
+      height:19px;
+      font-size: 20px;
+      color:#1377B2;
+      line-height: 19px;
+      clear:both;
+    }
+
+    .triangle{
+      margin:0px;
+      margin-left: 9px;
+      padding:0px;
+      height:16px;
+      font-size: 14px;
+      color:#1673AC;
+      line-height: 20px;
+      clear:both;
+    }
+
+    .tip{
+      padding:0px;
+      padding-top:1px;
+      padding-bottom:1px;
+    }
+
+    .tiptext{
+      margin:0px;
+      padding:0px;
+      padding-top:1px;
+      left:0px;
+      text-align:left;
+    }
+
+
+
+    .tooltip-right {
+      width:90px;
+      height:50px;
+
+      position:relative;
+    }
+
+    .tooltip-right:after {
+      content:"";
+      border-color: transparent transparent transparent #ddd;
+      border-style:solid;
+      border-width:10px;
+      width:0;
+      height:0;
+      position:absolute;
+      bottom:15px;
+      left:189px
+    }
+
+    .tooltip-left {
+      width:190px;
+      height:50px;
+      position:relative;
+    }
+
+    .tooltip-left:after {
+      content:"";
+      border-color: transparent #ddd transparent transparent ;
+      border-style:solid;
+      border-width:10px;
+      width:0;
+      height:0;
+      position:absolute;
+      bottom:15px;
+      left:-20px
+    }
+.stat{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+  </style>
+
+</head>
+<body>
+
+
+
+
+
+
+
+  <div class="container ">
+
+
+
+    <div class="row">
+      <div id="chart" class="chart">
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/libs/jquery.min.js"></script>
+
+  <!-- chart library -->
+  <script src="js/libs/highcharts.js"></script>
+
+  <!-- charting -->
+  <script src="js/figurea.js"></script>
+
+
+
+</body>
+</html>
+
