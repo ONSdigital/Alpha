@@ -8,7 +8,7 @@ var year = 2004;
 
 var categories = [];
 
-
+// generate chart categories to keep control of content/formatting
 function populate(){
    $.each(data, function (index, value){
 
@@ -24,96 +24,10 @@ function populate(){
       year ++;
     }
 
-    options.xAxis.categories = categories;
-
    });
 }
 
 
-var options = {
-
-    chart: {
-      type: 'line',
-      style: {
-        fontFamily: 'Open Sans',
-        color:'#000'
-      },
-      spacingTop: 30,
-      spacingLeft:30,
-      backgroundColor:'#fff',
-      events: {
-
-          load: function () {
-            var chart = this,
-            yAxis = chart.yAxis[0]
-
-            if(yAxis.axisTitle){
-              titleWidth = yAxis.axisTitle.getBBox().width;
-              yAxis.update({
-                title: {
-                  offset: -titleWidth
-                }
-              });
-            }
-          }
-      }
-    },
-    title:{
-        style: {
-          fontFamily: 'Open Sans',
-          color:'red'
-        },
-      },
-    colors: ['#007dc3', '#409ed2', '#7fbee1', '#007dc3', '#409ed2', '#7fbee1'],
-    xAxis: {
-        categories: ['']
-    },
-    yAxis: {
-        min: 0,
-        title: {
-          style: {
-            color: '#000',
-            fontWeight:300
-          },
-          align: 'high',
-          rotation: 0,
-          y: -15,
-        }
-
-      },
-
-    plotOptions: {
-        series: {
-          animation: false
-        },
-        line: {
-          marker: {
-            radius: 4,
-            fillColor: '#fff',
-            lineColor: null,
-            lineWidth: 2,
-            symbol:'circle'
-          },
-          shadow:true
-          ,
-          dataLabels: {
-            enabled: false
-          }
-        }
-    },
-
-
-
-    legend: {
-      enabled:false
-    },
-
-    credits:{
-      enabled:false
-    },
-
-    series: []
-  };
 
 
 
@@ -122,39 +36,15 @@ var options = {
 
     Highcharts.setOptions(options);
 
+    // update the chart with the generated categories
+    options.xAxis.categories = categories;
+
     options.chart.renderTo = 'chart';
-    options.chart.plotBackgroundColor = "#fff";
     options.title = {text: 'Figure A: CPI 12-month inflation rate for the last 10 years: September 2004 to September 2014'};
 
     options.yAxis.title = {
         text: 'Per cent'
     }
-
-    options.xAxis.labels = {
-    
-      formatter : function() {
-        
-          //var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-          var response = "";
-          //if(w<768){
-            if(this.isFirst){
-              count=0;
-            }
-            if(count%24===0){
-              response = this.value;
-            }
-            count++;
-          //}else{
-          // response = this.value;
-          //}
-            return response
-
-        }
-
-
-      };
-
-    options.xAxis.tickmarkPlacement = 'on';
 
     options.series = [
                         {
@@ -164,22 +54,28 @@ var options = {
                         }
                       ];
 
-    options.plotOptions = {
-      series:{
-        shadow:false,
-        states:{
-          hover:{
-            enabled:true,
-            shadow:false,
-            lineWidth: 3,
-            lineWidthPlus: 0
-          }
-        },
-        marker: {
-                    enabled: false
+    options.xAxis.labels = {
+      formatter : function() {
+          var interval = 24;
+          //var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+          var response = "";
+          //if(w<768){
+            if(this.isFirst){
+              count=0;
+            }
+            if(count%interval ===0 ){
+              response = this.value;
+            }
+            count++;
+          //}else{
+          // response = this.value;
+          //}
+            return response
         }
-      }
-    };
+      };
+
+
+
 
     options.tooltip = {
       shared: false,
@@ -196,11 +92,11 @@ var options = {
 
         if(w>768){
 
-            if (point.plotX + labelWidth > trendThumb.plotWidth) {
-              tooltipX = point.plotX + trendThumb.plotLeft - labelWidth - 20;
+            if (point.plotX + labelWidth > chart.plotWidth) {
+              tooltipX = point.plotX + chart.plotLeft - labelWidth - 20;
               $("#custom-tooltip").removeClass('tooltip-left');
             } else {
-              tooltipX = point.plotX + trendThumb.plotLeft + 20;
+              tooltipX = point.plotX + chart.plotLeft + 20;
               $("#custom-tooltip").removeClass('tooltip-right');
             }
 
@@ -223,17 +119,17 @@ var options = {
       
   };
 
-  options.shadow = false;
+ 
+  chart = new Highcharts.Chart(options);
 
-
-  trendThumb = new Highcharts.Chart(options);
-
-  }
+}
 
 
 
 
 $(document).ready(function(){
+
+  console.log(options);
   populate();
   initChart();
 
