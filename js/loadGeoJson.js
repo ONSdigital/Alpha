@@ -7,15 +7,48 @@ var lastSelected;
 
 
 function initializeMap() {
+    var styles = [
+    {
+    featureType: "all",
+    stylers: [
+      { saturation: -80 }
+    ]
+  },
+    {
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [
+        { lightness: 100 },
+        { visibility: "simplified" }
+      ]
+    },{
+      featureType: "road",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
+    }
+  ];
+ // Create a new StyledMapType object, passing it the array of styles,
+  // as well as the name to be displayed on the map type control.
+  var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Styled Map"});
+
+
+
   map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
-      center: {lat: 51.5, lng: -2.9},
+      zoom: 7,
+      center: {lat: 52.5, lng: -1.9},
       scrollwheel:false,
       panControl: false,
       mapTypeControl: false,
       streetViewControl: false
 
   });
+
+  //Associate the styled map with the MapTypeId and set it to display.
+  map.mapTypes.set('map_style', styledMap);
+  map.setMapTypeId('map_style');
 
 
     map.data.loadGeoJson('data/district.json');
@@ -62,7 +95,7 @@ function initializeMap() {
 
     // Set 'isSelected', changing the highlighted polygon on the map.
     map.data.addListener('click', function(evt) {
-
+        location.hash = "#regional" ;
         if( $("#modal").is(':visible') ){
             $("#modal").toggle();
         }

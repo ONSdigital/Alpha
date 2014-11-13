@@ -298,13 +298,17 @@ function testPostCode () {
     var chartData = [];
     chartData = [  ['Female ' + female_pc + '%', female_pc], ['Male ' + male_pc + '%', male_pc] ];
 
-    genderThumb.series[0].setData( chartData );
+   // genderThumb.series[0].setData( chartData );
 
     pyramidThumb.series[1].setData( areaObj[id].series.female );
     pyramidThumb.series[0].setData( areaObj[id].series.male );
 
     lifeThumb.series[0].setData( areaObj[id].expectancy.male );
     lifeThumb.series[1].setData( areaObj[id].expectancy.female );
+
+    trendThumb.series[0].setData( areaObj[id].trends );
+
+
 /*
     var parent = areas.getParent(id);
     chartEmploy.series[2].setData( [ areaObj[id].labour.employment ] );
@@ -402,7 +406,7 @@ function testPostCode () {
         chartData = [  ['Female ' + female_pc + '%', female_pc], ['Male ' + male_pc + '%', male_pc] ];
 
 
-        window["gender"+count].series[0].setData( chartData );
+        //window["gender"+count].series[0].setData( chartData );
 
         window["pyramid"+count].series[1].setData( item.series.female );
         window["pyramid"+count].series[0].setData( item.series.male );
