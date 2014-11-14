@@ -22,29 +22,40 @@ var regional = (function () {
 
 
   function addListeners(){
+    $("#modal").click(function(evt) {
+      $("#modal").toggle();
+    });
+    $("#opener").click(function(evt) {
+      evt.preventDefault();
+      location.hash = "#regional" ;
+      if( $("#modal").is(':visible') ){
+          $("#modal").toggle();
+       }
+    });
+
     $("#region").change(function(e) {
       return areas.getRegion(1);
     });
+
     $("#county").change(function(e) {
       return areas.getCounty(1);
     });
+
     $("#district").change(function(e) {
       return areas.getDistrict(1);
     });
 
-
     $("#search").click( function(evt){
       evt.preventDefault();
+      location.hash = "#regional" ;
       testPostCode();
     })
-
 
     $("#showBtn").click( function(evt){
       evt.preventDefault();
       $("#comparison").show();
       showCharts();
     })
-
 
     $("#clearBtn").click( function(evt){
       evt.preventDefault();
@@ -64,9 +75,9 @@ var regional = (function () {
     $(".tab-pane__tab").click( function(evt){
       evt.preventDefault();
 
-      if(this.text==="Comparisons"){
+      //if(this.text==="Comparisons"){
         $(window).resize();
-      }
+      //}
 
     })
 
@@ -77,6 +88,7 @@ var regional = (function () {
         if (idx > -1) {
           comparisons.splice(idx, 1);
         }
+        console.log(comparisons);
         showCharts();
     });
 
@@ -96,6 +108,8 @@ var regional = (function () {
 
 
   }
+
+
 
 
 })();

@@ -30,35 +30,35 @@ var options = {
 
 
   
-            chart: {
-              style: {
-                fontFamily: 'Open Sans',
-                color:'#000'
-              },
-              spacingTop: 30,
-              spacingLeft:30,
-              backgroundColor:'#F9F9F9',
-              events: {
+    chart: {
+      style: {
+        fontFamily: 'Open Sans',
+        color:'#000'
+      },
+      spacingTop: 30,
+      spacingLeft:30,
+      backgroundColor:'#fff',
+      events: {
 
-                load: function () {
-                  var chart = this,
-                  yAxis = chart.yAxis[0]
-                  titleWidth=0;
+        load: function () {
+          var chart = this,
+          yAxis = chart.yAxis[0]
+          titleWidth=0;
 
-                  if(yAxis.axisTitle){
-                    titleWidth = yAxis.axisTitle.getBBox().width;
-                    yAxis.update({
-                      title: {
-                        offset: -titleWidth
-                      }
-                    });
-                  }
-
-                }
-
-
+          if(yAxis.axisTitle){
+            titleWidth = yAxis.axisTitle.getBBox().width;
+            yAxis.update({
+              title: {
+                offset: -titleWidth
               }
-            },
+            });
+          }
+
+        }
+
+
+      }
+    },
 
             plotOptions: {
               series: {
@@ -126,7 +126,7 @@ var options = {
   function initCharts(){
 
     Highcharts.setOptions(options);
-
+/*
     // employment
     options.chart.renderTo = 'employment';
     options.chart.type = 'bar';
@@ -167,10 +167,10 @@ var options = {
                     'Employment Rate: '+ Highcharts.numberFormat( this.point.y,1) + '%';
       }
     }
-    chartEmploy = new Highcharts.Chart(options);
+    //chartEmploy = new Highcharts.Chart(options);
+*/
 
-
-
+/*
     // unemployment
     options.chart.renderTo = 'unemployment';
     options.chart.type = 'bar';
@@ -192,13 +192,13 @@ var options = {
                     'Unemployment Rate: '+ Highcharts.numberFormat( this.point.y,1) + '%';
       }
     }
-    chartUnemploy = new Highcharts.Chart(options);
-
+    //chartUnemploy = new Highcharts.Chart(options);
+*/
 
 
 
     //thumbs
-
+/*
     //ANNUAL CHANGE
     options.chart.renderTo = 'thumbChange';
     options.chart.type = 'bar';
@@ -255,7 +255,7 @@ var options = {
       }
     }
     //changeThumb = new Highcharts.Chart(options);
-
+*/
 
 
 
@@ -274,6 +274,7 @@ var options = {
     options.xAxis = {
                      categories: ['1991-1993', '2000-2002', '2010-2012']
                   };
+
 
     options.chart.events= {
 
@@ -297,8 +298,8 @@ var options = {
 
               };
 
-    options.legend.enabled = true;
-    options.plotOptions.series = {};
+  options.legend.enabled = true;
+  options.plotOptions.series = {};
 
   options.series = [
 
@@ -328,6 +329,139 @@ var options = {
     life1 = new Highcharts.Chart(options);
     options.chart.renderTo = 'life2';
     life2 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'life3';
+    life3 = new Highcharts.Chart(options);
+
+
+
+
+
+    // POPULATION trend
+    options.chart.type = 'line';
+    options.chart.renderTo = 'trendThumb';
+    options.chart.plotBackgroundColor = "#fff";
+    options.title ='Population Trend';
+    options.xAxis.categories = ['2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'];
+
+    options.yAxis.min = 0;
+    options.xAxis.labels = {
+    
+      formatter : function() {
+        
+          //var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+          var response = "";
+          //if(w<768){
+            if(this.isFirst){
+              count=0;
+            }
+            if(count%3===0){
+              response = this.value;
+            }
+            count++;
+          //}else{
+          // response = this.value;
+          //}
+            return response
+
+        }
+
+
+      };
+
+    options.xAxis.tickmarkPlacement = 'on';
+    options.series = [
+                        {
+                            name: 'Population Trend',
+                            data: [],
+                            symbol: 'none'
+                        }
+                      ];
+
+    options.plotOptions = {
+      series:{
+        shadow:false,
+        states:{
+          hover:{
+            enabled:true,
+            shadow:false,
+            lineWidth: 3,
+            lineWidthPlus: 0
+          }
+        },
+        marker: {
+                    enabled: false
+        }
+      }
+    };
+
+    options.tooltip = {
+      shared: true,
+      width:'150px',
+      crosshairs: {
+        width: 2,
+       // color: '#f37121' //orange
+        color: '#DC5571'  //pink
+      },
+      positioner: function (labelWidth, labelHeight, point) {
+        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        var points = { x: 30, y: 42 };
+        var tooltipX, tooltipY;
+
+        if(w>768){
+
+            if (point.plotX + labelWidth > trendThumb.plotWidth) {
+              tooltipX = point.plotX + trendThumb.plotLeft - labelWidth - 20;
+              $("#custom-tooltip").removeClass('tooltip-left');
+            } else {
+              tooltipX = point.plotX + trendThumb.plotLeft + 20;
+              $("#custom-tooltip").removeClass('tooltip-right');
+            }
+
+            tooltipY = 50;
+            points = { x: tooltipX, y: tooltipY };
+        }else{
+            $("#custom-tooltip").removeClass('tooltip-left');
+            $("#custom-tooltip").removeClass('tooltip-right');
+        }
+
+        return points;
+      }
+/*      ,
+
+      formatter: function(){
+        var id = '<div id="custom-tooltip" class="tooltip-left tooltip-right">';
+        var block = id + "<div class='sidebar' >";
+        var title = '<b class="title">'+ this.x +' </b><br/>';
+        var symbol = ['<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>'];
+
+        var content = block + "<div class='title'>&nbsp;</div>" ;
+
+        // symbols
+        $.each(this.points, function(i, val){
+          content +=  symbol[i];
+        });
+
+        content+= "</div>";
+        content+= "<div class='mainText'>";
+        content+= title;
+
+
+        // series names and values
+        $.each(this.points, function(i, val){
+          content += '<div class="tiptext"><b>' + val.point.series.chart.series[i].name + " </b>" + Highcharts.numberFormat(val.y, 2) +'%</div>' ;
+        });
+        content+= "</div>";
+        return content;
+      }
+      */
+  };
+
+  options.shadow = false;
+  //options.useHTML = true;
+
+  trendThumb = new Highcharts.Chart(options);
+
+
 
 
 
@@ -335,7 +469,7 @@ var options = {
     
     options.chart.type = 'bar';
     options.title.text = null;
-    options.chart.plotBackgroundColor = "#F9F9F9";
+    options.chart.plotBackgroundColor = "#fff";
     options.chart.margin = 10;
     options.chart.marginBottom = 20;
     options.chart.spacing =[10, 10, 10, 10];
@@ -368,6 +502,19 @@ var options = {
                      minorTickLength: 0,
                      tickLength: 0
             }];
+/*
+    options.xAxis.labels = {};
+    options.xAxis.labels.style = {
+
+                            font: 'normal 14px Verdana, sans-serif',
+
+                            color : 'red'
+
+                        }*/
+
+   // options.xAxis.labels.style.font = 'normal 14px Verdana, sans-serif';
+    //options.xAxis.labels.style.color = 'gold';
+
 
     options.yAxis = {
                       title:  {text: ''},
@@ -377,7 +524,10 @@ var options = {
 
                               formatter: function () {
                                   return (Math.abs(this.value) / 1000) + "k";
-                              }
+                              },
+                              style : {
+                                    font: 'normal 14px "Open Sans", sans-serif'
+                                }
 
                       }
                   };
@@ -404,9 +554,13 @@ var options = {
     pyramid1 = new Highcharts.Chart(options);
     options.chart.renderTo = 'pyramid2';
     pyramid2 = new Highcharts.Chart(options);
+    options.chart.renderTo = 'pyramid3';
+    pyramid3 = new Highcharts.Chart(options);
 
 
 
+
+/*
     // GENDER
     options.chart.renderTo = 'thumbGender';
     options.colors = [  '#dc5571', '#A8233E'],
@@ -442,12 +596,14 @@ var options = {
           return this.key;
       }
     };
-    genderThumb = new Highcharts.Chart(options);
+    //genderThumb = new Highcharts.Chart(options);
 
     options.chart.renderTo = 'gender1';
     gender1 = new Highcharts.Chart(options);
     options.chart.renderTo = 'gender2';
     gender2 = new Highcharts.Chart(options);
-
+    options.chart.renderTo = 'gender3';
+    gender3 = new Highcharts.Chart(options);
+*/
 
   }

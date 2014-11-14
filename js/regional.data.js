@@ -9,7 +9,7 @@ var POSTCODE_URL = "//mapit.mysociety.org/postcode/";
 var POINT_URL = "//mapit.mysociety.org/point/4326/";
 
 var YEAR = 2013;
-var MAX_COMPARISONS = 2;
+var MAX_COMPARISONS = 3;
 
 var BLANK_ITEM = {
       name : " ",
@@ -192,6 +192,7 @@ function testPostCode () {
   }
 
   function showSummary( id ) {
+    console.log( areaObj[id] );
     // determine tabbed section and alter display
     if($("#comparisons").attr("aria-hidden")==="true"){
       // region / county / district
@@ -199,7 +200,7 @@ function testPostCode () {
       $("#pop").text( areaObj[id].trends[12] );
       $("#pop2").text( areaObj[id].trends[2] );
 
-      $("#mainTitle").text( "Regional profile: " + areaObj[id].name + ", " + YEAR + "");
+      $("#mainTitle").text( "Regional Profile: " + areaObj[id].name + ", " + YEAR + "");
 
       var region = areas.getRegionType(id);
       var parent = areas.getParent(id);
@@ -258,16 +259,23 @@ function testPostCode () {
       $("#other").text( areaObj[id].changes.Other);
 
       $("#inactivityName").text( areaObj[id].name );
-      $("#inactivity").text( areaObj[id].labour.inactivity +"%" );
       $("#inactivityParentName").text( areaObj[parent].name  );
+
+      $("#inactivity").text( areaObj[id].labour.inactivity +"%" );
       $("#inactivityParent").text(  areaObj[parent].labour.inactivity +"%" );
       $("#inactivityUK").text( areaObj[uk].labour.inactivity +"%" );
 
-      $("#claimantName").text( areaObj[id].name );
       $("#claimant").text( areaObj[id].labour.claimant +"%" );
-      $("#claimantParentName").text( areaObj[parent].name );
       $("#claimantParent").text(  areaObj[parent].labour.claimant +"%" );
       $("#claimantUK").text( areaObj[uk].labour.claimant +"%" );
+
+      $("#employment").text( areaObj[id].labour.employment +"%" );
+      $("#employmentParent").text(  areaObj[parent].labour.employment +"%" );
+      $("#employmentUK").text( areaObj[uk].labour.employment +"%" );
+
+      $("#unemployment").text( areaObj[id].labour.unemployment +"%" );
+      $("#unemploymentParent").text(  areaObj[parent].labour.unemployment +"%" );
+      $("#unemploymentUK").text( areaObj[uk].labour.unemployment +"%" );
 
        showSingle( id );
 
@@ -290,7 +298,7 @@ function testPostCode () {
     var chartData = [];
     chartData = [  ['Female ' + female_pc + '%', female_pc], ['Male ' + male_pc + '%', male_pc] ];
 
-    genderThumb.series[0].setData( chartData );
+   // genderThumb.series[0].setData( chartData );
 
     pyramidThumb.series[1].setData( areaObj[id].series.female );
     pyramidThumb.series[0].setData( areaObj[id].series.male );
@@ -298,6 +306,10 @@ function testPostCode () {
     lifeThumb.series[0].setData( areaObj[id].expectancy.male );
     lifeThumb.series[1].setData( areaObj[id].expectancy.female );
 
+    trendThumb.series[0].setData( areaObj[id].trends );
+
+
+/*
     var parent = areas.getParent(id);
     chartEmploy.series[2].setData( [ areaObj[id].labour.employment ] );
     chartEmploy.series[2].name = areaObj[id].name;
@@ -314,21 +326,26 @@ function testPostCode () {
     chartUnemploy.series[0].setData( [ areaObj[uk].labour.unemployment  ] );
     chartUnemploy.series[0].name = areaObj[uk].name;
     chartUnemploy.redraw();
-
+*/
   }
 
 
 
     function showCharts(){
       if (comparisons.length === 0){
-        comparisons = [ 0,0];
+        comparisons = [ 0, 0, 0 ];
       }
+
       if (comparisons.length === 1){
+        comparisons.push(0);
+        comparisons.push(0);
+      }
+      if (comparisons.length === 2){
         comparisons.push(0);
       }
 
       $.each(comparisons, function (index, value){
-        var item =areaObj[value];
+        var item = areaObj[value];
         var count = index+1;
         var pc =0;
         if(!item){
@@ -347,9 +364,17 @@ function testPostCode () {
         $("#pop_com"+count + "_pt2").text( item.trends[2] );
 
         $("#birth_com"+count).text( item.changes.births );
-        $("#birth2_com"+count).text( item.changes.births_2003 );
+        var birth2003 = item.changes.births_2003;
+        if(isNaN(birth2003)){
+          birth2003 = "-";
+        }
+        $("#birth2_com"+count).text( birth2003 );
         $("#death_com"+count).text( item.changes.deaths );
-        $("#death2_com"+count).text( item.changes.deaths_2003 );
+        var death2003 = item.changes.deaths_2003;
+        if(isNaN(death2003)){
+          death2003 = "-";
+        }
+        $("#death2_com"+count).text( death2003 );
         $("#natChange_com"+count).text( item.changes["natural change"] );
         $("#natPercent_com"+count).text( pc );
 
@@ -362,10 +387,16 @@ function testPostCode () {
         $("#externalNet_com"+count).text( "Net: " +  item.changes["International Net"] );
         $("#other_com"+count).text( item.changes["Other"] );
 
-        $("#employment_com"+count).text( item.labour.employment );
-        $("#unemployment_com"+count).text( item.labour.unemployment );
-        $("#inactivity_com"+count).text( item.labour.inactivity );
-        $("#claimant_com"+count).text( item.labour.claimant );
+        $("#employ_com"+count).text( item.labour.employment + '%');
+        $("#unemploy_com"+count).text( item.labour.unemployment + '%');
+        $("#inactivity_com"+count).text( item.labour.inactivity + '%');
+        $("#claims_com"+count).text( item.labour.claimant + '%');
+
+
+
+
+
+
 
         var males = item.maleTotal;
         var females = item.femaleTotal;
@@ -375,7 +406,7 @@ function testPostCode () {
         chartData = [  ['Female ' + female_pc + '%', female_pc], ['Male ' + male_pc + '%', male_pc] ];
 
 
-        window["gender"+count].series[0].setData( chartData );
+        //window["gender"+count].series[0].setData( chartData );
 
         window["pyramid"+count].series[1].setData( item.series.female );
         window["pyramid"+count].series[0].setData( item.series.male );
