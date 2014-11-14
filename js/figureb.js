@@ -2,7 +2,7 @@ var chart;
 
 
 var data = [-0.03, 0.01, 0.00,  -0.01, 0.03, -0.01, -0.18 , 0.00,  -0.10 , 0.00,  -0.04, -0.01 ];
-
+/*
  var categories = [
  "Food"
  , "Alcohol"
@@ -17,25 +17,22 @@ var data = [-0.03, 0.01, 0.00,  -0.01, 0.03, -0.01, -0.18 , 0.00,  -0.10 , 0.00,
  , "Restaurant"
  , "Miscellaneous"
  ];
+ */
+ var categories = [
+ "Food and non-alcoholic beverages"
+ , "Alcohol and tobacco"
+ , "Clothing and footwear"
+ , "Housing and household services"
+ , "Furniture and household goods"
+ , "Health"
+ , "Transport"
+ , "Communication"
+ , "Recreation and culture"
+ , "Education"
+ , "Restaurants and hotels"
+ , "Miscellaneous goods and services"
+ ];
 
-
-
-/*
-Food and non-alcoholic beverages  -0.03 
-Alcohol and tobacco 0.01  
-Clothing and footwear 0.00  
-Housing and household services  -0.01 
-Furniture and household goods 0.03  
-Health  -0.01 
-Transport -0.18 
-Communication 0.00  
-Recreation and culture  -0.10 
-Education 0.00  
-Restaurants and hotels  -0.04 
-Miscellaneous goods and services  -0.01 
-
-
-*/
 
 
   function initChart(){
@@ -45,6 +42,8 @@ Miscellaneous goods and services  -0.01
     // update the chart with the generated categories
     //options.xAxis.categories = categories;
     options.chart.type = 'bar';
+    //NB Important as this removes the event listener that positions the label
+    options.chart.events = null;
     options.chart.renderTo = 'chart';
     options.title = {
       text: 'Figure B: Contribution to 12 months growth rate, September 2014'
@@ -62,15 +61,16 @@ Miscellaneous goods and services  -0.01
     options.series = [
                         {
                             name: 'Contribution',
-    data: data,
+                            data: data,
                             symbol: 'none'
                         }
                       ];
     
+    options.legend.enabled = false;
 
       options.xAxis = {
         tickmarkPlacement : 'between',
-      alternateGridColor: '#f1f1f1',
+        alternateGridColor: '#f1f1f1',
         categories: categories,
         reversed: true,
         labels: {
@@ -87,9 +87,13 @@ Miscellaneous goods and services  -0.01
         } 
 
     };
+
     options.yAxis = {
         title: {
-            text: null
+            text: "Percentage points",
+            align: 'high',
+            offset: 20,
+            margin: 20
         },
         labels: {
           format : '{value} %'
@@ -115,8 +119,6 @@ Miscellaneous goods and services  -0.01
                
         },
         bar: {
-          /*borderColor: '#0084D1',
-          borderWidth: 1,*/
           dataLabels: {
               enabled: true,
               formatter: function() {

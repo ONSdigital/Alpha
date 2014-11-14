@@ -13,6 +13,7 @@ var options = {
       events: {
 
           load: function () {
+            console.log("on load");
             var chart = this,
             yAxis = chart.yAxis[0]
 
@@ -90,7 +91,8 @@ var options = {
     },
 
     legend: {
-      enabled:false
+      enabled:true,
+      borderColor:null
     },
 
     credits:{
