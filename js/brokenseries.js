@@ -204,29 +204,65 @@ var bands = [];
                 zIndex: 5
             }).add();*/
 
-        var point = chart.series[3].data[2];
-        chart.renderer.text('Figures for the year 1984-1993<br/>are counts of individual legal units.', point.plotX + chart.plotLeft + 10, 220)
+
+  var yPos = 280;
+        var point = chart.series[0].data[5];
+        console.log(point);
+            // chart.renderer.circle(point.plotX + chart.plotLeft + 10, point.plotY + chart.plotTop + 10, 12)
+            chart.renderer.circle( (point.plotX + chart.plotLeft + 13), yPos-4, 12)
+            .attr({
+                fill: 'rgba(255, 255, 255, 0)',
+                stroke: 'gray',
+                'stroke-width': 1
+            })
+            .add();
+
+        chart.renderer.text('1', point.plotX + chart.plotLeft + 10, yPos)
             .css({
                 color: '#333',
                 fontSize: '10px'
             })
             .add();
-        point = chart.series[3].data[13];
-        chart.renderer.text('1995 - 2002 data are based on<br/>Standard Industrial Classification 1992.<br/><br/>2003 - 2007 data are based on<br/>Standard Industrial Classification 2003.', point.plotX + chart.plotLeft + 10, 270)
+
+        point = chart.series[3].data[17];
+        chart.renderer.circle( (point.plotX + chart.plotLeft + 13), yPos-4, 12)
+            .attr({
+                fill: 'rgba(255, 255, 255, 0)',
+                stroke: 'gray',
+                'stroke-width': 1
+            })
+            .add();
+        chart.renderer.text('2', point.plotX + chart.plotLeft + 10, yPos)
             .css({
                 color: '#333',
                 fontSize: '10px'
             })
             .add();
+
         point = chart.series[3].data[23];
-        chart.renderer.text('Data are based on<br/>Standard Industrial<br/>Classification 2003.', point.plotX + chart.plotLeft + 10, 220)
+        chart.renderer.circle( (point.plotX + chart.plotLeft + 13), yPos-4, 12)
+            .attr({
+                fill: 'rgba(255, 255, 255, 0)',
+                stroke: 'gray',
+                'stroke-width': 1
+            })
+            .add();
+        chart.renderer.text('3', point.plotX + chart.plotLeft + 10, yPos)
             .css({
                 color: '#333',
                 fontSize: '10px'
             })
             .add();
+
         point = chart.series[3].data[26];
-        chart.renderer.text('Data are based on<br/>Standard Industrial<br/>Classification 2007 .', point.plotX + chart.plotLeft + 10, 270)
+        chart.renderer.circle( (point.plotX + chart.plotLeft + 13), yPos-4, 12)
+            .attr({
+                fill: 'rgba(255, 255, 255, 0)',
+                stroke: 'gray',
+                'stroke-width': 1
+            })
+            .add();
+        chart.renderer.text('4', point.plotX + chart.plotLeft + 10, yPos)
             .css({
                 color: '#333',
                 fontSize: '10px'
