@@ -30,7 +30,7 @@ var categories = [];
     options.title = {text: title};
 
     options.yAxis.title = {
-        text: 'Per cent'
+        text: '%'
     }
     options.yAxis.min = null;
 
