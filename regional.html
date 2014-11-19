@@ -174,142 +174,189 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
   </style>
   </head>
   <body class="">
-    <a class="skiplink visuallyhidden focusable" href="#main" tabindex="0">
-      <span>Skip to main content</span>
-    </a>
-    <main id="main" role="main">
-      <!-- temp removal to allow for component list selective wrapping -->
-      <!-- <div class="wrapper"> -->
-      <div class="wrapper panel--pad-small">
-        <header class="global-header">
-          <div class="media">
-            <a href="...html">
-              <img src="images/ons-logo.svg" alt="Office for National Statistics"
-              width="300" class="media__img" />
-            </a>
-            <div class="media__body">
-              <ul class="nav nav--inline-block nav--dark globaltop-nav">
-                <li><a href="#">Release calendar</a>
-                </li>
-                <li><a href="#">About</a>
-                </li>
-              </ul>
-              <form action="#" class="global-header__search">
-                <label for="homepageSearch" class="visuallyhidden">Search term:</label>
-                <input id="homepageSearch" type="text" class="input-mini" name="homepageSearch"
-                value="" placeholder="Search">
-                <button type="submit" class="btn btn--primary btn--narrow btn--form">
-                  <span class="icon icon-search">
-                    <span class="visuallyhidden">Search</span>
-                  </span>
-                </button>
-              </form>
-            </div>
-          </div>
-        </header>
+<ons-header class="ng-scope"><a class="skiplink visuallyhidden focusable" href="#main" tabindex="0">
+  <span>Skip to main content</span>
+</a>
+<div class="alpha-header cf">
+  <a href="http://digitalpublishing.ons.gov.uk/2014/10/14/whats-it-all-about-alpha/"><span class="alpha-header__link"></span></a>
+  <div>
+    <span>EXPERIMENTAL PROTOTYPE </span>
+  </div>
+  <!-- <ul>
+    <li>
+      <a>Tell us what you think</a>
+    </li>
+    <li>
+      <a>Project Blog</a>
+    </li>
+    <li>
+      <a>About the Prototype</a>
+    </li>
+  </ul> -->
+</div>
+<main id="main" role="main" class="ONS_border">
+<!-- temp removal to allow for component list selective wrapping -->
+<!-- <div class="wrapper"> -->
+
+  <header class="global-header">
+    <div class="global-header__wrapper">
+      <a class="main-logo" href="#!/">
+        <img src="images/ons-logo.svg" alt="Office for National Statistics" class="media__img" width="300">
+      </a>
+      <ul class="nav globaltop-nav">
+      <li><a href="#">Release Calendar</a></li>
+      <li><a href="#">Methodology</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+      
+    </div>
+  </header>
+
+<!-- ngInclude: 'app/partials/navigation/navigation.html' --><span class="ng-scope" ng-include="'app/partials/navigation/navigation.html'"><span class="ng-scope" ng-controller="NavigationController as nav">
+    <nav class="ons-nav ng-isolate-scope" ons-nav="" nav-active-class="nav--primary__active" nav-widget-var="w_nav">
+        <ul ons-nav-mobile="" class="nav nav--controls"><span class="ng-hide" ng-transclude="" ng-show="isMobile()">
+            <li class="nav--controls__menu ng-scope" ng-class="{'menu-is-expanded' : w_nav.showOnMobile}" ng-click="w_nav.toggleMobileMenu()">
+                <a href="" id="menu-toggle" aria-controls="nav-primary">
+                    <span class="nav--controls__icon icon-menu icon--inline icon--large" role="presentation"></span>
+                    <span class="nav--controls__text">Menu</span>
+                </a>
+            </li>
+            <li class="nav--controls__search ng-scope search-is-expanded" ng-click="nav.toggleSearch()" ng-class="{'search-is-expanded' : !nav.hideSearch}">
+                <a href="" id="search-toggle" aria-controls="nav-search">
+                    <span class="nav--controls__icon icon--inline icon--large icon-cancel" ng-class="nav.hideSearch ? 'icon-search-1' : 'icon-cancel'" role="presentation"></span>
+                    <span class="nav--controls__text ng-binding">Hide</span>
+                </a>
+            </li>
+        </span></ul>
+        <ul class="nav nav--multi nav--block nav--primary nav-main--hidden" id="nav-primary" aria-expanded="false" ng-class="w_nav.showOnMobile ? '' : 'nav-main--hidden'  ">
+            <li class="nav--primary__hide-small-med">
+                <a href="#!">Home</a>
+            </li>
+            <!-- ngRepeat: n in nav.links --><li ons-nav-item="/businessindustryandtrade" expandable="true" ons-nav-expand-class="js-expandable-active" ng-repeat="n in nav.links" class="nav__expandable js-expandable ng-scope ng-isolate-scope">
+                <a href="#!/businessindustryandtrade" class="ng-binding" ng-href="#!/businessindustryandtrade">Business, Industry and Trade</a>
+                <ul class="nav--primary__sub js-expandable__content ng-isolate-scope js-nav-hidden" ons-nav-collapse-class="js-nav-hidden">
+                    <li class="ng-isolate-scope" ons-nav-item="" ons-nav-mobile=""><span class="ng-hide" ng-transclude="" ng-show="isMobile()">
+                        <a class="ng-binding ng-scope" href="#!/businessindustryandtrade">Business, Industry and Trade</a>
+                    </span></li>
+                    <!-- ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/businessactivitysizeandlocation" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/businessactivitysizeandlocation">Business Activity, Size and Location</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/retailindustry" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/retailindustry">Retail Industry</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/internationaltrade" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/internationaltrade">International Trade</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/constructionindustry" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/constructionindustry">Construction Industry</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/changestobusiness" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/changestobusiness">Changes to Business</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/itandinternetindustry" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/itandinternetindustry">IT and Internet Industry</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/manufacturingandproductionindustry" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/manufacturingandproductionindustry">Manufacturing and Production Industry</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/tourismindustry" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/tourismindustry">Tourism Industry</a>
+                    </li><!-- end ngRepeat: c in n.children -->
+                </ul>
+            </li><!-- end ngRepeat: n in nav.links --><li ons-nav-item="/economy" expandable="true" ons-nav-expand-class="js-expandable-active" ng-repeat="n in nav.links" class="nav__expandable js-expandable ng-scope ng-isolate-scope">
+                <a href="#!/economy" class="ng-binding" ng-href="#!/economy">Economy</a>
+                <ul class="nav--primary__sub js-expandable__content ng-isolate-scope js-nav-hidden" ons-nav-collapse-class="js-nav-hidden">
+                    <li class="ng-isolate-scope" ons-nav-item="" ons-nav-mobile=""><span class="ng-hide" ng-transclude="" ng-show="isMobile()">
+                        <a class="ng-binding ng-scope" href="#!/economy">Economy</a>
+                    </span></li>
+                    <!-- ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/grossdomesticproductgdp" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/grossdomesticproductgdp">Gross Domestic Product (GDP)</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/inflationandpriceindices" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/inflationandpriceindices">Inflation and Price Indices</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/nationalaccounts" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/nationalaccounts">National Accounts</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/governmentpublicsectorandtaxes" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/governmentpublicsectorandtaxes">Government, Public Sector and Taxes</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/economicoutputandproductivity" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/economicoutputandproductivity">Economic Output and Productivity</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/grossvalueaddedgva" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/grossvalueaddedgva">Gross Value Added (GVA)</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/investmentspensionsandtrusts" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/investmentspensionsandtrusts">Investments, Pensions and Trusts</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/regionalaccounts" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/regionalaccounts">Regional Accounts</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/environmentalaccounts" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/environmentalaccounts">Environmental Accounts</a>
+                    </li><!-- end ngRepeat: c in n.children -->
+                </ul>
+            </li><!-- end ngRepeat: n in nav.links --><li ons-nav-item="/employmentandlabourmarket" expandable="true" ons-nav-expand-class="js-expandable-active" ng-repeat="n in nav.links" class="nav__expandable js-expandable ng-scope ng-isolate-scope">
+                <a href="#!/employmentandlabourmarket" class="ng-binding" ng-href="#!/employmentandlabourmarket">Employment and Labour Market</a>
+                <ul class="nav--primary__sub js-expandable__content ng-isolate-scope js-nav-hidden" ons-nav-collapse-class="js-nav-hidden">
+                    <li class="ng-isolate-scope" ons-nav-item="" ons-nav-mobile=""><span class="ng-hide" ng-transclude="" ng-show="isMobile()">
+                        <a class="ng-binding ng-scope" href="#!/employmentandlabourmarket">Employment and Labour Market</a>
+                    </span></li>
+                    <!-- ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/employmentandlabourmarket/peopleinwork" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/employmentandlabourmarket/peopleinwork">People in Work</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/employmentandlabourmarket/unemployment" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/employmentandlabourmarket/unemployment">Unemployment</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/employmentandlabourmarket/publicsectorpersonnel" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/employmentandlabourmarket/publicsectorpersonnel">Public Sector Personnel</a>
+                    </li><!-- end ngRepeat: c in n.children -->
+                </ul>
+            </li><!-- end ngRepeat: n in nav.links --><li ons-nav-item="/peoplepopulationandcommunity" expandable="true" ons-nav-expand-class="js-expandable-active" ng-repeat="n in nav.links" class="nav__expandable js-expandable ng-scope ng-isolate-scope">
+                <a href="#!/peoplepopulationandcommunity" class="ng-binding" ng-href="#!/peoplepopulationandcommunity">People, Population and Community</a>
+                <ul class="nav--primary__sub js-expandable__content ng-isolate-scope js-nav-hidden" ons-nav-collapse-class="js-nav-hidden">
+                    <li class="ng-isolate-scope" ons-nav-item="" ons-nav-mobile=""><span class="ng-hide" ng-transclude="" ng-show="isMobile()">
+                        <a class="ng-binding ng-scope" href="#!/peoplepopulationandcommunity">People, Population and Community</a>
+                    </span></li>
+                    <!-- ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/populationandmigration" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/populationandmigration">Population and Migration</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/birthsdeathsandmarriages" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/birthsdeathsandmarriages">Births, Deaths and Marriages</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/healthandsocialcare" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/healthandsocialcare">Health and Social Care</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/crimeandjustice" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/crimeandjustice">Crime and Justice</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/culturalidentity" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/culturalidentity">Cultural Identity</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/elections" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/elections">Elections</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/homeinternetandsocialmediausage" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/homeinternetandsocialmediausage">Home Internet and Social Media Usage</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/housing" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/housing">Housing</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/leisureandtourism" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/leisureandtourism">Leisure and Tourism</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/personalandhouseholdfinances" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/personalandhouseholdfinances">Personal and Household Finances</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/wellbeing" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/wellbeing">Well-being</a>
+                    </li><!-- end ngRepeat: c in n.children -->
+                </ul>
+            </li><!-- end ngRepeat: n in nav.links -->
+            <li class="nav--primary__respondents">
+                <a href="#!">
+                    <span class="icon-comment icon--inline"></span>Taking part in a survey?</a>
+            </li>
+            <li class="nav--primary__secondary-content">
+                <a href="#!">Release Calendar</a>
+            </li>
+            <li class="nav--primary__secondary-content">
+                <a href="#!">Methodology</a>
+            </li>
+            <li class="nav--primary__secondary-content">
+                <a href="#!">About</a>
+            </li>
+        </ul>
+        <div ng-hide="nav.hideSearch" class="slate--mid-grey_new search-wrapper">
+    <form ng-class="hideSearch ? 'nav-search--hidden' : '' " ng-submit="goToSearch(searchTerm)" class="nav-search ng-pristine ng-valid" id="searchBar" aria-expanded="false">
+      <div class="nav-search__container">
+        <label class="visuallyhidden" for="nav-search">Search for keyword or time series ID</label>
+        <input class="nav-search__field ng-pristine ng-valid" id="nav-search" name="nav-search" value="" ng-model="searchTerm" placeholder="Search for keyword or time series ID" type="search">
       </div>
-      <nav class="ons-nav">
-        <div class="wrapper">
-          <ul class="nav nav--multi nav--block nav--primary flush--bottom" id="nav-primary">
-            <li>
-              <a href="#" class="nav__expandable js-expandable">Business, Industry, and Trade</a>
-              <ul class="nav--primary__sub js-expandable__content js-nav-hidden">
-                <li><a href="#">Business</a>
-                </li>
-                <li><a href="#">Changes to business</a>
-                </li>
-                <li><a href="#">Construction and industry</a>
-                </li>
-                <li><a href="#">IT and internet industry</a>
-                </li>
-                <li><a href="#">International trade</a>
-                </li>
-                <li><a href="#">Manufacturing and production</a>
-                </li>
-                <li><a href="#">Retail industry</a>
-                </li>
-                <li><a href="#">Tourism industry</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#" class="nav__expandable js-expandable">Economy</a>
-              <ul class="nav--primary__sub js-expandable__content js-nav-hidden">
-                <li><a href="#">Economic output and productivity</a>
-                </li>
-                <li><a href="#">Environmental account</a>
-                </li>
-                <li><a href="#">Government, public sector, and taxes</a>
-                </li>
-                <li><a href="#">Gross Domestic Product (GDP)</a>
-                </li>
-                <li><a href="#">Gross Values Added (GVA)</a>
-                </li>
-                <li><a href="#">Inflation and price indices</a>
-                </li>
-                <li><a href="#">Investment and pension trust</a>
-                </li>
-                <li><a href="#">National accounts</a>
-                </li>
-                <li><a href="#">Regional accounts</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#" class="nav__expandable js-expandable">Employment and Labour Market</a>
-              <ul class="nav--primary__sub js-expandable__content js-nav-hidden">
-                <li><a href="#">People in work</a>
-                </li>
-                <li><a href="#">People not in work</a>
-                </li>
-                <li><a href="#">Public sector personnel</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#" class="nav__expandable js-expandable">People, Population, and Community</a>
-              <ul class="nav--primary__sub js-expandable__content js-nav-hidden">
-                <li><a href="#">Births, deaths, and marriages</a>
-                </li>
-                <li><a href="#">Community</a>
-                </li>
-                <li><a href="#">Education and childcare</a>
-                </li>
-                <li><a href="#">Crime and justice</a>
-                </li>
-                <li><a href="#">Household characteristics</a>
-                </li>
-                <li><a href="#">Well-being</a>
-                </li>
-                <li><a href="#">Health and social care</a>
-                </li>
-                <li><a href="#">Elections</a>
-                </li>
-                <li><a href="#">Personal and household finances</a>
-                </li>
-                <li><a href="#">Population and migration</a>
-                </li>
-                <li><a href="#">Cultural identity</a>
-                </li>
-                <li><a href="#">Housing</a>
-                </li>
-                <li><a href="#">Leisure and tourism</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav--primary__highlight">
-              <a href="#">
-                <span class="icon-users icon--inline"></span>Respondents</a>
-            </li>
-            <li class="nav--primary__secondary-content">
-              <a href="#">Release calendar</a>
-            </li>
-            <li class="nav--primary__secondary-content">
-              <a href="#">About</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <button type="submit" class="btn btn--primary btn--nav-search" id="nav-search-submit">
+        <span class="icon-search-1" role="presentational"></span>
+        <span class="visuallyhidden">Search</span>
+      </button>
+    </form>
+</div>
+    </nav>
+</span>
+</span>
+</main></ons-header>
       <div class="page-header page-header--article page-header--regional slate--pink">
         <div class="wrapper wrapper--article">
           <h1 class="page-header__title page-header--regional-desc">Regional:</h1>
