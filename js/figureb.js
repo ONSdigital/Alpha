@@ -55,7 +55,7 @@ var data = [-0.03, 0.01, 0.00,  -0.01, 0.03, -0.01, -0.18 , 0.00,  -0.10 , 0.00,
 
 
     options.yAxis.title = {
-        text: 'Per cent'
+        text: '%'
     }
 
     options.series = [
