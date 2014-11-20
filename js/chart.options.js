@@ -12,13 +12,12 @@ var options = {
         color:'#000'
       },
       spacingTop: 30,
-      spacingLeft:60,
-      backgroundColor:'#fff',
-      plotBackgroundColor: "#fff",
+      spacingLeft:50,
+      backgroundColor:'#F9F9F9',
+      plotBackgroundColor: "#F1F1F1",
       events: {
 
           load: function () {
-            console.log("on load");
             var chart = this,
             yAxis = chart.yAxis[0]
 
@@ -50,7 +49,6 @@ var options = {
     },
 
     yAxis: {
-        min: 0,
         title: {
           style: {
             color: '#000',
@@ -141,8 +139,6 @@ function populateCategories(){
 function initLineChart(){
 
     Highcharts.setOptions(options);
-    console.log(categories);
-
     // update the chart with the generated categories
     options.xAxis.categories = categories;
 
@@ -151,7 +147,7 @@ function initLineChart(){
     options.title.y = -10;
 
     options.yAxis.title = {
-        text: '%'
+        text: yAxisTitle
     }
 
 
@@ -252,7 +248,7 @@ function initColumnChart(){
     Highcharts.setOptions(options);
 
     options.chart.type = 'column';
-    options.chart.events = null;
+   // options.chart.events = null;
     options.chart.renderTo = 'chart';
     options.title = {
       text: title
@@ -266,9 +262,6 @@ function initColumnChart(){
     options.yAxis.title = {
         text: '%'
     }
-
-
-
 
     
     options.legend.enabled = false;
@@ -334,5 +327,90 @@ function initColumnChart(){
   chart = new Highcharts.Chart(options);
 
 }
+
+ function initBarChart(){
+
+    Highcharts.setOptions(options);
+
+    options.chart.type = 'bar';
+    //NB Important as this removes the event listener that positions the label
+    options.chart.events = null;
+    options.chart.renderTo = 'chart';
+    options.title = {
+      text: title
+    };
+
+    options.subtitle = {
+        text: subtitle
+    };
+
+
+    options.yAxis.title = {
+        text: yAxisTitle
+    }
+
+
+    
+    options.legend.enabled = false;
+
+      options.xAxis = {
+        tickmarkPlacement : 'between',
+        alternateGridColor: '#f1f1f1',
+        categories: categories,
+        reversed: true,
+        labels: {
+        } 
+
+    };
+
+    options.yAxis = {
+        title: {
+            text: "",
+            align: 'high',
+            offset: 20,
+            margin: 20
+        },
+        labels: {
+          format : '{value}'
+        }
+        ,
+        gridZIndex:4,
+        gridLineColor:'#F9F9F9'  ,
+        plotLines: [{
+                color: '#ccc',
+                width: 1,
+                value: 0,
+                zIndex:4
+            }], 
+    };
+    options.tooltip ={
+        };
+
+    options.plotOptions = {
+        series: {
+               
+        },
+        bar: {
+          dataLabels: {
+              enabled: true,
+              formatter: function() {
+                  if (this.y===null) {
+                     // return '<i>N/A</i>';
+                      return '';
+                  } else if (this.y=== 0) {
+                      return '<i>0.0%</i>';
+                  } else {
+                      return '';
+                  }
+              }
+          }
+      }
+    };
+
+ 
+  chart = new Highcharts.Chart(options);
+
+}
+
 
 

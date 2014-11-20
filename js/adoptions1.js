@@ -1,5 +1,6 @@
 var title = "Figure 1: Number of Adoptions, 1998-2012";
 var units = "children";
+var yAxisTitle = "Children";
 
 var data = [];
 data[0] = [4614,4987,5082,5380,5477,5350,5366,5276,4767,4732,4940,4664,4486,4740,5206];
