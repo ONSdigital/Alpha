@@ -1055,8 +1055,10 @@ textarea {
     /*src: url("/ui/fonts/OpenSans-Bold.svg#OpenSans-Bold") format("svg"); } */}
 @font-face {
   font-family: 'DaxlinePro';
-  src: url("/ui/fonts/DaxlinePro-Bold.eot");
-  src: url("../fonts/DaxlinePro-Bold.ttf") format("truetype");
+  src: url("/fonts/DaxlinePro-Bold.eot");
+  src: url("/fonts/DaxlinePro-Bold.ttf") format("truetype");
+  src: url("/fonts/DaxlinePro-Bold.eot#iefix") format("embedded-opentype"), url("../fonts/DaxlinePro-Bold.woff") format("woff"), url("../fonts/DaxlinePro-Bold.ttf") format("truetype"), url("../fonts/DaxlinePro-Bold.svg#DaxlinePro-Bold") format("svg");
+ 
   font-weight: normal;
   font-style: normal;
 
