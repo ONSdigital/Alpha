@@ -8,7 +8,7 @@ data[0] = [79.1];
 data[1] = [18.3];
 data[2] = [2.6];
 
-var categories = ['90-94','95-99','100 & over'];
+var categories = ['Population age'];
 
 var interval = 1;
 

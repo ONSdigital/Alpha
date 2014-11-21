@@ -1,17 +1,21 @@
-var title = "Figure 2: Number of Adoptions by Sex, 1998-2012";
-var subtitle = "England and Wales";
-var units = "%";
-var yAxisTitle = "Adoptions";
+var title = "Figure 2: Age-specific fertility rates, 1983-2013";
+var units = "";
+var yAxisTitle = "Live births per 1000 women";
 
 var data = [];
-data[0] = [684334,751478,679937,820719,881026,775306,730518,697097,677529,673735,684372,673651,667811,700335,723381,740715,748501,785005,811281,838736,854055,875972,862725,849823,832164,819272,797538,784486,783155,725440,675953,639885,603445,584270,569259,596418,638028,656234,634492,625931,629134,636818,656417,661018,681511,693577,687725,706140,699217,689656,673467,664726,648138,649485,643095,635901,621872,604441,594634,596122,621469,639721,645835,669601,690013,708711,706248,723165,723913,729674,698512];
-data[1] = [2.02,2.24,2.04,2.47,2.68,2.38,2.27,2.18,2.14,2.16,2.22,2.21,2.22,2.35,2.45,2.52,2.56,2.68,2.77,2.85,2.88,2.93,2.85,2.75,2.65,2.57,2.47,2.4,2.37,2.17,2,1.89,1.78,1.71,1.66,1.73,1.84,1.88,1.8,1.76,1.76,1.75,1.78,1.77,1.81,1.82,1.8,1.84,1.82,1.8,1.76,1.75,1.72,1.74,1.73,1.73,1.7,1.65,1.63,1.64,1.72,1.77,1.77,1.83,1.88,1.92,1.9,1.94,1.93,1.94,1.85];
+data[0] = [26.9,27.6,29.4,30.1,30.9,32.5,32.0,33.3,33.0,31.7,30.9,28.9,28.5,29.7,30.2,30.9,30.9,29.3,28.0,27.1,26.9,26.9,26.4,26.6,25.9,25.7,24.8,23.4,21.2,19.9,17.4];
+data[1] = [98.6,95.6,94.6,92.7,93.3,94.6,91.7,91.4,89.3,86.1,82.5,79.0,76.4,77.0,76.0,74.9,73.0,70.0,69.0,68.6,70.5,71.8,70.5,72.1,72.6,74.1,73.9,74.1,71.6,69.9,63.7];
+data[2] = [126.3,126.0,127.4,123.8,125.1,124.0,120.4,122.6,119.4,117.6,114.4,112.2,108.4,106.6,104.3,101.5,98.3,94.3,91.7,91.2,95.3,96.5,96.0,97.9,100.1,103.0,102.4,104.1,104.3,105.1,101.5];
+data[3] = [71.5,73.6,76.4,78.0,81.2,82.4,83.2,86.9,86.7,87.4,87.4,89.4,88.3,89.8,89.8,90.6,89.6,87.9,88.0,89.8,94.8,99.3,99.9,103.4,107.8,109.8,108.7,112.3,111.9,113.9,109.4];
+data[4] = [23.1,23.6,24.1,24.6,26.5,27.9,29.4,31.1,32.1,33.4,34.1,35.8,36.3,37.5,39.4,40.4,40.6,41.4,41.5,43.0,46.4,48.8,50.3,53.6,56.5,57.8,58.1,60.3,62.1,63.7,62.9];
+data[5] = [4.8,4.9,5.0,4.8,5.1,5.1,5.2,5.3,5.3,5.8,6.2,6.4,6.8,7.2,7.6,7.9,8.1,8.3,8.8,9.1,9.8,10.4,10.8,11.4,12.0,12.6,12.9,13.4,14.2,14.6,14.5];
+
 
 //set mon to -1 to ignore
 var startMon = -1; // keep this as base 1 to match years eg Sept is month 9
 //interval to skip in the xAxis category
-var interval = 1;
-var year = 1998;
+var interval = 5;
+var year = 1983;
 
 
 
@@ -19,20 +23,104 @@ var year = 1998;
 $(document).ready(function(){
 
   populateCategories();
+  options.legend.enabled = true;
+  options.yAxis.min = 0;
 
   options.series = [
       {
-        name: 'Number of Live births',
-        data: data[0]
+        name: 'Under 20',
+        data: data[0],
+        marker:{
+          symbol:"circle",
+          states: {
+            hover: {
+              fillColor: '#007dc3',
+              radiusPlus: 0,
+              lineWidthPlus: 0
+            }
+          }
+        },
+        dashStyle: 'Solid',
       },
       {
-        name: 'Total Fertility Rate (TFR)',
-        data: data[1]
+        name: '20-24',
+        data: data[1],
+        marker:{
+          symbol:"square",
+          states: {
+            hover: {
+              fillColor: '#409ed2',
+              radiusPlus: 0,
+              lineWidthPlus: 0
+            }
+          }
+        },
+        dashStyle: 'shortdash'
+      },
+      {
+        name:'25-29',
+        data: data[2],
+        marker:{
+          symbol:"diamond",
+          states: {
+            hover: {
+              fillColor: '#7fbee1',
+              radiusPlus: 0,
+              lineWidthPlus: 0
+            }
+          }
+        },
+        dashStyle: 'shortdot'
+      },
+      {
+        name:'30-34',
+        data: data[3],
+        marker:{
+          symbol:"triangle",
+          states: {
+            hover: {
+              fillColor: '#7fbee1',
+              radiusPlus: 0,
+              lineWidthPlus: 0
+            }
+          }
+        },
+        dashStyle: 'shortdot'
+      },
+      {
+        name:'35-39',
+        data: data[4],
+        marker:{
+          symbol:"triangle-down",
+          states: {
+            hover: {
+              fillColor: '#7fbee1',
+              radiusPlus: 0,
+              lineWidthPlus: 0
+            }
+          }
+        },
+        dashStyle: 'shortdash'
+      },
+      {
+        name:'40 and over',
+        data: data[5],
+        marker:{
+          symbol:"circle",
+          states: {
+            hover: {
+              fillColor: '#7fbee1',
+              radiusPlus: 0,
+              lineWidthPlus: 0
+            }
+          }
+        },
+        dashStyle: 'solid'
       }
   ];
 
   
-  initColumnChart();
+  initLineChart();
 
 });
 
