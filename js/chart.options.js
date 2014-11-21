@@ -11,7 +11,7 @@ var options = {
         fontFamily: 'Open Sans',
         color:'#000'
       },
-      spacingTop: 30,
+      spacingTop: 10,
       spacingLeft:50,
       backgroundColor:'#F9F9F9',
       plotBackgroundColor: "#F1F1F1",
@@ -34,6 +34,7 @@ var options = {
     },
 
     title:{
+      margin:40,
         style: {
           font: 'normal 16px ff-dax-web-pro',
 
@@ -144,7 +145,7 @@ function initLineChart(){
 
     options.chart.renderTo = 'chart';
     options.title = {text: title};
-    options.title.y = -10;
+    //options.title.y = -10;
 
     options.yAxis.title = {
         text: yAxisTitle
