@@ -148,6 +148,7 @@ function initLineChart(){
     options.title = {text: title};
     //options.title.y = -10;
 
+    options.yAxis.min = 0;
     options.yAxis.title = {
         text: yAxisTitle
     }
@@ -284,7 +285,7 @@ function initColumnChart(){
         }
         ,
         gridZIndex:4,
-        gridLineColor:'#F1F1F1'  ,
+        gridLineColor:'#ccc'  ,
         plotLines: [{
                 color: '#ccc',
                 width: 1,
@@ -377,7 +378,7 @@ function initColumnChart(){
         }
         ,
         gridZIndex:4,
-        gridLineColor:'#F9F9F9'  ,
+        gridLineColor:'#ccc'  ,
         plotLines: [{
                 color: '#ccc',
                 width: 1,
