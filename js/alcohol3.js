@@ -1,20 +1,19 @@
-var title = "Figure 1: Number of Adoptions, 1998-2012";
-var units = "%";
-var yAxisTitle = "Children";
+var title = "Figure 3: Alcohol-related death rates per 100,000 population by age group, males, United Kingdom, 2002-2012";
+var units = "";
+var yAxisTitle = "";
 
 var data = [];
-data[0] = [5,4,5,4,5,4,5,4,4,3,2,2,2,2,2];
-data[1] = [34,39,41,45,45,46,49,51,53,55,57,59,58,62,63];
-data[2] = [36,34,31,31,30,32,29,28,28,26,24,24,26,23,24];
-data[3] = [21,19,18,16,16,14,13,13,11,13,12,10,10,10,8];
-data[4] = [5,5,4,4,4,4,4,4,4,4,5,4,4,3,3];
+data[0] = [2.6,2.3,2.4,2.4,2.4,2.5,2.9,2.6,2.7,2.3,2.1];
+data[1] = [28.0,30.2,29.5,29.8,31.0,30.0,30.8,28.9,28.3,27.1,24.7];
+data[2] = [40.0,42.9,42.5,43.3,44.5,44.1,45.5,41.5,44.9,43.9,40.1];
+data[3] = [25.4,25.1,24.9,25.4,23.3,23.1,23.6,25.8,23.0,24.8,28.5];
+
 
 //set mon to -1 to ignore
 var startMon = -1; // keep this as base 1 to match years eg Sept is month 9
 //interval to skip in the xAxis category
-var interval = 1;
-var year = 1998;
-
+var interval = 3;
+var year = 2002;
 
 
 
@@ -22,9 +21,12 @@ $(document).ready(function(){
 
   populateCategories();
 
+  options.legend.enabled = true;
+  options.yAxis.min = 0;
+ 
   options.series = [
-      {
-        name: 'Under 1',
+    {
+        name: 'Aged  15-34',
         data: data[0],
         marker:{
           symbol:"circle",
@@ -39,7 +41,7 @@ $(document).ready(function(){
         dashStyle: 'Solid',
       },
       {
-        name: 'Aged  1-4 years',
+        name: 'Aged  35-54',
         data: data[1],
         marker:{
           symbol:"square",
@@ -54,8 +56,23 @@ $(document).ready(function(){
         dashStyle: 'shortdash'
       },
       {
-        name:'Aged 5-9 years',
+        name: 'Aged  55-74',
         data: data[2],
+        marker:{
+          symbol:"square",
+          states: {
+            hover: {
+              fillColor: '#409ed2',
+              radiusPlus: 0,
+              lineWidthPlus: 0
+            }
+          }
+        },
+        dashStyle: 'longdot'
+      },
+      {
+        name:'Aged 75+',
+        data: data[3],
         marker:{
           symbol:"diamond",
           states: {
@@ -68,42 +85,18 @@ $(document).ready(function(){
         },
         dashStyle: 'shortdot'
       },
-      {
-        name:'Aged 10-14 years',
-        data: data[3],
-        marker:{
-          symbol:"triangle",
-          states: {
-            hover: {
-              fillColor: '#7fbee1',
-              radiusPlus: 0,
-              lineWidthPlus: 0
-            }
-          }
-        },
-        dashStyle: 'longdot'
-      },
-      {
-        name:'Aged 15-17 years',
-        data: data[4],
-        marker:{
-          symbol:"triangle-down",
-          states: {
-            hover: {
-              fillColor: '#7fbee1',
-              radiusPlus: 0,
-              lineWidthPlus: 0
-            }
-          }
-        },
-        dashStyle: 'shortdot'
-      }
+     
+
+
   ];
 
   
+
+
+
   initLineChart();
 
-});
 
+});
 
 

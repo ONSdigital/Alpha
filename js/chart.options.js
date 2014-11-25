@@ -1,8 +1,9 @@
 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 var chart;
 var categories = [];
-
-
+var plotLineColor = '#C0D1E7';
+var plotBandColor = '#c0d1e7';
+;
 var options = {
 
     chart: {
@@ -11,7 +12,7 @@ var options = {
         fontFamily: 'Open Sans',
         color:'#000'
       },
-      spacingTop: 30,
+      spacingTop: 10,
       spacingLeft:50,
       backgroundColor:'#F9F9F9',
       plotBackgroundColor: "#F1F1F1",
@@ -34,6 +35,7 @@ var options = {
     },
 
     title:{
+      margin:40,
         style: {
           font: 'normal 16px ff-dax-web-pro',
 
@@ -144,7 +146,7 @@ function initLineChart(){
 
     options.chart.renderTo = 'chart';
     options.title = {text: title};
-    options.title.y = -10;
+    //options.title.y = -10;
 
     options.yAxis.title = {
         text: yAxisTitle
@@ -208,7 +210,7 @@ function initLineChart(){
       var id = '<div id="custom-tooltip" class="tooltip-left tooltip-right">';
       var block = id + "<div class='sidebar' >";
       var title = '<b class="title">'+ this.x +' </b><br/>';
-      var symbol = ['<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>'];
+      var symbol = ['<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>','<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>'];
 
       var content = block + "<div class='title'>&nbsp;</div>" ;
 
@@ -282,7 +284,7 @@ function initColumnChart(){
         }
         ,
         gridZIndex:4,
-        gridLineColor:'#F9F9F9'  ,
+        gridLineColor:'#F1F1F1'  ,
         plotLines: [{
                 color: '#ccc',
                 width: 1,
@@ -357,7 +359,7 @@ function initColumnChart(){
         tickmarkPlacement : 'between',
         alternateGridColor: '#f1f1f1',
         categories: categories,
-        reversed: true,
+       // reversed: true,
         labels: {
         } 
 
