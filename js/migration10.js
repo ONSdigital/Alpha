@@ -1,15 +1,14 @@
-var title = "Figure 3.2: Long-Term International Migration Estimates of Emigration from the UK, by Main Reason, 2004–2013 (Year Ending December 2013)";
+var title = "Figure 3.11: Long-Term International Migration Estimates of Immigration to the UK, by Main Reason for Migration, 2004–2013 (Year Ending December 2013)";
 var subtitle = "";
 var units = "";
-var yAxisTitle = "Emigration (thousands)";
+var yAxisTitle = "Immigration (thousands)";
 
 var data = [];
-data[0] = [151,null,null,null,170,null,null,null,187,null,null,null,173,null,null,null,219,null,null,null,211,210,198,192,189,182,190,191,201,206,199,198,182,184,187,186,186];
-data[1] = [50,null,null,null,54,null,null,null,51,null,null,null,43,null,null,null,57,null,null,null,46,43,42,40,39,38,37,35,33,33,33,35,36,35,33,30,29];
-data[2] = [15,null,null,null,14,null,null,null,20,null,null,null,15,null,null,null,23,null,null,null,23,27,25,30,29,26,26,21,19,19,21,20,21,19,18,22,23];
-data[3] = [51,null,null,null,39,null,null,null,44,null,null,null,49,null,null,null,41,null,null,null,42,40,38,39,35,37,37,39,41,42,46,43,40,40,35,34,33];
-data[4] = [77,null,null,null,83,null,null,null,96,null,null,null,61,null,null,null,88,null,null,null,46,44,45,44,46,52,52,54,57,53,50,46,43,40,46,46,43];
-
+data[0] = [229,null,null,null,246,null,null,null,235,null,null,null,242,null,null,null,220,null,null,null,193,194,196,204,203,194,194,183,184,177,173,175,180,190,202,218,214];
+data[1] = [102,null,null,null,84,null,null,null,105,null,null,null,85,null,null,null,88,null,null,null,76,78,73,76,80,81,85,80,74,71,68,63,62,59,60,66,71];
+data[2] = [148,null,null,null,140,null,null,null,157,null,null,null,148,null,null,null,175,null,null,null,211,235,235,245,238,232,239,246,232,213,197,187,180,176,175,175,177];
+data[3] = [79,null,null,null,66,null,null,null,55,null,null,null,65,null,null,null,64,null,null,null,50,44,42,42,40,39,40,38,41,43,43,43,43,40,41,45,43];
+data[4] = [31,null,null,null,31,null,null,null,44,null,null,null,35,null,null,null,44,null,null,null,36,36,35,33,29,32,30,34,35,32,35,29,32,27,24,26,21];
 
 var titles = ['Work Related',  'Accompany / Join',  'Formal study',  'Other', 'No reason stated'];
 

@@ -14,13 +14,6 @@ var interval = 1;
 
 
 $(document).ready(function(){
-  options.yAxis.plotLines= [{
-                color: '#f00',
-                width: 1,
-                value: 0,
-                zIndex:4
-            }]
-
 
   options.legend.enabled = true;
 

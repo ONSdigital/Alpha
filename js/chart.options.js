@@ -49,7 +49,6 @@ var options = {
         categories: [''],
         tickmarkPlacement : 'on'
     },
-
     yAxis: {
         title: {
           style: {
@@ -59,7 +58,8 @@ var options = {
           align: 'high',
           rotation: 0,
           y: -15,
-        }
+        },
+        min:0
 
       },
 
@@ -68,16 +68,17 @@ var options = {
           shadow:false,
           animation: false,
           states:{
-          hover:{
-            enabled:true,
-            shadow:false,
-            lineWidth: 3,
-            lineWidthPlus: 0
+            hover:{
+              enabled:true,
+              shadow:false,
+              lineWidth: 3,
+              lineWidthPlus: 0
+            }
+          },
+          connectNulls: true,
+          marker: {
+            enabled: false
           }
-        },
-        marker: {
-                    enabled: false
-        }
         },
         line: {
           marker: {
@@ -148,7 +149,7 @@ function initLineChart(){
     options.title = {text: title};
     //options.title.y = -10;
 
-    options.yAxis.min = 0;
+
     options.yAxis.title = {
         text: yAxisTitle
     }
@@ -269,8 +270,22 @@ function initColumnChart(){
     
     options.legend.enabled = false;
 
-      options.xAxis = {
+    options.xAxis = {
         categories: categories
+    };
+    
+    options.xAxis.labels = {
+    formatter : function() {
+        var response = "";
+        if(this.isFirst){
+          count=0;
+        }
+        if(count%interval ===0 ){
+           response = this.value;
+        }
+        count++;
+        return response
+      }
     };
 
     options.yAxis = {
@@ -303,7 +318,7 @@ function initColumnChart(){
 
     options.plotOptions = {
         series: {
-               
+            connectNulls:true
         },
 /*
         bar: {
@@ -362,22 +377,25 @@ function initColumnChart(){
         categories: categories,
        // reversed: true,
         labels: {
+          enabled:true
         } 
 
     };
 
     options.yAxis = {
         title: {
-            text: "",
+            text: yAxisTitle
+            /*,
             align: 'high',
             offset: 20,
             margin: 20
+            */
         },
         labels: {
-          format : '{value}'
+          format : '{value}'+units
         }
         ,
-        gridZIndex:4,
+        gridZIndex:1,
         gridLineColor:'#ccc'  ,
         plotLines: [{
                 color: '#ccc',
@@ -391,7 +409,7 @@ function initColumnChart(){
 
     options.plotOptions = {
         series: {
-               
+          connectNulls:true
         },
         bar: {
           dataLabels: {

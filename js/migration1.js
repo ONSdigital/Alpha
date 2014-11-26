@@ -28,7 +28,7 @@ $(document).ready(function(){
 
   options.series = [
       {
-        name: 'Immigration,Estimate',
+        name: 'Immigration',
         data: data[0],
         borderColor: options.colors[0],
             type: 'line'
