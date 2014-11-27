@@ -1,539 +1,1858 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prototype: Regional Data: Wales</title>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 ie7"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9 ie8"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9"><![endif]-->
+<!--[if gt IE 8]><!--><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Prototype: Regional Statistics</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0" name="viewport" />
+    <meta content="on" http-equiv="cleartype" />
+    <meta name="format-detection" content="telephone=no">
 
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-
-
-  <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/menu.css" rel="stylesheet">
-
-
-  <!-- Alpha -->
-  <link href="css/alpha.css" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
+      <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 
 
 
-  <style>
+    <!--[if IE]><![endif]-->
+    <!--[if lte IE 8]>
+<link rel="stylesheet" href="/dist/css/oldie.css"/>
+<![endif]-->
+    <!--[if gt IE 8]><!-->
+<link rel="stylesheet" href="css/main.css"/>
+<![endif]-->
+    <script src="js/header.js"></script>
+    <style>
 
-  .chart{
-    height:440px;
-  }
-  .piechart{
-    height:200px;
-  }
-  #map{
-    height:440px;
-  }
-  /* CHART: tooltip side bar */
-  .sidebar {
-    width:30px;
-    height:100px;
-    margin-right: 5px;
-    float:left;
-    background-color: #f00;
-  }
+    .gold{
+      background-color: gold;
+    }
 
-.fa-square{
-color:#0084D1;
-  
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    padding:0px;
+
 }
 
+
+.selectpicker {
+    width: 100%;
+
+}
+
+.overlay {
+    position:absolute;
+    top:70px;
+    left:160px;
+    right:0;
+    bottom:0;
+    z-index:9999;
+    width:520px;
+    height:250px;
+}
+.mapContainer{
+    position: relative;
+  }
+
+  #postcodeSearch{
+    position:absolute;
+    padding:6px;
+    top: 260px;
+    left: 4px;
+    z-index:990;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+
+  #map{
+    width:100%;
+    height:320px;
+    background-color: #d2ccbb;
+  }
+
+  #slide-panel {
+    position: relative;
+    width:300px;
+    height:300px;
+    /*top:-20px;*/
+    float:right;
+    padding:20px;
+    background:#eee;
+    margin-right:-310px;
+    z-index:999;
+  }
+
+#opener {
+    float:left;
+    height:60px;
+    width:60px;
+    margin-left:-80px;
+/*    margin:-10px 10px 10px -50px;*/
+    border-radius:0;
+}
+
+.btn-danger {
+    color: #FFF;
+    background-color: #A8233E;
+    border-color: #D43F3A;
+}
+
+
+/* prevents google maps nav being broken */
+#map img {
+  max-width: none;
+}
+#btn1, #btn2, #btn3{
+  top: 10px;
+  text-decoration: none;
+}
+.box--red--separated-left {
+  position: relative;
+  border-left: 0; 
+}
+.box--red--separated-left:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  border-left-style: solid;
+  border-left-width: 6px;
+  content: " "; 
+}
+.box--red--separated-left:before {
+  border-left-color: #A8233E;
+}
+.box--red {
+  background-color: #fff; 
+}
+.icon-cancel-circled:before {
+  content: '\e801'; 
+}
+.quarterChart{
+  height:120px;
+}
+.halfChart{
+  height:240px;
+}
+.slate--pink{
+  background-color: #fcf0f2;
+}
+.page-header--regional:after {
+  background-color: #a8233e; 
+}
+.page-header--regional-desc {
+  color: #a8233e; 
+}
+h3, .delta, .page-header--regional-desc, .nav-panel__title {
+  font-size: 19px;
+  font-size: 1.9rem;
+  line-height: 1.10526; 
+}
+
+.striped {
+    background-color: #EDEEEE !important;
+    height:54px;!hack
+}
+
+#demographics h3{
+  margin-top:40px;
+}
+
+ #labour h3, #comparisons h3{
+  margin-top:20px;
+}
+
+  .desktop-grid-two-sixths, .desktop-grid-set-two-sixths .desktop-grid-col {
+    width: 33.3333%; }
+
   </style>
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-    </head>
-    <body>
-
-
-      <div class="container  bg_warning alpha-header">
-        <p class="alpha-header-title">Office for National Statistics
-          <span>Prototype</span>
-        </p>
-        <p class="alpha-header-copy">This is a mock-up of our new website. You should still use the <a href="http://www.ons.gov.uk">current site</a>
-        </p>
-      </div>
-
-      <div class="container">
-        <nav class="navbar navbar-default" role="navigation">
-          <div class="container-fluid" id="topbar">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="index.html"><img id="logo" src="images/70x140ONScolourlogo.png" class="pull-left"/></a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-
-          <!--  SEARCH  -->
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <span class="" data-toggle="collapse" data-target="#search-panel">
-                    Advanced
-                    <i class="fa fa-chevron-down  " ></i>
-                  </span>
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default"><span class="fa fa-search fa-lg form-control-feedback"></span></button>
-              </form>
-            </li>
-
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+  </head>
+  <body class="">
+<ons-header class="ng-scope"><a class="skiplink visuallyhidden focusable" href="#main" tabindex="0">
+  <span>Skip to main content</span>
+</a>
+<div class="alpha-header cf">
+  <a href="http://digitalpublishing.ons.gov.uk/2014/10/14/whats-it-all-about-alpha/"><span class="alpha-header__link"></span></a>
+  <div>
+    <span>EXPERIMENTAL PROTOTYPE </span>
   </div>
+  <!-- <ul>
+    <li>
+      <a>Tell us what you think</a>
+    </li>
+    <li>
+      <a>Project Blog</a>
+    </li>
+    <li>
+      <a>About the Prototype</a>
+    </li>
+  </ul> -->
+</div>
+<main id="main" role="main" class="ONS_border">
+<!-- temp removal to allow for component list selective wrapping -->
+<!-- <div class="wrapper"> -->
 
-  <div class="container">
-    <div class="">
-
-      <div class="well collapse col-sm-12" id="search-panel"> 
-
-        <div class="col-sm-6">
-          <div class="">
-           <h4><span class="glyphicon glyphicon-stats"></span> Time Series Data</h4>
-
-           <form role="form">
-             <div class="form-group">
-              <label for="exampleInputPassword1">Select a topic</label>
-              <select class="form-control">
-                <option>Business and Trade</option>
-                <option>National Accounts</option>
-                <option>Labour Market</option>
-                <option>Price Indices</option>
-                <option>Travel and Tourism</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputFile">Select a Dataset</label>
-              <select class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Find time series</button>
-          </form>
-        </div>
-      </div>
-
-      <div class="col-sm-6">
-        <div class="">
-          <h4><span class="glyphicon glyphicon-map-marker"></span> Local and Regional Data</h4>
-
-          <form role="form">
-            <div class="form-group">
-              <label for="exampleInputPassword1">Select a region</label>
-              <select class="form-control">
-                <option>The North</option>
-                <option>North West</option>
-                <option>North East</option>
-                <option>West Midlands</option>
-                <option>Wales</option>
-              </select>
-            </div>
-          </form>
-        </div>
-
-      </div>
-
-
-
-    </div><!--  end of search panel -->
-  </div><!--  end of row -->
-</div><!--  end of continaer -->
-
-
-<!--  MENU BAR  -->
-
-<div class="container">
-  <nav class="navbar navbar-default" role="navigation" id="topmenu">
-    <ul class="nav navbar-nav">
-      <li class="dropdown">
-        <a href="#" data-toggle="collapse" data-target="#one">Business, Industry and Trade</a>
-      </li>
-      <li class="dropdown">
-        <a href="#" data-toggle="collapse" data-target="#two">Economy</a>
-      </li>
-      <li class="dropdown">
-        <a href="#" data-toggle="collapse" data-target="#three">Employment and Labour Market</a>
-      </li>
-      <li class="dropdown">
-        <a href="#" data-toggle="collapse" data-target="#four">People, Population and Community</a>
-      </li>
-
-
-
+  <header class="global-header">
+    <div class="global-header__wrapper">
+      <a class="main-logo" href="#!/">
+        <img src="images/ons-logo.svg" alt="Office for National Statistics" class="media__img" width="300">
+      </a>
+      <ul class="nav globaltop-nav">
       <li><a href="#">Release Calendar</a></li>
-
-      <li class="dropdown menu">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b> </a>
-        <ul class="dropdown-menu megamenu row">
-          <li class="col-sm-12">
-            <ul>
-              <li class="dropdown-header">Themes</li>
-              <li><a class="" href="index.html">Home</a></li>
-              <li><a class="" href="economy.html">Economy</a></li>
-              <li><a class="" href="inflation.html">Inflation</a></li>
-            </ul>
-          </li>
-
-          <li class="col-sm-12">
-            <ul>
-              <li class="dropdown-header">Bulletin</li>
-              <li><a href="release.html">Release</a></li>
-              <li><a href="slice.html">Slice</a></li>
-              <!--  <li><a href="summary.html">Summary</a></li> -->
-              <li><a href="bulletin.html">Bulletin</a></li>
-              <!--  <li><a href="supplementary.html">Supplementary</a></li> -->
-              <li><a href="observation.html">Observation</a></li>
-            </ul>
-          </li>
-          <li class="col-sm-12">
-            <ul>
-              <li class="dropdown-header">Other</li>
-              <li><a href="article.html">Article</a></li>
-              <li><a href="series.html">Search ID</a></li>
-            </ul>
-          </li>
-
-        </ul>
-      </li>
-
+      <li><a href="#">Methodology</a></li>
+      <li><a href="#">About</a></li>
     </ul>
-  </nav>
-
-  <nav class="navbar navbar-default" role="navigation" id="submenu">
-
-    <ul class="nav navbar-nav collapse" id="one">
-      <li><a href="#" id="">Business</a></li>
-      <li><a href="#" id="">Changes to Business</a></li>
-      <li><a href="#" id="">International Trade</a></li>
-      <li><a href="#" id="">Construction</a></li>
-      <li><a href="#" id="">IT and Internet</a></li>
-      <li><a href="#" id="">Manufacturing and Production</a></li>
-      <li><a href="#" id="">Retail</a></li>
-      <li><a href="#" id="">Tourism</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav collapse" id="two">
-      <li><a href="economy.html" id="">Economic Output</a></li>
-      <li><a href="economy.html" id="">Environmental Accounts</a></li>
-      <li><a href="economy.html" id="">Government</a></li>
-      <li><a href="economy.html" id="">GDP</a></li>
-      <li><a href="economy.html" id="">GVA</a></li>
-      <li><a href="inflation.html" id="">Inflation</a></li>
-      <li><a href="inflation.html" id="">Investments</a></li>
-      <li><a href="inflation.html" id="">National Accounts</a></li>
-      <li><a href="inflation.html" id="">Regional Accounts</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav collapse" id="three">
-      <li><a href="economy.html">People in Work</a></li>
-      <li><a href="economy.html">People not in Work</a></li>
-      <li><a href="inflation.html">Public Sector Personnel</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav collapse" id="four">
-      <li><a href="#" id="">Births, Deaths and Marriages</a></li>
-      <li><a href="#" id="">Crime</a></li>
-      <li><a href="#" id="">Community</a></li>
-      <li><a href="#" id="">Education</a></li>
-      <li><a href="#" id="">Health and Social Care</a></li>
-      <li><a href="#" id="">Housing</a></li>
-      <li><a href="#" id="">Population</a></li>
-
-      <li class="dropdown menu">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More&hellip;&nbsp;<b class="caret"></b> </a>
-        <ul class="dropdown-menu megamenu row">
-          <li class="col-sm-12">
-            <ul>
-              <li><a href="#" id="">Cultural Identity</a></li>
-              <li><a href="#" id="">Elections</a></li>
-              <li><a href="#" id="">Household Characteristics</a></li>
-              <li><a href="#" id="">Leisure and Tourism</a></li>
-              <li><a href="#" id="">Personal and Household Finances</a></li>
-              <li><a href="#" id="">Well-being</a></li>
-
-            </ul>
-          </li>
-
-        </ul>
-      </li>
-
-
-
-    </ul>
-
-  </nav>
-</div>
-
-<!--  END MENU BAR  -->
-
-
-
-
-
-<!--  PAGE BODY  -->
-<div class="container ">
-
-
-  <div class="row">
-    <h4><span class="glyphicon glyphicon-map-marker"></span> Regional Data: Wales</h4>
-    <div id="chart_prices" class="">
-
-          <form role="form">
-            <div class="form-group">
-              <label for="exampleInputPassword1">Select a region</label>
-              <select class="form-control" id="areas">
-                <option>Pick an area...</option>
-                <option>Isle of Anglesey</option>
-                <option>Gwynedd</option>
-                <option>Conwy</option>
-                <option>Denbighshire</option>
-                <option>Flintshire</option>
-                <option>Powys</option>
-                <option>Ceredigion</option>
-                <option>Pembrokeshire</option>
-                <option>Carmarthenshire</option>
-                <option>Swansea</option>
-                <option>Bridgend</option>
-                <option>The Vale of Glamorgan</option>
-                <option>Cardiff</option>
-                <option>Caerphilly</option>
-                <option>Blaenau Gwent</option>
-                <option>Monmouthshire</option>
-                <option>Newport</option>
-              </select>
-            </div>
-          </form>
+      
     </div>
-  </div>
+  </header>
 
+<!-- ngInclude: 'app/partials/navigation/navigation.html' --><span class="ng-scope" ng-include="'app/partials/navigation/navigation.html'"><span class="ng-scope" ng-controller="NavigationController as nav">
+    <nav class="ons-nav ng-isolate-scope" ons-nav="" nav-active-class="nav--primary__active" nav-widget-var="w_nav">
+        <ul ons-nav-mobile="" class="nav nav--controls"><span class="ng-hide" ng-transclude="" ng-show="isMobile()">
+            <li class="nav--controls__menu ng-scope" ng-class="{'menu-is-expanded' : w_nav.showOnMobile}" ng-click="w_nav.toggleMobileMenu()">
+                <a href="" id="menu-toggle" aria-controls="nav-primary">
+                    <span class="nav--controls__icon icon-menu icon--inline icon--large" role="presentation"></span>
+                    <span class="nav--controls__text">Menu</span>
+                </a>
+            </li>
+            <li class="nav--controls__search ng-scope search-is-expanded" ng-click="nav.toggleSearch()" ng-class="{'search-is-expanded' : !nav.hideSearch}">
+                <a href="" id="search-toggle" aria-controls="nav-search">
+                    <span class="nav--controls__icon icon--inline icon--large icon-cancel" ng-class="nav.hideSearch ? 'icon-search-1' : 'icon-cancel'" role="presentation"></span>
+                    <span class="nav--controls__text ng-binding">Hide</span>
+                </a>
+            </li>
+        </span></ul>
+        <ul class="nav nav--multi nav--block nav--primary nav-main--hidden" id="nav-primary" aria-expanded="false" ng-class="w_nav.showOnMobile ? '' : 'nav-main--hidden'  ">
+            <li class="nav--primary__hide-small-med">
+                <a href="#!">Home</a>
+            </li>
+            <!-- ngRepeat: n in nav.links --><li ons-nav-item="/businessindustryandtrade" expandable="true" ons-nav-expand-class="js-expandable-active" ng-repeat="n in nav.links" class="nav__expandable js-expandable ng-scope ng-isolate-scope">
+                <a href="#!/businessindustryandtrade" class="ng-binding" ng-href="#!/businessindustryandtrade">Business, Industry and Trade</a>
+                <ul class="nav--primary__sub js-expandable__content ng-isolate-scope js-nav-hidden" ons-nav-collapse-class="js-nav-hidden">
+                    <li class="ng-isolate-scope" ons-nav-item="" ons-nav-mobile=""><span class="ng-hide" ng-transclude="" ng-show="isMobile()">
+                        <a class="ng-binding ng-scope" href="#!/businessindustryandtrade">Business, Industry and Trade</a>
+                    </span></li>
+                    <!-- ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/businessactivitysizeandlocation" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/businessactivitysizeandlocation">Business Activity, Size and Location</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/retailindustry" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/retailindustry">Retail Industry</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/internationaltrade" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/internationaltrade">International Trade</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/constructionindustry" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/constructionindustry">Construction Industry</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/changestobusiness" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/changestobusiness">Changes to Business</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/itandinternetindustry" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/itandinternetindustry">IT and Internet Industry</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/manufacturingandproductionindustry" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/manufacturingandproductionindustry">Manufacturing and Production Industry</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/businessindustryandtrade/tourismindustry" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/businessindustryandtrade/tourismindustry">Tourism Industry</a>
+                    </li><!-- end ngRepeat: c in n.children -->
+                </ul>
+            </li><!-- end ngRepeat: n in nav.links --><li ons-nav-item="/economy" expandable="true" ons-nav-expand-class="js-expandable-active" ng-repeat="n in nav.links" class="nav__expandable js-expandable ng-scope ng-isolate-scope">
+                <a href="#!/economy" class="ng-binding" ng-href="#!/economy">Economy</a>
+                <ul class="nav--primary__sub js-expandable__content ng-isolate-scope js-nav-hidden" ons-nav-collapse-class="js-nav-hidden">
+                    <li class="ng-isolate-scope" ons-nav-item="" ons-nav-mobile=""><span class="ng-hide" ng-transclude="" ng-show="isMobile()">
+                        <a class="ng-binding ng-scope" href="#!/economy">Economy</a>
+                    </span></li>
+                    <!-- ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/grossdomesticproductgdp" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/grossdomesticproductgdp">Gross Domestic Product (GDP)</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/inflationandpriceindices" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/inflationandpriceindices">Inflation and Price Indices</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/nationalaccounts" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/nationalaccounts">National Accounts</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/governmentpublicsectorandtaxes" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/governmentpublicsectorandtaxes">Government, Public Sector and Taxes</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/economicoutputandproductivity" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/economicoutputandproductivity">Economic Output and Productivity</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/grossvalueaddedgva" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/grossvalueaddedgva">Gross Value Added (GVA)</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/investmentspensionsandtrusts" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/investmentspensionsandtrusts">Investments, Pensions and Trusts</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/regionalaccounts" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/regionalaccounts">Regional Accounts</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/economy/environmentalaccounts" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/economy/environmentalaccounts">Environmental Accounts</a>
+                    </li><!-- end ngRepeat: c in n.children -->
+                </ul>
+            </li><!-- end ngRepeat: n in nav.links --><li ons-nav-item="/employmentandlabourmarket" expandable="true" ons-nav-expand-class="js-expandable-active" ng-repeat="n in nav.links" class="nav__expandable js-expandable ng-scope ng-isolate-scope">
+                <a href="#!/employmentandlabourmarket" class="ng-binding" ng-href="#!/employmentandlabourmarket">Employment and Labour Market</a>
+                <ul class="nav--primary__sub js-expandable__content ng-isolate-scope js-nav-hidden" ons-nav-collapse-class="js-nav-hidden">
+                    <li class="ng-isolate-scope" ons-nav-item="" ons-nav-mobile=""><span class="ng-hide" ng-transclude="" ng-show="isMobile()">
+                        <a class="ng-binding ng-scope" href="#!/employmentandlabourmarket">Employment and Labour Market</a>
+                    </span></li>
+                    <!-- ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/employmentandlabourmarket/peopleinwork" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/employmentandlabourmarket/peopleinwork">People in Work</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/employmentandlabourmarket/unemployment" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/employmentandlabourmarket/unemployment">Unemployment</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/employmentandlabourmarket/publicsectorpersonnel" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/employmentandlabourmarket/publicsectorpersonnel">Public Sector Personnel</a>
+                    </li><!-- end ngRepeat: c in n.children -->
+                </ul>
+            </li><!-- end ngRepeat: n in nav.links --><li ons-nav-item="/peoplepopulationandcommunity" expandable="true" ons-nav-expand-class="js-expandable-active" ng-repeat="n in nav.links" class="nav__expandable js-expandable ng-scope ng-isolate-scope">
+                <a href="#!/peoplepopulationandcommunity" class="ng-binding" ng-href="#!/peoplepopulationandcommunity">People, Population and Community</a>
+                <ul class="nav--primary__sub js-expandable__content ng-isolate-scope js-nav-hidden" ons-nav-collapse-class="js-nav-hidden">
+                    <li class="ng-isolate-scope" ons-nav-item="" ons-nav-mobile=""><span class="ng-hide" ng-transclude="" ng-show="isMobile()">
+                        <a class="ng-binding ng-scope" href="#!/peoplepopulationandcommunity">People, Population and Community</a>
+                    </span></li>
+                    <!-- ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/populationandmigration" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/populationandmigration">Population and Migration</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/birthsdeathsandmarriages" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/birthsdeathsandmarriages">Births, Deaths and Marriages</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/healthandsocialcare" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/healthandsocialcare">Health and Social Care</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/crimeandjustice" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/crimeandjustice">Crime and Justice</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/culturalidentity" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/culturalidentity">Cultural Identity</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/elections" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/elections">Elections</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/homeinternetandsocialmediausage" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/homeinternetandsocialmediausage">Home Internet and Social Media Usage</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/housing" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/housing">Housing</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/leisureandtourism" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/leisureandtourism">Leisure and Tourism</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/personalandhouseholdfinances" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/personalandhouseholdfinances">Personal and Household Finances</a>
+                    </li><!-- end ngRepeat: c in n.children --><li class="ng-scope ng-isolate-scope" ons-nav-item="/peoplepopulationandcommunity/wellbeing" ng-repeat="c in n.children">
+                        <a class="ng-binding" href="#!/peoplepopulationandcommunity/wellbeing">Well-being</a>
+                    </li><!-- end ngRepeat: c in n.children -->
+                </ul>
+            </li><!-- end ngRepeat: n in nav.links -->
+            <li class="nav--primary__respondents">
+                <a href="#!">
+                    <span class="icon-comment icon--inline"></span>Taking part in a survey?</a>
+            </li>
+            <li class="nav--primary__secondary-content">
+                <a href="#!">Release Calendar</a>
+            </li>
+            <li class="nav--primary__secondary-content">
+                <a href="#!">Methodology</a>
+            </li>
+            <li class="nav--primary__secondary-content">
+                <a href="#!">About</a>
+            </li>
+        </ul>
+        <div ng-hide="nav.hideSearch" class="slate--mid-grey_new search-wrapper">
+    <form ng-class="hideSearch ? 'nav-search--hidden' : '' " ng-submit="goToSearch(searchTerm)" class="nav-search ng-pristine ng-valid" id="searchBar" aria-expanded="false">
+      <div class="nav-search__container">
+        <label class="visuallyhidden" for="nav-search">Search for keyword or time series ID</label>
+        <input class="nav-search__field ng-pristine ng-valid" id="nav-search" name="nav-search" value="" ng-model="searchTerm" placeholder="Search for keyword or time series ID" type="search">
+      </div>
+      <button type="submit" class="btn btn--primary btn--nav-search" id="nav-search-submit">
+        <span class="icon-search-1" role="presentational"></span>
+        <span class="visuallyhidden">Search</span>
+      </button>
+    </form>
+</div>
+    </nav>
+</span>
+</span>
+</main></ons-header>
+      <div class="page-header page-header--article page-header--regional slate--pink">
+        <div class="wrapper wrapper--article">
+          <h1 class="page-header__title page-header--regional-desc">Regional:</h1>
+          <h2 class="alpha flush--third--bottom">Regional Statistics</h2>
+          <div class="page-header--article__body">
+            <div class="page-header--article__split">
 
-  <div class="row">
-    <h2 id="title">Demographics</h2>
-
-    <div id='bar' class='box'>
-      <div class="row">
-        <div class="col-sm-4">
-
-          <h3>Population: <strong><span id="pop2012"></span></strong>
-          </h3>
-          <div class="row">
-
-            <div class="col-sm-6">
-              2011:<br/>
-              Area:<br/>
-              Density:<br/>
-              <span class="fa-stack fa-lg pull-left">
-                  <i class="fa fa-square fa-stack-2x"></i>
-                  <i id="popdirection" class="fa fa-stack-1x fa-inverse"></i>
-                </span>
             </div>
+          </div>
+          <!-- /page-header-article__body -->
+          <div class="page-header__icons">
+            <a href="#" class="link-complex">
+              <span class="icon icon-twitter icon--grey">
+                <span class="visuallyhidden">Share on Twitter</span>
+              </span>
+            </a>
+            <a href="#" class="link-complex">
+              <span class="icon icon-facebook icon--grey">
+                <span class="visuallyhidden">Share on Facebook</span>
+              </span>
+            </a>
+            <a href="#" class="link-complex">
+              <span class="icon icon-gplus icon--grey">
+                <span class="visuallyhidden">Share on Google Plus</span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <!-- /wrapper -->
+      </div>
+      <!-- /page-header -->
+      <div class="wrapper panel--mar">
+        <div class="content-reveal lede">
+          <p>Your starting point for regional and local statistics on the ONS website. Get an overview of your chosen area including demographics and the local labour market and compare this with another region. 
             
-            <div class="col-sm-6">
-              <strong><span id="pop2011"></span></strong><br/>
-              <strong><span id="area"></span></strong><br/>
-              <strong><span id="density"></span></strong><br/> people per km2
-              <br/>
+        For more detail or to look at your area in more detail head over to Neighbourhood statistics.
+          </p>
+
+        </div>
+      </div>
+
+      <div id="regional" class="wrapper mapContainer">
+          <h2 class="" id="mainTitle">Regional Profile</h2>
+
+        <div id="slide-panel">
+          <a href="#" class="btn btn-danger" id="opener"><span class="icon"></span></a>
+        <h4 class="">Regional Selection</h4>
+        <p>Filter the available regions using the controls below: </p>
+          <div class="">
+            <form role="form">
+
+              <div class="form-group ">
+                <label for="region">Select a region</label>
+                <select class="form-control selectpicker" id="region">
+                </select>
+              </div>
+
+              <div class="form-group ">
+                <label for="county">Select a county</label>
+                <select class="form-control selectpicker" id="county">
+                </select>
+              </div>
+
+              <div class="form-group ">
+                <label for="district">Select a district</label>
+                <select class="form-control selectpicker" id="district">
+                </select>
+              </div>
+            </form>
+        </div>
+        </div>
+
+            <div id="map">
+
+            <a href="#" id="map"></a>
 
             </div>
 
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <h3>Gender</h3>
-          <div id='genderChart' class='piechart'>
-
-
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <h3>Age Groups</h3>
-          <div id='ageChart' class='piechart'>
-
-
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-4">
-          <h3>Natural Changes<span class="fa-stack fa-lg pull-right">
-                  <i class="fa fa-square fa-stack-2x"></i>
-                  <i id="changedirection" class="fa  fa-stack-1x fa-inverse"></i>
-                </span></h3>
-          <span class="title">Births: </span><span id="births"></span><br/>
-          <span class="title">Deaths: </span><span id="deaths"></span><br/>
-          <span class="title">Natural Change: </span><span id="natural"></span><br/>
-                
-
-        </div>
-        <div class="col-sm-4">
-          <h3>Migration within UK <span class="fa-stack fa-lg pull-right">
-                  <i class="fa fa-square fa-stack-2x"></i>
-                  <i id="ukdirection" class="fa fa-stack-1x fa-inverse"></i>
-                </span></h3>
-          <span class="title">In: </span><span id="uk_in"></span><br/>
-          <span class="title">Out: </span><span id="uk_out"></span><br/>
-          <span class="title">Net: </span><span id="uk_net"></span><br/>
-                
-
-        </div>
-        <div class="col-sm-4">
-          <h3>International Migration <span class="fa-stack fa-lg pull-right">
-                  <i class="fa fa-square fa-stack-2x "></i>
-                  <i id="nationaldirection" class="fa fa-stack-1x fa-inverse"></i>
+            <form class="form-inline" role="search">
+              <div class="form-group" id="postcodeSearch">
+                <div class="mapPanel">
+                  <div id="regionName">Click map to select an area</div>
+                </div>
+                <span class="" data-toggle="collapse" data-target="#search-panel">
                 </span>
-</h3>
-          <span class="title">In: </span><span id="in"></span><br/>
-          <span class="title">Out: </span><span id="out"></span><br/>
-          <span class="title">Net: </span><span id="net"></span><br/>
+                <input id="postcode" type="text" class="form-control" placeholder="Search postcode">
+              <button type="submit" class="btn btn--secondary btn--narrow btn--form" id="search">
+                 <span class="icon icon-search"></span>
+              </button>
+              </div>
+            </form>
+
+
+<div class="desktop-grid-one-half">
+<article id="modal" class="box box--orange lifted box--orange--separated-left overlay">
+  <div class="box__inner border box--padded has-icon">
+    <header class="box__header">
+      <h2 class="gamma">
+        <a href="#">
+          Regional Profile
+          <span class="icon-cancel detached"></span>
+
+        </a>
+      </h2>
+    </header>
+    <!-- /box__header -->
+
+    <div class="box__content">
+      <p>Click the map to select an area, or search via postcode, or use the area filters to the right.
+      </p>
+      <p>
+        Use the comparison option below to select three areas for comparison.
+      </p>
+      <dl class="definition">
+        <dt>Category:</dt>
+        <dd>Inflation and Price Indices</dd>
+        <dt>Type:</dt>
+        <dd>Statistical Bulletin</dd>
+      </dl>
+      <!-- /definition -->
+    </div>
+    <!-- /box__content -->
+  </div>
+</article>
+</div>
+
+          </div>
+       
+      </div>
+
+
+
+
+
+
+
+      <div class="wrapper panel--mar clearAll">
+        <div class="grid-wrap">
+
+            <div class="grid-col tablet-grid">
+            <div class="grid-col desktop-grid-one-full">
+            <div class="tab-pane tab-pane--dual">
+              <ul class="list--neutral nav--block--spaced">
+                <li>
+                  <a href="#demographics" class="tab-pane__tab" >Demographics</a>
+                </li>
+                <li>
+                  <a href="#labour" class="tab-pane__tab">Labour Market</a>
+                </li>
+                <li>
+                  <a href="#comparisons" class="tab-pane__tab">Comparisons</a>
+                </li>
+              </ul>
+
+
+              
+              <!--  DEMOGRAPHICS  -->
+              <section class="tab-pane__content" id="demographics">
+
+              <div class="grid-wrap panel--mar">
+
+
+                <div class="grid-col desktop-grid-one-full">
+                  <!--  ROW ONE LEFT  -->
+                  <div class="grid-col desktop-grid-one-half">
+
+                    <div class="grid-col desktop-grid-one-full">
+                      <h3>Population</h3>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="name">&nbsp;</span>
+                    </div>
+                    <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="pop">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            2013
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="name">&nbsp;</span>
+                    </div>
+                     <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="pop2">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            2003
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="parent_name">WALES</span>
+                    </div>
+                     <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="parent_pop">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            2013
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="gparent_name">UNITED KINGDOM</span>
+                    </div>
+                     <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="gparent_pop">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            2013
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="ancestor_name">&nbsp;</span>
+                    </div>
+                     <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="ancestor_pop">
+                            &nbsp;
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                    </div>
+
+                  </div>
+
+                  <!--  ROW ONE RIGHT  -->
+                  <div class="grid-col desktop-grid-one-half">
+                    <div id="" class="">
+                      <h3>Population Trend</h3>
+                      <div id="trendThumb" class="halfChart"></div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+              <div class="grid-col desktop-grid-one-full">
+                <!--  ROW TWO LEFT -->
+                <div class="grid-col desktop-grid-one-half">
+
+
+                  <div class="grid-col desktop-grid-one-full">
+                    <h3>Natural Change</h3>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Births</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="birth">
+                        1321
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">&nbsp;</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="birth2">
+                        1423
+                        </div>
+                        <div class="stat__description">
+                          2003
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Deaths</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="death">
+                        2132
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">&nbsp;</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="death2">
+                          1546
+                        </div>
+                        <div class="stat__description">
+                          2003
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">&nbsp;</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="natChange">
+                          Net: 1000
+                        </div>
+                        <div class="stat__description">
+                          Natural Change, 2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-full">
+                    <p>This is a <span id="natPercent"></span>% change compared with 2012.</p>
+                  </div>
+
+                </div>
+
+                <!--  ROW ONE RIGHT -->
+                <div class="grid-col desktop-grid-one-half">
+                  <div id="" class="">
+                      <h3>Population Pyramid</h3>
+                      <div id="thumbPyramid" class="halfChart"></div>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+
+                <div class="grid-col desktop-grid-one-full">
+                  <!--  ROW THREE LEFT -->
+                  <div class="grid-col desktop-grid-one-half">
+
+                    <div class="grid-col desktop-grid-one-full">
+                      <h3>Migration</h3>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="">Internal Migration (within UK)</span>
+                    </div>
+                     <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="internalIn">
+                          2132
+                          </div>
+                          <div class="stat__description">
+                            In to area, 2013
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="">&nbsp;</span>
+                    </div>
+                     <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="internalOut">
+                            1546
+                          </div>
+                          <div class="stat__description">
+                            Out of area, 2013
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="">&nbsp;</span>
+                    </div>
+                     <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="internalNet">
+                            Net: 1000
+                          </div>
+                          <div class="stat__description">
+                            Internal Migration, 2013
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="">International Migration</span>
+                    </div>
+                     <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="externalIn">
+                          2132
+                          </div>
+                          <div class="stat__description">
+                            In to UK, 2013
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="">&nbsp;</span>
+                    </div>
+                     <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="externalOut">
+                            1546
+                          </div>
+                          <div class="stat__description">
+                            Out of county, 2013
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-half">
+                      <span id="">&nbsp;</span>
+                    </div>
+                     <div class="grid-col desktop-grid-one-half">
+                      <div class="stat stat--small">
+                          <div class="stat__figure" id="externalNet">
+                            Net: 1000
+                          </div>
+                          <div class="stat__description">
+                            International Migration, 2013
+                          </div>
+                        </div>
+                    </div>
+                   <div class="grid-col desktop-grid-one-full">
+                      <p>There were also <span id="other"></span> <i>'Other'</i> changes compared with 2012.</p>
+                    </div>
+
+                  </div>
+
+
+                  <!--  RIGHT HAND SIDE  -->
+                  <div class="grid-col desktop-grid-one-half">
+                    <div id="" class="">
+                      <h3>Healthy Life Expectancy</h3>
+                      <div id="thumbLife" class="halfChart"></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            
+              </section>
+
+
+              <!--  LABOUR MARKET -->
+
+              <section class="tab-pane__content" id="labour">
+                <div class="grid-wrap  panel--mar">
+
+                  <div class="grid-col desktop-grid-one-full">
+                    <div class="grid-col desktop-grid-one-full">
+                      <h3 >Labour Market, April 2013 - March 2014</h3>
+                    </div>
+
+
+
+
+                    <div class="grid-col desktop-grid-two-sixths">
+                      <span id="">&nbsp;</span>
+                    </div>
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <h4 id="">Economic Inactivity</h4>
+                    </div>                    
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <h4 id="">Claimant Count</h4>
+                    </div>                    
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <h4 id="">Employment Rate</h4>
+                    </div>                    
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <h4 id="">Unemployment Rate</h4>
+                    </div>
+
+
+                    <div class="grid-col desktop-grid-two-sixths">
+                      <span id="inactivityName"></span>
+                    </div>
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <div class="stat stat--small">
+                        <div class="stat__figure" id="inactivity">
+                          -
+                        </div>
+                      </div>
+                    </div>                    
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <div class="stat stat--small">
+                        <div class="stat__figure" id="claimant">
+                          -
+                        </div>
+                      </div>
+                    </div>                    
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <div class="stat stat--small">
+                        <div class="stat__figure" id="employment">
+                          -
+                        </div>
+                      </div>
+                    </div>                    
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <div class="stat stat--small">
+                        <div class="stat__figure" id="unemployment">
+                          -
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="grid-col desktop-grid-two-sixths striped">
+                      <span id="inactivityParentName"></span>
+                    </div>
+                    <div class="grid-col desktop-grid-one-sixth striped">
+                      <div class="stat stat--small">
+                        <div class="stat__figure" id="inactivityParent">
+                          -
+                        </div>
+                      </div>
+                    </div>                    
+                    <div class="grid-col desktop-grid-one-sixth striped">
+                      <div class="stat stat--small">
+                        <div class="stat__figure" id="claimantParent">
+                          -
+                        </div>
+                      </div>
+                    </div>                    
+                    <div class="grid-col desktop-grid-one-sixth striped">
+                      <div class="stat stat--small">
+                        <div class="stat__figure" id="employmentParent">
+                          -
+                        </div>
+                      </div>
+                    </div>                    
+                    <div class="grid-col desktop-grid-one-sixth striped">
+                      <div class="stat stat--small">
+                        <div class="stat__figure" id="unemploymentParent">
+                          -
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <span id="">United Kingdom</span>
+                    </div>
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <span id="">&nbsp;</span>
+                    </div>
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <div class="stat stat--small">
+                        <div class="stat__figure" id="inactivityUK">
+                          -
+                        </div>
+                      </div>
+                    </div>                    
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <div class="stat stat--small">
+                        <div class="stat__figure" id="claimantUK">
+                          -
+                        </div>
+                      </div>
+                    </div>                    
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <div class="stat stat--small">
+                        <div class="stat__figure" id="employmentUK">
+                          -
+                        </div>
+                      </div>
+                    </div>                    
+                    <div class="grid-col desktop-grid-one-sixth">
+                      <div class="stat stat--small">
+                        <div class="stat__figure" id="unemploymentUK">
+                          -
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="grid-col desktop-grid-one-full">
+                    <h3>&nbsp;</h3>
+                      <div>
+                        <p>
+                          Quis custodiet ipsos custodes? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea
+                          animi, soluta vitae ratione ab optio hic numquam fugiat harum
+                          culpa cum dolore voluptatibus et voluptas autem est laborum
+                          minima, libero!
+                        </p>
+                        <p>
+                          Vitae officiis accusamus quas? Natus reiciendis dolor dolore
+                          delectus, magnam maiores necessitatibus facere, iste dolores
+                          cum laboriosam animi facilis id consectetur laudantium at perspiciatis,
+                          eos. Non possimus distinctio, quaerat beatae.
+                        </p>
+                      </div>
+                    </div>
+
+
+
+
+                  </div>
+                </div>
                 
+
+              </section>
+
+
+              <!--  COMPARISONS  -->
+
+
+
+
+              <section class="tab-pane__content" id="comparisons">
+
+                <div class="grid-wrap">
+                  <div class="grid-col desktop-grid-one-full">
+                    <div class="grid-col desktop-grid-one-full">
+                    <p>
+                    Browse or search for areas using the map and controls above. Each area is automatically added to the list below for comparison. 
+                    </p>
+
+                    </div>
+
+  <!--  
+                    <div class="grid-col desktop-grid-one-full">
+                      <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="compareBtn">
+                        <span class="icon icon-plus">Add to list</span>
+                      </button>
+                      <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="viewBtn">
+                        <span class="icon icon-chart">View List</span>
+                      </button>
+                      <button type="submit" class="btn btn--primary btn--small btn--narrow right" id="viewBtn">
+                        <span class="icon icon-cross">Clear List</span>
+                      </button>
+                    </div>
+   -->
+                    <div class="grid-col desktop-grid-one-full">
+                    <p>
+                    Scroll down the page to view the <a href="#labourComparison">Labour Market data</a>.
+                    </p>
+                    </div>
+                  </div>
+
+                  <!--  ROW ONE  -->
+                  <div class="grid-col desktop-grid-one-full">
+                    <div class="grid-col desktop-grid-one-third">
+                      <div class="grid-col desktop-grid-five-sixths">
+                        <h3 id="title1">Demographic</h3>
+                      </div>
+                      <div class="grid-col desktop-grid-one-sixth">
+                      <a class='closeBtn' href='' id="btn1" >
+                      <span class="icon-cancel icon--warm icon--inline"></span>
+                     </a>
+                      </div>
+                    </div>
+                    <div class="grid-col desktop-grid-one-third">
+                      <div class="grid-col desktop-grid-five-sixths">
+                        <h3 id="title2">Demographic</h3>
+                      </div>
+                      <div class="grid-col desktop-grid-one-sixth">
+                      <a class='closeBtn' href='' id="btn2" ><span class="icon-cancel icon--warm icon--inline"></span></a>
+                      </div>
+                    </div>
+                    <div class="grid-col desktop-grid-one-third">
+                      <div class="grid-col desktop-grid-five-sixths">
+                        <h3 id="title3">Demographic</h3>
+                      </div>
+                      <div class="grid-col desktop-grid-one-sixth">
+                      <a class='closeBtn' href='' id="btn3" ><span class="icon-cancel icon--warm icon--inline"></span></a>
+                      </div>
+                    </div>
+                  </div>
+                  <!--  ROW ONE  -->
+                  <div class="grid-col desktop-grid-one-full">
+                  <div class="grid-col desktop-grid-one-third">
+                    <div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Population</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                            <div class="stat__figure" id="pop_com1">
+                              -
+                            </div>
+                            <div class="stat__description">
+                              2013
+                            </div>
+                          </div>
+                      </div>
+
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">&nbsp;</span>
+                      </div>
+                       <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small striped">
+                            <div class="stat__figure" id="pop_com1_pt2">
+                              -
+                            </div>
+                            <div class="stat__description">
+                              2003
+                            </div>
+                          </div>
+                      </div>
+
+                  </div>
+                  </div>
+                  <div class="grid-col desktop-grid-one-third">
+                    <div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Population</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                            <div class="stat__figure" id="pop_com2">
+                              -
+                            </div>
+                            <div class="stat__description">
+                              2013
+                            </div>
+                          </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">&nbsp;</span>
+                      </div>
+                       <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small">
+                            <div class="stat__figure" id="pop_com2_pt2">
+                              -
+                            </div>
+                            <div class="stat__description">
+                              2003
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid-col desktop-grid-one-third">
+                    <div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Population</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                            <div class="stat__figure" id="pop_com3">
+                              -
+                            </div>
+                            <div class="stat__description">
+                              2013
+                            </div>
+                          </div>
+                      </div>
+
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">&nbsp;</span>
+                      </div>
+                       <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small">
+                            <div class="stat__figure" id="pop_com3_pt2">
+                              -
+                            </div>
+                            <div class="stat__description">
+                              2003
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  
+
+
+                <!--  ROW TWO  -->
+                <div class="grid-col desktop-grid-one-full">
+
+
+                  <div class="grid-col desktop-grid-one-third">
+                  <div class="grid-col desktop-grid-one-full">
+                    <h3>Natural Change</h3>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Births</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="birth_com1">
+                        -
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half striped">
+                    <span id="">&nbsp;</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half striped">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="birth2_com1">
+                        -
+                        </div>
+                        <div class="stat__description">
+                          2003
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Deaths</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="death_com1">
+                        -
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half striped">
+                    <span id="">&nbsp;</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half striped">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="death2_com1">
+                          -
+                        </div>
+                        <div class="stat__description">
+                          2003
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Natural Change</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="natChange_com1">
+                          -
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-full">
+                    <p>This is a <span id="natPercent_com1"></span>% change compared with 2012.</p>
+                  </div>
+
+                </div>
+
+                <div class="grid-col desktop-grid-one-third">
+                   <div class="grid-col desktop-grid-one-full">
+                    <h3>&nbsp;</h3>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Births</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="birth_com2">
+                        -
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half striped">
+                    <span id="">&nbsp;</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half striped">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="birth2_com2">
+                        -
+                        </div>
+                        <div class="stat__description">
+                          2003
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Deaths</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="death_com2">
+                        -
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half striped">
+                    <span id="">&nbsp;</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half striped">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="death2_com2">
+                          -
+                        </div>
+                        <div class="stat__description">
+                          2003
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Natural Change</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="natChange_com2">
+                          -
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-full">
+                    <p>This is a <span id="natPercent_com2"></span>% change compared with 2012.</p>
+                  </div>
+                </div>
+
+                <div class="grid-col desktop-grid-one-third">
+                  <div class="grid-col desktop-grid-one-full">
+                    <h3>&nbsp;</h3>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Births</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="birth_com3">
+                        -
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half striped">
+                    <span id="">&nbsp;</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half striped">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="birth2_com3">
+                        -
+                        </div>
+                        <div class="stat__description">
+                          2003
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Deaths</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="death_com3">
+                        -
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half striped">
+                    <span id="">&nbsp;</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half striped">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="death2_com3">
+                          -
+                        </div>
+                        <div class="stat__description">
+                          2003
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-half">
+                    <span id="">Natural Change</span>
+                  </div>
+                   <div class="grid-col desktop-grid-one-half">
+                    <div class="stat stat--small">
+                        <div class="stat__figure" id="natChange_com3">
+                          -
+                        </div>
+                        <div class="stat__description">
+                          2013
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="grid-col desktop-grid-one-full">
+                    <p>This is a <span id="natPercent_com3"></span>% change compared with 2012.</p>
+                  </div>
+                </div>
+
+                </div>
+
+
+                <!--  ROW THREE  -->
+                <div class="grid-col desktop-grid-one-full">
+                  <div class="grid-col desktop-grid-one-full">
+                    <h3>Population Pyramid</h3>
+                  </div>
+                  <div class="grid-col desktop-grid-one-third">
+                    <div id="pyramid1" class="halfChart"></div>
+                  </div>
+                  <div class="grid-col desktop-grid-one-third">
+                    <div id="pyramid2" class="halfChart"></div>
+                  </div>
+                  <div class="grid-col desktop-grid-one-third">
+                    <div id="pyramid3" class="halfChart"></div>
+                  </div>
+                  <div class="grid-col desktop-grid-one-full">
+                    <p>NB: The comparison pyramids may be shown with different x-axis scales</p>
+                  </div>
+                </div>
+
+
+                <!--  ROW FOUR  -->
+<!--                 
+                <div class="grid-col desktop-grid-one-full">
+                  <div class="grid-col desktop-grid-one-full">
+                   <h3>Gender</h3>
+                  </div>
+                  <div class="grid-col desktop-grid-one-third">
+                    <div id="gender1" class="quarterChart"></div>
+                  </div>
+                  <div class="grid-col desktop-grid-one-third">
+                    <div id="gender2" class="quarterChart"></div>
+                  </div>
+                  <div class="grid-col desktop-grid-one-third">
+                    <div id="gender3" class="quarterChart"></div>
+                  </div>
+                </div>
+ -->
+
+                <!--  ROW FIVE  -->
+                <div class="grid-col desktop-grid-one-full">
+                  <div class="grid-col desktop-grid-one-full">
+                    <h3>Life Expectancy</h3>
+                  </div>
+                  <div class="grid-col desktop-grid-one-third">
+                    <div id="life1" class="halfChart"></div>
+                  </div>
+                  <div class="grid-col desktop-grid-one-third">
+                    <div id="life2" class="halfChart"></div>
+                  </div>
+                  <div class="grid-col desktop-grid-one-third">
+                    <div id="life3" class="halfChart"></div>
+                  </div>
+                </div>
+
+
+
+
+
+
+                <!--  ROW SIX  -->
+                <div class="grid-col desktop-grid-one-full">
+
+                  <div class="grid-col desktop-grid-one-full">
+                    <h3 id="labourComparison">Labour Market</h3>
+                  </div>
+                  <!--  ROW ONE  -->
+                  <div class="grid-col desktop-grid-one-full">
+
+                    <div class="grid-col desktop-grid-one-third">
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Economic Inactivity</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="inactivity_com1">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">Claimant Count</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small striped">
+                          <div class="stat__figure" id="claims_com1">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Employment Rate</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="employ_com1">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">Unemployment Rate</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small striped">
+                          <div class="stat__figure" id="unemploy_com1">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-third">
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Economic Inactivity</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="inactivity_com2">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">Claimant Count</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="claims_com2">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Employment Rate</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="employ_com2">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">Unemployment Rate</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="unemploy_com2">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid-col desktop-grid-one-third">
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Economic Inactivity</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="inactivity_com3">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">Claimant Count</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="claims_com3">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <span id="">Employment Rate</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="employ_com3">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <span id="">Unemployment Rate</span>
+                      </div>
+                      <div class="grid-col desktop-grid-one-half striped">
+                        <div class="stat stat--small">
+                          <div class="stat__figure" id="unemploy_com3">
+                            -
+                          </div>
+                          <div class="stat__description">
+                            &nbsp;
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+
+
+                <!--  ROW SEVEN  -->
+
+                <div class="grid-col desktop-grid-one-full">
+                <div class="grid-col desktop-grid-one-full">
+                <h3>&nbsp;</h3>
+                  <div>
+                    <p>
+                      Quis custodiet ipsos custodes? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea
+                      animi, soluta vitae ratione ab optio hic numquam fugiat harum
+                      culpa cum dolore voluptatibus et voluptas autem est laborum
+                      minima, libero!
+                    </p>
+                    <p>
+                      Vitae officiis accusamus quas? Natus reiciendis dolor dolore
+                      delectus, magnam maiores necessitatibus facere, iste dolores
+                      cum laboriosam animi facilis id consectetur laudantium at perspiciatis,
+                      eos. Non possimus distinctio, quaerat beatae.
+                    </p>
+                  </div>
+                </div>
+                </div>
+
+
+
+
+              </div>
+
+
+            </div>
+          </div>
+
+           
+
+
+
+
+
+
+                </div>
+              </section>
+            </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+          </div>
+
+
+
         </div>
+        <!-- /grid-wrap -->
       </div>
+      <!-- /wrapper -->
 
-    
+
+
+<div class="slate panel--pad panel--top-mar">
+          <div class="wrapper">
+            <div class="grid-wrap">
+              <div class="grid-col tablet-wide-grid-two-thirds">
+                <h2 class="delta">Neighbourhood Statistics</h2>
+                
+                <p>The Neighbourhood Statistics Website is a free to access online data resource predominantly for England and Wales</p>
+                
+                <p id="summary">The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.</p>
+                
+                <p id="extract">
+                  Neighbourhood data can be browsed directly and also accessed electronically using the API.
+                  Searching on this page will bring back a sample directly from the NeSS website.
+                </p>
+                
+                <p>You can download this data and find more (including more guidance on accessing the data) on the <a href="http://www.neighbourhood.statistics.gov.uk/dissemination/">Neighbourhood Statistics website</a>.</p>
+
+
+
+
+              </div>
+              <!-- /grid-col -->
+              <div class="grid-col tablet-grid-one-third">
+                <article class="box box--red box--red--separated-left">
+                  <div class="box__inner border box--padded">
+
+                    <div class="box__section">
+                      <h3 class="box__section__header">Northern Ireland</a>
+                      </h3>
+                      <a href="http://www.ninis2.nisra.gov.uk">Northern Ireland Neighbourhood Information Service</a>
+                    </div>
+
+                    <div class="box__section">
+                      <h3 class="box__section__header">Scotland</h3>
+                      <a href="http://www.sns.gov.uk">Scottish Neighbourhood Statistics</a>
+                    </div>
+                  </div>
+                  <!-- /box__inner -->
+                </article>
+                <!-- /box -->
+              </div>
+              <!-- /grid-col -->
+            </div>
+            <!-- /grid-wrap -->
+          </div>
+          <!-- /wrapper -->
+        </div>
+        </div>
+
+
+
+      <!-- /wrapper -->
+      <!-- </div> -->
+    </main>
+
+
+
+<footer class="global-footer">
+  <div class="slate--light panel--pad-large panel--separated">
+    <div class="wrapper">
+      <nav class="grid-wrap">
+        <div class="grid-col tablet-grid-one-third">
+          <h2 class="delta headline-separated">Legal</h2>
+          <ul class="list--neutral list--grid list--spaced">
+            <li>
+              <a href="#">Business Transparency</a>
+            </li>
+            <li>
+              <a href="#">Terms and Conditions</a>
+            </li>
+            <li>
+              <a href="#">Copyright</a>
+            </li>
+            <li>
+              <a href="#">Cookies and Privacy</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-col tablet-grid-one-third">
+          <h2 class="delta headline-separated">About ONS</h2>
+          <ul class="list--neutral list--grid list--spaced">
+            <li>
+              <a href="#">Who we are</a>
+            </li>
+            <li>
+              <a href="#">Careers</a>
+            </li>
+            <li>
+              <a href="#">Products and Services</a>
+            </li>
+            <li>
+              <a href="#">Contact us</a>
+            </li>
+            <li>
+              <a href="#">Our offices</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-col tablet-grid-one-third">
+          <h2 class="delta headline-separated">Connect with us</h2>
+          <ul class="list--neutral list--grid list--spaced">
+            <li>
+              <a href="#">Facebook</a>
+            </li>
+            <li>
+              <a href="#">Twitter</a>
+            </li>
+            <li>
+              <a href="#">YouTube</a>
+            </li>
+            <li>
+              <a href="#">Email subscriptions</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
+    <!-- /wrapper -->
   </div>
-
-
-  <div class="row">
-    <div class="col-sm-8">
-      <h2>Population Pyramid</h2>
-      <div id='pyramid' class='chart'>
+  <!-- /slate -->
+  <div class="slate--mid-grey">
+    <div class="wrapper">
+      <div class="footer__license">
+        <img class="footer__license__img" alt="OGL" width="60" src="images/ogl.png">
+        <p class="footer__license__body">
+          All content is available under the Open Government Licence v2.0, except where otherwise stated
+        </p>
       </div>
     </div>
-    <div class="col-sm-4">
-      <h2>Map</h2>
-      <div id="map"></div>
-    </div>
   </div>
-
-
-  <div class="row">
-    <h2>Population Comparison</h2>
-    <div id='stackedBar' class='chart'>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <h2>Ordered Bar Chart</h2>
-    <div id='piechart' class='chart'>
-    </div>
-  </div>
-
-
-
-  <div class="row shim">
-  </div>
-
-
-</div>
-<!--  END PAGE BODY  -->
+</footer>
 
 
 
 
+    <script src="js/footer.js"></script>
 
 
-
-
-
-<!--  FOOTER -->
-<div class="container footer darkGrey">
-
- <div class="row">
-  <div class="col-md-4">
-    <h3>Legal</h3>
-    <ul>
-      <li><a href="#">Business Transparency</a></li>
-      <li><a href="#">Terms and Conditions</a></li>
-      <li><a href="#">Copyright</a></li>
-      <li><a href="#">Cookies and Privacy</a></li>
-    </ul>
-  </div>
-  <div class="col-md-4">
-    <h3>About ONS</h3>
-    <ul>
-      <li><a href="#">Who we are</a></li>
-      <li><a href="#">Careers</a></li>
-      <li><a href="#">Products and Services</a></li>
-      <li><a href="#">Contact us</a></li>
-      <li><a href="#">Our Offices</a></li>
-    </ul>
-  </div>
-  <div class="col-md-4">
-    <h3>Connect with us</h3>
-    <ul>
-      <li><a href="#">Facebook</a></li>
-      <li><a href="#">Twitter</a></li>
-      <li><a href="#">Youtube</a></li>
-      <li><a href="#">Email subscriptions</a></li>
-    </ul>
-  </div>
-</div>
-
-<div class="col-md-12">
-  <p class="text-muted">All content is available under the Open Government Licence v2.0 except where otherwise stated</p>
-</div>
-</div>
-
-
-  <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&amp;region=GB"></script>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&amp;region=GB"></script>
 <script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/jquery.csv.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<!-- chart library -->
 <script src="js/libs/highcharts.js"></script>
-
-<!-- app -->
-<script src="js/alpha.js"></script>
-
-
-
-
-<!-- charting -->
-<!-- <script src="js/multiseries.js"></script>
-<script src="js/barchart.js"></script> -->
-<script src="js/pyramid_regional.js"></script>
-<script src="js/bar_regional.js"></script>
-<script src="js/piechart.js"></script>
-<!-- <script src="js/lineseries.js"></script> -->
-
-<script src="js/charts_regional.js"></script>
+<script src="js/regional.charts.js"></script>
+<script src="js/areas.js"></script>
+<script src="js/loadGeoJson.js"></script>
+<script src="js/jspostcode.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/regional.data.js"></script>
 <script src="js/regional.js"></script>
-
-
-
-</body>
+<script src="js/regional.neighbourhood.js"></script>
+ 
+  </body>
 </html>
-

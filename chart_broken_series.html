@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototype: Broken Series</title>
+
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+
+
+  <style>
+
+    .chart{
+      height:440px;
+    }
+    /* CHART: tooltip side bar */
+    .sidebar {
+      width:30px;
+      height:100px;
+      margin-right: 5px;
+      float:left;
+      background-color: #ddd;
+    }
+    .title {
+      font-size:14px;
+      text-transform: uppercase;
+    }
+
+    #custom-tooltip {
+      display:block;
+      height: 100px;
+      width: 190px;
+      border: 1px solid #ddd;
+      background-color: rgba(255, 255, 255, 1);
+    }
+    .maintext {
+      display:block;
+      width:190px;
+      height:100px;
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    .circle{
+      margin:0px;
+      margin-left: 9px;
+      padding:0px;
+      height:14px;
+      font-size: 22px;
+      color:#8FBED8;
+      line-height: 13px;
+      clear:both;
+    }
+
+    .square{
+      margin:0px;
+      margin-left: 9px;
+      padding:0px;
+      height:21px;
+      font-size: 20px;
+      color:#5296C3;
+      line-height: 21px;
+      clear:both;
+    }
+
+    .diamond{
+      margin:0px;
+      margin-left: 10px;
+      padding:0px;
+      height:19px;
+      font-size: 20px;
+      color:#1377B2;
+      line-height: 19px;
+      clear:both;
+    }
+
+    .triangle{
+      margin:0px;
+      margin-left: 9px;
+      padding:0px;
+      height:16px;
+      font-size: 14px;
+      color:#1673AC;
+      line-height: 20px;
+      clear:both;
+    }
+
+    .tip{
+      padding:0px;
+      padding-top:1px;
+      padding-bottom:1px;
+    }
+
+    .tiptext{
+      margin:0px;
+      padding:0px;
+      padding-top:1px;
+      left:0px;
+      text-align:left;
+    }
+
+
+
+    .tooltip-right {
+      width:90px;
+      height:50px;
+
+      position:relative;
+    }
+
+    .tooltip-right:after {
+      content:"";
+      border-color: transparent transparent transparent #ddd;
+      border-style:solid;
+      border-width:10px;
+      width:0;
+      height:0;
+      position:absolute;
+      bottom:15px;
+      left:189px
+    }
+
+    .tooltip-left {
+      width:190px;
+      height:50px;
+      position:relative;
+    }
+
+    .tooltip-left:after {
+      content:"";
+      border-color: transparent #ddd transparent transparent ;
+      border-style:solid;
+      border-width:10px;
+      width:0;
+      height:0;
+      position:absolute;
+      bottom:15px;
+      left:-20px
+    }
+.stat{
+  font-size: 20px;
+  font-weight: 600;
+}
+.footnote{
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-size: 10px;
+}
+
+@font-face {
+  font-family: 'ff-dax-web-pro';
+  src: url('fonts/DaxlinePro-Bold.eot');
+  src: url('fonts/DaxlinePro-Bold.eot#iefix') format('embedded-opentype'), url('fonts/DaxlinePro-Bold.woff') format('woff'), url('fonts/DaxlinePro-Bold.ttf') format('truetype'), url('fonts/DaxlinePro-Bold.svg#DaxlinePro-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+  </style>
+
+</head>
+<body>
+
+
+
+
+
+
+
+  <div class="container ">
+
+
+
+    <div class="row">
+      <div id="chart" class="chart">
+      </div>
+      <div class="footnote">Source: Office for National Statistics</div>
+      <div class="footnote">1: Figures for the year 1984-1993 are counts of individual legal units.</div>
+      <div class="footnote">2: 1995 - 2002 data are based on Standard Industrial Classification 1992. 2003 - 2007 data are based on Standard Industrial Classification 2003.</div>
+      <div class="footnote">3: Data are based on Standard Industrial Classification 2003.</div>
+      <div class="footnote">4: Data are based on Standard Industrial Classification 2007.</div>
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/libs/jquery.min.js"></script>
+
+  <!-- chart library -->
+  <script src="js/libs/highcharts.js"></script>
+
+  <!-- charting -->
+  <script src="js/chart.options.js"></script>
+  <script src="js/brokenseries.js"></script>
+
+
+
+</body>
+</html>
+
