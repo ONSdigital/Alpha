@@ -228,7 +228,7 @@ function initLineChart(){
 
       // series names and values
       $.each(this.points, function(i, val){
-        content += '<div class="tiptext"><b>' + val.point.series.chart.series[i].name + " </b>" + Highcharts.numberFormat(val.y, 0) + ' ' + units + '</div>' ;
+        content += '<div class="tiptext"><b>' + val.point.series.chart.series[i].name + " </b>" + val.y + ' ' + units + '</div>' ;
       })
       content+= "</div>";
       return content;

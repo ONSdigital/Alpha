@@ -10,11 +10,11 @@ data[1] = [-0.04,-0.13,-0.14,-0.18,-1.03,-1.04,-1.12,-1.14,-1.66];
 
 categories = ['East of England','North West','South East','London','Yorkshire and The Humber','East Midlands','North East','South West','West Midlands'];
 
-
+var interval = 1;
 
 $(document).ready(function(){
 
-
+  options.yAxis.min = null;
 
   options.series = [
       {
