@@ -20,7 +20,7 @@
     #custom-tooltip {
       display:block;
       height: 120px;
-      width: 190px;
+      width: 220px;
       border: 1px solid #ddd;
       background-color: rgba(255, 255, 255, 1);
     }
@@ -107,7 +107,7 @@
       height:0;
       position:absolute;
       bottom:15px;
-      left:189px
+      left:219px
     }
 
     .tooltip-left {

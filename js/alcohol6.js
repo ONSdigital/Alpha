@@ -13,7 +13,7 @@ data[3] = [39.5,39.8,38.8,37.7,38.2,34.8,34.5,29.5,31.5,27.8,24.8];
 //set mon to -1 to ignore
 var startMon = -1; // keep this as base 1 to match years eg Sept is month 9
 //interval to skip in the xAxis category
-var interval = 3;
+var interval = 1;
 var year = 2002;
 
 

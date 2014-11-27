@@ -35,23 +35,28 @@ $(document).ready(function(){
   options.series = [
       {
         name: 'Work mainly at or from home',
-        data: data[0]
+        data: data[0],
+        borderColor: options.colors[0]
       },
       {
         name: 'Bus, tram or train',
-        data: data[1]
+        data: data[1],
+        borderColor: options.colors[1]
       },
       {
         name: 'Car or van (inc. passenger), motorcycle or taxi',
-        data: data[2]
+        data: data[2],
+        borderColor: options.colors[2]
       },
       {
         name: 'Bicycle or foot',
-        data: data[3]
+        data: data[3],
+        borderColor: options.colors[3]
       },
       {
         name: 'Other',
-        data: data[4]
+        data: data[4],
+        borderColor: options.colors[4]
       }
   ];
 
