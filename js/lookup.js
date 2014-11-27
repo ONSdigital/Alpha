@@ -216,11 +216,6 @@ var series = (function(){
        }
 
 
-        // re render the select menu
-        $('.selectpicker').selectpicker('render');
-
-        $('.selectpicker').selectpicker('refresh');
-
 
      }
 
@@ -665,8 +660,6 @@ $(document).ready(function() {
        // $("div#cdidTable_filter label").html( "<strong>or</strong><br/> Search description: <input aria-controls='cdidTable' type='text'>");
        $("div#cdidTable_length label").html( 'Show <select aria-controls="cdidTable" size="1" name="cdidTable_length"><option value="20">20</option><option selected="selected" value="50">50</option><option value="100">100</option><option value="-1">All</option></select> records per page');
 
-
-       $('.selectpicker').selectpicker('render');
 
 
      });

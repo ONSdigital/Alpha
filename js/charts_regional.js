@@ -5,13 +5,16 @@ $(document).ready(
   // init options and then load individual charts
 
 	function(){
+    
+
+
 		setOptions();
 
     //multiseries();
    // barChart();
     populationPyramid();
     stackedBar();
-    pieChart();
+    initTrend();
     //lineseries();
   }
 

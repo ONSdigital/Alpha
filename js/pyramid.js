@@ -11,10 +11,7 @@ function populationPyramid(){
 
     $(document).ready(function() {
         $('#pyramid').highcharts({
-           colors: [
-            'rgb(255, 66, 14)',           // red
-            'rgb(168, 189, 58)'         // green
-            ],
+           colors: ['#7fbee1', '#007dc3'],
 
             chart: {
                 type: 'bar'
@@ -25,21 +22,14 @@ function populationPyramid(){
             subtitle: {
                 text: 'Source: www.ons.gov.uk'
             },
-            xAxis: [{
+            xAxis: {
+                alternateGridColor: '#f1f1f1',
                 categories: categories,
                 reversed: false,
                 labels: {
                     step: 1
                 }
-            }, { // mirror axis on right side
-                opposite: true,
-                reversed: false,
-                categories: categories,
-                linkedTo: 0,
-                labels: {
-                    step: 1
-                }
-            }],
+            },
             yAxis: {
                 title: {
                     text: null
@@ -50,7 +40,9 @@ function populationPyramid(){
                     }
                 },
                 min: -2500000,
-                max: 2500000
+                max: 2500000,
+                gridZIndex:4,
+                gridLineColor:'#F9F9F9'
             },
 
             plotOptions: {

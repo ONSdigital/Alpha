@@ -1,7 +1,7 @@
 
 function multiseries(){
 
-  $('#chart_prices').highcharts({
+  $('#original_chart_prices').highcharts({
     chart: {
       type: 'line'
     },
@@ -28,6 +28,7 @@ function multiseries(){
         padding: 10,
         color: '#eee'
       }
+
       ,
       formatter: function(){
         var up = ' <span class="fa-stack "> <i class="fa fa-circle fa-stack-2x up"></i> <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i> </span>';
@@ -53,8 +54,8 @@ function multiseries(){
             monthIcon = up;
           }
         }
-
-        var block = "<div class='sidebar ' style='background-color: " + this.series.color + "'></div>";
+        var id = "<div id='custom'>"
+        var block = id + "<div class='sidebar ' style='background-color: " + this.series.color + "'></div>";
         var title = '<b>'+ this.series.name +': </b>' + monthIcon + '<br/>';
         var content = block + title ;
         content += '<br/>This month: ' + Highcharts.numberFormat(this.point.y, 2) +'%<br/>' ;
@@ -64,6 +65,7 @@ function multiseries(){
           content += "&nbsp;";
         }
         content += '<hr><i class="fa fa-warning fa-inverse"></i> Important information available';
+        content+= "</div>";
         return content;
       }
 

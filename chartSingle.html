@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototype: Example charts</title>
+
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- MEGA MENU styles-->
+  <link href="css/menu.css" rel="stylesheet">
+  <link href="css/demo.css" rel="stylesheet">
+
+  <!-- Alpha -->
+  <link href="css/alpha.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+
+
+
+
+  <style>
+
+  .chart{
+    height:440px;
+  }
+  /* CHART: tooltip side bar */
+  .sidebar {
+    width:30px;
+    height:100px;
+    margin-right: 5px;
+    float:left;
+    background-color: #ddd;
+  }
+  .title {
+    font-size:14px;
+    text-transform: uppercase;
+  }
+
+#custom-tooltip {
+  display:block;
+  height: auto;
+  min-height: 100px;
+  width: 190px;
+  border: 1px solid #ddd;
+  background-color: rgba(255, 255, 255, 1);
+}
+  .maintext {
+    display:block;
+    word-wrap: normal;
+    white-space: normal;
+    width:100px;
+   height: auto;
+    overflow-x: auto;
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+.tiptext{
+    word-wrap: normal;
+    white-space: normal;
+    width:150px;
+   height: auto;
+    overflow-x: auto;
+  margin:0px;
+  padding:0px;
+    padding-top:1px;
+  left:0px;
+  text-align:left;
+}
+
+.circle{
+    margin:0px;
+    margin-left: 9px;
+  padding:0px;
+  height:14px;
+  font-size: 22px;
+  color:#8FBED8;
+  line-height: 13px;
+  clear:both;
+}
+
+.square{
+    margin:0px;
+    margin-left: 9px;
+  padding:0px;
+  height:21px;
+  font-size: 20px;
+  color:#5296C3;
+  line-height: 21px;
+  clear:both;
+}
+
+.diamond{
+    margin:0px;
+    margin-left: 10px;
+  padding:0px;
+  height:19px;
+  font-size: 20px;
+  color:#1377B2;
+  line-height: 19px;
+  clear:both;
+}
+
+.triangle{
+    margin:0px;
+    margin-left: 9px;
+  padding:0px;
+  height:16px;
+  font-size: 14px;
+  color:#1673AC;
+  line-height: 20px;
+  clear:both;
+}
+
+.tip{
+  padding:0px;
+  padding-top:1px;
+  padding-bottom:1px;
+}
+
+
+
+.tooltip-right {
+    width:90px;
+    height:50px;
+
+    position:relative;
+}
+
+.tooltip-right:after {
+    content:"";
+    border-color: transparent transparent transparent #ddd;
+    border-style:solid;
+    border-width:10px;
+    width:0;
+    height:0;
+    position:absolute;
+    bottom:15px;
+    left:189px
+}
+
+.tooltip-left {
+    width:190px;
+    height:50px;
+    position:relative;
+}
+
+.tooltip-left:after {
+    content:"";
+    border-color: transparent #ddd transparent transparent ;
+    border-style:solid;
+    border-width:10px;
+    width:0;
+    height:0;
+    position:absolute;
+    bottom:15px;
+    left:-20px
+}
+
+
+  </style>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+    <body>
+
+
+      <div class="container  bg_warning alpha-header">
+        <p class="alpha-header-title">Office for National Statistics
+          <span>Prototype</span>
+        </p>
+        <p class="alpha-header-copy">This is a mock-up of our new website. You should still use the <a href="http://www.ons.gov.uk">current site</a>
+        </p>
+      </div>
+
+      <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid" id="topbar">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html"><img id="logo" src="images/70x140ONScolourlogo.png" class="pull-left"/></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+
+          <!--  SEARCH  -->
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <span class="" data-toggle="collapse" data-target="#search-panel">
+                    Advanced
+                    <i class="fa fa-chevron-down  " ></i>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default"><span class="fa fa-search fa-lg form-control-feedback"></span></button>
+              </form>
+            </li>
+
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="">
+
+      <div class="well collapse col-sm-12" id="search-panel">
+
+        <div class="col-sm-6">
+          <div class="">
+           <h4><span class="glyphicon glyphicon-stats"></span> Time Series Data</h4>
+
+           <form role="form">
+             <div class="form-group">
+              <label for="exampleInputPassword1">Select a topic</label>
+              <select class="form-control">
+                <option>Business and Trade</option>
+                <option>National Accounts</option>
+                <option>Labour Market</option>
+                <option>Price Indices</option>
+                <option>Travel and Tourism</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputFile">Select a Dataset</label>
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Find time series</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="">
+          <h4><span class="glyphicon glyphicon-map-marker"></span> Local and Regional Data</h4>
+
+          <form role="form">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Select a region</label>
+              <select class="form-control">
+                <option>The North</option>
+                <option>North West</option>
+                <option>North East</option>
+                <option>West Midlands</option>
+                <option>Wales</option>
+              </select>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+
+
+    </div><!--  end of search panel -->
+  </div><!--  end of row -->
+</div><!--  end of continaer -->
+
+
+<!--  MENU BAR  -->
+
+<div class="container">
+  <nav class="navbar navbar-default" role="navigation" id="topmenu">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#one">Business, Industry and Trade</a>
+      </li>
+      <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#two">Economy</a>
+      </li>
+      <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#three">Employment and Labour Market</a>
+      </li>
+      <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#four">People, Population and Community</a>
+      </li>
+
+
+
+      <li><a href="#">Release Calendar</a></li>
+
+      <li class="dropdown menu">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b> </a>
+        <ul class="dropdown-menu megamenu row">
+          <li class="col-sm-12">
+            <ul>
+              <li class="dropdown-header">Themes</li>
+              <li><a class="" href="index.html">Home</a></li>
+              <li><a class="" href="economy.html">Economy</a></li>
+              <li><a class="" href="inflation.html">Inflation</a></li>
+            </ul>
+          </li>
+
+          <li class="col-sm-12">
+            <ul>
+              <li class="dropdown-header">Bulletin</li>
+              <li><a href="release.html">Release</a></li>
+              <li><a href="slice.html">Slice</a></li>
+              <!--  <li><a href="summary.html">Summary</a></li> -->
+              <li><a href="bulletin.html">Bulletin</a></li>
+              <!--  <li><a href="supplementary.html">Supplementary</a></li> -->
+              <li><a href="observation.html">Observation</a></li>
+            </ul>
+          </li>
+          <li class="col-sm-12">
+            <ul>
+              <li class="dropdown-header">Other</li>
+              <li><a href="article.html">Article</a></li>
+              <li><a href="series.html">Search ID</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+
+  <nav class="navbar navbar-default" role="navigation" id="submenu">
+
+    <ul class="nav navbar-nav collapse" id="one">
+      <li><a href="#" id="">Business</a></li>
+      <li><a href="#" id="">Changes to Business</a></li>
+      <li><a href="#" id="">International Trade</a></li>
+      <li><a href="#" id="">Construction</a></li>
+      <li><a href="#" id="">IT and Internet</a></li>
+      <li><a href="#" id="">Manufacturing and Production</a></li>
+      <li><a href="#" id="">Retail</a></li>
+      <li><a href="#" id="">Tourism</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav collapse" id="two">
+      <li><a href="economy.html" id="">Economic Output</a></li>
+      <li><a href="economy.html" id="">Environmental Accounts</a></li>
+      <li><a href="economy.html" id="">Government</a></li>
+      <li><a href="economy.html" id="">GDP</a></li>
+      <li><a href="economy.html" id="">GVA</a></li>
+      <li><a href="inflation.html" id="">Inflation</a></li>
+      <li><a href="inflation.html" id="">Investments</a></li>
+      <li><a href="inflation.html" id="">National Accounts</a></li>
+      <li><a href="inflation.html" id="">Regional Accounts</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav collapse" id="three">
+      <li><a href="economy.html">People in Work</a></li>
+      <li><a href="economy.html">People not in Work</a></li>
+      <li><a href="inflation.html">Public Sector Personnel</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav collapse" id="four">
+      <li><a href="#" id="">Births, Deaths and Marriages</a></li>
+      <li><a href="#" id="">Crime</a></li>
+      <li><a href="#" id="">Community</a></li>
+      <li><a href="#" id="">Education</a></li>
+      <li><a href="#" id="">Health and Social Care</a></li>
+      <li><a href="#" id="">Housing</a></li>
+      <li><a href="#" id="">Population</a></li>
+
+      <li class="dropdown menu">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More&hellip;&nbsp;<b class="caret"></b> </a>
+        <ul class="dropdown-menu megamenu row">
+          <li class="col-sm-12">
+            <ul>
+              <li><a href="#" id="">Cultural Identity</a></li>
+              <li><a href="#" id="">Elections</a></li>
+              <li><a href="#" id="">Household Characteristics</a></li>
+              <li><a href="#" id="">Leisure and Tourism</a></li>
+              <li><a href="#" id="">Personal and Household Finances</a></li>
+              <li><a href="#" id="">Well-being</a></li>
+
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+
+
+
+    </ul>
+
+  </nav>
+</div>
+
+<!--  END MENU BAR  -->
+
+
+
+
+
+<!--  PAGE BODY  -->
+<div class="container ">
+<div class="container ">
+
+
+  <div class="row">
+    <h2>Line chart</h2>
+    <div id="line" class="chart">
+    </div>
+  </div>
+
+
+
+  <div class="row shim">
+  </div>
+
+
+</div>
+</div>
+<!--  END PAGE BODY  -->
+
+
+
+
+
+
+
+
+
+<!--  FOOTER -->
+<div class="container footer darkGrey">
+
+ <div class="row">
+  <div class="col-md-4">
+    <h3>Legal</h3>
+    <ul>
+      <li><a href="#">Business Transparency</a></li>
+      <li><a href="#">Terms and Conditions</a></li>
+      <li><a href="#">Copyright</a></li>
+      <li><a href="#">Cookies and Privacy</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h3>About ONS</h3>
+    <ul>
+      <li><a href="#">Who we are</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Products and Services</a></li>
+      <li><a href="#">Contact us</a></li>
+      <li><a href="#">Our Offices</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h3>Connect with us</h3>
+    <ul>
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">Youtube</a></li>
+      <li><a href="#">Email subscriptions</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <p class="text-muted">All content is available under the Open Government Licence v2.0 except where otherwise stated</p>
+</div>
+</div>
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/libs/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!-- chart library -->
+<script src="js/libs/highcharts.js"></script>
+
+<!-- app -->
+<script src="js/alpha.js"></script>
+
+
+
+
+
+</body>
+
+<script>
+
+function setOptions(){
+
+  Highcharts.setOptions({
+    colors: ['#007dc3', '#409ed2', '#7fbee1', '#007dc3', '#409ed2', '#7fbee1'],
+    chart: {
+      type:'line',
+      style: {
+        fontFamily: 'Open Sans',
+        color:'#000'
+      },
+      spacingTop: 30,
+      spacingLeft:30,
+      backgroundColor:'#F9F9F9',
+      events: {
+
+        load: function () {
+          var chart = this,
+          yAxis = chart.yAxis[0]
+          titleWidth=0;
+
+          if(yAxis.axisTitle){
+            titleWidth = yAxis.axisTitle.getBBox().width;
+            yAxis.update({
+              title: {
+                offset: -titleWidth
+              }
+            });
+          }
+        }
+
+      }
+    },
+
+    subtitle: {
+      text: ''
+    },
+
+    plotOptions: {
+      series: {
+        animation: false
+      },
+      line: {
+        marker: {
+          radius: 4,
+          fillColor: '#fff',
+          lineColor: null,
+          lineWidth: 2
+        },
+        shadow:true,
+        dataLabels: {
+          enabled: false
+        }
+      }
+    },
+
+    yAxis: {
+      title: {
+        style: {
+          color: '#000',
+          fontWeight:300
+        },
+        align: 'high',
+        rotation: 0,
+        y: -15,
+      }
+    },
+
+    legend: {
+      borderColor:null,
+      borderRadius: 0,
+      borderWidth: 1
+    },
+
+    credits:{
+      enabled:false
+    }
+  });
+
+
+}
+
+
+function initChart(){
+  chart = $('#line').highcharts({
+
+
+    title: {
+      text: 'Prices Indices'
+    },
+    
+    xAxis: {
+      categories: ['Feb 2013', 'Mar 2013', 'Apr 2013', 'May 2013', 'Jun 2103', 'Jul 2013', 'Aug 2013', 'Sept 2013', 'Oct 2013', 'Nov 2013', 'Dec 2013', 'Jan 2014', 'Feb 2014']
+      ,
+      labels:{
+        formatter: function() {
+          var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+          var response = "";
+          if(w<768){
+            if(this.isFirst){
+              count=0;
+            }
+            if(count%3===0){
+              response = this.value;
+            }
+            count++;
+          }else{
+            response = this.value;
+          }
+            return response
+        },
+      },
+      tickmarkPlacement: 'on'
+    },
+
+    yAxis: {
+      title: {
+        text: 'Percentage change'
+      }
+    },
+
+    plotOptions:{
+      series:{
+        shadow:false,
+        states:{
+          hover:{
+            enabled:true,
+            shadow:false,
+            lineWidth: 3,
+            lineWidthPlus: 0,
+            marker:{
+              height:0,
+              width:0,
+              halo:false,
+              enabled: true,
+              fillColor: null,
+              radiusPlus: null,
+              lineWidth: 3,
+              lineWidthPlus: 0
+            }
+          }
+        }
+      }
+    },
+
+    tooltip: {
+      shared: true,
+      width:'150px',
+      crosshairs: {
+                width: 2,
+                color: '#f37121'
+      },
+      positioner: function (labelWidth, labelHeight, point) {
+        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        var points = { x: 30, y: 42 };
+        var tooltipX, tooltipY;
+
+        if(w>768){
+
+          if (point.plotX + labelWidth > chart.plotWidth) {
+            tooltipX = point.plotX + chart.plotLeft - labelWidth - 20;
+            $("#custom-tooltip").removeClass('tooltip-left');
+          } else {
+            tooltipX = point.plotX + chart.plotLeft + 20;
+            $("#custom-tooltip").removeClass('tooltip-right');
+          }
+
+          tooltipY = 50;
+          points = { x: tooltipX, y: tooltipY };
+        }else{
+          $("#custom-tooltip").removeClass('tooltip-left');
+          $("#custom-tooltip").removeClass('tooltip-right');
+        }
+
+        return points;
+      }
+      ,
+
+    formatter: function(){
+      var id = '<div id="custom-tooltip" class="tooltip-left tooltip-right">';
+      var block = id + "<div class='sidebar' >";
+      var title = '<b class="title">'+ this.x +'</b><br/>';
+      var symbol = ['<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>'];
+
+      var content = block + "<div class='title'>&nbsp;</div>" ;
+
+      // symbols
+      $.each(this.points, function(i, val){
+        content +=  symbol[i];
+      })
+
+      content+= "</div>";
+      content+= "<div class='mainText'>";
+      content+= title;
+
+
+      // series names and values
+      $.each(this.points, function(i, val){
+        content += '<div class="tiptext"><i>' + val.point.series.chart.series[i].name + "</i><br/><b>Value: " + Highcharts.numberFormat(val.y, 2) +'%</b></div>' ;
+      })
+      content+= "</div>";
+      return content;
+    },
+
+      backgroundColor: 'rgba(255, 255, 255, 0)',
+      borderWidth: 0,
+      borderColor: 'rgba(255, 255, 255, 0)',
+      shadow: false,
+      useHTML: true
+
+    },
+
+
+/*
+
+    Solid
+    ShortDash
+    ShortDot
+    ShortDashDot
+    ShortDashDotDot
+    Dot
+    Dash
+    LongDash
+    DashDot
+    LongDashDot
+    LongDashDotDot
+
+*/
+
+    series: [{
+      name: 'CPI:Index 01.2.2: Mineral Waters, Soft Drinks and Juices 2005=100',
+      data: [1.7,1.9,2,2.1,2.2,2.7,2.7,2.8,2.9,2.7,2.4,2.8,2.8],
+      marker:{
+        symbol:"circle",
+        states: {
+                hover: {
+                  fillColor: '#007dc3',
+                  radiusPlus: 0,
+                  lineWidthPlus: 0
+                }
+            }
+      },
+      dashStyle: 'Solid',
+
+
+    }
+
+    ]
+  }).highcharts();
+
+
+}
+
+
+
+
+
+
+  $(document).ready(function(){
+    setOptions();
+    initChart();
+  });
+
+</script>
+</html>
+

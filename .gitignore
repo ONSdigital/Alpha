@@ -2,3 +2,6 @@ list.php
 list.php
 list.php
 /list.php
+
+*.sublime-project
+*.sublime-workspace
