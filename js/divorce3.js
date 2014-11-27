@@ -13,7 +13,7 @@ categories = ['Under 20','20–24','25–29','30–34','35–39','40–44','45�
 //set mon to -1 to ignore
 var startMon = -1; // keep this as base 1 to match years eg Sept is month 9
 //interval to skip in the xAxis category
-var interval = 5;
+var interval = 1;
 var year = 1920;
 
 

@@ -1,4 +1,4 @@
-var title = "Figure D: Number of registrations by major sites, England, 2012";
+var title = "Figure 4: Number of registrations by major sites, England, 2012";
 var subtitle = "";
 var units = "";
 var yAxisTitle = "%";

@@ -26,19 +26,23 @@ $(document).ready(function(){
   options.series = [
       {
         name: 'Can speak English very well',
-        data: data[0]
+        data: data[0],
+        borderColor: options.colors[0]
       },
       {
         name: 'Can speak English well',
-        data: data[1]
+        data: data[1],
+        borderColor: options.colors[1]
       },
       {
         name: 'Cannot speak English well',
-        data: data[2]
+        data: data[2],
+        borderColor: options.colors[2]
       },
       {
         name: 'Cannot speak English',
-        data: data[3]
+        data: data[3],
+        borderColor: options.colors[3]
       }
   ];
 

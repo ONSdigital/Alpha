@@ -51,7 +51,7 @@ $(document).ready(function(){
                 zIndex:1,
                 label:{text:'1',rotation:0}
             },{
-                value:27,
+                value:26,
                 color: plotLineColor,
                 width:2,
                 zIndex:1,
@@ -77,11 +77,11 @@ function setBands(){
                   from:i,
                   to:i+1});
     }
-    if(i>=26 && i<27){
-      bands.push({color: plotBandColor,
-                  from:i,
-                  to:i+1});
-    }
+    // if(i>=26 && i<27){
+    //   bands.push({color: plotBandColor,
+    //               from:i,
+    //               to:i+1});
+    // }
 
   }
 }

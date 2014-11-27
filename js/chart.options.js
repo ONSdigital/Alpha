@@ -299,13 +299,13 @@ function initColumnChart(){
           format : '{value} '
         }
         ,
-        gridZIndex:4,
+        gridZIndex:1,
         gridLineColor:'#ccc'  ,
         plotLines: [{
                 color: '#ccc',
                 width: 1,
                 value: 0,
-                zIndex:4
+                zIndex:1
             }], 
     };
     options.tooltip ={
@@ -413,17 +413,19 @@ function initColumnChart(){
         },
         bar: {
           dataLabels: {
-              enabled: true,
+              enabled: true
+              ,
               formatter: function() {
                   if (this.y===null) {
                      // return '<i>N/A</i>';
                       return '';
                   } else if (this.y=== 0) {
-                      return '<i>0.0%</i>';
+                      return '';//'<i>0.0%</i>';
                   } else {
                       return '';
                   }
               }
+
           }
       }
     };

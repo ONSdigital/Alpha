@@ -34,16 +34,19 @@ $(document).ready(function(){
   options.series = [
       {
         name: '100 & over',
-        data: data[2]
+        data: data[2],
+        borderColor: options.colors[2]
       },
       {
         name: '95-99',
-        data: data[1]
+        data: data[1],
+        borderColor: options.colors[1]
       }
       ,
       {
         name: '90-94',
-        data: data[0]
+        data: data[0],
+        borderColor: options.colors[0]
       }
       
   ];
