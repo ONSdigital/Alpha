@@ -32,7 +32,18 @@ options.yAxis.min = null;
         name: 'Not in good health',
         data: data[1],
         borderColor: options.colors[1]
-      }
+      }, 
+      {
+            type: 'line',
+            name: 'Average',
+            data: [262000,null ,null,null,null,null,null,null,null,null,null,null,null,262000],
+            marker: {
+              enabled:false,
+                lineWidth: 2,
+                lineColor: options.colors[3],
+                fillColor: 'white'
+            }
+        }
   ];
 
 
