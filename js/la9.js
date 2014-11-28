@@ -17,9 +17,21 @@ categories = ['United Kingdom','North East','North West','Yorkshire and The Humb
 
 var interval = 1;
 
-
-
-
+/*
+Figure 9: Number of cars or vans in households,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Cars or vans,,None,One,Two,Three,Four or more,,,,,,,
+2001,UK,27,44,23,4,1,,,,,,,
+2011,,26,42,25,5,2,,,,,,,
+2001,England,27,44,24,5,1,,,,,,,
+2011,,26,42,25,5,2,,,,,,,
+2001,Wales,26,46,23,4,1,,,,,,,
+2011,,23,43,26,6,2,,,,,,,
+2001,Scotland,34,43,19,3,1,,,,,,,
+2011,,31,42,22,4,1,,,,,,,
+2001,Northern Ireland,26,44,24,4,1,,,,,,,
+2011,,23,41,27,6,3,,,,,,,
+*/
 $(document).ready(function(){
 
   options.plotOptions= {
