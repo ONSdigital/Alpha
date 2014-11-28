@@ -3,7 +3,8 @@ var chart;
 var categories = [];
 var plotLineColor = '#C0D1E7';
 var plotBandColor = '#c0d1e7';
-;
+var subtitle ="";
+
 var options = {
 
     chart: {
