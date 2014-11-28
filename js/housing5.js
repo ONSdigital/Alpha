@@ -22,6 +22,14 @@ options.yAxis.min = null;
 
           }
       }
+  options.yAxis.plotLines = [{
+          color: '#FF0000',
+          width: 2,
+          value: 10.5,
+          zIndex: 4,
+          label:{text:'UK: 10.5%',rotation:0}
+      }];
+
   options.series = [
       {
         name: 'In good health',
@@ -35,15 +43,7 @@ options.yAxis.min = null;
       }
   ];
 
-   options.yAxis.plotLines = [
-            {
-                value:3,
-                color: plotLineColor,
-                width:2,
-                zIndex:1,
-                label:{text:'1',rotation:0}
-            }
-            ];
+
   initBarChart();
 
 });

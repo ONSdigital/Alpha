@@ -400,12 +400,15 @@ function initColumnChart(){
         ,
         gridZIndex:1,
         gridLineColor:'#ccc'  ,
+
+/*
         plotLines: [{
                 color: '#ccc',
                 width: 1,
                 value: 0,
                 zIndex:4
             }], 
+            */
     };
     options.tooltip ={
         };
