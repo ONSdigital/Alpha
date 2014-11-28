@@ -11,8 +11,8 @@ data[3] = [0.2,0.2,0.1,0.2,0.3,0.3,0.2,0.1,0.4,1.5,0.4];
 data[4] = [0.0,0.0,0.0,0.1,0.1,0.3,0.2,1.0,0.3,1.3,0.4];
 
 categories = ['North East','Wales','South West','South East','East of England','North West','Yorkshire and The Humber','East Midlands','West Midlands','London','England and Wales'];
-var interval = 1;
 
+var interval = 1;
 
 
 
