@@ -1,46 +1,39 @@
-var title = "Figure 2: Ethnic group (excluding White)";
+var title = "Figure 9: Number of cars or vans in households";
 var subtitle = "";
 var units = "";
 var yAxisTitle = "";
 
 var data = [];
-data[0] = [2,1,1.6,2,2,2,1.9,5,1.9,1,1,0.4,0.3];
-data[1] = [6.9,2.9,6.2,7.3,6.5,10.8,4.8,18.5,5.2,2,2.3,2.7,1.1];
-data[2] = [3,0.5,1.4,1.5,1.8,3.3,2,13.3,1.6,0.9,0.6,0.7,0.2];
-data[3] = [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.2,0.1,0.1,0.1,0.1];
-data[3] = [0.9,0.4,0.6,0.8,0.6,0.9,0.5,3.4,0.6,0.3,0.5,0.3,0.1];
-
-var seriesNames = [ 'Mixed/Multiple', 'Asian/Asian British', 'Black/African/Carribean/Black British', 'Gypsy/Irish Traveller', 'Other'];
+data[0] = [27.44,25.99,43.77,42.19,28.79,31.82];
+data[1] = [26.84,25.80,43.69,42.16,29.47,32.05];
+data[2] = [25.95,22.92,45.54,42.98,28.50,34.11];
+data[3] = [34.23,30.52,43.35,42.24,22.42,27.24];
+data[4] = [26.32,22.70,44.45,41.38,29.23,35.92];
 
 
-categories = ['United Kingdom','North East','North West','Yorkshire and The Humber','East Midlands','West Midlands','East','London','South East','South West','Wales','Scotland','Northern Ireland'];
+var seriesNames = [ 'UK', 'England','Wales', 'Scotland','Northern Ireland'];
+//var categories = [ 'UK 2001', 'UK 2011','England 2001', 'England 2011','Wales 2001', 'Wales 2011','Scotland 2001', 'Scotland 2011','Northern Ireland 2001', 'Northern Ireland 2011', ];
+
+
+categories = ['No Cars 2001','No cars 2011', 'One Car 2001','One car 2011','Two cars 2001','Two cars 2011'];
 
 var interval = 1;
 
-/*
-Figure 9: Number of cars or vans in households,,,,,,,,,,,,,
-,,,,,,,,,,,,,
-Cars or vans,,None,One,Two,Three,Four or more,,,,,,,
-2001,UK,27,44,23,4,1,,,,,,,
-2011,,26,42,25,5,2,,,,,,,
-2001,England,27,44,24,5,1,,,,,,,
-2011,,26,42,25,5,2,,,,,,,
-2001,Wales,26,46,23,4,1,,,,,,,
-2011,,23,43,26,6,2,,,,,,,
-2001,Scotland,34,43,19,3,1,,,,,,,
-2011,,31,42,22,4,1,,,,,,,
-2001,Northern Ireland,26,44,24,4,1,,,,,,,
-2011,,23,41,27,6,3,,,,,,,
-*/
+
+
+
+
+
+
 $(document).ready(function(){
 
   options.plotOptions= {
             bar: {
-                stacking: 'normal'
+              
             }
         }
   options.series = [
-      {
+     {
         name: seriesNames[0],
         data: data[0],
         borderColor: options.colors[0]

@@ -1,16 +1,23 @@
 var title = "Figure 6: Tenure (People)";
 var subtitle = "";
 var units = "";
-var yAxisTitle = "Thousands";
+var yAxisTitle = "%";
 
 var data = [];
+data[0] = [26,25,30,24,29];
+data[1] = [40, 39, 39,41, 43];
+data[2] = [9,9,9,12,10];
+data[3] = [15,16,13,11,13];
+
+
+/*
 data[0] = [26,40,9,15];
 data[1] = [25,39,9,16];
 data[2] = [30,39,9,13];
 data[3] = [24,41,12,11];
 data[4] = [29,43,10,13];
 
-
+*/
 
 var categories = ['UK','England','Wales','Scotland','Northern Ireland'];
 var seriesNames = ['Owned outright','Owned with a mortgage or loan','Rented from council (Local Authority) or equivalent','Private landlord or letting agency'];

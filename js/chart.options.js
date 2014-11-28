@@ -149,6 +149,9 @@ function initLineChart(){
     options.title = {text: title};
     //options.title.y = -10;
 
+    options.subtitle = {
+        text: subtitle
+    };
 
     options.yAxis.title = {
         text: yAxisTitle

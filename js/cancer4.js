@@ -17,12 +17,7 @@ var interval = 1;
 
 $(document).ready(function(){
 
-   options.legend.enabled = true;
-   options.plotOptions = {
-        series: {
-            threshold: 100
-        }
-    }
+  options.legend.enabled = true;
 
   options.series = [
       {
