@@ -8,7 +8,7 @@ data[0] = [9.7,9.8,7.8,10.0,12.2,13.9,14.3,13.6,13.7,12.6,13.7,10.7,10.0,10.5,12
 //set mon to -1 to ignore
 var startMon = 1; // keep this as base 1 to match years eg Sept is month 9
 //interval to skip in the xAxis category
-var interval = 120;
+var interval = 12;
 var year = 2004;
 
 
@@ -17,6 +17,7 @@ var year = 2004;
 $(document).ready(function(){
 
   populateCategories();
+  console.log(categories);
   options.yAxis.min = null;
 
   options.series = [

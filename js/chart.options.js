@@ -141,7 +141,7 @@ function populateCategories(){
 
 
 function initLineChart(){
-
+  var step = 1;
     Highcharts.setOptions(options);
     // update the chart with the generated categories
     options.xAxis.categories = categories;
@@ -158,8 +158,14 @@ function initLineChart(){
         text: yAxisTitle
     }
 
+    if(categories.length>90){
+      step=12;
+    }
+
 
   options.xAxis.labels = {
+    // for long sereis need step to display item labels
+    step:step,
     formatter : function() {
         
         var response = "";
@@ -373,8 +379,6 @@ function initColumnChart(){
 
 
     
-    options.legend.enabled = false;
-
       options.xAxis = {
         tickmarkPlacement : 'between',
         alternateGridColor: '#f1f1f1',
