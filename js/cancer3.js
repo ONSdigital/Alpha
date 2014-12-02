@@ -16,23 +16,24 @@ var interval = 1;
 
 
 $(document).ready(function(){
+  options.yAxis.min = null;
 
-   options.legend.enabled = true;
-   options.plotOptions = {
-        series: {
-            threshold: 100
-        }
+  options.legend.enabled = true;
+  options.plotOptions = {
+    series: {
+      threshold: 100
     }
+  }
 
   options.series = [
-      {
-        name: 'Male',
-        data: data[0]
-      },
-      {
-        name: 'Female',
-        data: data[1]
-      }
+  {
+    name: 'Male',
+    data: data[0]
+  },
+  {
+    name: 'Female',
+    data: data[1]
+  }
   ];
 
   

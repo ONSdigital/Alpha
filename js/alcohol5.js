@@ -39,7 +39,7 @@ data[3] = [
 
 categories = ['North East','North West','Yorkshire and the Humber','East Midlands','West Midlands','East of England','London','South East','South West'];
 
-
+var interval = 1;
 /*
 //set mon to -1 to ignore
 var startMon = -1; // keep this as base 1 to match years eg Sept is month 9

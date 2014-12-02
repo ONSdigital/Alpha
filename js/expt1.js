@@ -1,7 +1,7 @@
 var title = "Figure 1: Sexual Identity by Region, April 2011 to March 2012";
 var subtitle = "";
 var units = "%";
-var yAxisTitle = "xxx";
+var yAxisTitle = "%";
 
 var data = [];
 data[0] = [1.6,1.5,1.6,1.3,1.4,1.1,2.4,1.2,1.6,1.4,1.5,0.9];

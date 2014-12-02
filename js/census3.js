@@ -11,8 +11,8 @@ data[3] = [0.2,0.2,0.1,0.2,0.3,0.3,0.2,0.1,0.4,1.5,0.4];
 data[4] = [0.0,0.0,0.0,0.1,0.1,0.3,0.2,1.0,0.3,1.3,0.4];
 
 categories = ['North East','Wales','South West','South East','East of England','North West','Yorkshire and The Humber','East Midlands','West Midlands','London','England and Wales'];
-var interval = 1;
 
+var interval = 1;
 
 
 
@@ -28,23 +28,28 @@ $(document).ready(function(){
   options.series = [
       {
         name: 'Polish',
-        data: data[0]
+        data: data[0],
+        borderColor: options.colors[0]
       },
       {
-        name: 'Panjabi',
-        data: data[1]
+        name: 'Punjabi',
+        data: data[1],
+        borderColor: options.colors[1]
       },
       {
         name: 'Urdu',
-        data: data[2]
+        data: data[2],
+        borderColor: options.colors[2]
       },
       {
         name: 'Bengali (with Sylheti and Chatgaya)',
-        data: data[3]
+        data: data[3],
+        borderColor: options.colors[3]
       },
       {
         name: 'Gujarati',
-        data: data[4]
+        data: data[4],
+        borderColor: options.colors[4]
       }
   ];
 

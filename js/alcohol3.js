@@ -1,6 +1,6 @@
 var title = "Figure 3: Alcohol-related death rates per 100,000 population by age group, males, United Kingdom, 2002-2012";
 var units = "";
-var yAxisTitle = "";
+var yAxisTitle = "Deaths";
 
 var data = [];
 data[0] = [2.6,2.3,2.4,2.4,2.4,2.5,2.9,2.6,2.7,2.3,2.1];

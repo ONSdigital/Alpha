@@ -24,7 +24,7 @@ var year = 1998;
 
 $(document).ready(function(){
 
-
+  options.yAxis.min = null;
 
   options.series = [
       {

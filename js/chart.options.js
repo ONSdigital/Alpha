@@ -3,7 +3,8 @@ var chart;
 var categories = [];
 var plotLineColor = '#C0D1E7';
 var plotBandColor = '#c0d1e7';
-;
+var subtitle ="";
+
 var options = {
 
     chart: {
@@ -140,7 +141,7 @@ function populateCategories(){
 
 
 function initLineChart(){
-
+  var step = 1;
     Highcharts.setOptions(options);
     // update the chart with the generated categories
     options.xAxis.categories = categories;
@@ -149,13 +150,22 @@ function initLineChart(){
     options.title = {text: title};
     //options.title.y = -10;
 
+    options.subtitle = {
+        text: subtitle
+    };
 
     options.yAxis.title = {
         text: yAxisTitle
     }
 
+    if(categories.length>90){
+      step=12;
+    }
+
 
   options.xAxis.labels = {
+    // for long sereis need step to display item labels
+    step:step,
     formatter : function() {
         
         var response = "";
@@ -228,7 +238,7 @@ function initLineChart(){
 
       // series names and values
       $.each(this.points, function(i, val){
-        content += '<div class="tiptext"><b>' + val.point.series.chart.series[i].name + " </b>" + Highcharts.numberFormat(val.y, 0) + ' ' + units + '</div>' ;
+        content += '<div class="tiptext"><b>' + val.point.series.chart.series[i].name + " </b>" + val.y + ' ' + units + '</div>' ;
       })
       content+= "</div>";
       return content;
@@ -299,13 +309,13 @@ function initColumnChart(){
           format : '{value} '
         }
         ,
-        gridZIndex:4,
+        gridZIndex:1,
         gridLineColor:'#ccc'  ,
         plotLines: [{
                 color: '#ccc',
                 width: 1,
                 value: 0,
-                zIndex:4
+                zIndex:1
             }], 
     };
     options.tooltip ={
@@ -369,8 +379,6 @@ function initColumnChart(){
 
 
     
-    options.legend.enabled = false;
-
       options.xAxis = {
         tickmarkPlacement : 'between',
         alternateGridColor: '#f1f1f1',
@@ -397,12 +405,15 @@ function initColumnChart(){
         ,
         gridZIndex:1,
         gridLineColor:'#ccc'  ,
+
+/*
         plotLines: [{
                 color: '#ccc',
                 width: 1,
                 value: 0,
                 zIndex:4
             }], 
+            */
     };
     options.tooltip ={
         };
@@ -413,17 +424,19 @@ function initColumnChart(){
         },
         bar: {
           dataLabels: {
-              enabled: true,
+              enabled: true
+              ,
               formatter: function() {
                   if (this.y===null) {
                      // return '<i>N/A</i>';
                       return '';
                   } else if (this.y=== 0) {
-                      return '<i>0.0%</i>';
+                      return '';//'<i>0.0%</i>';
                   } else {
                       return '';
                   }
               }
+
           }
       }
     };

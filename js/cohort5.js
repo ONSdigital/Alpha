@@ -1,4 +1,4 @@
-var title = "Figure 5: Age-specific fertility rates1 at selected ages, by year of birth of woman, 1935 to 1992";
+var title = "Figure 5: Age-specific fertility rates at selected ages, by year of birth of woman, 1935 to 1992";
 var units = "";
 var yAxisTitle = "Live-births per 1000 women";
 
@@ -13,7 +13,7 @@ data[4] = [9,8,7,8,8,8,8,8,8,8,9,9,9,9,10,11,11,12,13,12,14,14,15,15,16,16,17,17
 //set mon to -1 to ignore
 var startMon = -1; // keep this as base 1 to match years eg Sept is month 9
 //interval to skip in the xAxis category
-var interval = 10;
+var interval = 4;
 var year = 1935;
 
 var bands =[];
@@ -107,19 +107,19 @@ options.series = [
   options.xAxis.title = {text: "Year of birth"};
   options.xAxis.plotLines = [
             {
-                value:20,
+                value:5,
                 color: plotLineColor,
                 width:2,
                 zIndex:1,
                 label:{text:'1',rotation:0}
             },{
-                value:47,
+                value:32,
                 color: plotLineColor,
                 width:2,
                 zIndex:1,
                 label:{text:'2',rotation:0}
             },{
-                value:62,
+                value:47,
                 color: plotLineColor,
                 width:2,
                 zIndex:1,
