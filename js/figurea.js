@@ -24,7 +24,7 @@ var categories = [];
 
     options.chart.renderTo = 'chart';
     options.title = {text: title};
-    options.title.y = -10;
+    options.title.y = 10;
 
     options.yAxis.title = {
         text: '%'
