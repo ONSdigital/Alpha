@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 
  options.yAxis.reversed = true;
- options.xAxis.title = {text: "Income Quartile"};
+ options.xAxis.title = {text: "Income Quintile"};
   options.legend.enabled = true;
   options.plotOptions= {
             column: {
