@@ -3,7 +3,8 @@ var chart;
 var categories = [];
 var plotLineColor = '#C0D1E7';
 var plotBandColor = '#c0d1e7';
-;
+var subtitle ="";
+
 var options = {
 
     chart: {
@@ -140,7 +141,7 @@ function populateCategories(){
 
 
 function initLineChart(){
-
+  var step = 1;
     Highcharts.setOptions(options);
     // update the chart with the generated categories
     options.xAxis.categories = categories;
@@ -149,13 +150,22 @@ function initLineChart(){
     options.title = {text: title};
     //options.title.y = -10;
 
+    options.subtitle = {
+        text: subtitle
+    };
 
     options.yAxis.title = {
         text: yAxisTitle
     }
 
+    if(categories.length>90){
+      step=12;
+    }
+
 
   options.xAxis.labels = {
+    // for long sereis need step to display item labels
+    step:step,
     formatter : function() {
         
         var response = "";
@@ -212,7 +222,7 @@ function initLineChart(){
       var id = '<div id="custom-tooltip" class="tooltip-left tooltip-right">';
       var block = id + "<div class='sidebar' >";
       var title = '<b class="title">'+ this.x +' </b><br/>';
-      var symbol = ['<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>','<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>'];
+      var symbol = ['<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="downtriangle">▼</div>','<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>'];
 
       var content = block + "<div class='title'>&nbsp;</div>" ;
 
@@ -369,8 +379,6 @@ function initColumnChart(){
 
 
     
-    options.legend.enabled = false;
-
       options.xAxis = {
         tickmarkPlacement : 'between',
         alternateGridColor: '#f1f1f1',
@@ -397,12 +405,15 @@ function initColumnChart(){
         ,
         gridZIndex:1,
         gridLineColor:'#ccc'  ,
+
+/*
         plotLines: [{
                 color: '#ccc',
                 width: 1,
                 value: 0,
                 zIndex:4
             }], 
+            */
     };
     options.tooltip ={
         };

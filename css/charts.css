@@ -7,7 +7,7 @@
     /* CHART: tooltip side bar */
     .sidebar {
       width:30px;
-      height:120px;
+      height:130px;
       margin-right: 5px;
       float:left;
       background-color: #ddd;
@@ -19,7 +19,7 @@
 
     #custom-tooltip {
       display:block;
-      height: 120px;
+      height: 130px;
       width: 220px;
       border: 1px solid #ddd;
       background-color: rgba(255, 255, 255, 1);
@@ -55,6 +55,7 @@
 
     .diamond{
       margin:0px;
+      margin-top: -2px;
       margin-left: 10px;
       padding:0px;
       height:19px;
@@ -67,6 +68,18 @@
     .triangle{
       margin:0px;
       margin-left: 9px;
+      padding:0px;
+      height:16px;
+      font-size: 14px;
+      color:#007dc3;
+      line-height: 20px;
+      clear:both;
+    }
+    .downtriangle{
+      margin:0px;
+      margin-left: 9px;
+      margin-top: 3px;
+      margin-bottom: 3px;
       padding:0px;
       height:16px;
       font-size: 14px;
