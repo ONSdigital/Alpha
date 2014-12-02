@@ -70,7 +70,7 @@ $(document).ready(function(){
                 },
                 tooltip: {
                     headerFormat: '<b>{series.name}</b><br>',
-                    pointFormat: '{point.x} % wealth, {point.y} % households'
+                    pointFormat: '{point.x} % {series.name}, {point.y} % households'
                 }
             }
         },

@@ -39,7 +39,7 @@ $(document).ready(function(){
       dashStyle: 'Solid',
     },
       {
-        name: 'Spending by UK residentss',
+        name: 'Spending by UK residents',
         data: data[1],
         marker:{
           symbol:"square",
@@ -57,6 +57,32 @@ $(document).ready(function(){
 
   
   initLineChart();
+
+  chart.options.tooltip.formatter= function(){
+      var id = '<div id="custom-tooltip" class="tooltip-left tooltip-right">';
+      var block = id + "<div class='sidebar' >";
+      var title = '<b class="title">'+ this.x +' </b><br/>';
+      var symbol = ['<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="downtriangle">▼</div>','<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>'];
+
+      var content = block + "<div class='title'>&nbsp;</div>" ;
+
+      // symbols
+      $.each(this.points, function(i, val){
+        content +=  symbol[i] +'<br/>';
+      })
+
+      content+= "</div>";
+      content+= "<div class='mainText'>";
+      content+= title;
+
+
+      // series names and values
+      $.each(this.points, function(i, val){
+        content += '<div class="tiptext"><b>' + val.point.series.chart.series[i].name + " </b><br/>" + val.y + ' ' + units + '</div>' ;
+      })
+      content+= "</div>";
+      return content;
+    }
 
 });
 
