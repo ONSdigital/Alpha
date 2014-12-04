@@ -365,7 +365,7 @@ $(document).ready(function(){
 { 'code':'W06000024', 'value':-2.0}
     ];
 
-    $.getJSON('../data/LAD_DEC_2011_GB_BFE.json', function (geojson) {
+    $.getJSON('../data/LAD_DEC_2011_GB_BGC_5PC_1DP.json', function (geojson) {
     //$.getJSON('../data/gb-all.js', function (geojson) {
 
         // Initiate the chart
