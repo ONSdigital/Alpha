@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototype</title>
+
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+
+<link href="../css/charts.css" rel="stylesheet">
+<style>
+
+#chart {
+    height: 950px; 
+    min-width: 640px; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+</style>
+</head>
+<body>
+
+<div id="container"></div>
+
+  <div class="container ">
+
+    <div class="row">
+      <div id="chart" class="chart">
+      </div>
+      <div class="footnote">Source: Office for National Statistics</div>
+    </div>
+
+  </div>
+
+
+shape file source: https://geoportal.statistics.gov.uk/Docs/Boundaries/Local_authority_district_(GB)_2011_Boundaries_(Full_Extent).zip
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="../js/libs/jquery.min.js"></script>
+
+<script src="http://code.highcharts.com/maps/highmaps.js"></script>
+<script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="http://code.highcharts.com/mapdata/countries/gb/gb-all.js"></script>
+
+
+  <script src="../js/map.js"></script>
+
+
+
+</body>
+</html>
+
