@@ -1,11 +1,11 @@
 var title = "Figure 38. Land use as a proportion of the UK area, 2010";
 var subtitle = "";
 var units = "";
-var yAxisTitle = "Area (million hectares)";
+var yAxisTitle = "Area (%)";
 
 var data = [];
-//data[0] = [65.4, 13.1, 11.7, 8.1, 1.6];
-data[0] = [15.333, 3.059, 2.748, 1.907, .382];
+data[0] = [65.4, 13.1, 11.7, 8.1, 1.6];
+//data[0] = [15.333, 3.059, 2.748, 1.907, .382];
 
 
 
@@ -35,7 +35,7 @@ $(document).ready(function(){
         }
   options.series = [
       {
-        name: "Area",
+        name: "% Area",
         data: data[0],
         borderColor: options.colors[0]
       }
