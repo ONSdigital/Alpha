@@ -70,7 +70,7 @@ $(document).ready(function(){
 { 'code':'E06000054', 'value':3.8},
 { 'code':'E06000055', 'value':6.7},
 { 'code':'E06000056', 'value':8.6},
-{ 'code':'E06000057', 'value':1.0},
+{ 'code':'E06000048', 'value':1.0},
 { 'code':'E07000004', 'value':9.3},
 { 'code':'E07000005', 'value':3.4},
 { 'code':'E07000006', 'value':8.3},
@@ -307,7 +307,7 @@ $(document).ready(function(){
 { 'code':'E08000034', 'value':-1.6},
 { 'code':'E08000035', 'value':-2.0},
 { 'code':'E08000036', 'value':1.0},
-{ 'code':'E08000037', 'value':-2.2},
+{ 'code':'E08000020', 'value':-2.2},
 { 'code':'E09000001', 'value':-25.4},
 { 'code':'E09000002', 'value':-1.4},
 { 'code':'E09000003', 'value':-4.8},
@@ -365,7 +365,7 @@ $(document).ready(function(){
 { 'code':'W06000024', 'value':-2.0}
     ];
 
-    $.getJSON('../data/LAD_DEC_2011_GB_BFE.json', function (geojson) {
+    $.getJSON('../data/LAD_DEC_2011_EW_BGC_5PC_1DP.json', function (geojson) {
     //$.getJSON('../data/gb-all.js', function (geojson) {
 
         // Initiate the chart
@@ -434,9 +434,7 @@ $(document).ready(function(){
               enabled:false
             },
         });
-var myChart = $('#chart').highcharts();
 
-  myChart.mapZoom(0.5, 420074, 314976);
     });
 
 
