@@ -135,7 +135,6 @@ function getStats(postcode, isPostcode){
 
 
 function getSummary(areaID){
-  //console.log ("getStats " + areaID);
   var count = [];
   var subjectCount = 0;
 
@@ -163,7 +162,7 @@ function getSummary(areaID){
     },
 
     error: function() {
-      //console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
+      console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
       var extract = "The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.";
       $('#extract').html( extract );
     }

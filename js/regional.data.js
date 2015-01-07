@@ -77,9 +77,6 @@ var ageChart;
 var lastBar = 0;
 var polygons = [];
 
-
-
-//
 var chartAge;
 var chartAnnual;
 var chartTrend;
@@ -100,13 +97,26 @@ function testPostCode () {
     $("#postcode").val( newPostCode );
     var url = POSTCODE_URL + newPostCode;
 
-    loader.setUrl( url );
-    loader.loadData( parseData );
+    loadData( url, parseData );
   }
   else {
     console.log ("Postcode has invalid format");
   }
 }
+
+   function loadData( url, callBack ) {
+      $.ajax({
+          dataType: "json",
+          url: url,
+
+          success: function(data) {
+              callBack( data );
+          },
+          error: function (xhr, textStatus, errorThrown) {
+            console.warn("error");
+          }
+      });
+  }
 
 
   function getPointData(latLng){
@@ -114,9 +124,8 @@ function testPostCode () {
       console.log("http://mapit.mysociety.org/point/4326/" + latLng.lng() + "," + latLng.lat());
       var url = POINT_URL + latLng.lng() + "," + latLng.lat() ;
 
-      loader.setUrl( url );
       console.log("Data URL " + url);
-      loader.loadData( parsePointData );
+      loadData( url, parsePointData );
   }
 
 
@@ -298,8 +307,6 @@ function testPostCode () {
     var chartData = [];
     chartData = [  ['Female ' + female_pc + '%', female_pc], ['Male ' + male_pc + '%', male_pc] ];
 
-   // genderThumb.series[0].setData( chartData );
-
     pyramidThumb.series[1].setData( areaObj[id].series.female );
     pyramidThumb.series[0].setData( areaObj[id].series.male );
 
@@ -307,26 +314,6 @@ function testPostCode () {
     lifeThumb.series[1].setData( areaObj[id].expectancy.female );
 
     trendThumb.series[0].setData( areaObj[id].trends );
-
-
-/*
-    var parent = areas.getParent(id);
-    chartEmploy.series[2].setData( [ areaObj[id].labour.employment ] );
-    chartEmploy.series[2].name = areaObj[id].name;
-    chartEmploy.series[1].setData( [ areaObj[parent].labour.employment ] );
-    chartEmploy.series[1].name = areaObj[parent].name;
-    chartEmploy.series[0].setData( [ areaObj[uk].labour.employment  ] );
-    chartEmploy.series[0].name = areaObj[uk].name;
-    chartEmploy.redraw();
-
-    chartUnemploy.series[2].setData( [ areaObj[id].labour.unemployment ] );
-    chartUnemploy.series[2].name = areaObj[id].name;
-    chartUnemploy.series[1].setData( [ areaObj[parent].labour.unemployment ] );
-    chartUnemploy.series[1].name = areaObj[parent].name;
-    chartUnemploy.series[0].setData( [ areaObj[uk].labour.unemployment  ] );
-    chartUnemploy.series[0].name = areaObj[uk].name;
-    chartUnemploy.redraw();
-*/
   }
 
 
@@ -392,12 +379,6 @@ function testPostCode () {
         $("#inactivity_com"+count).text( item.labour.inactivity + '%');
         $("#claims_com"+count).text( item.labour.claimant + '%');
 
-
-
-
-
-
-
         var males = item.maleTotal;
         var females = item.femaleTotal;
         var female_pc = Math.round( 1000 * females / (males+females) ) /10;
@@ -405,16 +386,11 @@ function testPostCode () {
         var chartData = [];
         chartData = [  ['Female ' + female_pc + '%', female_pc], ['Male ' + male_pc + '%', male_pc] ];
 
-
-        //window["gender"+count].series[0].setData( chartData );
-
         window["pyramid"+count].series[1].setData( item.series.female );
         window["pyramid"+count].series[0].setData( item.series.male );
 
         window["life"+count].series[0].setData( item.expectancy.male );
         window["life"+count].series[1].setData( item.expectancy.female );
-
-
 
       });
 
@@ -576,9 +552,6 @@ function processData(  ) {
     });
 
   })
-
-  // sort comparison by size
-  //comparisons.sort(compare);
 
   $.each(comparisons, function (index, value){
     totalCats.push( value.name );

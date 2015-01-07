@@ -74,11 +74,7 @@ var regional = (function () {
 
     $(".tab-pane__tab").click( function(evt){
       evt.preventDefault();
-
-      //if(this.text==="Comparisons"){
-        $(window).resize();
-      //}
-
+      $(window).resize();
     })
 
 
@@ -93,8 +89,6 @@ var regional = (function () {
     });
 
 
-
-    
       $('#opener').click(function() {
         var $lefty = $("#slide-panel");
         $lefty.animate({
@@ -104,8 +98,6 @@ var regional = (function () {
         });
       });
    
-
-
 
   }
 

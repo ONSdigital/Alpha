@@ -126,143 +126,11 @@ var options = {
   function initCharts(){
 
     Highcharts.setOptions(options);
-/*
-    // employment
-    options.chart.renderTo = 'employment';
-    options.chart.type = 'bar';
-    options.title.text = '';
-
-    options.yAxis = {
-            max: 100,
-            title: { text:''},
-            gridZIndex:4,
-            gridLineColor:'#F9F9F9'
-        };
-
-    options.legend.enabled = false;
-    options.plotOptions = {
-            series: {
-                dataLabels: {
-                    enabled: true,
-                    align: 'left',
-                    color: '#000',
-                    x: 10,
-                    formatter: function() {
-                      return this.series.name;
-                    }
-                },
-                pointPadding: 0.1,
-                groupPadding: 0
-            }
-        };
-
-    options.series= [
-                        { name:"United Kingdom", data: [0] },
-                        { name:"United Kingdom", data: [0] },
-                        { name:"United Kingdom", data: [0] }
-                      ];
-    options.tooltip = {
-      formatter: function() {
-          return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
-                    'Employment Rate: '+ Highcharts.numberFormat( this.point.y,1) + '%';
-      }
-    }
-    //chartEmploy = new Highcharts.Chart(options);
-*/
-
-/*
-    // unemployment
-    options.chart.renderTo = 'unemployment';
-    options.chart.type = 'bar';
-    options.title.text = '';
-    options.series= [
-                      { name:"United Kingdom", data: [0] },
-                      { name:"United Kingdom", data: [0] },
-                      { name:"United Kingdom", data: [0] }
-                    ];
-    options.yAxis = {
-            max: 20,
-            title: { text:''},
-            gridZIndex:4,
-            gridLineColor:'#F9F9F9'
-        };
-    options.tooltip = {
-      formatter: function() {
-          return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
-                    'Unemployment Rate: '+ Highcharts.numberFormat( this.point.y,1) + '%';
-      }
-    }
-    //chartUnemploy = new Highcharts.Chart(options);
-*/
-
-
-
-    //thumbs
-/*
-    //ANNUAL CHANGE
-    options.chart.renderTo = 'thumbChange';
-    options.chart.type = 'bar';
-   // options.title.text = null;
-    options.title.text = "";
-        options.yAxis = {
-            max: null,
-            title: { text:''}
-        };
-    options.yAxis.title = {
-                              align: 'high',
-                              offset: 50,
-                              text: 'Change'
-
-                          };
-    options.xAxis = {
-                     labels: {
-                         enabled: false
-                     }
-                  };
-    options.chart.events= {
-
-                load: function () {
-                  var chart = this,
-                  yAxis = chart.yAxis[0]
-                  titleWidth=0;
-
-                  if(yAxis.axisTitle){
-                    titleWidth = yAxis.axisTitle.getBBox().width;
-                    yAxis.update({
-                      title: {
-                        offset: -80,
-                        align:"low"
-                      }
-                    });
-                  }
-
-                }
-
-
-              };
-
-    options.legend.enabled = false;
-    options.plotOptions.series = {};
-    options.series= [
-                        { name: 'Migration', data: [0] },
-                        { name: 'UK', data: [0] },
-                        { name: 'Natural', data: [0] }
-                      ];
-    options.tooltip = {
-      formatter: function() {
-          return '<b>'+ this.series.name +', '+ this.point.category +'</b><br/>'+
-                    'Annual Change: '+ Highcharts.numberFormat( this.point.y ,0);
-      }
-    }
-    //changeThumb = new Highcharts.Chart(options);
-*/
-
 
 
     //LIFE EXPECTANCY
     options.chart.renderTo = 'thumbLife';
     options.chart.type = 'column';
-   // options.title.text = null;
     options.title.text = "";
     options.yAxis.title = {
                               align: 'high',
@@ -348,9 +216,9 @@ var options = {
     
       formatter : function() {
         
-          //var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
           var response = "";
-          //if(w<768){
+
             if(this.isFirst){
               count=0;
             }
@@ -358,9 +226,7 @@ var options = {
               response = this.value;
             }
             count++;
-          //}else{
-          // response = this.value;
-          //}
+
             return response
 
         }
@@ -399,7 +265,6 @@ var options = {
       width:'150px',
       crosshairs: {
         width: 2,
-       // color: '#f37121' //orange
         color: '#DC5571'  //pink
       },
       positioner: function (labelWidth, labelHeight, point) {
@@ -426,44 +291,12 @@ var options = {
 
         return points;
       }
-/*      ,
 
-      formatter: function(){
-        var id = '<div id="custom-tooltip" class="tooltip-left tooltip-right">';
-        var block = id + "<div class='sidebar' >";
-        var title = '<b class="title">'+ this.x +' </b><br/>';
-        var symbol = ['<div class="circle">●</div>','<div class="square">■</div>','<div class="diamond">♦</div>','<div class="triangle">▲</div>','<div class="triangle">▼</div>'];
-
-        var content = block + "<div class='title'>&nbsp;</div>" ;
-
-        // symbols
-        $.each(this.points, function(i, val){
-          content +=  symbol[i];
-        });
-
-        content+= "</div>";
-        content+= "<div class='mainText'>";
-        content+= title;
-
-
-        // series names and values
-        $.each(this.points, function(i, val){
-          content += '<div class="tiptext"><b>' + val.point.series.chart.series[i].name + " </b>" + Highcharts.numberFormat(val.y, 2) +'%</div>' ;
-        });
-        content+= "</div>";
-        return content;
-      }
-      */
   };
-
   options.shadow = false;
-  //options.useHTML = true;
+
 
   trendThumb = new Highcharts.Chart(options);
-
-
-
-
 
     //POPULATION PYRAMID
     
@@ -502,18 +335,7 @@ var options = {
                      minorTickLength: 0,
                      tickLength: 0
             }];
-/*
-    options.xAxis.labels = {};
-    options.xAxis.labels.style = {
 
-                            font: 'normal 14px Verdana, sans-serif',
-
-                            color : 'red'
-
-                        }*/
-
-   // options.xAxis.labels.style.font = 'normal 14px Verdana, sans-serif';
-    //options.xAxis.labels.style.color = 'gold';
 
 
     options.yAxis = {
@@ -557,53 +379,5 @@ var options = {
     options.chart.renderTo = 'pyramid3';
     pyramid3 = new Highcharts.Chart(options);
 
-
-
-
-/*
-    // GENDER
-    options.chart.renderTo = 'thumbGender';
-    options.colors = [  '#dc5571', '#A8233E'],
-    options.chart.plotBackgroundColor = "#fff";
-    options.chart.margin = 0;
-    options.chart.spacing =[10, 10, 15, 10]
-    options.title.text = '';
-    options.legend.enabled = false;
-    options.plotOptions.series = {
-      pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    connectorWidth: 0,
-                    //format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                    format: '<b>{point.name}</b>: {point.value} %'
-                }
-            }
-             };
-
-    options.series= [
-                      {
-                        type: 'pie',
-                        data: [
-                                ["Female", 50],
-                                ["Male", 50]
-                              ]
-                      }
-                    ];
-    options.tooltip = {
-      formatter: function() {
-          return this.key;
-      }
-    };
-    //genderThumb = new Highcharts.Chart(options);
-
-    options.chart.renderTo = 'gender1';
-    gender1 = new Highcharts.Chart(options);
-    options.chart.renderTo = 'gender2';
-    gender2 = new Highcharts.Chart(options);
-    options.chart.renderTo = 'gender3';
-    gender3 = new Highcharts.Chart(options);
-*/
 
   }
