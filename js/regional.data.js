@@ -568,13 +568,14 @@ function processData(  ) {
         }
       });
    }else{
-      console.log("NO " + value.code + " in population trend data");
+      console.log("Got " + value.code + " in population trend data but no matching value in AREA.CSV");
     }
     });
 
   // loop through the lifeexpectancy data and store in areaObj
   $.each(lifeData, function (index,value){
     if(areaObj[value.code]){
+
       var f1993 = parseFloat(value.f1993);
       var m1993 = parseFloat(value.m1993);
       if (isNaN(f1993)){
@@ -588,7 +589,7 @@ function processData(  ) {
       areaObj[value.code].expectancy.male.push( m1993, parseFloat(value.m2000), parseFloat(value.m2010) );
 
     }else{
-      console.log("NO " + value.code + " in life expectancy data");
+      console.log("Got " + value.code + " in life expectancy data but no matching value in AREA.CSV");
     }
     });
 
@@ -605,7 +606,7 @@ function processData(  ) {
 
 
     }else{
-      console.log("NO " + value.code + " in Labour market data");
+      console.log("Got " + value.code + " in Labour market data but no matching value in AREA.CSV");
     }
   });
 
