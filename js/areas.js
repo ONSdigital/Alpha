@@ -20,7 +20,7 @@ var areas = (function () {
 
 
 
-    function loadData(callBack){
+    function loadData(){
 
       $.ajax({
         dataType: "text",
@@ -30,7 +30,7 @@ var areas = (function () {
           areaArray = $.csv.toObjects(data);
           splitAreas();
 
-          callBack( regions );
+         
         },
         error: function (xhr, textStatus, errorThrown) {
             console.warn("error");

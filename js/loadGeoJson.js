@@ -206,7 +206,9 @@ var maps = (function () {
     }
 
     return{
-        initializeMap:initializeMap
+        initializeMap:initializeMap,
+        showPoint:showPoint,
+        displayArea:displayArea
     }
 
 })();

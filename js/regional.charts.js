@@ -1,4 +1,11 @@
-var pyr = [];
+
+
+
+var charting = (function () {
+
+
+
+  var pyr = [];
 
 var options = {
 
@@ -381,3 +388,9 @@ var options = {
 
 
   }
+
+
+    return{
+      initCharts:initCharts
+    }
+})();

@@ -166,10 +166,10 @@ function testPostCode () {
     //store id for reference later when toggling area
     setArea( ons_id );
     showSummary(ons_id);
-    showPoint(lat,lon);
 
-    // display the district boundry on the map
-    displayArea( ons_id );
+    // display a marker and the district boundry on the map
+    maps.showPoint(lat,lon);
+    maps.displayArea( ons_id );
   }
 
 
