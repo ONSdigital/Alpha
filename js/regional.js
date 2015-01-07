@@ -3,7 +3,7 @@ var regional = (function () {
   $(document).ready(function() {
     areas.loadData();
 
-    loadPopData();
+    regionalData.loadPopData();
 
     // hide the slide out panel first
     $('#slide-panel').removeClass('visible');
@@ -45,18 +45,13 @@ var regional = (function () {
     $("#search").click( function(evt){
       evt.preventDefault();
       location.hash = "#regional" ;
-      testPostCode();
+      regionalData.testPostCode();
     })
 
 
     $('a.closeBtn').on('click', function(evt){
         evt.preventDefault();
-        var idx = comparisons.indexOf( this.name );
-        if (idx > -1) {
-          comparisons.splice(idx, 1);
-        }
-        console.log(comparisons);
-        showCharts();
+        regionalData.removeArea( this.name );
     });
 
     // HACK: resize charts that are offscreen

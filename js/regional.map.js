@@ -115,8 +115,8 @@ var maps = (function () {
                 var coords = evt.feature.getGeometry();
                 var centroid = getCentroid(coords);
                 map.panTo(centroid);
-                setArea( evt.feature.getProperty("LAD11CD") );
-                showSummary(evt.feature.getProperty("LAD11CD"));
+                regionalData.setArea( evt.feature.getProperty("LAD11CD") );
+                regionalData.showSummary(evt.feature.getProperty("LAD11CD"));
 
                 //call to NeSS
                 neighbourhood.getStats(evt.feature.getProperty("LAD11NM"), false);
