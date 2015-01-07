@@ -1,5 +1,9 @@
 
+/*
+  pulls in the areas.csv and creates a hierarchy of:
+  region, county, district
 
+*/
 var areas = (function () {
 
   var AREA_URL = "data/areas.csv";
