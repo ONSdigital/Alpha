@@ -1,93 +1,78 @@
+/*
 
+  The app builds a hierarchical model of the areas (to enable filtering) 
+  and a model of the area data (pop trend, gender, labour and life expectancy) 
+  from the various data files.
 
+  This component loads the data for each area and handles the display of data.
 
+  A model of the data is index using the ONS id as the key eg areaObj["E10000007"] = {  } // BLANK_ITEM
 
+  From the UI, a district can be selected by browsing the map, via a postcode look up or by filtering on region, county and district.
+  The postcode lookup using the mapIt API. It involves a little bit of juggling to extract the ONS id. (see code comments in the js file)
+  The search is based on the unique ONS id and from this vault the corresponding chart and table data is displayed.
+
+*/
 
 var regionalData = (function () {
 
+    var CHANGE_URL    = "data/change.csv";
+    var PYRAMID_URL   = "data/pyramid.csv";
+    var TREND_URL     = "data/population.csv";
+    var LIFE_URL      = "data/lifeExpectancy.csv";
+    var LABOUR_URL    = "data/labour.csv";
 
-
-    var CHANGE_URL = "data/change.csv";
-    var PYRAMID_URL = "data/pyramid.csv";
-    var TREND_URL = "data/population.csv";
-    var LIFE_URL = "data/lifeExpectancy.csv";
-    var LABOUR_URL = "data/labour.csv";
-
-    var POSTCODE_URL = "//mapit.mysociety.org/postcode/";
-    var POINT_URL = "//mapit.mysociety.org/point/4326/";
+    var POSTCODE_URL  = "//mapit.mysociety.org/postcode/";
+    var POINT_URL     = "//mapit.mysociety.org/point/4326/";
 
     var YEAR = 2013;
     var MAX_COMPARISONS = 3;
 
     var BLANK_ITEM = {
-          name : " ",
-          code : "",
-          male : [],
-          female : [],
-          maleTotal:50,
-          femaleTotal:50,
-          changes : {
-            now:0,
-            previous: 0,
-            "Internal Inflow": 0,
-            "Internal Net": 0,
-            "Internal Outflow": 0,
-            "International Inflow": 0,
-            "International Net": 0,
-            "International Outflow": 0,
-            "Other": 0,
-            "births": 0,
-            "births_2003": 0,
-            "deaths": 0,
-            "deaths_2003": 0,
-            "natural change": 0,
-          },
-          series : { male : [], female : []},
-          ageGroups : { u18:0 , adult:0 , over64:0 },
-          trends : [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-          labour:{employment:[], unemployment:[]},
-          series:{ male:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], female:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] },
-          expectancy:{ male:[0,0,0], female:[0,0,0] }
-      };
+        name : " ",
+        code : "",
+        male : [],
+        female : [],
+        maleTotal:50,
+        femaleTotal:50,
+        changes : {
+          now:0,
+          previous: 0,
+          "Internal Inflow": 0,
+          "Internal Net": 0,
+          "Internal Outflow": 0,
+          "International Inflow": 0,
+          "International Net": 0,
+          "International Outflow": 0,
+          "Other": 0,
+          "births": 0,
+          "births_2003": 0,
+          "deaths": 0,
+          "deaths_2003": 0,
+          "natural change": 0,
+        },
+        series : { male : [], female : []},
+        ageGroups : { u18:0 , adult:0 , over64:0 },
+        trends : [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        labour:{employment:[], unemployment:[]},
+        series:{ male:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], female:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] },
+        expectancy:{ male:[0,0,0], female:[0,0,0] }
+    };
 
     var uk = "K02000001";
+
+    //data containers
     var pyramidData;
     var lifeData;
     var labourData;
-
     var changes;
     var trend;
+
+    // main model
     var areaObj = {};
-    var barChart;
-    var trendThumb;
-    var genderThumb;
-    var pyramidThumb;
-    var lifeThumb;
-    var chartEmploy;
-    var chartUnemploy;
-    var chartInactivity;
-    var chartClaimant;
-
-    var life1;
-    var life2;
-    var gender1;
-    var gender2;
-    var pyramid1;
-    var pyramid2;
-
-    var areaMap = {};
-    var areaMeasures = {};
+    //array for comparisons
     var comparisons = [];
-    var genderChart;
-    var ageChart;
-    var lastBar = 0;
-    var polygons = [];
 
-    var chartAge;
-    var chartAnnual;
-    var chartTrend;
-    var pyramid;
-    var pyr = [];
 
 
     function testPostCode () {
@@ -100,15 +85,18 @@ var regionalData = (function () {
 
         //call to NESS
         neighbourhood.getStats(newPostCode, true);
+
+        //call to MySociety for ONS ID code
         $("#postcode").val( newPostCode );
         var url = POSTCODE_URL + newPostCode;
 
         loadData( url, parseData );
       }
       else {
-        console.log ("Postcode has invalid format");
+        console.warn ("Postcode has invalid format");
       }
     }
+
 
        function loadData( url, callBack ) {
           $.ajax({
@@ -126,11 +114,7 @@ var regionalData = (function () {
 
 
       function getPointData(latLng){
-          console.log ("getPointData")
-          console.log("http://mapit.mysociety.org/point/4326/" + latLng.lng() + "," + latLng.lat());
           var url = POINT_URL + latLng.lng() + "," + latLng.lat() ;
-
-          console.log("Data URL " + url);
           loadData( url, parsePointData );
       }
 
@@ -142,7 +126,7 @@ var regionalData = (function () {
         data = returned;
 
         $.each(data, function(index, value){
-          //find Unitary Authority; County; opr Metro District
+          //find Unitary Authority, County or Metro District
           if(value.type==="UTA" || value.type==="CTY" || value.type==="MTD"){
             ons_id = value.codes.gss
           }
@@ -154,6 +138,13 @@ var regionalData = (function () {
       }
 
 
+      /*
+          A little bit of juggling involved to get the data we need:
+          get the council reference number in the shortcuts
+          or the county ref if it exists
+          then use this ref to find the relevant area
+          and get the gss value from the 'codes'.
+      */
       function parseData(returned){
         data = returned;
 
@@ -173,7 +164,7 @@ var regionalData = (function () {
         setArea( ons_id );
         showSummary(ons_id);
 
-        // display a marker and the district boundry on the map
+        // display a marker and the district boundary on the map
         maps.showPoint(lat,lon);
         maps.displayArea( ons_id );
       }
@@ -207,7 +198,6 @@ var regionalData = (function () {
       }
 
       function showSummary( id ) {
-        console.log( areaObj[id] );
         // determine tabbed section and alter display
         if($("#comparisons").attr("aria-hidden")==="true"){
           // region / county / district
@@ -242,7 +232,7 @@ var regionalData = (function () {
 
           if(region==="district"){
               var gparent = areas.getParent(parent);
-             // console.log(gparent);
+            
               $("#ancestor_name").text(areaObj[uk].name);
               $("#ancestor_pop").text( areaObj[uk].trends[12]);
 
@@ -496,12 +486,10 @@ var regionalData = (function () {
 
 
       function removeArea( name ) {
-        console.log("removeArea " + name);
         var idx = comparisons.indexOf( name );
         if (idx > -1) {
           comparisons.splice(idx, 1);
         }
-        console.log(comparisons);
 
         showCharts();
       }
@@ -510,7 +498,6 @@ var regionalData = (function () {
 
 
     function processData(  ) {
-
       $("#areas").empty();
       var selection = "<option>Pick an area...</option>";
 
@@ -544,7 +531,6 @@ var regionalData = (function () {
         $('#areas')
               .append($('<option>', { name : index })
               .text(name));
-
       })
 
 
@@ -552,14 +538,11 @@ var regionalData = (function () {
       var totalCats = [];
       var totalData = [];
 
-
       comparisons = [];
 
       $.each(changes, function (index,value){
         newVal = value.now.split(",").join("");
         newVal = parseInt( newVal,10 );
-
-        ///comparisons.push( {name:value.name, code: value.code, value: newVal} );
 
         $.each(value, function (col, val){
           if(col!=="name" && col!=="code" ){
@@ -608,9 +591,13 @@ var regionalData = (function () {
           areaObj[value.code].expectancy.female.push( f1993, parseFloat(value.f2000), parseFloat(value.f2010) );
           areaObj[value.code].expectancy.male.push( m1993, parseFloat(value.m2000), parseFloat(value.m2010) );
 
-        }else{
+        }
+        // Inner or Outer London only present in Labour and Life expectancy
+        /*
+        else{
           console.log("Got " + value.code + " in life expectancy data but no matching value in AREA.CSV");
         }
+        */
         });
 
       // loop through the lifeexpectancy data and store in areaObj
@@ -625,9 +612,13 @@ var regionalData = (function () {
           areaObj[value.code].labour.claimant = ( parseFloat(value.claimantRate) );
 
 
-        }else{
+        }
+        // Inner or Outer London only present in Labour and Life expectancy
+        /*
+        else{
           console.log("Got " + value.code + " in Labour market data but no matching value in AREA.CSV");
         }
+        */
       });
 
 

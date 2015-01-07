@@ -83,7 +83,6 @@ function getStats(postcode, isPostcode){
     postcode = postcode.split(",")[0];
   }
 
-  console.log ("getStats " + postcode);
   var id;
   mainTitle = "";
 
@@ -92,7 +91,7 @@ function getStats(postcode, isPostcode){
     url: url + postcode,
     dataType: "xml",
     success: function(xml){
-             console.log( xml );
+       
       $(xml).find('Area').each(function(){
 
         var sLevel = $(this).find('LevelTypeId').text();
@@ -213,7 +212,6 @@ function getData(areaID){
         values.push( $(this).find(prefix + 'Value').text() );
       });
 
-    //  console.log(values);
     // each value is followed by its country value
     // eg 
     // ["1.43", "24.84", "11.75", ".57"] - district, country, district, country
