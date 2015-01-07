@@ -303,6 +303,7 @@ var regionalData = (function () {
         var chartData = [];
         chartData = [  ['Female ' + female_pc + '%', female_pc], ['Male ' + male_pc + '%', male_pc] ];
 
+        //TODO: fix this by calling specfic setter in charting
         window["pyramidThumb"].series[1].setData( areaObj[id].series.female );
         window["pyramidThumb"].series[0].setData( areaObj[id].series.male );
 
@@ -382,6 +383,7 @@ var regionalData = (function () {
             var chartData = [];
             chartData = [  ['Female ' + female_pc + '%', female_pc], ['Male ' + male_pc + '%', male_pc] ];
 
+            //TODO: fix this by calling specfic setter in charting
             window["pyramid"+count].series[1].setData( item.series.female );
             window["pyramid"+count].series[0].setData( item.series.male );
 
@@ -600,7 +602,7 @@ var regionalData = (function () {
         */
         });
 
-      // loop through the lifeexpectancy data and store in areaObj
+      // loop through the life expectancy data and store in areaObj
       // code,name,pop,employ,employRate,unemploy,unemployRate,inactivty,inactivityRate,claimantRate,jobs,density
       $.each(labourData, function (index,value){
         if(areaObj[value.code]){
@@ -610,7 +612,6 @@ var regionalData = (function () {
           areaObj[value.code].labour.unemployment = ( parseFloat(value.unemployRate) );
           areaObj[value.code].labour.inactivity = ( parseFloat(value.inactivityRate) );
           areaObj[value.code].labour.claimant = ( parseFloat(value.claimantRate) );
-
 
         }
         // Inner or Outer London only present in Labour and Life expectancy
