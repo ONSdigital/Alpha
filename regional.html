@@ -1842,16 +1842,29 @@ h3, .delta, .page-header--regional-desc, .nav-panel__title {
 
 
 <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&amp;region=GB"></script>
+<!-- libraries -->
 <script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/jquery.csv.js"></script>
 <script src="js/libs/highcharts.js"></script>
-<script src="js/regional.charts.js"></script>
-<script src="js/areas.js"></script>
-<script src="js/loadGeoJson.js"></script>
+<!-- utility function to check valid postcodes -->
 <script src="js/jspostcode.js"></script>
+
+<!-- splits area.csv data into region, county and district hierarchy -->
+<script src="js/areas.js"></script>
+<!-- creates main google map and loads in geoJSON outlines -->
+<script src="js/loadGeoJson.js"></script>
+
+<!-- TODO:: Remove -->
+<!-- utility function to load CSV --> 
 <script src="js/loader.js"></script>
+<!-- actual charts used in the page -->
+<script src="js/regional.charts.js"></script>
+
 <script src="js/regional.data.js"></script>
+
+<!-- add button controls and initialise -->
 <script src="js/regional.js"></script>
+<!-- pulls headline figure from NESS site -->
 <script src="js/regional.neighbourhood.js"></script>
  
   </body>

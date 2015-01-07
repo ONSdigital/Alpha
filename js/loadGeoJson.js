@@ -1,6 +1,6 @@
     // loads geojson polygons for each district/county
 
-
+var URL = 'data/district.json'
 var map;
 var marker;
 var lastSelected;
@@ -29,29 +29,25 @@ function initializeMap() {
       ]
     }
   ];
- // Create a new StyledMapType object, passing it the array of styles,
-  // as well as the name to be displayed on the map type control.
-  var styledMap = new google.maps.StyledMapType(styles,
-    {name: "Styled Map"});
+    // Create a new StyledMapType object, passing it the array of styles,
+    // as well as the name to be displayed on the map type control.
+    var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});
 
-
-
-  map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 7,
-      center: {lat: 52.5, lng: -1.9},
-      scrollwheel:false,
-      panControl: false,
-      mapTypeControl: false,
-      streetViewControl: false
-
-  });
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 7,
+        center: {lat: 52.5, lng: -1.9},
+        scrollwheel:false,
+        panControl: false,
+        mapTypeControl: false,
+        streetViewControl: false
+    });
 
   //Associate the styled map with the MapTypeId and set it to display.
   map.mapTypes.set('map_style', styledMap);
   map.setMapTypeId('map_style');
 
 
-    map.data.loadGeoJson('data/district.json');
+    map.data.loadGeoJson(URL);
 
     // each polygon feature has the ONS name and code, 
     // eg  "LAD11NM", "LAD11CD" (name, code) for local districts or "CTYUA13NM", "CTYUA13CD" for county
