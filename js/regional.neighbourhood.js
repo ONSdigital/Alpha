@@ -9,11 +9,14 @@ Have to step through a series of API calls to narrow down the various id's adn g
 
 
 /*
-
+// get the AreaId via a postcode or place name lookup
+http://neighbourhood.statistics.gov.uk/NDE2/Disco/FindAreas?Postcode=
 http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetDatasetFamilies?SubjectId=5&AreaId=6094211
 http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01-01:2014-09-01&DSFamilyId=2514
 http://neighbourhood.statistics.gov.uk/NDE2/Deli/getTables?Areas=276734&Variables=10137,10138,10139&GroupByDataset=Yes
 
+// get the AreaId via a postcode or place name lookup
+http://neighbourhood.statistics.gov.uk/NDE2/Disco/FindAreas?Postcode=
 http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetSubjects?
 //use subject id to get datasets
 http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetDatasets?SubjectId=14&AreaId=276980
