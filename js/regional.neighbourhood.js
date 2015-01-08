@@ -1,12 +1,18 @@
 var neighbourhood = (function () {
 
+/*
+
+Have to step through a series of API calls to narrow down the various id's adn get to the required data
+
+*/
+
 
 
 /*
+
 http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetDatasetFamilies?SubjectId=5&AreaId=6094211
 http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01-01:2014-09-01&DSFamilyId=2514
 http://neighbourhood.statistics.gov.uk/NDE2/Deli/getTables?Areas=276734&Variables=10137,10138,10139&GroupByDataset=Yes
-
 
 http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetSubjects?
 //use subject id to get datasets
@@ -22,7 +28,7 @@ http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01
 http://www.neighbourhood.statistics.gov.uk/dissemination/LeadTableView.do?a=7&b=6275035&c=bristol&d=13&e=7&g=6388788&i=1001x1003x1004&m=0&r=1&s=1412168129760&enc=1&dsFamilyId=2567&nsjs=true&nsck=false&nssvg=false&nswid=1359
 //use subjectID=7
 http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetDatasetFamilies?SubjectId=7&AreaId=6094211
-Method of Travel to Work, 2011 (QS701EW), DSFamilyId=2567
+// select a Dataset Family ID: Method of Travel to Work, 2011 (QS701EW), DSFamilyId=2567
 http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01-01:2014-09-01&DSFamilyId=2567
 // get var family id
 9754, 9755, 9756, 9757, 9758, 9759, 9760, 9761, 9762, 9763, 9764, 9765, 9766
@@ -49,13 +55,6 @@ var subjects =  [
           , { id: 7, name: 'Housing', ref:"RENTAL", desc:'', short: 'Housing', vars:[6583, 6585, 6592, 6588, 6590] }
           , { id: 14, name: 'People and Society: Income and Lifestyles', ref:"", desc:"", short: 'Income and Lifestyles', vars:[786,790,795,787,798,788,797,796,794,793] }
         ];
-
-
-  var postcodes = [ "B15 2TT", "BS8 1TH", "CB2 3PP", "CF10 3BB", "DH1 3EE", "EX4 4SB",
-    "SW7 2AZ", "LS2 9JT", "L69 3BX", "M13 9PL", "NE1 7RU", "NG7 2NR",
-    "OX1 2JD", "S10 2TN", "SO23 8DL", "CV4 7AL", "YO10 5DD",
-    "E1 4NS", "WC2A 2AE", "WC2R 2LS"
-    ];
 
   var subjectId = 8;
 
@@ -84,7 +83,6 @@ function getStats(postcode, isPostcode){
     postcode = postcode.split(",")[0];
   }
 
-  console.log ("getStats " + postcode);
   var id;
   mainTitle = "";
 
@@ -93,7 +91,7 @@ function getStats(postcode, isPostcode){
     url: url + postcode,
     dataType: "xml",
     success: function(xml){
-             console.log( xml );
+       
       $(xml).find('Area').each(function(){
 
         var sLevel = $(this).find('LevelTypeId').text();
@@ -135,7 +133,6 @@ function getStats(postcode, isPostcode){
 
 
 function getSummary(areaID){
-  //console.log ("getStats " + areaID);
   var count = [];
   var subjectCount = 0;
 
@@ -163,7 +160,7 @@ function getSummary(areaID){
     },
 
     error: function() {
-      //console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
+      console.warn("An error occurred while processing XML file.\nProbably outside England and Wales");
       var extract = "The Neighbourhood Statistics website is part of the ONS. It has over 550 datasets across ten different subjects.";
       $('#extract').html( extract );
     }
@@ -215,10 +212,10 @@ function getData(areaID){
         values.push( $(this).find(prefix + 'Value').text() );
       });
 
-      console.log(values);
-    //each values is followed by its country value
-    // eg ["1.43", "24.84", "11.75", ".57"] - district, country, district, country
-    //["6354", "1019257", "1315", "317566", "25134", "2167476", "32803", "3504299"]
+    // each value is followed by its country value
+    // eg 
+    // ["1.43", "24.84", "11.75", ".57"] - district, country, district, country
+    // ["6354", "1019257", "1315", "317566", "25134", "2167476", "32803", "3504299"] - district, country, district, country, district, country, district, country
 
     // get random number
     var random = Math.floor(Math.random()*titles.length);
@@ -247,8 +244,6 @@ function getData(areaID){
   });
 
 }
-
-
 
 
 
