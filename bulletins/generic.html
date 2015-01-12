@@ -9,6 +9,7 @@
   <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
 
 <link href="../css/charts.css" rel="stylesheet">
+<link href="../css/bootstrap.css" rel="stylesheet">
 
 
 
@@ -19,27 +20,43 @@
 
   <div class="container ">
   
-              <h2>4. Add notes</h2>
+    <h2>Select chart type</h2>
 
-              <div class="row">
-                <div class="optionGroup span3"><label for="chart_title">Title</label><input id="chart_title" type="text" name="chart_title" value="Created by..."></div>
-                <div class="optionGroup span3"><label for="credit">Credit</label><input id="creditLine" type="text" name="credit" value="Credit goes here..."></div>
-              </div>
+      <div class="navbar">
+        <div class="navbar-inner ">
+          <a class="brand" href="#"></a>
+          <ul class="nav">
+            <li class="active"><a href="#" id="action1">Line</a></li>
+            <li><a href="#" id="action2">Bar</a></li>
+            <li><a href="#" id="action3">Column</a></li>
+          </ul>
+        </div>
+      </div>
 
-              <div class="row">
-                <div class="optionGroup span3"><label for="chart_title">X Axis</label><input id="chart_x" type="text" name="chart_x" value=""></div>
-                <div class="optionGroup span3"><label for="credit">Y Axis</label><input id="chart_y" type="text" name="chart_y" value=""></div>
-              </div>
-              <br/>
-              <hr>
-                <div class="optionGroup span3"><label for="">Data URL</label><input id="dataurl" type="text" name="" value="http://local/alpha/data/sample.column.csv"></div>
-                <button class="btn btn-primary" id="dataBtn">Load Data</button>
-              <br/> 
+    <h2>Load data CSV</h2>
+
+      <div class="optionGroup span3"><label for="">Data URL</label><input id="dataurl" type="text" name="" value="http://local/alpha/data/sample.column.csv"></div>
+      <button class="btn btn-primary" id="dataBtn">Load Data</button>
+
+
 
     <div class="row">
       <div id="chart" class="chart">
       </div>
       <div class="footnote">Source: Office for National Statistics</div>
+      <br/> 
+    </div>
+
+    <h2>Add notes</h2>
+
+    <div class="row">
+      <div class="optionGroup span3"><label for="chart_title">Title</label><input id="chart_title" type="text" name="chart_title" value="Created by..."></div>
+      <div class="optionGroup span3"><label for="credit">Credit</label><input id="creditLine" type="text" name="credit" value="Credit goes here..."></div>
+    </div>
+
+    <div class="row">
+      <div class="optionGroup span3"><label for="chart_title">X Axis</label><input id="chart_x" type="text" name="chart_x" value=""></div>
+      <div class="optionGroup span3"><label for="credit">Y Axis</label><input id="chart_y" type="text" name="chart_y" value=""></div>
     </div>
 
   </div>
@@ -48,6 +65,7 @@
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="../js/libs/jquery.min.js"></script>
   <script src="../js/libs/jquery.csv.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 
   <!-- chart library -->
   <script src="../js/libs/highcharts.js"></script>
