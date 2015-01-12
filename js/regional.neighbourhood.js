@@ -40,10 +40,10 @@ http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetVariables?DateRange=2001-01
 
 var POSTCODE = "NP198FP";
 
-var URL = "http://neighbourhood.statistics.gov.uk/NDE2/Disco/FindAreas?Postcode=";// + "&LevelType=13&HierarchyId=17";
-var NAME_URL = "http://neighbourhood.statistics.gov.uk/NDE2/Disco/FindAreas?AreaNamePart=";// + "&LevelType=13&HierarchyId=17";
-var SUBJECTS_URL = "http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetCompatibleSubjects?AreaId=";
-var DATA_URL = "http://neighbourhood.statistics.gov.uk/NDE2/Deli/getTables?Areas=";
+var URL = "//neighbourhood.statistics.gov.uk/NDE2/Disco/FindAreas?Postcode=";// + "&LevelType=13&HierarchyId=17";
+var NAME_URL = "//neighbourhood.statistics.gov.uk/NDE2/Disco/FindAreas?AreaNamePart=";// + "&LevelType=13&HierarchyId=17";
+var SUBJECTS_URL = "//neighbourhood.statistics.gov.uk/NDE2/Disco/GetCompatibleSubjects?AreaId=";
+var DATA_URL = "//neighbourhood.statistics.gov.uk/NDE2/Deli/getTables?Areas=";
 
 var mainTitle;
 var countryId;
