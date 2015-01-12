@@ -14,7 +14,7 @@ switch(type){
     var subtitle = "";
     var units = "";
     var yAxisTitle = "%";
-
+/*
     var data = [];
     data[0] = [26,25,30,24,29];
     data[1] = [40, 39, 39,41, 43];
@@ -24,7 +24,7 @@ switch(type){
     var seriesNames = ['Owned outright','Owned with a mortgage or loan','Rented from council (Local Authority) or equivalent','Private landlord or letting agency'];
     var categories = ['UK','England','Wales','Scotland','Northern Ireland'];
     var interval = 1;
-
+*/
 
   break;
 
@@ -34,7 +34,7 @@ switch(type){
     var subtitle = "";
     var units = "";
     var yAxisTitle = "";
-
+/*
     var data = [];
     data[0] = [2,1,1.6,2,2,2,1.9,5,1.9,1,1,0.4,0.3];
     data[1] = [6.9,2.9,6.2,7.3,6.5,10.8,4.8,18.5,5.2,2,2.3,2.7,1.1];
@@ -45,6 +45,7 @@ switch(type){
     var seriesNames = [ 'Mixed/Multiple', 'Asian/Asian British', 'Black/African/Carribean/Black British', 'Gypsy/Irish Traveller', 'Other'];
     categories = ['United Kingdom','North East','North West','Yorkshire and The Humber','East Midlands','West Midlands','East','London','South East','South West','Wales','Scotland','Northern Ireland'];
     var interval = 1;
+    */
     var stacked = true;
 
   break;
@@ -55,7 +56,7 @@ switch(type){
     var subtitle = "Index level (Feb 2002=100)";
     var units = "";
     var yAxisTitle = "Index Value";
-
+/*
     var data = [];
     data[0] = [134.9,133.8,134.0,140.0,141.3,144.1,147.0,148.6,148.3,149.3,149.1,148.0,147.5,146.9,150.0,148.4,148.8,150.0,151.6,151.5,151.8,150.4,151.2,151.1,152.8,150.8,153.8,155.1,156.6,157.0,159.6,161.5,162.8,162.0,163.0,164.4,167.7,166.9,168.8,170.2,171.6,174.3,177.7,178.5,179.2,179.2,178.4,177.8,180.8,177.4,177.5,178.1,176.9,175.2,175.3,170.4,170.2,166.1,163.0,159.4,159.5,155.3,153.0,153.8,153.9,156.5,160.4,160.4,163.3,162.5,163.8,164.2,170.0,167.5,168.5,170.2,171.3,173.0,174.6,175.0,174.0,171.3,171.0,169.9,171.0,167.7,169.7,169.3,167.6,169.4,171.7,172.3,171.8,170.8,170.4,169.9,172.4,169.6,169.2,172.1,172.0,173.9,175.8,176.0,175.0,173.7,174.6,175.7,176.4,173.1,174.3,176.9,177.3,179.6,182.3,183.0,182.2,183.6,184.4,185.8,188.8,189.8,189.1,195.3,196.9];
     data[1] = [147.0,150.8,148.0,156.6,163.3,165.3,172.9,177.0,173.6,175.0,176.5,178.5,178.4,178.2,180.7,181.4,185.9,183.3,186.0,188.7,186.2,188.9,186.6,187.7,188.7,189.0,190.2,192.6,194.8,198.7,199.5,202.0,205.3,201.7,205.6,204.7,207.2,209.2,208.7,209.3,211.4,213.8,214.8,217.8,218.0,221.6,218.0,216.8,222.1,216.1,217.3,214.1,213.1,211.7,210.3,205.8,206.8,204.7,197.2,194.5,198.8,190.3,189.0,184.1,190.2,185.9,193.7,195.2,192.9,192.7,198.1,196.4,201.3,203.0,204.4,200.3,205.4,210.9,205.9,205.9,209.8,200.7,204.4,203.2,197.5,196.8,198.0,197.3,192.6,198.7,205.8,204.9,202.3,199.7,200.8,199.4,197.3,196.8,198.8,195.3,199.4,199.4,206.3,208.0,205.5,205.2,202.4,204.2,199.3,204.8,201.3,207.4,200.8,207.9,205.1,211.8,209.8,209.5,213.4,214.1,213.3,215.8,211.0,214.4,213.9];
@@ -66,21 +67,131 @@ switch(type){
     //set mon to -1 to ignore
     var startMon = 1; // keep this as base 1 to match years eg Sept is month 9
     var year = 2004;
+   */ 
     //interval to skip in the xAxis category
     var interval = 12;
 
   break;
 
+
+  
+
 };
 
 
+/*
+    expected format of csv:
 
+    cateogries on first line then data
+    each data row starts with the series name
+*/
+   function loadData(newURL){
+        console.log("load data here");
+
+        $.ajax({
+            dataType: "text",
+            url: newURL,
+            data: "String",
+            success: function(inputData, status, xhr) {
+
+              seriesNames =[];
+              data =[]
+                 
+              //load in new   
+              results = $.csv.toArrays(inputData);
+
+              //set data to parsefloat
+              $.each(results, function(count, row)
+              {
+                console.log(count,row);
+
+               var seriesName = row.shift();
+                if(count>0){
+                  seriesNames.push(seriesName);
+
+                  //loop thru each value
+                  $.each(row, function(num, col)
+                  {
+                    console.log(num, col);
+                    row[num] = parseFloat(col);
+                  });
+                  data.push(row);
+                }
+              }); 
+
+              categories = results[0]; 
+
+              initChart();
+
+            },
+            error: function(data) {
+                   
+                console.log("error");
+                    
+                }
+        });
+
+    }
+
+
+
+function initFields(){
+  $("#chart_title").val( title );
+  $("#creditLine").val( subtitle );
+  $("#chart_x").val( units );
+   $("#chart_y").val( yAxisTitle );
+   $("#dataurl").val('http://local/alpha/data/sample.' + type + '.csv')
+}
+
+
+function initListeners(){
+
+  $('#chart_title').keyup(function() {
+    var txt = $("#chart_title").val();
+    chart.setTitle({text: txt});
+  });
+
+  $('#creditLine').keyup(function() {
+    var subtxt = $("#creditLine").val();
+
+    chart.setTitle(null, { text: subtxt });
+  });
+  $('#chart_x').keyup(function() {
+    var lbl = $("#chart_x").val();
+
+    console.log(lbl);
+    chart.xAxis[0].setTitle({
+      text: lbl
+    });
+  });
+
+  $('#chart_y').keyup(function() {
+    var lbl = $("#chart_y").val();
+    console.log(lbl);
+
+    chart.yAxis[0].setTitle({
+      text: lbl
+    });
+  });
+
+  $('#dataBtn').click(function(){
+    console.log("snap! " + $("#dataurl").val() );
+
+    loadData($("#dataurl").val());
+  }); 
+
+
+
+}
 
 
 
 
 $(document).ready(function(){
 
-  initChart();
+  
+
+  initListeners();
+  initFields();
 
 });
