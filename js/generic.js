@@ -8,9 +8,12 @@ var title
 , units
 , yAxisTitle
 , interval = 1
-, stacked = false;
+, stacked = false
+, pc = false;
 
 function setType(type) {
+
+  $('#title').text("Select chart type: " + type);
   switch (type) {
 
     case "column":
@@ -79,6 +82,16 @@ function setType(type) {
 
     break;
 
+    case "map":
+    // MAP
+    title = 'Map 1: Net flows of internal migrants by local authority, year ending June 2013, per 1,000 mid-2012 population, local authorities in England and Wales';
+    subtitle = "England and Wales, 2011";
+    units = "";
+    yAxisTitle = "";
+
+
+    break;
+
   }
   initFields();
 }
@@ -99,6 +112,59 @@ function setType(type) {
         data: "String",
         success: function (inputData) {
 
+            if(type==='map'){
+                processMapData(inputData)
+        
+            }else{
+                processData(inputData)
+              
+            }
+
+          },
+          error: function (data) {
+            console.log("error");
+            console.log(data);
+          }
+        });
+
+    }
+
+
+
+    function processMapData(inputData) {
+
+          data = [];
+
+            //load in new   
+            results = $.csv.toArrays(inputData);
+
+            //set data to parsefloat
+            $.each(results, function (count, row)
+            {
+              if(count>0){
+                var obj = {};
+
+                //{ 'code':'E06000001', 'value':1.0},
+                obj.code = row[0];
+                obj.value = row[1];
+
+                data.push(obj);
+              }
+            });
+
+            initChart();
+    }
+
+
+    function processData(inputData) {
+
+
+      console.log("process");
+
+          stacked = $('#stacked').is(':checked');
+          pc = $('#pc').is(':checked');
+
+          console.log("stacked: " + stacked + " : " + pc);
           seriesNames = [];
           data = [];
 
@@ -124,15 +190,8 @@ function setType(type) {
 
             initChart();
 
-          },
-          error: function (data) {
-            console.log("error");
-            console.log(data);
-          }
-        });
 
     }
-
 
 
     function initFields() {
@@ -180,13 +239,46 @@ function setType(type) {
         loadData($("#dataurl").val());
       }); 
 
-        $('a[id^="action"]').click(function(e){
+      $('#saveBtn').click(function (){
+        console.log("SAVE! ");
+
+        var str = '<br/>';
+        str += 'var title = "' + title + '";<br/>';
+        str += 'var subtitle = "' + subtitle + '";<br/>';
+        str += 'var units = "' + units + '";<br/>';
+        str += 'var yAxisTitle = "' + yAxisTitle + '";<br/>';
+
+
+        str += 'var categories = ["' + categories.join('","') + '"];<br/>';
+        str += 'var seriesNames = ["' + seriesNames.join('","') + '"];<br/>';
+        str += 'var data = [];<br/>';
+
+        $.each(data, function(d,i){
+          str += 'data[' + d + '] = [' + data[d] + '];<br/>';
+
+
+          
+        });
+
+
+
+
+        console.log(str);
+
+        $('#output').html(str);
+
+
+      }); 
+
+        $('button[id^="action"]').click(function(e){
+          console.log( e);
+          console.log( e.currentTarget.innerHTML);
           e.preventDefault();
           var id = e.currentTarget.id.substr(6);
           id  = parseFloat(id);
-          console.log(id+"::" +e.currentTarget.text);
+          console.log(id+"::" +e.currentTarget.innerHTML);
 
-          type = e.currentTarget.text.toLowerCase();
+          type = e.currentTarget.innerHTML.toLowerCase();
           setType(type);
 /*
           chartType = e.currentTarget.text;
@@ -203,6 +295,37 @@ function setType(type) {
           });
 
     }
+
+
+function handleFiles(files) {
+  // Check for the various File API support.
+  if (window.FileReader) {
+    // FileReader are supported.
+    getAsText(files[0]);
+  } else {
+    alert('FileReader are not supported in this browser.');
+  }
+}
+
+function getAsText(fileToRead) {
+  var reader = new FileReader();
+  // Handle errors load
+  reader.onload = loadHandler;
+  reader.onerror = errorHandler;
+  // Read file into memory as UTF-8      
+  reader.readAsText(fileToRead);
+}
+
+function loadHandler(event) {
+  var csv = event.target.result;
+  processData(csv);             
+}
+
+function errorHandler(evt) {
+  if(evt.target.error.name == "NotReadableError") {
+    alert("Canno't read file !");
+  }
+}
 
 
 

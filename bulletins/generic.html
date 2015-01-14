@@ -10,8 +10,19 @@
 
 <link href="../css/charts.css" rel="stylesheet">
 <link href="../css/bootstrap.css" rel="stylesheet">
+<!-- 
+<style>
 
+#chart {
+    height: 950px; 
+    min-width: 640px; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
 
+</style>
+
+ -->
 
 </head>
 <body>
@@ -20,25 +31,57 @@
 
   <div class="container ">
   
-    <h2>Select chart type</h2>
+    <h2 id="title">Select chart type</h2>
 
-      <div class="navbar">
-        <div class="navbar-inner ">
-          <a class="brand" href="#"></a>
-          <ul class="nav">
-            <li class="active"><a href="#" id="action1">Line</a></li>
-            <li><a href="#" id="action2">Bar</a></li>
-            <li><a href="#" id="action3">Column</a></li>
-          </ul>
-        </div>
-      </div>
+
+
+
+
+<div class="btn-group" role="group" aria-label="...">
+  <button id="action1" type="button" class="btn btn-default">Line</button>
+  <button id="action2" type="button" class="btn btn-default">Bar</button>
+  <button id="action3" type="button" class="btn btn-default">Column</button>
+  <button id="action4" type="button" class="btn btn-default">Map</button>
+
+</div>
+<br/>
+  <div class="checkbox">
+    <label>
+      <input id='stacked' type="checkbox"> Stacked
+    </label>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <input id='pc' type="checkbox"> Percentage
+    </label>
+  </div>
+  
+  <div class="checkbox">
+
+
+
+
+
 
     <h2>Load data CSV</h2>
 
-      <div class="optionGroup span3"><label for="">Data URL</label><input id="dataurl" type="text" name="" value="http://local/alpha/data/sample.column.csv"></div>
-      <button class="btn btn-primary" id="dataBtn">Load Data</button>
+    <div class="row">
+      <input  class="col-md-5"  type="file" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv">
+    </div>
+    <h3>or...</h3>
+    <div class="row">
+      <div class="optionGroup">
+        <label class="col-md-2" for="">Data URL</label>
+        <input class="col-md-4" id="dataurl" type="text" name="" value="http://local/alpha/data/sample.column.csv">
+        <span class="col-md-1" >&nbsp;</span>
+        <button class="btn btn-primary col-md-2" id="dataBtn">Load Data</button>
+      </div>
+    </div>
 
-
+    <div class="row">
+    &nbsp;
+    </div>
 
     <div class="row">
       <div id="chart" class="chart">
@@ -50,15 +93,26 @@
     <h2>Add notes</h2>
 
     <div class="row">
-      <div class="optionGroup span3"><label for="chart_title">Title</label><input id="chart_title" type="text" name="chart_title" value="Created by..."></div>
-      <div class="optionGroup span3"><label for="credit">Credit</label><input id="creditLine" type="text" name="credit" value="Credit goes here..."></div>
+      <div class="optionGroup"><label for="chart_title" class="col-md-1">Title</label><input id="chart_title" class="col-md-4" type="text" name="chart_title" value="Created by..."></div>
+    </div>
+    <div class="row">
+      <div class="optionGroup"><label for="credit" class="col-md-1">Credit</label><input id="creditLine" class="col-md-4" type="text" name="credit" value="Credit goes here..."></div>
     </div>
 
     <div class="row">
-      <div class="optionGroup span3"><label for="chart_title">X Axis</label><input id="chart_x" type="text" name="chart_x" value=""></div>
-      <div class="optionGroup span3"><label for="credit">Y Axis</label><input id="chart_y" type="text" name="chart_y" value=""></div>
+      <div class="optionGroup"><label class="col-md-1" for="chart_title">X Axis</label><input id="chart_x" class="col-md-4" type="text" name="chart_x" value=""></div>
+          </div>
+    <div class="row">
+      <div class="optionGroup"><label class="col-md-1" for="credit">Y Axis</label><input id="chart_y" class="col-md-4" type="text" name="chart_y" value=""></div>
     </div>
 
+    <h2>Save Data</h2>
+      <button class="btn btn-success" id="saveBtn">Save Data</button>
+      <h4>JS</h4>
+       <div id="output"></div>
+      <h4>JSON</h4>
+       <div id="outputJSON"></div>
+      
   </div>
 
 
@@ -69,10 +123,29 @@
 
   <!-- chart library -->
   <script src="../js/libs/highcharts.js"></script>
+  <script src="../js/libs/highcharts.module.map.js"></script>
+
 
   <!-- charting -->
   <script src="../js/chart.generic.js"></script>
   <script src="../js/generic.js"></script>
+
+
+
+
+<script>
+  
+
+
+
+</script>
+
+
+
+
+
+
+
 
 
 

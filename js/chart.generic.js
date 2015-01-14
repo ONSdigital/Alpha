@@ -518,38 +518,152 @@ function initColumnChart(){
 
 }
 
-function initChart(){
+function initMap(){
+    $.getJSON('../data/LAD_DEC_2011_EW_BGC_5PC_1DP.json', function (geojson) {
+    //$.getJSON('../data/gb-all.js', function (geojson) {
 
-  if(stacked){
+        // Initiate the chart
+        $('#chart').highcharts('Map', {
+          chart: {
+                backgroundColor: ''
+            },
+
+            title : {
+                text : title
+            },
+
+            mapNavigation: {
+                enabled: true,
+                buttonOptions: {
+                    verticalAlign: 'bottom'
+                }
+            },
+
+          colorAxis: {
+              dataClasses: [{
+                  from: -40,
+                  to: -5,
+                  color: "#375D93"
+              }, {
+                  from: -5,
+                  to: 0,
+                  color: "#6A91C6"
+              }, {
+                  from: 0,
+                  to: 5,
+                  color: "#8facd4"
+              }, {
+                  from: 5,
+                  color: "#e5ecf5"
+              }]
+          },
+
+            tooltip: {
+                backgroundColor: '#e6e6e6',
+                borderWidth: 0,
+                shadow: false,
+                useHTML: false,
+                padding: 0,
+                pointFormat: '{point.properties.LAD11NM}' + ' ::{point.code}: <b>{point.value}%</b>'
+            },
+
+            series : [{
+                data : data,
+                mapData: geojson,
+                joinBy: ['LAD11CD', 'code'],
+                name: 'Net Migration',
+                borderColor: '#375D93',
+                borderWidth: 0.2,
+                states: {
+                    hover: {
+                        color: 'gold'
+                    }
+                },
+                dataLabels: {
+                    enabled: false,
+                    format: '{point.properties.LAD11NM}'
+                }
+            }],
+            credits:{
+              enabled:false
+            },
+        });
+
+    });
+
+    //chart = new Highcharts.Map(options);
+}
+
+
+
+
+function initChart(){
+    var stackType = 'normal';
+
+    if(stacked){
+
+      if(pc){
+        stackType = 'percent';
+      }
+
       options.plotOptions= {
             bar: {
-                stacking: 'normal'
+                stacking: stackType
+            }
+            ,
+            column: {
+                stacking: stackType
             }
         }
-  };
+      
+    }else{
+      pc = false;
+      $('#pc').prop('checked', false);
+      console.log(" reset stack...")
+      // reset
+      options.plotOptions= {
+            bar: {
+              stacking:null
+            }
+            ,
+            column: {
+              stacking:null
+            }
+        }
 
-    populateSeries();
+    };
 
-    if(categories.length===0){
-      populateCategories();
+    if(type!=='map'){
 
+      populateSeries();
+
+      if(categories.length===0){
+        populateCategories();
+
+      }
     }
 
 
   switch (type){
     case "bar":
-    console.log("type: " + type);
-    initBarChart();
+      console.log("type: " + type);
+      initBarChart();
     break;
 
     case "column":
-    console.log("type: " + type);
-    initColumnChart();
+      console.log("type: " + type);
+      initColumnChart();
     break;
 
     case "line":
-    console.log("type: " + type);
-    initLineChart();
+      console.log("type: " + type);
+      initLineChart();
+    break;
+
+    case "map":
+      console.log("type: " + type);
+      console.log(data);
+      initMap();
     break;
   }
 
