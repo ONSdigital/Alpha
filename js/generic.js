@@ -1,7 +1,10 @@
 
-var type = "column";
+//var type = "column";
 //var type = "bar";
-//var type = "line";
+var type = "line";
+
+var notes = [];
+var bands = [];
 
 var title
 , subtitle
@@ -17,7 +20,7 @@ function setType(type) {
   switch (type) {
 
     case "column":
-
+    $('#annotation').hide();
     // COLUMN
     title = "Figure 6: Tenure (People)";
     subtitle = "";
@@ -38,6 +41,7 @@ function setType(type) {
       break;
 
       case "bar":
+      $('#annotation').hide();
     // BAR
     title = "Figure 2: Ethnic group (excluding White)";
     subtitle = "";
@@ -60,6 +64,7 @@ function setType(type) {
       break;
 
       case "line":
+      $('#annotation').show();
     // LINE
     title = "Figure 4: Mix-adjusted House Price Index by UK countries from January 2004 to May 2014";
     subtitle = "Index level (Feb 2002=100)";
@@ -187,12 +192,115 @@ function setType(type) {
             });
 
             categories = results[0];
-            console.log(categories);
+            //console.log(categories);
             initChart();
+
+            if(type==='line'){
+              populateToFrom();
+
+              //todo only add this once
+              $("#from").click(function(e){
+                e.preventDefault();
+                setStart(e);
+              });
+
+              $("#to").click(function(e){
+                e.preventDefault();
+                setEnd(e);
+              });
+
+
+
+            }
 
 
     }
 
+
+    function setStart(e) {
+      //reset end
+      end = -1;
+
+      start = e.target.id.substring(4);
+      start = parseInt(start);
+    }
+
+
+    function setEnd(e) {
+
+      end = e.target.id.substring(4);
+      var copy = $("#note").val()
+      end = parseInt(end);
+      console.log(end, copy)
+      
+
+    }
+
+
+    function addNote() {
+      var copy = $("#note").val()
+      console.log("add note");
+
+
+
+      notes[start] = {text:copy, start: start, end:end};
+      var count =1;
+      for ( var item in notes){
+        console.log(notes[item]);
+
+        if(notes[item].end>-1){
+          chart.xAxis[0].addPlotBand( {
+
+                      color: plotBandColor,
+                      from:start,
+                      to:end,
+                      id: 'plotband1'
+          } );
+          chart.xAxis[0].addPlotLine({
+                                  id: item,
+                                  value: notes[item].end,
+                                  width: 2,
+                                  zIndex:4,
+                                  color: plotLineColor,
+                                  label:{text:count,rotation:0}
+          });
+
+        }else{
+          console.log("add plot lien " +item)
+          chart.xAxis[0].addPlotLine({
+                                  id: item,
+                                  value: notes[item].start,
+                                  width: 2,
+                                  zIndex:4,
+                                  color: plotLineColor,
+                                  label:{text:count,rotation:0}
+          });
+
+        }
+        count++;
+  
+      }
+
+    }
+
+
+
+
+    function populateToFrom() {
+      //clear UL
+      $("#from").empty();
+      $("#to").empty();
+
+      //loop thru categories and populate li
+      var html = "";
+      for ( item in categories){
+        //console.log(item , categories[item]);
+        html+= "<li><a href='#' id='idx_" + item + "'>" + categories[item] + "</a></li>";
+      }
+      $("#from").append(html);
+      $("#to").append(html);
+     
+    }
 
     function initFields() {
       $("#chart_title").val(title);
@@ -201,6 +309,8 @@ function setType(type) {
       $("#chart_y").val(yAxisTitle);
       $("#dataurl").val('http://local/alpha/data/sample.' + type + '.csv');
     }
+
+
 
 
     function initListeners(){
@@ -239,6 +349,12 @@ function setType(type) {
         loadData($("#dataurl").val());
       }); 
 
+      $('#addBtn').click(function (){
+        console.log("add! " + $("#dataurl").val() );
+
+        addNote();
+      }); 
+
       $('#saveBtn').click(function (){
         console.log("SAVE! ");
 
@@ -255,18 +371,9 @@ function setType(type) {
 
         $.each(data, function(d,i){
           str += 'data[' + d + '] = [' + data[d] + '];<br/>';
-
-
-          
         });
 
-
-
-
-        console.log(str);
-
         $('#output').html(str);
-
 
       }); 
 

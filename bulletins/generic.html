@@ -90,7 +90,7 @@
       <br/> 
     </div>
 
-    <h2>Add notes</h2>
+    <h2>Add Labels</h2>
 
     <div class="row">
       <div class="optionGroup"><label for="chart_title" class="col-md-1">Title</label><input id="chart_title" class="col-md-4" type="text" name="chart_title" value="Created by..."></div>
@@ -105,6 +105,49 @@
     <div class="row">
       <div class="optionGroup"><label class="col-md-1" for="credit">Y Axis</label><input id="chart_y" class="col-md-4" type="text" name="chart_y" value=""></div>
     </div>
+
+
+
+    <div id="annotation">
+
+      <h2>Add annotation</h2>
+
+
+      <div class="row">
+        <div class=""><label class="col-md-1" for="note"></label>       
+        <input id="note" class="col-md-4" type="text" name="note" value=""/>
+
+        </div>
+
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          From <span class="caret"></span>
+        </button>
+        <ul id="from" class="dropdown-menu" role="menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          To <span class="caret"></span>
+        </button>
+        <ul id="to" class="dropdown-menu" role="menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+        </ul>
+      </div>
+
+
+ 
+        <button class="btn btn-info" id="addBtn">ADD</button>
+      </div>
+    </div>
+
 
     <h2>Save Data</h2>
       <button class="btn btn-success" id="saveBtn">Save Data</button>
