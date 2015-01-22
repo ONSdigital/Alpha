@@ -53,7 +53,8 @@ var markers = [
 
 var lineStyles = ['Solid','shortdash','shortdot','shortdot'];
 
-var options = {
+var options = {};
+var baseOptions = {
 
     chart: {
       type: 'line',
@@ -82,6 +83,8 @@ var options = {
           }
       }
     },
+
+   /// tooltip: {},
 
     title:{
       margin:40,
@@ -164,6 +167,8 @@ var options = {
 
 // generate chart categories to keep control of content/formatting
 function populateCategories(){
+
+  console.log("pop cat")
    $.each(data[0], function (index, value){
 
     if(startMon>0){
@@ -219,6 +224,7 @@ function initLineChart(){
     options.xAxis.categories = categories;
 
     options.chart.renderTo = 'chart';
+    options.chart.type = 'line';
     options.title = {text: title};
     //options.title.y = -10;
 
@@ -331,8 +337,6 @@ function initLineChart(){
 
 function initColumnChart(){
 
-    Highcharts.setOptions(options);
-
     options.chart.type = 'column';
    // options.chart.events = null;
     options.chart.renderTo = 'chart';
@@ -355,6 +359,8 @@ function initColumnChart(){
     options.xAxis = {
         categories: categories
     };
+
+
     
     options.xAxis.labels = {
     formatter : function() {
@@ -391,6 +397,7 @@ function initColumnChart(){
             }], 
     };
     options.tooltip ={
+      shared:false
             /*crosshairs: true*/
         };
 
@@ -423,6 +430,7 @@ function initColumnChart(){
 
 
 
+  //Highcharts.setOptions(options);
  
   chart = new Highcharts.Chart(options);
 
@@ -488,6 +496,7 @@ function initColumnChart(){
             */
     };
     options.tooltip ={
+      shared:false
         };
 
     options.plotOptions = {
@@ -598,7 +607,14 @@ function initMap(){
 
 
 function initChart(){
+  console.log("init chart");
+
     var stackType = 'normal';
+
+    //reset the base chart options
+    options = JSON.parse(JSON.stringify(baseOptions));
+
+
 
     if(stacked){
 
@@ -606,30 +622,21 @@ function initChart(){
         stackType = 'percent';
       }
 
-      options.plotOptions= {
-            bar: {
-                stacking: stackType
-            }
-            ,
-            column: {
-                stacking: stackType
-            }
-        }
+      options.plotOptions.bar.stacking = stackType;
+      options.plotOptions.column.stacking = stackType;
       
     }else{
       pc = false;
       $('#pc').prop('checked', false);
       console.log(" reset stack...")
+
       // reset
-      options.plotOptions= {
-            bar: {
-              stacking:null
-            }
-            ,
-            column: {
-              stacking:null
-            }
-        }
+      if(options.plotOptions.bar){
+        options.plotOptions.bar.stacking = null;
+      }
+      if(options.plotOptions.column){
+        options.plotOptions.column.stacking = null;
+      }
 
     };
 
@@ -666,6 +673,8 @@ function initChart(){
       initMap();
     break;
   }
+
+
 
 }
 

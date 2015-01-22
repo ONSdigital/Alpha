@@ -23,6 +23,7 @@ function setType(type) {
     subtitle = "";
     units = "";
     yAxisTitle = "%";
+    interval = 1;
   /*
       var data = [];
       data[0] = [26,25,30,24,29];
@@ -32,7 +33,6 @@ function setType(type) {
 
       var seriesNames = ['Owned outright','Owned with a mortgage or loan','Rented from council (Local Authority) or equivalent','Private landlord or letting agency'];
       var categories = ['UK','England','Wales','Scotland','Northern Ireland'];
-      var interval = 1;
       */
 
       break;
@@ -43,6 +43,7 @@ function setType(type) {
     subtitle = "";
     units = "";
     yAxisTitle = "";
+    interval = 1;
   /*
       var data = [];
       data[0] = [2,1,1.6,2,2,2,1.9,5,1.9,1,1,0.4,0.3];
@@ -53,7 +54,6 @@ function setType(type) {
 
       var seriesNames = [ 'Mixed/Multiple', 'Asian/Asian British', 'Black/African/Carribean/Black British', 'Gypsy/Irish Traveller', 'Other'];
       categories = ['United Kingdom','North East','North West','Yorkshire and The Humber','East Midlands','West Midlands','East','London','South East','South West','Wales','Scotland','Northern Ireland'];
-      var interval = 1;
       */
       stacked = true;
 
@@ -187,7 +187,7 @@ function setType(type) {
             });
 
             categories = results[0];
-
+            console.log(categories);
             initChart();
 
 
