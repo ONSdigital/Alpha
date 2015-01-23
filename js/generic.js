@@ -239,50 +239,136 @@ function setType(type) {
 
     function addNote() {
       var copy = $("#note").val()
-      console.log("add note");
-
-
+      console.log("add note " + copy);
 
       notes[start] = {text:copy, start: start, end:end};
-      var count =1;
-      for ( var item in notes){
-        console.log(notes[item]);
 
-        if(notes[item].end>-1){
-          chart.xAxis[0].addPlotBand( {
+      drawNotes();
 
-                      color: plotBandColor,
-                      from:start,
-                      to:end,
-                      id: 'plotband1'
-          } );
-          chart.xAxis[0].addPlotLine({
-                                  id: item,
-                                  value: notes[item].end,
-                                  width: 2,
-                                  zIndex:4,
-                                  color: plotLineColor,
-                                  label:{text:count,rotation:0}
-          });
+      // TODO only set these listeners once
+      $('a[id^="note"]').click(function(e){
+          console.log( e);
+          console.log( e.currentTarget.innerHTML);
+          e.preventDefault();
+          //edit item...
 
-        }else{
-          console.log("add plot lien " +item)
-          chart.xAxis[0].addPlotLine({
-                                  id: item,
-                                  value: notes[item].start,
-                                  width: 2,
-                                  zIndex:4,
-                                  color: plotLineColor,
-                                  label:{text:count,rotation:0}
-          });
+      });
 
+
+      $('a.closeBtn').on('click', function(e){
+        e.preventDefault();
+        var id = this.id.substring(3);
+        id = parseInt(id);
+        console.log( "remove note " + id );
+
+      //remove any plotlines
+      if(chart.xAxis[0].plotLinesAndBands){
+
+        var len = notes.length;
+        for ( var i = 0;i <len; i++){
+        if( notes[i]){
+            var idx = "line" + notes[i].start;
+            console.log("remove line " + idx)
+            chart.xAxis[0].removePlotLine(idx);
+
+            //urrggh
+            //chart.xAxis[0].plotLinesAndBands.splice(i,1);
+          }
         }
-        count++;
-  
+
       }
+
+
+        notes[id] = null;
+        
+        drawNotes();
+      });
 
     }
 
+
+
+
+    function drawNotes() {
+      console.log("--------------------draw notes---------------");
+      console.log(notes);
+     // console.log("length " + chart.xAxis[0].plotLinesAndBands.length);
+/*
+      //remove any plotlines
+      if(chart.xAxis[0].plotLinesAndBands){
+
+        var len = notes.length;
+        for ( var i = 0;i <len; i++){
+        if( notes[i]){
+            var id = "line" + notes[i].start;
+            console.log("remove line " + id)
+            chart.xAxis[0].removePlotLine(id);
+
+            //urrggh
+            //chart.xAxis[0].plotLinesAndBands.splice(i,1);
+          }
+        }
+
+      }
+*/
+
+      var count =1;
+      for ( var item in notes){
+
+        if(notes[item]){
+        console.log(notes[item]);
+          if(notes[item].end>-1){
+            chart.xAxis[0].addPlotBand( {
+
+                        color: plotBandColor,
+                        from:start,
+                        to:end,
+                        id: "line" + item
+            } );
+            chart.xAxis[0].addPlotLine({
+                                    id: item,
+                                    value: notes[item].end,
+                                    width: 2,
+                                    zIndex:4,
+                                    color: plotLineColor,
+                                    label:{text:count,rotation:0}
+            });
+
+          }else{
+            console.log("add plot line " +item)
+            chart.xAxis[0].addPlotLine({
+                                    id: "line" + item,
+                                    value: notes[item].start,
+                                    width: 2,
+                                    zIndex:4,
+                                    color: plotLineColor,
+                                    label:{text:count,rotation:0}
+            });
+
+          }
+        count++;
+        }
+  
+      }
+
+      // show current list
+      $("#list").empty();
+
+      //loop thru notes and populate li
+      var html = "";
+      var count =1;
+      for ( item in notes){
+
+         if(notes[item]){
+          //console.log(item , categories[item]);
+          // use teh item number as a reference for eddintg or delteing
+          html+= "<li><a href='#' id='note_" + count + "'>" + count + ": " + notes[item].text + "</a></li><a class='closeBtn' href='' id='btn" + item  + "'' >x</a>";
+          count++;
+        }
+      }
+      $("#list").append(html);
+
+    }
 
 
 
@@ -399,6 +485,16 @@ function setType(type) {
             setChartType(chartType);
             redrawChart();
             */
+          });
+
+
+
+
+        $('a[id^="note"]').click(function(e){
+          console.log( e);
+          console.log( e.currentTarget.innerHTML);
+e.preventDefault();
+
           });
 
     }
