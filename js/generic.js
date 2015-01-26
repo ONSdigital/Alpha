@@ -4,7 +4,10 @@
 var type = "line";
 
 var notes = [];
+// keep track of lines and bands separately in order to 
+// output the var as text
 var bands = [];
+var lines = [];
 
 var title
 , subtitle
@@ -257,26 +260,10 @@ function setType(type) {
     function drawNotes() {
       console.log("--------------------draw notes---------------");
       console.log(notes);
-     // console.log("length " + chart.xAxis[0].plotLinesAndBands.length);
-/*
-      //remove any plotlines
-      if(chart.xAxis[0].plotLinesAndBands){
 
-        var len = notes.length;
-        for ( var i = 0;i <len; i++){
-        if( notes[i]){
-            var id = "line" + notes[i].start;
-            console.log("remove line " + id)
-            chart.xAxis[0].removePlotLine(id);
-
-            //urrggh
-            //chart.xAxis[0].plotLinesAndBands.splice(i,1);
-          }
-        }
-
-      }
-*/
-
+      //reset array used to store lineas nad bands for JS
+      lines = [];
+      bands = [];
       var count =1;
       for ( var item in notes){
 
@@ -284,6 +271,8 @@ function setType(type) {
         console.log(notes[item]);
           if(notes[item].end>-1){
         console.log("add band "); 
+
+        bands.push(notes[item]);
             chart.xAxis[0].addPlotBand( {
 
                         color: plotBandColor,
@@ -301,6 +290,7 @@ function setType(type) {
             });
 
           }else{
+            lines.push(notes[item]);
             console.log("add plot line " +item)
             chart.xAxis[0].addPlotLine({
                                     id: "line" + item,
@@ -421,9 +411,61 @@ function setType(type) {
         str += 'var seriesNames = ["' + seriesNames.join('","') + '"];<br/>';
         str += 'var data = [];<br/>';
 
-        $.each(data, function(d,i){
+        $.each(data, function(d){
           str += 'data[' + d + '] = [' + data[d] + '];<br/>';
         });
+
+/*
+  options.xAxis.plotLines = [
+            {
+                value:13,
+                color: plotLineColor,
+                width:2,
+                zIndex:4,
+                label:{text:'1',rotation:0}
+            },{
+                value:37,
+                color: plotLineColor,
+                width:2,
+                zIndex:4,
+                label:{text:'2',rotation:0}
+            },{
+                value:72,
+                color: plotLineColor,
+                width:2,
+                zIndex:4,
+                label:{text:'3',rotation:0}
+            },{
+                value:79,
+                color: plotLineColor,
+                width:2,
+                zIndex:4,
+                label:{text:'4',rotation:0}
+            }
+            ];
+
+
+
+        */
+
+
+        //add band and lines
+        str += 'var notes = [];<br/>';
+
+console.log(chart.xAxis[0])
+console.log(notes)
+
+
+        $.each(notes, function(d,i){
+          console.log(d,i)
+          if(notes[d]!==undefined){
+
+          str += 'notes[' + d + '] = [' +  notes[d].text + ", " + notes[d].start + ", " + notes[d].end+ ']<br/>';
+
+          }
+        });
+
+
 
         $('#output').html(str);
 
