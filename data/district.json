@@ -4262,7 +4262,7 @@
     }, {
         "type": "Feature",
         "properties": {
-            "LAD11CD": "E06000048",
+            "LAD11CD": "E06000057",
             "LAD11CDO": "00EM",
             "LAD11NM": "Northumberland",
             "LAD11NMW": ""
@@ -10394,7 +10394,7 @@
     }, {
         "type": "Feature",
         "properties": {
-            "LAD11CD": "E07000097",
+            "LAD11CD": "E07000242",
             "LAD11CDO": "26UD",
             "LAD11NM": "East Hertfordshire",
             "LAD11NMW": ""
@@ -10562,7 +10562,7 @@
     }, {
         "type": "Feature",
         "properties": {
-            "LAD11CD": "E07000100",
+            "LAD11CD": "E07000240",
             "LAD11CDO": "26UG",
             "LAD11NM": "St Albans",
             "LAD11NMW": ""
@@ -10601,7 +10601,7 @@
     }, {
         "type": "Feature",
         "properties": {
-            "LAD11CD": "E07000101",
+            "LAD11CD": "E07000243",
             "LAD11CDO": "26UH",
             "LAD11NM": "Stevenage",
             "LAD11NMW": ""
@@ -10693,7 +10693,7 @@
     }, {
         "type": "Feature",
         "properties": {
-            "LAD11CD": "E07000104",
+            "LAD11CD": "E07000241",
             "LAD11CDO": "26UL",
             "LAD11NM": "Welwyn Hatfield",
             "LAD11NMW": ""
@@ -20015,7 +20015,7 @@
     }, {
         "type": "Feature",
         "properties": {
-            "LAD11CD": "E08000020",
+            "LAD11CD": "E08000037",
             "LAD11CDO": "00CH",
             "LAD11NM": "Gateshead",
             "LAD11NMW": ""

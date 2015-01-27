@@ -1,38 +1,34 @@
 var regional = (function () {
 
   $(document).ready(function() {
-    areas.loadData(parseAreas);
+    areas.loadData();
 
+    regionalData.loadPopData();
+
+    // hide the slide out panel first
     $('#slide-panel').removeClass('visible');
 
     // init chart options and load individual charts
-    initCharts();
-    //init map
-    initializeMap();
+    charting.initCharts();
+
+    // init map
+    maps.initializeMap();
+
+    addListeners();
   });
 
 
 
-  function parseAreas(data){
-    model = data;
-    loadPopData();
-
-    addListeners();
-  }
 
 
+  // various button listeners
   function addListeners(){
+
     $("#modal").click(function(evt) {
       $("#modal").toggle();
     });
-    $("#opener").click(function(evt) {
-      evt.preventDefault();
-      location.hash = "#regional" ;
-      if( $("#modal").is(':visible') ){
-          $("#modal").toggle();
-       }
-    });
 
+    // drop down menus
     $("#region").change(function(e) {
       return areas.getRegion(1);
     });
@@ -45,67 +41,35 @@ var regional = (function () {
       return areas.getDistrict(1);
     });
 
+    // search button
     $("#search").click( function(evt){
       evt.preventDefault();
       location.hash = "#regional" ;
-      testPostCode();
-    })
-
-    $("#showBtn").click( function(evt){
-      evt.preventDefault();
-      $("#comparison").show();
-      showCharts();
-    })
-
-    $("#clearBtn").click( function(evt){
-      evt.preventDefault();
-      $("#comparison").hide();
-      comparisons =[];
-      showCharts();
-    })
-
-
-    $("#compareBtn").click( function(evt){
-      evt.preventDefault();
-      addArea(lastArea);
-      showCharts();
-    })
-
-
-    $(".tab-pane__tab").click( function(evt){
-      evt.preventDefault();
-
-      //if(this.text==="Comparisons"){
-        $(window).resize();
-      //}
-
+      regionalData.testPostCode();
     })
 
 
     $('a.closeBtn').on('click', function(evt){
         evt.preventDefault();
-        var idx = comparisons.indexOf( this.name );
-        if (idx > -1) {
-          comparisons.splice(idx, 1);
-        }
-        console.log(comparisons);
-        showCharts();
+        regionalData.removeArea( this.name );
     });
 
+    // HACK: resize charts that are offscreen
+    $(".tab-pane__tab").click( function(evt){
+      evt.preventDefault();
+      $(window).resize();
+    })
 
 
-    
-      $('#opener').click(function() {
-        var $lefty = $("#slide-panel");
-        $lefty.animate({
-          left: parseInt($lefty.css('left'),10) == 0 ?
-            -$lefty.outerWidth() :
-            0
-        });
+    $('#opener').click(function() {
+      var $lefty = $("#slide-panel");
+      $lefty.animate({
+        left: parseInt($lefty.css('left'),10) == 0 ?
+          -$lefty.outerWidth() :
+          0
       });
+    });
    
-
-
 
   }
 

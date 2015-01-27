@@ -1,5 +1,9 @@
 
+/*
+  pulls in the areas.csv and creates a hierarchy of:
+  region, county, district
 
+*/
 var areas = (function () {
 
   var AREA_URL = "data/areas.csv";
@@ -16,7 +20,7 @@ var areas = (function () {
 
 
 
-    function loadData(callBack){
+    function loadData(){
 
       $.ajax({
         dataType: "text",
@@ -26,7 +30,7 @@ var areas = (function () {
           areaArray = $.csv.toObjects(data);
           splitAreas();
 
-          callBack( regions );
+         
         },
         error: function (xhr, textStatus, errorThrown) {
             console.warn("error");
