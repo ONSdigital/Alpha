@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototype: Generic charts</title>
+
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+
+<link href="../css/charts.css" rel="stylesheet">
+<link href="../css/bootstrap.css" rel="stylesheet">
+<!-- 
+<style>
+
+#chart {
+    height: 950px; 
+    min-width: 640px; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+</style>
+
+ -->
+
+</head>
+<body>
+
+
+
+  <div class="container ">
+  
+    <h2 id="title">Select chart type</h2>
+
+
+
+
+
+<div class="btn-group" role="group" aria-label="...">
+  <button id="action1" type="button" class="btn btn-default">Line</button>
+  <button id="action2" type="button" class="btn btn-default">Bar</button>
+  <button id="action3" type="button" class="btn btn-default">Column</button>
+  <button id="action4" type="button" class="btn btn-default">Map</button>
+
+</div>
+<br/>
+  <div class="checkbox">
+    <label>
+      <input id='stacked' type="checkbox"> Stacked
+    </label>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <input id='pc' type="checkbox"> Percentage
+    </label>
+  </div>
+  
+  <div class="checkbox">
+
+
+
+
+
+
+    <h2>Load data CSV</h2>
+
+    <div class="row">
+      <input  class="col-md-5"  type="file" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv">
+    </div>
+    <h3>or...</h3>
+    <div class="row">
+      <div class="optionGroup">
+        <label class="col-md-2" for="">Data URL</label>
+        <input class="col-md-4" id="dataurl" type="text" name="" value="http://local/alpha/data/sample.column.csv">
+        <span class="col-md-1" >&nbsp;</span>
+        <button class="btn btn-primary col-md-2" id="dataBtn">Load Data</button>
+      </div>
+    </div>
+
+    <div class="row">
+    &nbsp;
+    </div>
+
+    <div class="row">
+      <div id="chart" class="chart">
+      </div>
+      <div class="footnote">Source: Office for National Statistics</div>
+      <br/> 
+    </div>
+
+    <div id="annotation">
+
+      <h2>Add annotation</h2>
+
+
+      <div class="row">
+        <div id="">
+        <ul id="list" class="" role="">
+        </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class=""><label class="col-md-1" for="note"></label>       
+        <input id="note" class="col-md-4" type="text" name="note" value=""/>
+      </div>
+
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          From <span class="caret"></span>
+        </button>
+        <ul id="from" class="dropdown-menu" role="menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          To <span class="caret"></span>
+        </button>
+        <ul id="to" class="dropdown-menu" role="menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+        </ul>
+      </div>
+
+
+ 
+        <button class="btn btn-primary" id="addBtn">Save</button>
+      </div>
+    </div>
+
+    <h2>Add Labels</h2>
+
+    <div class="row">
+      <div class="optionGroup"><label for="chart_title" class="col-md-1">Title</label><input id="chart_title" class="col-md-4" type="text" name="chart_title" value="Created by..."></div>
+    </div>
+    <div class="row">
+      <div class="optionGroup"><label for="credit" class="col-md-1">Credit</label><input id="creditLine" class="col-md-4" type="text" name="credit" value="Credit goes here..."></div>
+    </div>
+
+    <div class="row">
+      <div class="optionGroup"><label class="col-md-1" for="chart_title">X Axis</label><input id="chart_x" class="col-md-4" type="text" name="chart_x" value=""></div>
+          </div>
+    <div class="row">
+      <div class="optionGroup"><label class="col-md-1" for="credit">Y Axis</label><input id="chart_y" class="col-md-4" type="text" name="chart_y" value=""></div>
+    </div>
+
+
+
+
+    <h2>Save Data</h2>
+      <button class="btn btn-success" id="saveBtn">Save Data</button>
+      <h4>JS</h4>
+       <div id="output"></div>
+
+      
+  </div>
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="../js/libs/jquery.min.js"></script>
+  <script src="../js/libs/jquery.csv.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- chart library -->
+  <script src="../js/libs/highcharts.js"></script>
+  <script src="../js/libs/highcharts.module.map.js"></script>
+
+
+  <!-- charting -->
+  <script src="../js/chart.generic.js"></script>
+  <script src="../js/generic.js"></script>
+
+
+
+
+
+</body>
+</html>
