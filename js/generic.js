@@ -126,13 +126,9 @@ function setType(type) {
 
     function processData(inputData) {
 
-
-      console.log("process");
-
           stacked = $('#stacked').is(':checked');
           pc = $('#pc').is(':checked');
 
-          console.log("stacked: " + stacked + " : " + pc);
           seriesNames = [];
           data = [];
 
@@ -171,8 +167,6 @@ function setType(type) {
                 setEnd(e);
               });
 
-
-
             }
 
 
@@ -189,31 +183,22 @@ function setType(type) {
 
 
     function setEnd(e) {
-
       end = e.target.id.substring(4);
       var copy = $("#note").val()
       end = parseInt(end);
-      console.log(end, copy)
-      
-
     }
 
 
     function addNote() {
       var copy = $("#note").val()
-      console.log("add note " + copy);
-
       notes[start] = {text:copy, start: start, end:end};
 
       drawNotes();
 
       // TODO only set these listeners once
       $('a[id^="note"]').click(function(e){
-          console.log( e);
-          console.log( e.currentTarget.innerHTML);
           e.preventDefault();
           //edit item...
-
       });
 
 
@@ -221,7 +206,6 @@ function setType(type) {
         e.preventDefault();
         var id = this.id.substring(3);
         id = parseInt(id);
-        console.log( "remove note " + id );
 
         //remove any plotlines
         if(chart.xAxis[0].plotLinesAndBands){
@@ -231,21 +215,16 @@ function setType(type) {
             if( notes[i] ){
               var indx = notes[i].start;
                 if( notes[i].end >-1 ){
-                  console.log("remove band " + indx)
                   chart.xAxis[0].removePlotBand("band" + indx);
                   
                 }
-               
-                console.log("remove line " + indx)
                 chart.xAxis[0].removePlotLine("line" + indx);
-                  
-                
+                                  
             }
 
           }
 
         }
-
 
         notes[id] = null;
         
@@ -258,8 +237,6 @@ function setType(type) {
 
 
     function drawNotes() {
-      console.log("--------------------draw notes---------------");
-      console.log(notes);
 
       //reset array used to store lineas nad bands for JS
       lines = [];
@@ -268,11 +245,9 @@ function setType(type) {
       for ( var item in notes){
 
         if(notes[item]){
-        console.log(notes[item]);
-          if(notes[item].end>-1){
-        console.log("add band "); 
 
-        bands.push(notes[item]);
+          if(notes[item].end>-1){
+            bands.push(notes[item]);
             chart.xAxis[0].addPlotBand( {
 
                         color: plotBandColor,
@@ -291,7 +266,6 @@ function setType(type) {
 
           }else{
             lines.push(notes[item]);
-            console.log("add plot line " +item)
             chart.xAxis[0].addPlotLine({
                                     id: "line" + item,
                                     value: notes[item].start,
@@ -415,53 +389,14 @@ function setType(type) {
           str += 'data[' + d + '] = [' + data[d] + '];<br/>';
         });
 
-/*
-  options.xAxis.plotLines = [
-            {
-                value:13,
-                color: plotLineColor,
-                width:2,
-                zIndex:4,
-                label:{text:'1',rotation:0}
-            },{
-                value:37,
-                color: plotLineColor,
-                width:2,
-                zIndex:4,
-                label:{text:'2',rotation:0}
-            },{
-                value:72,
-                color: plotLineColor,
-                width:2,
-                zIndex:4,
-                label:{text:'3',rotation:0}
-            },{
-                value:79,
-                color: plotLineColor,
-                width:2,
-                zIndex:4,
-                label:{text:'4',rotation:0}
-            }
-            ];
 
 
-
-        */
-
-
-        //add band and lines
+        //add notes for plot band and lines
         str += 'var notes = [];<br/>';
 
-console.log(chart.xAxis[0])
-console.log(notes)
-
-
         $.each(notes, function(d,i){
-          console.log(d,i)
           if(notes[d]!==undefined){
-
-          str += 'notes[' + d + '] = [' +  notes[d].text + ", " + notes[d].start + ", " + notes[d].end+ ']<br/>';
-
+            str += 'notes[' + d + '] = [' +  notes[d].text + ", " + notes[d].start + ", " + notes[d].end+ '];<br/>';
           }
         });
 
@@ -481,18 +416,7 @@ console.log(notes)
 
           type = e.currentTarget.innerHTML.toLowerCase();
           setType(type);
-/*
-          chartType = e.currentTarget.text;
-          setChartType( e.currentTarget.text );
 
-            //console.log(e.currentTarget.text);
-            //$('a[id^="action"]').removeClass("active");
-            $('li a[id^="action"]').parent().removeClass('active');
-            $(e.currentTarget).parent().addClass('active');
-
-            setChartType(chartType);
-            redrawChart();
-            */
           });
 
 
