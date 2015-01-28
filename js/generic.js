@@ -395,7 +395,7 @@ function setType(type) {
         str += 'var notes = [];<br/>';
 
         $.each(notes, function(d,i){
-          if(notes[d]!==undefined){
+          if(notes[d]!==undefined && notes[d]!== null){
             str += 'notes[' + d + '] = [' +  notes[d].text + ", " + notes[d].start + ", " + notes[d].end+ '];<br/>';
           }
         });
